@@ -66,7 +66,7 @@ sections:
           company: Shanghai University
           company_url: ''
           company_logo: org-gc
-          location: [Prof. Hang Yu](https://fisher1991.github.io/)
+          location: Prof. Hang Yu
           date_start: 'June, 2023'
           date_end: 'October, 2023'
           description: |2-
