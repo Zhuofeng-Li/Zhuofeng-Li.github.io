@@ -62,20 +62,18 @@ sections:
       #   Leave `date_end` empty if it's your current employer.
       #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
       items:
-        - title: Research Assistant, Advisors: Prof. Hang Yu
-          company: Shanghai University
+        - title: CEO
+          company: GenCoin
           company_url: ''
           company_logo: org-gc
-          location: Shanghai, P.R.China
-          date_start: 'June, 2023'
-          date_end: 'October, 2023'
+          location: California
+          date_start: '2021-01-01'
+          date_end: ''
           description: |2-
-            Project: Microservices latency predict
-              * We introduce a novel graph neural network (GNN) to   predict Microservices latency of instance-level
-                based on spatial-temporal dynamic heterogeneous graph.
-              * To the best of our knowledge, no previous research has considered the spatial-temporal and instancelevel aspects of Microservices.
-              * We present a new approach based on meta-learning that can address MicroServices that have not been encountered before.
-              * We create a specialized toolkit that can gather information on the CPU usage, memory usage, and latency of Microservices to well known microservice benchmark DeathStar.
+              Responsibilities include:
+              * Analysin
+              * Modelling
+              * Deploying
         - title: Professor of Semiconductor Physics
           company: University X
           company_url: ''
