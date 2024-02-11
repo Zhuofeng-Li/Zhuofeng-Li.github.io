@@ -80,8 +80,8 @@ sections:
           date_start: 'June, 2022'
           date_end: 'June, 2023'
           description: |2-
-          **Project: Chemical plant leakage identification system**
-          * Get three patents and two recommendation letters from the professors (check my CV for more dtail).
+            **Project: Chemical plant leakage identification system**
+            * Get three patents and two recommendation letters from the professors (check my CV for more dtail).
 
     design:
       columns: '2'
