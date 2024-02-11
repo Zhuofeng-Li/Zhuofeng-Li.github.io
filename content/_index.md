@@ -66,19 +66,23 @@ sections:
           company: Shanghai University
           company_url: ''
           company_logo: org-gc
-          location: Prof. Hang Yu
-          date_start: '2021-01-01'
-          date_end: ''
+          location: [Prof. Hang Yu](https://fisher1991.github.io/)
+          date_start: 'June, 2023'
+          date_end: 'October, 2023'
           description: |2-
-              **Project: Microservices latency predict**
-        - title: Professor of Semiconductor Physics
-          company: University X
+              **Microservices latency predict**
+              * We contribute our dedicated code to a well known [microservice benchmark](https://github.com/delimitrou/DeathStarBench)(check my CV for more dtail).
+        - title: Research Assistant
+          company: Shanghai University
           company_url: ''
           company_logo: org-x
-          location: California
-          date_start: '2016-01-01'
-          date_end: '2020-12-31'
-          description: Taught electronic engineering and researched semiconductor physics.
+          location: Prof. Jun Han
+          date_start: 'June, 2022'
+          date_end: 'June, 2023'
+          description: |2-
+          **Project: Chemical plant leakage identification system**
+          * Get three patents and two recommendation letters from the professors.
+
     design:
       columns: '2'
   - block: accomplishments
