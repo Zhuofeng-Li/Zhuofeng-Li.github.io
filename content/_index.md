@@ -66,15 +66,11 @@ sections:
           company: Shanghai University
           company_url: ''
           company_logo: org-gc
-          location: California
+          location: Prof. Hang Yu
           date_start: '2021-01-01'
           date_end: ''
           description: |2-
-              Project: Microservices latency predict 
-              * We introduce a novel graph neural network (GNN) to   predict Microservices latency of instance-level
-              based on spatial-temporal dynamic heterogeneous graph.
-              * Modelling
-              * Deploying
+              **Project: Microservices latency predict**
         - title: Professor of Semiconductor Physics
           company: University X
           company_url: ''
