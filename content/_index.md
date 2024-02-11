@@ -71,7 +71,6 @@ sections:
           date_end: 'October, 2023'
           description: |2-
               **Microservices latency predict**
-              * We contribute our dedicated code to a well known [microservice benchmark](https://github.com/delimitrou/DeathStarBench) (check my CV for more dtail).
         # - title: Research Assistant
         #   company: Shanghai University
         #   company_url: ''
