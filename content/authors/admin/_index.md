@@ -17,7 +17,7 @@ status:
 superuser: true
 
 # Role/position/tagline
-role: Student
+role: Undergrad
 
 # Organizations/Affiliations to show in About widget
 organizations:
@@ -30,24 +30,18 @@ bio: My research interests include distributed robotics, mobile computing and pr
 # Interests to show in About widget
 interests:
   - Graph Representation Learning
-  - knowledge representation learning and reasoning
+  - Knowledge Representation Learning and Reasoning
   - Meta-Learning
   - Graph Neural Networks
   - Data Mining
   - Deep Learning
 
 # Education to show in About widget
-education:
-  courses:
-    - course: PhD in Artificial Intelligence
-      institution: Stanford University
-      year: 2012
-    - course: MEng in Artificial Intelligence
-      institution: Massachusetts Institute of Technology
-      year: 2009
-    - course: BSc in Artificial Intelligence
-      institution: Massachusetts Institute of Technology
-      year: 2008
+# education:
+#   courses:
+#     - course: BSc in Artificial Intelligence
+#       institution: Shanghai University
+#       year: 2008
 
 # Skills
 # For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
