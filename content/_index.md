@@ -70,8 +70,9 @@ sections:
           date_start: '2021-01-01'
           date_end: ''
           description: |2-
-              Responsibilities include:
-              * Analysin
+              Project: Microservices latency predict 
+              * We introduce a novel graph neural network (GNN) to   predict Microservices latency of instance-level
+              based on spatial-temporal dynamic heterogeneous graph.
               * Modelling
               * Deploying
         - title: Professor of Semiconductor Physics
