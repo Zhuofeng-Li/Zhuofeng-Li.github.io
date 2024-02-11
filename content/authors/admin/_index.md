@@ -117,7 +117,9 @@ social:
 highlight_name: true
 ---
 
-Hi, my name is Zhuofeng Li, a third-year student from Shanghai University. I am a self-motivated student who is excited about doing research on Graph. My research interests broadly lie in machine learning and data mining, specifically,  graph representation learning, knowledge representation learning and reasoning, meta-learning etc.
+Hi, my name is Zhuofeng Li, a third-year student from Shanghai University. 
+
+I am a self-motivated student who is excited about doing research on Graph. My research interests broadly lie in machine learning and data mining, specifically,  graph representation learning, knowledge representation learning and reasoning, meta-learning, etc.
 
 I'm also open to other topics. Please contact me if you'd like to chat!
 {style="text-align: justify;"}
