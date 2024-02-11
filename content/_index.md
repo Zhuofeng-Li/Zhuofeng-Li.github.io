@@ -62,7 +62,7 @@ sections:
       #   Leave `date_end` empty if it's your current employer.
       #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
       items:
-        - title: Research Assistant, Advisors: Prof. Hang Yu
+        - title: Research Assistant
           company: Shanghai University
           company_url: ''
           company_logo: org-gc
