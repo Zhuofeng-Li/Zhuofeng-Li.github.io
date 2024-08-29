@@ -1,4 +1,4 @@
----
+<!-- ---
 title: A Comprehensive Dataset and Benchmark of Textual-Edge Graphs
 summary: 
 - We build the first open dataset and benchmark specifically designed for textual-edge graphs.
@@ -35,4 +35,4 @@ slides: example
 
 - We build the first open dataset and benchmark specifically designed for textual-edge graphs.
 - We develop a standardized pipeline for textual-edge graph research.
-- We conduct extensive benchmark experiments and perform a comprehensive analysis.
+- We conduct extensive benchmark experiments and perform a comprehensive analysis. -->
