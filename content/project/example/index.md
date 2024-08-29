@@ -1,6 +1,9 @@
 ---
 title: A Comprehensive Dataset and Benchmark of Textual-Edge Graphs
-summary: The first open dataset and benchmark specifically designed for textual-edge graphs.
+summary: 
+- We build the first open dataset and benchmark specifically designed for textual-edge graphs.
+- We develop a standardized pipeline for textual-edge graph research.
+- We conduct extensive benchmark experiments and perform a comprehensive analysis.
 # tags:
 #   - Deep Learning
 # date: '2016-04-27T00:00:00Z'
@@ -17,8 +20,8 @@ links:
     icon_pack: fab
     name: Follow
     url: https://twitter.com/georgecushen
-url_code: ''
-url_pdf: ''
+url_code: 'https://github.com/Zhuofeng-Li/TEG-Benchmark/tree/main'
+url_pdf: 'https://arxiv.org/abs/2406.10310'
 url_slides: ''
 url_video: ''
 
