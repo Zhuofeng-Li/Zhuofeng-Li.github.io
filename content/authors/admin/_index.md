@@ -117,7 +117,7 @@ highlight_name: true
 
 Hi, my name is Zhuofeng Li, a third-year student from Shanghai University. During 2024 Summer, I fortunately interned at Emory University supervised by Prof. [Liang Zhao](http://cs.emory.edu/~lzhao41/). 
 
-My current research primarily focuses on LLM + GNN + XAI consisting , with two main objectives: 1. **How LLMs understand textual graphs**. Studying LLMs on textual graphs can enhance their ability to understand complex relationships and better preserve semantic and topological information, improving the effectiveness of graph data processing. 2. **Explore graph structures crucial for LLM development in real-world production settings and applications.** In the future, I would like to expand my research to Multimodal AI, including image, audio, and speech modalities
+My current research primarily focuses on LLM + GNN + XAI consisting , with two main objectives: 1. **How LLMs understand textual graphs**. Studying LLMs on textual graphs can enhance their ability to understand complex relationships and better preserve semantic and topological information, improving the effectiveness of graph data processing. 2. **Explore graph structures crucial for LLM development in real-world production settings and applications.** In the future, I would like to expand my research to **Multimodal AI**, including image, audio, and speech modalities.
 
 
 I'm also open to other topics. Please contact me if you'd like to chat!
