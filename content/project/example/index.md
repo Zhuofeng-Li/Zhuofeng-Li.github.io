@@ -1,24 +1,24 @@
 ---
-title: Example Project
-summary: An example of using the in-built project page.
+title: TEG-DB: A Comprehensive Dataset and Benchmark of Textual-Edge Graphs
+summary: The first open dataset and benchmark specifically designed
+for textual-edge graphs.
 tags:
   - Deep Learning
-date: '2016-04-27T00:00:00Z'
 
 # Optional external URL for project (replaces project detail page).
-external_link: ''
+external_link: 'https://github.com/Zhuofeng-Li/TEG-Benchmark/tree/main'
 
 image:
   caption: Photo by rawpixel on Unsplash
   focal_point: Smart
 
 links:
-  - icon: twitter
+  - icon: github
     icon_pack: fab
     name: Follow
     url: https://twitter.com/georgecushen
-url_code: ''
-url_pdf: ''
+url_code: 'https://github.com/Zhuofeng-Li/TEG-Benchmark/tree/main'
+url_pdf: 'TEG-DB: A Comprehensive Dataset and Benchmark of Textual-Edge Graphs'
 url_slides: ''
 url_video: ''
 
