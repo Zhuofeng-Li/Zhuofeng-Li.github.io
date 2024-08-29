@@ -25,16 +25,13 @@ organizations:
     url: https://www.shu.edu.cn/
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include distributed robotics, mobile computing and programmable matter.
+bio: My research interests include Multimodal AI, Large Language Models and Graph Representation Learning.
 
 # Interests to show in About widget
 interests:
+  - Multimodal AI
+  - Large Language Models
   - Graph Representation Learning
-  - Knowledge Representation Learning and Reasoning
-  - Meta-Learning
-  - Graph Neural Networks
-  - Data Mining
-  - Deep Learning
 
 # Education to show in About widget
 education:
