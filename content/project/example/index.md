@@ -1,5 +1,5 @@
 ---
-title: TEG-DB: A Comprehensive Dataset and Benchmark of Textual-Edge Graphs
+title: TEG-DB A Comprehensive Dataset and Benchmark of Textual-Edge Graphs
 summary: The first open dataset and benchmark specifically designed
 for textual-edge graphs.
 tags:
