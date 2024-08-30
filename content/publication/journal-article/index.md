@@ -50,9 +50,9 @@ featured: false
 # links:
 # - name: ""
 #   url: ""
-url_pdf: http://arxiv.org/pdf/1512.04133v1
-url_code: 'https://github.com/HugoBlox/hugo-blox-builder'
-url_dataset: ''
+url_pdf: ''
+url_code: 'https://github.com/cfkgc-paper/CFKGC-paper'
+url_dataset: 'https://github.com/cfkgc-paper/CFKGC-paper'
 url_poster: ''
 url_project: ''
 url_slides: ''
