@@ -31,7 +31,7 @@ publication_types: ['paper-conference']
 publication: In *2024 CIKM Full Research Paper*
 publication_short: In *CIKM*
 
-abstract: Knowledge graph (KG) completion has been increasingly recognized as a vital approach for uncovering missing knowledge and
+abstract: "Knowledge graph (KG) completion has been increasingly recognized as a vital approach for uncovering missing knowledge and
 addressing the incompleteness issue in KGs. To enhance inference
 on rare relations and mitigate the impact of the long-tail distribution, the dominant strategy designs few-shot models following
 the meta-learning paradigm. However, these approaches typically
@@ -42,7 +42,7 @@ forgetting and the scarcity of novel relations, prevent effective learning from 
 novel framework designed to equip the few-shot model with the ability to learn sequentially from novel relations. Specifically, we introduce innovative strategies at both data and model levels&#58 datalevel rehearsal and model-level modulation to address catastrophic
 forgetting, alongside multi-view relation augmentation aimed at
 resolving the issue of insufficient novel relations. Extensive experiments conducted on real-world KGs validate the effectiveness of
-our proposed method.
+our proposed method."
 
 # Summary. An optional shortened abstract.
 summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.
