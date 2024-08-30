@@ -1,15 +1,12 @@
 ---
 title: "Envisioning a Future Beyond Tomorrow with Script Event Stream Prediction"
 authors:
-- admin*, 
-- Zixing Gou*, 
-- Xiangnan Zhang, 
-- Zhongyuan Liu, 
-- Sirui Li, 
-- Yuntong Hu, 
-- Chen Ling, 
-- Zheng Zhang, 
-- Liang Zhao
+- Fang, Zhiyi
+- admin
+- Zhang, Qingyong
+- Xu, Changhua
+- Tian, Pinzhuo
+- Xie, Shaorong
 
 # author_notes:
 # - "Equal contribution"

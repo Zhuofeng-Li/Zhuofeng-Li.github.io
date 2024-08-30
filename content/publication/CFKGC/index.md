@@ -2,7 +2,7 @@
 title: "Learning from Novel Knowledge: Continual Few-shot Knowledge Graph Completion"
 authors:
 - admin
-- Haoxiang Zhang
+- Haoxiang Zhang*
 - Qiannan Zhang
 - Ziyi Kou
 - Shichao Pei
