@@ -45,8 +45,7 @@ developing methodologies that exploit rich textual node and edge descriptions to
 Github, accessible at https://github.com/Zhuofeng-Li/TEG-Benchmark."
 
 # Summary. An optional shortened abstract.
-summary: "In this paper, we introduce Textual-Edge Graphs Datasets and Benchmark (TEG-DB), a comprehensive and
-diverse collection of benchmark textual-edge datasets"
+summary: "In this paper, we introduce Textual-Edge Graphs Datasets and Benchmark (TEG-DB), a comprehensive benchmark for textual-edge graphs including 9 comprehensive TEG datasets, a standardized pipeline and extensive experimental results and analysis."
 
 tags:
 - LLM and Textual Graphs
