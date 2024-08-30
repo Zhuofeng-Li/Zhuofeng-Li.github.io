@@ -39,7 +39,7 @@ operate under the assumption that KGs are available instantly, disregarding the 
 Thus, the emergence of these novel relations presents a need for
 few-shot models to continually learn from emerging knowledge. Although promising, two significant obstacles, i.e., catastrophic
 forgetting and the scarcity of novel relations, prevent effective learning from newly emerging relations. In this paper, we propose a
-novel framework designed to equip the few-shot model with the ability to learn sequentially from novel relations. Specifically, we introduce innovative strategies at both data and model levels\: datalevel rehearsal and model-level modulation to address catastrophic
+novel framework designed to equip the few-shot model with the ability to learn sequentially from novel relations. Specifically, we introduce innovative strategies at both data and model levels&#58 datalevel rehearsal and model-level modulation to address catastrophic
 forgetting, alongside multi-view relation augmentation aimed at
 resolving the issue of insufficient novel relations. Extensive experiments conducted on real-world KGs validate the effectiveness of
 our proposed method.
