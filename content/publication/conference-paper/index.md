@@ -6,17 +6,14 @@ title: ' Learning from Novel Knowledge: Continual Few-shot Knowledge Graph Compl
 # and it will be replaced with their full name and linked to their profile.
 authors:
   - admin
-  - Haoxiang Zhang
-  - Qiannan Zhang
-  - Ziyi Kou
-  - Shichao Pei
+  - Robert Ford
 
 # Author notes (optional)
 author_notes:
   - 'Equal contribution'
   - 'Equal contribution'
 
-date: '2024-07-01T00:00:00Z'
+date: '2013-07-01T00:00:00Z'
 doi: ''
 
 # Schedule page publish date (NOT publication's date).
