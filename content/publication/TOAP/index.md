@@ -2,7 +2,7 @@
 title: "Prompt Out-of-Distribution: Self-Supervised Graph Test-Time Adaptation"
 authors:
 - Haoxiang Zhang*
-- Zhuofeng Li*
+- admin*
 - Qiannan Zhang
 - Ziyi Kou
 - Lianyong Qi

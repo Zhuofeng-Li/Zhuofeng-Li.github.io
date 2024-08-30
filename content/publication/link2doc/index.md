@@ -2,7 +2,7 @@
 title: "Link Prediction on Textual Edge Graphs"
 authors:
 - Chen Ling∗
-- Zhuofeng Li∗
+- admin∗
 - Yuntong Hu
 - Zheng Zhang
 - Zhongyuan Liu

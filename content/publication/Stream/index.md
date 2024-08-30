@@ -1,7 +1,7 @@
 ---
 title: "Envisioning a Future Beyond Tomorrow with Script Event Stream Prediction"
 authors:
-- Zhuofeng Li*, 
+- admin*, 
 - Zixing Gou*, 
 - Xiangnan Zhang, 
 - Zhongyuan Liu, 
