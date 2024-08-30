@@ -1,11 +1,14 @@
 ---
-title: "Learning from Novel Knowledge: Continual Few-shot Knowledge Graph Completion"
+title: "Prompt Out-of-Distribution: Self-Supervised Graph Test-Time Adaptation"
 authors:
 - Haoxiang Zhang*
 - admin*
 - Qiannan Zhang
 - Ziyi Kou
+- Lianyong Qi
+- Juncheng Li
 - Shichao Pei
+
 author_notes:
 - "Equal contribution"
 - "Equal contribution"
