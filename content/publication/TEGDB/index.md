@@ -26,8 +26,8 @@ publishDate: "2024-06-15T00:00:00Z"
 publication_types: ["paper-conference"]
 
 # Publication name and optional abbreviated publication name.
-publication: "*In a submission to 2024 Neurips.*"
-publication_short: "*In a submission to 2024 Neurips.*"
+publication: "*In a submission to 2024 Neurips*"
+publication_short: "*In a submission to 2024 Neurips*"
 
 abstract: "Text-Attributed Graphs (TAGs) augment graph structures with natural language
 descriptions, facilitating detailed depictions of data and their interconnections

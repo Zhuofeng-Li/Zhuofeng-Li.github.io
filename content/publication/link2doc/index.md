@@ -25,8 +25,8 @@ publishDate: "2024-06-16T00:00:00Z"
 publication_types: ["paper-conference"]
 
 # Publication name and optional abbreviated publication name.
-publication: "*In a submission to 2024 Neurips.*"
-publication_short: "*In a submission to 2024 Neurips.*"
+publication: "*In a submission to 2024 Neurips*"
+publication_short: "*In a submission to 2024 Neurips*"
 
 abstract: "Textual-edge Graphs (TEGs), characterized by rich text annotations on edges,
 are increasingly significant in network science due to their ability to capture rich
