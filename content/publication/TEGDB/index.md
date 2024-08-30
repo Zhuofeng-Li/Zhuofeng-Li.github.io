@@ -26,8 +26,8 @@ publishDate: "2024-06-15T00:00:00Z"
 publication_types: ["paper-conference"]
 
 # Publication name and optional abbreviated publication name.
-publication: "*In a submission to Neurips.*"
-publication_short: "*In a submission to Neurips.*"
+publication: "*In a submission to 2024 Neurips.*"
+publication_short: "*In a submission to 2024 Neurips.*"
 
 abstract: "Text-Attributed Graphs (TAGs) augment graph structures with natural language
 descriptions, facilitating detailed depictions of data and their interconnections
@@ -48,12 +48,12 @@ Github, accessible at https://github.com/Zhuofeng-Li/TEG-Benchmark."
 summary: "In this paper, we introduce Textual-Edge Graphs Datasets and Benchmark (TEG-DB), a comprehensive benchmark for textual-edge graphs including 9 comprehensive TEG datasets, a standardized pipeline and extensive experimental results and analysis."
 
 tags:
-- LLM and Textual Graphs
+- LLM and Graphs
 featured: false
 
-links:
-- name: ""
-  url: ""
+# links:
+# - name: ""
+#   url: ""
 url_pdf: 'https://arxiv.org/abs/2406.10310'
 url_code: 'https://github.com/Zhuofeng-Li/TEG-Benchmark/tree/main'
 url_dataset: 'https://github.com/Zhuofeng-Li/TEG-Benchmark/tree/main'

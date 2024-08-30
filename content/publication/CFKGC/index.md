@@ -45,7 +45,7 @@ summary: "In this paper, we propose a novel framework designed to equip the few-
 ability to learn sequentially from novel relations."
 
 tags:
-- Source Themes
+- LLM and Graphs
 featured: false
 
 # links:
