@@ -49,7 +49,7 @@ summary: "In this paper, we introduce Textual-Edge Graphs Datasets and Benchmark
 diverse collection of benchmark textual-edge datasets"
 
 tags:
-- Textual Graphs
+- LLM and Textual Graphs
 featured: false
 
 links:
