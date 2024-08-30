@@ -26,8 +26,8 @@ publishDate: "2024-08-15T00:00:00Z"
 publication_types: ["paper-conference"]
 
 # Publication name and optional abbreviated publication name.
-publication: "*Tsinghua Science and Technology (JCR Q1).*"
-publication_short: "*Tsinghua Science and Technology (JCR Q1).*"
+publication: "*Tsinghua Science and Technology (JCR Q1)*"
+publication_short: "*Tsinghua Science and Technology (JCR Q1)*"
 
 abstract: "Script event stream prediction is a task that predicts events based on a given context or script. Most
 existing methods predict one subsequent event, limiting the ability to make a longer inference about the future.
