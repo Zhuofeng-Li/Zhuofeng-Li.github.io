@@ -1,14 +1,14 @@
 ---
 title: "TEG-DB: A Comprehensive Dataset and Benchmark of Textual-Edge Graphs"
 authors:
-- admin*, 
-- Zixing Gou*, 
-- Xiangnan Zhang, 
-- Zhongyuan Liu, 
-- Sirui Li, 
-- Yuntong Hu, 
-- Chen Ling, 
-- Zheng Zhang, 
+- admin*
+- Zixing Gou*
+- Xiangnan Zhang
+- Zhongyuan Liu
+- Sirui Li
+- Yuntong Hu
+- Chen Ling
+- Zheng Zhang
 - Liang Zhao
 
 author_notes:
