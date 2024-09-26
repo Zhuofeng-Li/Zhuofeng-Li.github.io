@@ -21,8 +21,8 @@ publishDate: "2024-08-15T00:00:00Z"
 publication_types: ["paper-conference"]
 
 # Publication name and optional abbreviated publication name.
-publication: "*2024 CIKM Full Research Paper*"
-publication_short: "*2024 CIKM Full Research Paper*"
+publication: "*Accepted by 2024 CIKM Full Research Paper Track*"
+publication_short: "*Accepted by 2024 CIKM Full Research Paper Track*"
 
 abstract: "Knowledge graph (KG) completion has been increasingly recognized as a vital approach for uncovering missing knowledge and
 addressing the incompleteness issue in KGs. To enhance inference
