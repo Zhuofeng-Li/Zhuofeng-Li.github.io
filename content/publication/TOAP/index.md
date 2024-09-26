@@ -24,8 +24,8 @@ publishDate: "2024-05-15T00:00:00Z"
 publication_types: ["paper-conference"]
 
 # Publication name and optional abbreviated publication name.
-publication: "*In a submission to 2024 Neurips*"
-publication_short: "*In a submission to 2024 Neurips*"
+publication: "*In a submission to 2024 ICLR*"
+publication_short: "*In a submission to 2024 ICLR*"
 
 # abstract: "Script event stream prediction is a task that predicts events based on a given context or script. Most
 # existing methods predict one subsequent event, limiting the ability to make a longer inference about the future.
