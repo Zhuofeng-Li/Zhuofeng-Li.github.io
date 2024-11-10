@@ -7,6 +7,7 @@ authors:
 - Zheng Zhang
 - Zhongyuan Liu
 - Shuang Zheng
+- Jian Pei
 - Liang Zhao
 
 
