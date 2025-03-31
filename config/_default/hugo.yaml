@@ -41,7 +41,7 @@ imaging:
   anchor: smart
 timeout: 600000
 taxonomies:
-  tag: tags
+  tag: tags ------------\n\n1,1.3
   category: categories
   publication_type: publication_types
   author: authors
