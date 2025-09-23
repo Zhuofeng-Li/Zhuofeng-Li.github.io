@@ -27,7 +27,7 @@ announcements:
 #   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hi there 👋. My name is Zhuofeng Li. I'm a CS Ph.D. student at [Texas A&M University][0], advised by Prof. [Yu Zhang][1]. I am also a visiting student at Stanford University working with Prof. Yejin Choi [2], Prof. James Zou [3] and Dr. Pan Lu [4]. Previously, I interned TIGER-Lab at University of Waterloo working with Prof. Wenhu Chen.
+Hi there 👋. My name is Zhuofeng Li. I'm a CS Ph.D. student at [Texas A&M University][0], advised by Prof. [Yu Zhang][1]. I am also a visiting student at Stanford University working with Prof. [Yejin Choi][2], Prof. [James Zou][3] and Dr. [Pan Lu][4]. Previously, I interned TIGER-Lab at University of Waterloo working with Prof. [Wenhu Chen][5].
 
 My research lies in LLM/VLM-post training, including reasoning, alignment, evaluation, and applications. Recently, I am particularly focus on agentic reinforcement learning. As part of this direction, I as the core contributor build [VerlTool](https://github.com/TIGER-AI-Lab/verl-tool) (500+ stars), a unified and extensible framework for tool-agent RL training.
 
