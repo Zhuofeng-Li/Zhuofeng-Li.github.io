@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: <a href='https://www.tamu.edu/index.html'>Texas A&M University</a>; <a href='https://www.stanford.edu/'>Stanford University</a>;
 
 profile:
   align: right
@@ -27,8 +27,26 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+Hi there 👋. My name is Zhuofeng Li. I'm a CS Ph.D. student at [Texas A&M University][0], advised by Prof. [Yu Zhang][1]. I am also a visiting student at Stanford University working with Prof. Yejin Choi [2], Prof. James Zou [3] and Dr. Pan Lu [4]. Previously, I interned TIGER-Lab at University of Waterloo working with Prof. Wenhu Chen.
+
+My research lies in LLM/VLM-post training, including reasoning, alignment, evaluation, and applications. Recently, I am particularly focus on agentic reinforcement learning. As part of this direction, I as the core contributor build [VerlTool](https://github.com/TIGER-AI-Lab/verl-tool) (500+ stars), a unified and extensible framework for tool-agent RL training.
+
+[0]: https://www.tamu.edu/index.html
+[1]: https://yuzhimanhua.github.io/
+[2]: https://yejinc.github.io/
+[3]: https://www.james-zou.com/
+[4]: https://lupantech.github.io/
+[5]: https://wenhuchen.github.io/
+[7]: https://uwaterloo.ca/
+[8]: https://scholar.google.com.hk/citations?user=IIoFY90AAAAJ&hl=zh-CN
+[9]: https://inklab.usc.edu/
+[10]: https://lianhui.ucsd.edu/
+[11]: https://allenai.org/
+[12]: https://huggingface.co/TIGER-Lab
+[13]: https://research.nvidia.com/labs/adlr/
+
+<!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
 
 Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them. -->

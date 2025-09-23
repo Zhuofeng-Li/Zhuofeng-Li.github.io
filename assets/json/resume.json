@@ -1,24 +1,23 @@
 {
   "basics": {
-    "name": "Albert Einstein",
-    "label": "Scientist",
+    "name": "Zhuofeng Li",
+    "label": "CS PhD Student",
     "image": "",
-    "email": "albert@einstein.de",
-    "phone": "(912) 123-4567",
-    "url": "https://alshedivat.github.io/al-folio/",
-    "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
+    "email": "zhuofengli12345@gmail.com",
+    "url": "https://github.com/Zhuofeng-Li",
+    "summary": "LLM researcher, interested in large language model, multimodalities and their evaluation.",
     "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
-      "countryCode": "US",
-      "region": "California"
+      "address": "200 University Ave W, Waterloo",
+      "postalCode": "N2L 3G1",
+      "city": "Waterloo",
+      "countryCode": "CA",
+      "region": "Ontario"
     },
     "profiles": [
       {
         "network": "Twitter",
-        "username": "AlbertEinstein",
-        "url": "https://twitter.com/AlbertEinstein"
+        "username": "DongfuJiang",
+        "url": "https://twitter.com/DongfuJiang"
       }
     ]
   },
