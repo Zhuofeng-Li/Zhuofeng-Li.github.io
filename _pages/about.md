@@ -21,10 +21,10 @@ announcements:
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
   limit: 5 # leave blank to include all the news in the `_news` folder
 
-latest_posts:
-  enabled: true
-  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 3 # leave blank to include all the blog posts
+# latest_posts:
+#   enabled: true
+#   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
+#   limit: 3 # leave blank to include all the blog posts
 ---
 
 Hi there 👋. My name is Zhuofeng Li. I'm a CS Ph.D. student at [Texas A&M University][0], advised by Prof. [Yu Zhang][1]. I am also a visiting student at Stanford University working with Prof. Yejin Choi [2], Prof. James Zou [3] and Dr. Pan Lu [4]. Previously, I interned TIGER-Lab at University of Waterloo working with Prof. Wenhu Chen.
