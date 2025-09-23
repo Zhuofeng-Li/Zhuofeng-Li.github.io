@@ -7,7 +7,7 @@
 # bluesky_url: # your bluesky URL
 # dblp_url: # your DBLP profile url
 # discord_id: # your discord id (18-digit unique numerical identifier)
-email: you@example.com # your email address
+email: zhuofengli12345@gmail.com # your email address
 # facebook_id: # your facebook id
 # flickr_id: # your flickr id
 github_username: Zhuofeng-Li # your GitHub user name
@@ -20,7 +20,7 @@ github_username: Zhuofeng-Li # your GitHub user name
 # lastfm_id: # your lastfm id
 # lattes_id: # your ID on Lattes (Brazilian Lattes CV)
 # leetcode_id: # your LeetCode id
-linkedin_username: Zhuofeng Li # your LinkedIn user name
+linkedin_username: zhuofeng-li-6a528626a # your LinkedIn user name
 # mastodon_username: # your mastodon instance+username in the format instance.tld/@username
 # medium_username: # your Medium username
 # orcid_id: # your ORCID ID
@@ -37,15 +37,15 @@ scholar_userid: V3ZBIT4AAAAJ # your Google Scholar ID
 # stackoverflow_id: # your stackoverflow id
 # telegram_username: # your Telegram user name
 # unsplash_id: # your unsplash id
-# wechat_qr: # filename of your wechat qr-code saved as an image (e.g., wechat-qr.png if saved to assets/img/wechat-qr.png)
+wechat_qr: wechat_qr.jpg # filename of your wechat qr-code saved as an image (e.g., wechat-qr.png if saved to assets/img/wechat-qr.png)
 # whatsapp_number: # your WhatsApp number (full phone number in international format. Omit any zeroes, brackets, or dashes when adding the phone number in international format.)
 # wikidata_id: # your wikidata id
 # wikipedia_id: # your wikipedia id (Case sensitive)
 # work_url: # work page URL
-x_username: Zhuofeng Li # your X handle
+x_username: zhuofengli96475 # your X handle
 # youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
 # zotero_username: # your zotero username
-custom_social: # can be any name here other than the ones already defined above
-  logo: https://www.alberteinstein.com/wp-content/uploads/2024/03/cropped-favicon-192x192.png # can be png, svg, jpg
-  title: Custom Social
-  url: https://www.alberteinstein.com/
+# custom_social: # can be any name here other than the ones already defined above
+#   logo: https://www.alberteinstein.com/wp-content/uploads/2024/03/cropped-favicon-192x192.png # can be png, svg, jpg
+#   title: Custom Social
+#   url: https://www.alberteinstein.com/

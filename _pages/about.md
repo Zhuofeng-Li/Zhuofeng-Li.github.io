@@ -8,10 +8,10 @@ profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+  # more_info: >
+  #   <p>555 your office number</p>
+  #   <p>123 your address street</p>
+  #   <p>Your City, State 12345</p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
@@ -27,9 +27,11 @@ announcements:
 #   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hi there 👋. My name is Zhuofeng Li. I'm a CS Ph.D. student at [Texas A&M University][0], advised by Prof. [Yu Zhang][1]. I am also a visiting student at Stanford University working with Prof. [Yejin Choi][2], Prof. [James Zou][3] and Dr. [Pan Lu][4]. Previously, I interned TIGER-Lab at University of Waterloo working with Prof. [Wenhu Chen][5].
+Hi there 👋. My name is Zhuofeng Li. I'm a CS Ph.D. student at [Texas A&M University][0], advised by Prof. [Yu Zhang][1]. I am also a visiting student at [Stanford University][6] working with Prof. [Yejin Choi][2], Prof. [James Zou][3] and Dr. [Pan Lu][4]. Previously, I interned [TIGER-Lab][14] at University of Waterloo working with Prof. [Wenhu Chen][5].
 
 My research lies in LLM/VLM-post training, including reasoning, alignment, evaluation, and applications. Recently, I am particularly focus on agentic reinforcement learning. As part of this direction, I as the core contributor build [VerlTool](https://github.com/TIGER-AI-Lab/verl-tool) (500+ stars), a unified and extensible framework for tool-agent RL training.
+
+I am actively seeking research collaborations and opportunities in LLM/VLM post-training, reinforcement learning, agents, and other exciting directions.  
 
 [0]: https://www.tamu.edu/index.html
 [1]: https://yuzhimanhua.github.io/
@@ -37,6 +39,7 @@ My research lies in LLM/VLM-post training, including reasoning, alignment, evalu
 [3]: https://www.james-zou.com/
 [4]: https://lupantech.github.io/
 [5]: https://wenhuchen.github.io/
+[6]: https://www.stanford.edu/
 [7]: https://uwaterloo.ca/
 [8]: https://scholar.google.com.hk/citations?user=IIoFY90AAAAJ&hl=zh-CN
 [9]: https://inklab.usc.edu/
@@ -44,6 +47,7 @@ My research lies in LLM/VLM-post training, including reasoning, alignment, evalu
 [11]: https://allenai.org/
 [12]: https://huggingface.co/TIGER-Lab
 [13]: https://research.nvidia.com/labs/adlr/
+[14]: https://github.com/TIGER-AI-Lab
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
 
