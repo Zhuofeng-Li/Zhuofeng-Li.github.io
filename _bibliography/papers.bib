@@ -1,115 +1,138 @@
 ---
 ---
-
-@string{aps = {American Physical Society,}}
-
-@book{einstein1920relativity,
-  title={Relativity: the Special and General Theory},
-  author={Einstein, Albert},
-  year={1920},
-  publisher={Methuen & Co Ltd},
-  html={relativity.html}
+@inproceedings{jiang2025verltool,
+  title={VerlTool: Towards Holistic Agentic Reinforcement Learning with Tool Use},
+  author={Dongfu Jiang and Yi Lu and Zhuofeng Li and Zhiheng Lyu and Ping Nie and Haozhe Wang and Alex Su and Hui Chen and Kai Zou and Chao Du and Tianyu Pang and Wenhu Chen},
+  booktitle = "arxiv preprint",
+  month = Sep,
+  year = "2025",
+  arxiv = "2509.01055",
+  abstract = "Reinforcement Learning with Verifiable Rewards (RLVR) has demonstrated success in enhancing LLM reasoning capabilities, but remains limited to single-turn interactions without tool integration. While recent Agentic Reinforcement Learning with Tool use (ARLT) approaches have emerged to address multi-turn tool interactions, existing works develop task-specific codebases that suffer from fragmentation, synchronous execution bottlenecks, and limited extensibility across domains. These inefficiencies hinder broader community adoption and algorithmic innovation. We introduce VerlTool, a unified and modular framework that addresses these limitations through systematic design principles. VerlTool provides four key contributions: (1) upstream alignment with VeRL ensuring compatibility and simplified maintenance, (2) unified tool management via standardized APIs supporting diverse modalities including code execution, search, SQL databases, and vision processing, (3) asynchronous rollout execution achieving near 2× speedup by eliminating synchronization bottlenecks, and (4) comprehensive evaluation demonstrating competitive performance across 6 ARLT domains. Our framework formalizes ARLT as multi-turn trajectories with multi-modal observation tokens (text/image/video), extending beyond single-turn RLVR paradigms. We train and evaluate models on mathematical reasoning, knowledge QA, SQL generation, visual reasoning, web search, and software engineering tasks, achieving results comparable to specialized systems while providing unified training infrastructure.",
+  preview={verltool.png},
+  website = "https://tiger-ai-lab.github.io/verl-tool/",
+  github = "TIGER-AI-Lab/verl-tool",
+  huggingface="https://huggingface.co/papers/2509.01055",
+  twitter="https://x.com/zhuofengli96475/status/1963216180438814901",
+  selected = true,
+  num_co_first_author = 4,
+  abbr={Arxiv},
+  bibtex_show={true}
 }
 
-@book{einstein1956investigations,
-  bibtex_show={true},
-  title={Investigations on the Theory of the Brownian Movement},
-  author={Einstein, Albert},
-  year={1956},
-  publisher={Courier Corporation},
-  preview={brownian-motion.gif}
+
+
+@inproceedings{lin2025gref,
+  title={GReF: A Unified Generative Framework for Efficient Reranking via Ordered Multi-token Prediction},
+  author={Zhijie Lin and Zhuofeng Li and Chenglei Dai and Wentian Bao and Shuai Lin and Enyun Yu and Haoxiang Zhang and Liang Zhao},
+  booktitle = {Proceedings of the 34th ACM International Conference on Information and Knowledge Management},
+  month = Nov,
+  year = "2025",
+  abstract = "In a multi-stage recommendation system, reranking plays a crucial role in modeling intra-list correlations among items. A key challenge lies in exploring optimal sequences within the combinatorial space of permutations. Recent research follows a two-stage (generator-evaluator) paradigm, where a generator produces multiple feasible sequences, and an evaluator selects the best one. In practice, the generator is typically implemented as an autoregressive model. However, these two-stage methods face two main challenges. First, the separation of the generator and evaluator hinders end-to-end training. Second, autoregressive generators suffer from inference efficiency. In this work, we propose a Unified Generative Efficient Reranking Framework (GReF) to address the two primary challenges. Specifically, we introduce Gen-Reranker, an autoregressive generator featuring a bidirectional encoder and a dynamic autoregressive decoder to generate causal reranking sequences. Subsequently, we pre-train Gen-Reranker on the item exposure order for high-quality parameter initialization. To eliminate the need for the evaluator while integrating sequence-level evaluation during training for end-to-end optimization, we propose post-training the model through Rerank-DPO. Moreover, for efficient autoregressive inference, we introduce ordered multi-token prediction (OMTP), which trains Gen-Reranker to simultaneously generate multiple future items while preserving their order, ensuring practical deployment in real-time recommender systems. Extensive offline experiments demonstrate that GReF outperforms state-of-the-art reranking methods while achieving latency that is nearly comparable to non-autoregressive models. Additionally, GReF has also been deployed in a real-world video app Kuaishou with over 300 million daily active users, significantly improving online recommendation quality.",
+  preview={gref.png},
+  selected = true,
+  num_co_first_author = 2,
+  abbr={CIKM 2025},
+  bibtex_show={true}
 }
 
-@article{einstein1950meaning,
-  abbr={AJP},
-  bibtex_show={true},
-  title={The meaning of relativity},
-  author={Einstein, Albert and Taub, AH},
-  journal={American Journal of Physics},
-  volume={18},
-  number={6},
-  pages={403--404},
-  year={1950},
-  publisher={American Association of Physics Teachers}
+@inproceedings{ma2025videoeval,
+  title={VideoEval-Pro: Robust and Realistic Long Video Understanding Evaluation},
+  author={Wentao Ma and Weiming Ren and Yiming Jia and Zhuofeng Li and Ping Nie and Ge Zhang and Wenhu Chen},
+  booktitle = "arxiv preprint",
+  month = May,
+  year = "2025",
+  arxiv = "2505.14640",
+  abstract = "Large multimodal models (LMMs) have recently emerged as a powerful tool for long video understanding (LVU), but existing benchmarks have significant limitations. Most current benchmarks rely heavily on multiple-choice questions (MCQs) with inflated evaluation results due to guessing, and many questions have strong priors that allow models to answer without watching the entire video. We propose VideoEval-Pro, a new benchmark with open-ended short-answer questions that assess segment-level and full-video understanding through perception and reasoning tasks. By evaluating 21 video LMMs, we discovered significant performance drops (>25\\%) on open-ended questions compared to MCQs, higher MCQ scores do not correlate with higher open-ended scores, and VideoEval-Pro benefits more from increased input frames compared to other benchmarks. Our goal is to provide a more realistic and reliable measure of long video understanding.",
+  preview={video_eval_pro.png},
+  website = "https://tiger-ai-lab.github.io/VideoEval-Pro/",
+  github = "TIGER-AI-Lab/VideoEval-Pro",
+  huggingface="https://huggingface.co/papers/2505.14640",
+  twitter="https://x.com/zhuofengli96475/status/1963216180438814901",
+  selected = true,
+  abbr={Arxiv},
+  bibtex_show={true}
 }
 
-@article{PhysRev.47.777,
-  abbr={PhysRev},
-  title={Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?},
-  author={Einstein*†, A. and Podolsky*, B. and Rosen*, N.},
-  abstract={In a complete theory there is an element corresponding to each element of reality. A sufficient condition for the reality of a physical quantity is the possibility of predicting it with certainty, without disturbing the system. In quantum mechanics in the case of two physical quantities described by non-commuting operators, the knowledge of one precludes the knowledge of the other. Then either (1) the description of reality given by the wave function in quantum mechanics is not complete or (2) these two quantities cannot have simultaneous reality. Consideration of the problem of making predictions concerning a system on the basis of measurements made on another system that had previously interacted with it leads to the result that if (1) is false then (2) is also false. One is thus led to conclude that the description of reality as given by a wave function is not complete.},
-  journal={Phys. Rev.},
-  location={New Jersey},
-  volume={47},
-  issue={10},
-  pages={777--780},
-  numpages={0},
-  year={1935},
-  month={May},
-  publisher=aps,
-  doi={10.1103/PhysRev.47.777},
-  url={http://link.aps.org/doi/10.1103/PhysRev.47.777},
-  html={https://journals.aps.org/pr/abstract/10.1103/PhysRev.47.777},
-  pdf={example_pdf.pdf},
-  altmetric={248277},
-  dimensions={true},
-  google_scholar_id={qyhmnyLat1gC},
-  video={https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ},
-  additional_info={. *More Information* can be [found here](https://github.com/alshedivat/al-folio/)},
-  annotation={* Example use of superscripts<br>† Albert Einstein},
-  selected={true},
-  inspirehep_id = {3255}
+@inproceedings{yang2025structeval,
+  title={StructEval: Benchmarking LLMs' Capabilities to Generate Structural Outputs},
+  author={Jialin Yang and Dongfu Jiang and Lipeng He and Sherman Siu and Yuxuan Zhang and Disen Liao and Zhuofeng Li and Huaye Zeng and Yiming Jia and Haozhe Wang and others},
+  booktitle = "arxiv preprint",
+  month = May,
+  year = "2025",
+  arxiv = "2505.20139",
+  abstract = "As Large Language Models (LLMs) become integral to software development workflows, their ability to generate structured outputs has become critically important. We introduce StructEval, a comprehensive benchmark for evaluating LLMs' capabilities in producing both non-renderable (JSON, YAML, CSV) and renderable (HTML, React, SVG) structured formats. Unlike prior benchmarks, StructEval systematically evaluates structural fidelity across diverse formats through two paradigms: generation tasks and conversion tasks. Our benchmark encompasses 18 formats and 44 types of task, with novel metrics for format adherence and structural correctness. Results reveal significant performance gaps, even state-of-the-art models like o1-mini achieve only 75.58 average score.",
+  preview={structeval.png},
+  website = "https://tiger-ai-lab.github.io/StructEval/",
+  github = "StructEval/StructEval",
+  huggingface="https://huggingface.co/papers/2505.20139",
+  selected = true,
+  abbr={Arxiv},
+  bibtex_show={true}
 }
 
-@article{einstein1905molekularkinetischen,
-  title={{\"U}ber die von der molekularkinetischen Theorie der W{\"a}rme geforderte Bewegung von in ruhenden Fl{\"u}ssigkeiten suspendierten Teilchen},
-  author={Einstein, A.},
-  journal={Annalen der physik},
-  volume={322},
-  number={8},
-  pages={549--560},
-  year={1905},
-  publisher={Wiley Online Library}
+
+@inproceedings{li2024teg,
+  title={Teg-db: A comprehensive dataset and benchmark of textual-edge graphs},
+  author={Zhuofeng Li and Zixing Gou and Xiangnan Zhang and Zhongyuan Liu and Sirui Li and Yuntong Hu and Chen Ling and Zheng Zhang and Liang Zhao},
+  booktitle={Advances in Neural Information Processing Systems},
+  volume={37},
+  pages={60980--60998},
+  month = Dec,
+  year={2024},
+  arxiv = "2406.10310",
+  abstract = "Text-Attributed Graphs (TAGs) augment graph structures with natural language descriptions, but existing datasets primarily feature textual information only at nodes. We introduce TEG-DB, a comprehensive benchmark of textual-edge datasets with rich descriptions on both nodes and edges, spanning domains like citation and social networks. We conducted benchmark experiments to evaluate how current techniques including pre-trained language models and graph neural networks can utilize textual node and edge information. Our goal is to advance research in textual-edge graph analysis and provide deeper insights into complex real-world networks.",
+  preview={tegdb.png},
+  website = "https://github.com/Zhuofeng-Li/TEG-Benchmark",
+  github = "Zhuofeng-Li/TEG-Benchmark",
+  huggingface="https://huggingface.co/datasets/ZhuofengLi/TEG-DB",
+  selected = true,
+  abbr={NeurIPS 2024},
+  bibtex_show={true}
 }
 
-@article{einstein1905movement,
-  abbr={Ann. Phys.},
-  title={Un the movement of small particles suspended in statiunary liquids required by the molecular-kinetic theory 0f heat},
-  author={Einstein, A.},
-  journal={Ann. Phys.},
-  volume={17},
-  pages={549--560},
-  year={1905}
+@inproceedings{ling2024link,
+  title={Link prediction on textual edge graphs},
+  author={Chen Ling and Zhuofeng Li and Yuntong Hu and Zheng Zhang and Zhongyuan Liu and Shuang Zheng and Jian Pei and Liang Zhao},
+  booktitle = "arxiv preprint",
+  month = May,
+  year = "2024",
+  arxiv = "2405.16606",
+  abstract = "Textual-edge Graphs (TEGs) are graphs with rich text annotations on edges, capturing contextual information among entities. Existing approaches often struggle to fully capture edge semantics and graph topology, especially in link prediction tasks. We propose Link2Doc, a novel framework that summarizes neighborhood information between node pairs as a human-written document, preserves both semantic and topological information, and uses a self-supervised learning model to enhance graph neural networks' text understanding. Empirical evaluations across four real-world datasets demonstrate that Link2Doc achieves generally better performance against existing edge-aware GNNs and pre-trained language models in predicting links on TEGs.",
+  preview={link2doc.png},
+  num_co_first_author = 2,
+  abbr={Arxiv},
+  bibtex_show={true}
 }
 
-@article{einstein1905electrodynamics,
-  title={On the electrodynamics of moving bodies},
-  author={Einstein, A.},
-  year={1905}
+
+@inproceedings{hu2024hireview,
+  title={Hireview: Hierarchical taxonomy-driven automatic literature review generation},
+  author={Yuntong Hu and Zhuofeng Li and Zheng Zhang and Chen Ling and Raasikh Kanjiani and Boxin Zhao and Liang Zhao},
+  booktitle = "arxiv preprint",
+  month = Jul,
+  year = "2024",
+  abstract = "Literature reviews are essential for understanding research fields and identifying knowledge gaps, but manually creating comprehensive reviews is time-consuming and labor-intensive. We present HiReview, a hierarchical taxonomy-driven automatic literature review generation system that leverages large language models to create structured, comprehensive reviews. Our approach uses a multi-level taxonomic framework to organize papers and generate coherent, well-structured literature reviews that capture the essential aspects of a research domain.",
+  preview={hireview.png},
+  abbr={Arxiv},
+  bibtex_show={true}
 }
 
-@Article{einstein1905photoelectriceffect,
-  bibtex_show={true},
-  abbr={Ann. Phys.},
-  title="{{\"U}ber einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt}",
-  author={Albert Einstein},
-  abstract={This is the abstract text.},
-  journal={Ann. Phys.},
-  volume={322},
-  number={6},
-  pages={132--148},
-  year={1905},
-  doi={10.1002/andp.19053220607},
-  award={Albert Einstein receveid the **Nobel Prize in Physics** 1921 *for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect*},
-  award_name={Nobel Prize}
+
+@inproceedings{li2024learning,
+  title={Learning from novel knowledge: Continual few-shot knowledge graph completion},
+  author={Zhuofeng Li and Haoxiang Zhang and Qiannan Zhang and Ziyi Kou and Shichao Pei},
+  booktitle={Proceedings of the 33rd ACM International Conference on Information and Knowledge Management},
+  pages={1326--1335},
+  month = Oct,
+  year={2024},
+  abstract = "Knowledge graph completion has been increasingly recognized as a vital approach for uncovering missing knowledge and addressing the incompleteness issue in KGs. To enhance inference on rare relations and mitigate the impact of the long-tail distribution, the dominant strategy designs few-shot models following the meta-learning paradigm. However, these approaches typically operate under the assumption that KGs are available instantly, disregarding the newly emerging relations during KG enrichment. We propose a novel framework designed to equip the few-shot model with the ability to learn sequentially from novel relations through data-level rehearsal and model-level modulation to address catastrophic forgetting, alongside multi-view relation augmentation aimed at resolving the issue of insufficient novel relations.",
+  preview={cfkgc.png},
+  selected = true,
+  abbr={CIKM 2024},
+  bibtex_show={true}
 }
 
-@book{przibram1967letters,
-  bibtex_show={true},
-  title={Letters on wave mechanics},
-  author={Einstein, Albert and Schrödinger, Erwin and Planck, Max and Lorentz, Hendrik Antoon and Przibram, Karl},
-  year={1967},
-  publisher={Vision},
-  preview={wave-mechanics.gif},
-  abbr={Vision}
-}
+
+
+
+
