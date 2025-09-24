@@ -33,6 +33,8 @@ My research lies in LLM/VLM-post training, including reasoning, alignment, evalu
 
 I am actively seeking research collaborations and intern opportunities in LLM/VLM post-training, reinforcement learning, agents, and other exciting directions.  
 
+**Feel free to reach out me through zhuofengli12345@gmail.com**
+
 [0]: https://www.tamu.edu/index.html
 [1]: https://yuzhimanhua.github.io/
 [2]: https://yejinc.github.io/
