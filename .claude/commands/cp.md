@@ -4,12 +4,14 @@ description: Quick commit and push changes to git repository
 ---
 
 ## Context
+
 - Current git status: !`git status`
 - Current git diff: !`git diff HEAD`
 - Current branch: !`git branch --show-current`
 - Recent commits: !`git log --oneline -5`
 
 ## Your task
+
 Based on the above git status and changes:
 
 1. Add all modified and untracked files to staging area using `git add .`
@@ -17,6 +19,7 @@ Based on the above git status and changes:
 3. Push the changes to the remote repository using `git push`
 
 Make sure to:
+
 - Review the changes before committing
 - Use clear and descriptive commit messages
 - Handle any potential errors during the process

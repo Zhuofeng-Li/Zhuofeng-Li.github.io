@@ -58,6 +58,12 @@
         {% assign author_array_limit = site.max_author_limit %}
       {% endif %}
 
+      {% if entry.num_co_first_author %}
+        {% assign num_co_first_author = entry.num_co_first_author | plus: 0 %}
+      {% else %}
+        {% assign num_co_first_author = 1 %}
+      {% endif %}
+
       {%- for author in entry.author_array limit: author_array_limit -%}
         {% assign author_is_self = false %}
         {%- assign author_last_name = author.last | regex_replace: '[*∗†‡§¶‖&^]', '' -%}
@@ -100,6 +106,12 @@
             {{ author_last_html -}}
           {% endif %}
         {%- endif -%}
+
+        {% if num_co_first_author > 1 %}
+          {% if forloop.index <= num_co_first_author %}
+            <sup>*</sup>
+          {% endif %}
+        {% endif %}
       {% endfor %}
       {%- assign more_authors = author_array_size | minus: author_array_limit -%}
 
