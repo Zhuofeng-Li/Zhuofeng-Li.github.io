@@ -391,7 +391,7 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-️-i-start-my-exciting-journey-as-a-research-intern-at-stanford-university-working-with-prof-james-zou-prof-yejin-choi-and-dr-pan-lu",
+            },},{id: "news-️-i-start-my-exciting-journey-as-a-research-intern-at-stanford-university-working-with-prof-james-zou-prof-yejin-choi",
           title: '🏛️ I start my exciting journey as a research intern at Stanford University,...',
           description: "",
           section: "News",},{id: "news-our-paper-gref-co-first-author-has-been-accepted-to-cikm-2026-this-recommendation-reranking-llm-project-was-conducted-during-my-internship-at-kuaishou",
