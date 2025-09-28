@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🏛️ I start my exciting journey as a research intern at Stanford University, working with Prof. James Zou, Prof. Yejin Choi, and Dr. Pan Lu.
+🏛️ I start my exciting journey as a research intern at Stanford University, working with Prof. James Zou, Prof. Yejin Choi.
