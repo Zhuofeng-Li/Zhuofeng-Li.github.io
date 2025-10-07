@@ -200,15 +200,15 @@
     <!-- Links/Buttons -->
     <div class="links">
       {% if entry.arxiv %}
-      <a href="http://arxiv.org/abs/{{ entry.arxiv }}">
-        <img alt="arXiv" src="https://img.shields.io/badge/arXiv-b31b1b.svg?logo=arXiv" />
-      </a>
+        <a href="http://arxiv.org/abs/{{ entry.arxiv }}">
+          <img alt="arXiv" src="https://img.shields.io/badge/arXiv-b31b1b.svg?logo=arXiv">
+        </a>
       {% endif %}
       {% if entry.abstract %}
-      <a class="abstract z-depth-0" role="button"><img alt="Abstract" src="https://img.shields.io/badge/-Abs-FFCC99?style=flat" /></a>
+        <a class="abstract z-depth-0" role="button"><img alt="Abstract" src="https://img.shields.io/badge/-Abs-FFCC99?style=flat"></a>
       {% endif %}
       {% if entry.bibtex_show %}
-      <a class="bibtex z-depth-0" role="button"><img alt="Bibtex" src="https://img.shields.io/badge/-Bib-FFCC99?style=flat" /></a>
+        <a class="bibtex z-depth-0" role="button"><img alt="Bibtex" src="https://img.shields.io/badge/-Bib-FFCC99?style=flat"></a>
       {% endif %}
       {% if entry.doi %}
         <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button">DOI</a>
@@ -251,31 +251,35 @@
       {% endif %}
       {% if entry.slides %}
         {% if entry.slides contains '://' %}
-          <a href="{{ entry.slides }}" class="z-depth-0" role="button"><img alt="Slides" src="https://img.shields.io/badge/-Slides-FFCC99?style=flat" /></a>
+          <a href="{{ entry.slides }}" class="z-depth-0" role="button"
+            ><img alt="Slides" src="https://img.shields.io/badge/-Slides-FFCC99?style=flat"
+          ></a>
         {% else %}
-          <a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}" class="z-depth-0" role="button"><img alt="Slides" src="https://img.shields.io/badge/-Slides-FFCC99?style=flat" /></a>
+          <a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}" class="z-depth-0" role="button"
+            ><img alt="Slides" src="https://img.shields.io/badge/-Slides-FFCC99?style=flat"
+          ></a>
         {% endif %}
       {% endif %}
       {% if entry.website %}
-      <a href="{{ entry.website }}">
-        <img alt="Website" src="https://img.shields.io/badge/-Website-FFCC99?style=flat" />
-      </a>
+        <a href="{{ entry.website }}">
+          <img alt="Website" src="https://img.shields.io/badge/-Website-FFCC99?style=flat">
+        </a>
       {% endif %}
       {% if entry.blog %}
-      <a href="{{ entry.blog }}">
-        <img alt="Blog" src="https://img.shields.io/badge/-Blog-FFCC99?style=flat" />
-      </a>
+        <a href="{{ entry.blog }}">
+          <img alt="Blog" src="https://img.shields.io/badge/-Blog-FFCC99?style=flat">
+        </a>
       {% endif %}
       {% if entry.huggingface %}
-      <a href="{{ entry.huggingface }}">
-        <img alt="Huggingface Collections" src="https://img.shields.io/badge/-🤗%20Huggingface-red?style=flat" />
-      </a>
+        <a href="{{ entry.huggingface }}">
+          <img alt="Huggingface Collections" src="https://img.shields.io/badge/-🤗%20Huggingface-red?style=flat">
+        </a>
       {% endif %}
       {% if entry.twitter %}
-      <a href="{{ entry.twitter }}"><img alt="X (formerly Twitter) URL" src="https://img.shields.io/badge/-Tweet-blue?style=flat&logo=twitter" /></a>
+        <a href="{{ entry.twitter }}"><img alt="X (formerly Twitter) URL" src="https://img.shields.io/badge/-Tweet-blue?style=flat&logo=twitter"></a>
       {% endif %}
       {% if entry.github %}
-      <a href="https://github.com/{{ entry.github }}"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/{{ entry.github }}" /></a>
+        <a href="https://github.com/{{ entry.github }}"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/{{ entry.github }}"></a>
       {% endif %}
     </div>
     {% if site.enable_publication_badges %}
