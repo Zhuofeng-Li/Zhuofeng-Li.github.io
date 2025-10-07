@@ -2,14 +2,13 @@
 ---
 @inproceedings{jiang2025verltool,
   title={VerlTool: Towards Holistic Agentic Reinforcement Learning with Tool Use},
-  author={Dongfu Jiang* and Yi Lu* and Zhuofeng Li* and Zhiheng Lyu* and Ping Nie and Haozhe Wang and Alex Su and Hui Chen and Kai Zou and Chao Du and Tianyu Pang and Wenhu Chen},
-  booktitle = "arxiv preprint",
+  author={Dongfu Jiang and Yi Lu and Zhuofeng Li and Zhiheng Lyu and Ping Nie and Haozhe Wang and Alex Su and Hui Chen and Kai Zou and Chao Du and Tianyu Pang and Wenhu Chen},
+  booktitle = {arxiv preprint},
   month = Sep,
-  year = "2025",
+  year = {2025},
   arxiv = "2509.01055",
   abstract = "Reinforcement Learning with Verifiable Rewards (RLVR) has demonstrated success in enhancing LLM reasoning capabilities, but remains limited to single-turn interactions without tool integration. While recent Agentic Reinforcement Learning with Tool use (ARLT) approaches have emerged to address multi-turn tool interactions, existing works develop task-specific codebases that suffer from fragmentation, synchronous execution bottlenecks, and limited extensibility across domains. These inefficiencies hinder broader community adoption and algorithmic innovation. We introduce VerlTool, a unified and modular framework that addresses these limitations through systematic design principles. VerlTool provides four key contributions: (1) upstream alignment with VeRL ensuring compatibility and simplified maintenance, (2) unified tool management via standardized APIs supporting diverse modalities including code execution, search, SQL databases, and vision processing, (3) asynchronous rollout execution achieving near 2× speedup by eliminating synchronization bottlenecks, and (4) comprehensive evaluation demonstrating competitive performance across 6 ARLT domains. Our framework formalizes ARLT as multi-turn trajectories with multi-modal observation tokens (text/image/video), extending beyond single-turn RLVR paradigms. We train and evaluate models on mathematical reasoning, knowledge QA, SQL generation, visual reasoning, web search, and software engineering tasks, achieving results comparable to specialized systems while providing unified training infrastructure.",
   preview={verltool.png},
-  website = "https://tiger-ai-lab.github.io/verl-tool/",
   github = "TIGER-AI-Lab/verl-tool",
   huggingface="https://huggingface.co/papers/2509.01055",
   twitter="https://x.com/zhuofengli96475/status/1963216180438814901",
@@ -23,7 +22,7 @@
 
 @inproceedings{lin2025gref,
   title={GReF: A Unified Generative Framework for Efficient Reranking via Ordered Multi-token Prediction},
-  author={Zhijie Lin* and Zhuofeng Li* and Chenglei Dai and Wentian Bao and Shuai Lin and Enyun Yu and Haoxiang Zhang and Liang Zhao},
+  author={Zhijie Lin and Zhuofeng Li and Chenglei Dai and Wentian Bao and Shuai Lin and Enyun Yu and Haoxiang Zhang and Liang Zhao},
   booktitle = {Proceedings of the 34th ACM International Conference on Information and Knowledge Management},
   month = Nov,
   year = "2025",
@@ -32,6 +31,20 @@
   selected = true,
   num_co_first_author = 2,
   abbr={CIKM 2025},
+  bibtex_show={true}
+}
+
+@inproceedings{zhang2025avoiding,
+  title={Avoiding Structural Pitfalls: Self-Supervised Low-Rank Feature Tuning for Graph Test-Time Adaptation},
+  author={Haoxiang Zhang and Zhuofeng Li and Qiannan Zhang and Ziyi Kou and Juncheng Li and Shichao Pei},
+  booktitle = {Transactions on Machine Learning Research (TMLR), Oct 2025},
+  month = Oct,
+  year = {2025},
+  abstract = "Graph Neural Networks (GNNs) have shown impressive performance on graph-structured data, but they often struggle to generalize when facing distribution shifts at test time. Existing test-time adaptation methods for graphs primarily focus on node feature adjustments while overlooking structural information, leading to suboptimal adaptation. We propose a novel self-supervised low-rank feature tuning approach that jointly considers both node features and graph structure during test-time adaptation. Our method leverages self-supervised learning objectives and low-rank matrix factorization to efficiently adapt GNNs to new graph distributions without requiring labeled data, avoiding common structural pitfalls that plague existing approaches.",
+  preview={goat.png},
+  selected = true,
+  num_co_first_author = 2,
+  abbr={TMLR 2025},
   bibtex_show={true}
 }
 
@@ -63,7 +76,7 @@
   abstract = "As Large Language Models (LLMs) become integral to software development workflows, their ability to generate structured outputs has become critically important. We introduce StructEval, a comprehensive benchmark for evaluating LLMs' capabilities in producing both non-renderable (JSON, YAML, CSV) and renderable (HTML, React, SVG) structured formats. Unlike prior benchmarks, StructEval systematically evaluates structural fidelity across diverse formats through two paradigms: generation tasks and conversion tasks. Our benchmark encompasses 18 formats and 44 types of task, with novel metrics for format adherence and structural correctness. Results reveal significant performance gaps, even state-of-the-art models like o1-mini achieve only 75.58 average score.",
   preview={structeval.png},
   website = "https://tiger-ai-lab.github.io/StructEval/",
-  github = "StructEval/StructEval",
+  github = "https://github.com/TIGER-AI-Lab/StructEval",
   huggingface="https://huggingface.co/papers/2505.20139",
   selected = true,
   abbr={Arxiv},
@@ -84,7 +97,7 @@
   preview={tegdb.png},
   website = "https://github.com/Zhuofeng-Li/TEG-Benchmark",
   github = "Zhuofeng-Li/TEG-Benchmark",
-  huggingface="https://huggingface.co/datasets/ZhuofengLi/TEG-DB",
+  huggingface="https://huggingface.co/papers/2406.10310",
   selected = true,
   abbr={NeurIPS 2024},
   bibtex_show={true}
