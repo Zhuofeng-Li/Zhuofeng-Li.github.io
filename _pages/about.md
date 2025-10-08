@@ -35,17 +35,10 @@ I am actively seeking research collaborations and intern opportunities in LLM/VL
 
 **Feel free to reach out me through zhuofengli12345@gmail.com**
 
- <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 10px; margin: 20px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-    <p style="color: white; margin: 0; font-size: 1.1em;">
-      🚨 <strong>Paper Alert!</strong><br>
-      Thrilled to introduce <strong>AgentFlow</strong> — a <strong>trainable</strong>, <strong>tool-integrated agentic framework</strong> that <strong>directly optimizes agents within the system in an online fashion</strong> using
-  <strong>Flow-GRPO</strong> 🌀💫, achieving <strong>superior tool use</strong> 🛠 and <strong>long-horizon reasoning</strong> 🧠 across diverse domains.
-      <br><br>
-      📄 <a href="https://arxiv.org/abs/2510.05592" style="color: #ffd700;">Paper</a> |
-      💻 <a href="https://github.com/lupantech/AgentFlow" style="color: #ffd700;">Code</a> |
-      🌐 <a href="https://agentflow.stanford.edu" style="color: #ffd700;">Website</a>
-    </p>
-  </div>
+🚨 **Paper Alert!**
+Thrilled to introduce **AgentFlow** — a **trainable**, **tool-integrated agentic framework** that **directly optimizes agents within the system in an online fashion** using **Flow-GRPO** 🌀💫, achieving **superior tool use** 🛠 and **long-horizon reasoning** 🧠 across diverse domains.
+
+📄 [Paper](https://arxiv.org/abs/2510.05592) | 💻 [Code](https://github.com/lupantech/AgentFlow) | 🌐 [Website](https://agentflow.stanford.edu)
 
 
 [0]: https://www.tamu.edu/index.html
