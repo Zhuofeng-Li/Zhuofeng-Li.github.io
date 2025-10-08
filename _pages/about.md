@@ -40,7 +40,6 @@ Thrilled to introduce **AgentFlow** — a **trainable**, **tool-integrated agent
 
 📄 [Paper](https://arxiv.org/abs/2510.05592) | 💻 [Code](https://github.com/lupantech/AgentFlow) | 🌐 [Website](https://agentflow.stanford.edu)
 
-
 [0]: https://www.tamu.edu/index.html
 [1]: https://yuzhimanhua.github.io/
 [2]: https://yejinc.github.io/
