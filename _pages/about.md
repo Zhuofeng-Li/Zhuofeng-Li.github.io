@@ -33,7 +33,7 @@ My research lies in LLM/VLM-post training, including reasoning, alignment, evalu
 
 I am actively seeking research collaborations and intern opportunities in LLM/VLM post-training, reinforcement learning, agents, and other exciting directions.
 
-**Feel free to reach out me through zhuofengli12345@gmail.com**
+Feel free to reach out me through zhuofengli12345@gmail.com
 
 🚨 **Paper Alert!**
 Thrilled to introduce **AgentFlow** — a **trainable**, **tool-integrated agentic framework** that **directly optimizes agents within the system in an online fashion** using **Flow-GRPO** 🌀💫, achieving **superior tool use** 🛠 and **long-horizon reasoning** 🧠 across diverse domains.
