@@ -35,10 +35,9 @@ I am actively seeking research collaborations and intern opportunities in LLM/VL
 
 Feel free to reach out me through zhuofengli12345@gmail.com
 
-🚨 **Paper Alert!**
-Thrilled to introduce **AgentFlow** — a **trainable**, **tool-integrated agentic framework** that **directly optimizes agents within the system in an online fashion** using **Flow-GRPO** 🌀💫, achieving **superior tool use** 🛠 and **long-horizon reasoning** 🧠 across diverse domains.
 
-📄 [Paper](https://arxiv.org/abs/2510.05592) | 💻 [Code](https://github.com/lupantech/AgentFlow) | 🌐 [Website](https://agentflow.stanford.edu)
+
+
 
 [0]: https://www.tamu.edu/index.html
 [1]: https://yuzhimanhua.github.io/
