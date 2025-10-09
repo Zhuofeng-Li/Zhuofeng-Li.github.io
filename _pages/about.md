@@ -31,7 +31,7 @@ Hi there 👋. My name is Zhuofeng Li. I'm a CS Ph.D. student at [Texas A&M Univ
 
 My research lies in LLM/VLM-post training, including reasoning, alignment, evaluation, and applications. Recently, I am particularly focus on agentic reinforcement learning. As part of this direction, I as the core contributor build [VerlTool](https://github.com/TIGER-AI-Lab/verl-tool) (500+ stars), a unified and extensible framework for tool-agent RL training.
 
-I am actively seeking research collaborations and intern opportunities in LLM/VLM post-training, reinforcement learning, agents, and other exciting directions.
+🤝 **I am actively seeking research collaborations and intern opportunities in LLM/VLM post-training, reinforcement learning, agents, and other exciting directions.**
 
 **Feel free to reach out me through zhuofengli12345@gmail.com**
 
