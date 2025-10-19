@@ -29,7 +29,7 @@ announcements:
 
 Hi there 👋. My name is Zhuofeng Li. I'm a CS Ph.D. student at [Texas A&M University][0], advised by Prof. [Yu Zhang][1]. I am also a visiting student at [Stanford University][6] working with Prof. [Yejin Choi][2] and Prof. [James Zou][3]. Previously, I interned [TIGER-Lab][14] at University of Waterloo working with Prof. [Wenhu Chen][5].
 
-My research lies in LLM/VLM-post training, including reasoning, alignment, evaluation, and applications. Recently, I am particularly focus on agentic reinforcement learning. As part of this direction, I as a core contributor built [AgentFlow](https://agentflow.stanford.edu/) (700+⭐) and [VerlTool](https://github.com/TIGER-AI-Lab/verl-tool) (500+⭐) to push the boundaries of agentic reasoning.
+My research lies in LLM/VLM-post training, including reasoning, alignment, evaluation, and applications. Recently, I am particularly focus on agentic reinforcement learning. As part of this direction, I as a core contributor built [AgentFlow](https://agentflow.stanford.edu/) (800+⭐) and [VerlTool](https://github.com/TIGER-AI-Lab/verl-tool) (600+⭐) to push the boundaries of agentic reasoning.
 
 🤝 **I am actively seeking research collaborations and intern opportunities in LLM/VLM post-training, reinforcement learning, agents, and other exciting directions.**
 
