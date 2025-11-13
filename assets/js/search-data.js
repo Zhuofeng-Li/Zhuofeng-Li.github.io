@@ -412,7 +412,7 @@ ninja.data = [{
           section: "News",},{id: "news-thrilled-to-introduce-agentflow-a-trainable-tool-integrated-agentic-framework-that-directly-optimizes-agents-within-the-system-in-an-online-fashion-using-flow-grpo-achieving-superior-tool-use-and-long-horizon-reasoning-across-diverse-domains",
           title: '🚀 Thrilled to introduce AgentFlow — a trainable, tool-integrated agentic framework that directly...',
           description: "",
-          section: "News",},{id: "news-thrilled-to-announce-that-agentflow-has-been-accepted-to-neurips-2025-workshop-and-ranked-2-paper-of-the-day-on-hugging-face",
+          section: "News",},{id: "news-thrilled-to-announce-that-agentflow-has-been-accepted-to-neurips-2025-workshop-oral-top-3-and-ranked-2-paper-of-the-day-on-hugging-face",
           title: '🔥 Thrilled to announce that AgentFlow has been accepted to NeurIPS 2025 Workshop...',
           description: "",
           section: "News",},{id: "projects-project-1",
