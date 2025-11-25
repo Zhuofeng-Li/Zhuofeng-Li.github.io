@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🔥 Thrilled to announce that [AgentFlow](https://agentflow.stanford.edu) has been accepted to **NeurIPS 2025 Workshop Oral (Top-3)** — and ranked **#2 Paper of the Day on Hugging Face** 🤗!
+🔥 Thrilled to announce that [AgentFlow](https://agentflow.stanford.edu) has been accepted to **NeurIPS 2025 Workshop Oral (Top-3)** and ranked **#2 Paper of the Day on Hugging Face** 🤗!
