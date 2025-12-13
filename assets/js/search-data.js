@@ -45,17 +45,6 @@ ninja.data = [{
             window.location.href = "/blog/2024/photo-gallery/";
           
         },
-      },{id: "post-google-gemini-updates-flash-1-5-gemma-2-and-project-astra",
-        
-          title: 'Google Gemini updates: Flash 1.5, Gemma 2 and Project Astra <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
-        
-        description: "We’re sharing updates across our Gemini family of models and a glimpse of Project Astra, our vision for the future of AI assistants.",
-        section: "Posts",
-        handler: () => {
-          
-            window.open("https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/", "_blank");
-          
-        },
       },{id: "post-a-post-with-tabs",
         
           title: "a post with tabs",
@@ -276,17 +265,6 @@ ninja.data = [{
             window.location.href = "/blog/2022/giscus-comments/";
           
         },
-      },{id: "post-displaying-external-posts-on-your-al-folio-blog",
-        
-          title: 'Displaying External Posts on Your al-folio Blog <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
-        
-        description: "",
-        section: "Posts",
-        handler: () => {
-          
-            window.open("https://medium.com/@al-folio/displaying-external-posts-on-your-al-folio-blog-b60a1d241a0a?source=rss-17feae71c3c4------2", "_blank");
-          
-        },
       },{id: "post-a-post-with-redirect",
         
           title: "a post with redirect",
@@ -401,19 +379,25 @@ ninja.data = [{
           title: '🚀 Starting my CS PhD Journey at Teaxs A&amp;amp;amp;M University!',
           description: "",
           section: "News",},{id: "news-verltool-s-tech-report-co-first-author-is-out-please-see-on-hugging-face-daily-paper",
-          title: '🎉 VerlTool’s tech report (co-first author) is out! Please see on Hugging Face...',
+          title: 'VerlTool’s tech report (co-first author) is out! Please see on Hugging Face Daily...',
           description: "",
           section: "News",},{id: "news-verltool-is-approaching-550-stars-on-github-it-s-becoming-a-key-framework-for-tool-agent-rl-training",
           title: '🎉 VerlTool is approaching 550+ stars on GitHub! It’s becoming a key framework...',
           description: "",
           section: "News",},{id: "news-excited-to-share-videoscore2-bringing-rl-to-generative-video-evaluation-with-scoring-and-rich-reasoning-traces",
-          title: '🚀 Excited to share VideoScore2 — bringing RL to generative video evaluation with...',
+          title: 'Excited to share VideoScore2 — bringing RL to generative video evaluation with scoring...',
           description: "",
           section: "News",},{id: "news-thrilled-to-introduce-agentflow-a-trainable-tool-integrated-agentic-framework-that-directly-optimizes-agents-within-the-system-in-an-online-fashion-using-flow-grpo-achieving-superior-tool-use-and-long-horizon-reasoning-across-diverse-domains",
-          title: '🚀 Thrilled to introduce AgentFlow — a trainable, tool-integrated agentic framework that directly...',
+          title: 'Thrilled to introduce AgentFlow — a trainable, tool-integrated agentic framework that directly optimizes...',
           description: "",
           section: "News",},{id: "news-thrilled-to-announce-that-agentflow-has-been-accepted-to-neurips-2025-workshop-oral-top-3-and-ranked-2-paper-of-the-day-on-hugging-face",
-          title: '🔥 Thrilled to announce that AgentFlow has been accepted to NeurIPS 2025 Workshop...',
+          title: 'Thrilled to announce that AgentFlow has been accepted to NeurIPS 2025 Workshop Oral...',
+          description: "",
+          section: "News",},{id: "news-thrilled-to-share-that-structeval-has-been-acceptecd-to-tmlr",
+          title: '🔥 Thrilled to share that StructEval has been acceptecd to TMLR!',
+          description: "",
+          section: "News",},{id: "news-excited-that-agentflow-won-best-paper-runner-up-at-the-effective-reasoning-workshop",
+          title: '🏆 Excited that AgentFlow won Best Paper Runner-up at the Effective Reasoning Workshop!...',
           description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
