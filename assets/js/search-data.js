@@ -402,7 +402,7 @@ ninja.data = [{
           section: "News",},{id: "news-two-papers-accepted-at-iclr-2026-agentflow-oral-on-in-the-flow-agentic-system-optimization-and-imagenworld-on-stress-testing-image-generation-models",
           title: 'Two papers accepted at ICLR 2026: AgentFlow (Oral) on in-the-flow agentic system optimization,...',
           description: "",
-          section: "News",},{id: "news-new-we-ve-released-openresearcher-a-fully-open-state-of-the-art-deep-research-agent-30b-a3b-model-data-code-everything-is-open-try-it-now",
+          section: "News",},{id: "news-new-we-ve-released-openresearcher-a-fully-open-state-of-the-art-deep-research-agent-30b-a3b-model-data-code-everything-is-open-try-demo-now",
           title: '🚀 New! We’ve released OpenResearcher — a fully open, state-of-the-art deep research agent...',
           description: "",
           section: "News",},{id: "projects-project-1",
