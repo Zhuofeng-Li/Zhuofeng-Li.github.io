@@ -23,3 +23,13 @@ $max-content-width: {{ site.max_width }};
   "tabler-icons/tabler-icons-filled.scss",
   "tabler-icons/tabler-icons-outline.scss"
 ;
+
+// Custom utility classes
+.text-red {
+  color: #dc3545 !important;
+}
+
+.text-highlight {
+  color: #dc3545 !important;
+  font-weight: bold;
+}
