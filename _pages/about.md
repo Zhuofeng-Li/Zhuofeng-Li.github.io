@@ -29,12 +29,14 @@ announcements:
 
 Hi there 👋. My name is Zhuofeng Li. I'm a CS Ph.D. student at [Texas A&M University][0], advised by Prof. [Yu Zhang][1]. I am also a visiting student at [Stanford University][6] working with Prof. [Yejin Choi][2] and Prof. [James Zou][3]. Previously, I interned [TIGER-Lab][14] at University of Waterloo working with Prof. [Wenhu Chen][5].
 
-My research lies in LLM/VLM-post training, including reasoning, alignment, evaluation, and applications. Recently, I am particularly focus on agentic reinforcement learning. As part of this direction, I as a core contributor built [AgentFlow](https://agentflow.stanford.edu/) (ICLR 26 Oral & 1.6K+⭐) and [VerlTool](https://github.com/TIGER-AI-Lab/verl-tool) (850+⭐) to push the boundaries of agentic reasoning.
+My research lies in LLM/VLM-post training, including reasoning, alignment, evaluation, and applications. Recently, I am particularly focus on agentic reinforcement learning. 
 
-🤝 I am actively seeking **research collaborations** and **intern opportunities** in LLM/VLM post-training, reinforcement learning, agents, and other exciting directions. Feel Feel free to reach out me through **zhuofengli12345@gmail.com**
+As part of this direction, I lead / co-lead  [OpenResearcher](https://github.com/TIGER-AI-Lab/OpenResearcher) (Top 3 Trending Dataset on Hugging Face & 350+⭐) [AgentFlow](https://agentflow.stanford.edu/) (ICLR 26 Oral & 1.6K+⭐) and [VerlTool](https://github.com/TIGER-AI-Lab/verl-tool) (850+⭐) to push the boundaries of agentic reasoning.
+
+🤝 I am actively seeking **research collaborations** and **intern opportunities** in LLM/VLM post-training, reinforcement learning, agents, and other exciting directions. Feel Feel free to reach out me through **[zhuofengli12345@gmail.com](mailto:zhuofengli12345@gmail.com)**
 
 
-[Email](mailto:zhuofengli12345@gmail.com)  /  [Github](https://github.com/Zhuofeng-Li)  /  [Linkedin](https://www.linkedin.com/in/zhuofeng-li-6a528626a/) / [Twitter](https://x.com/intent/follow?screen_name=zhuofengli96475)  / [Google Scholar](https://scholar.google.com/citations?&user=V3ZBIT4AAAAJ)
+[Github](https://github.com/Zhuofeng-Li)  /  [Linkedin](https://www.linkedin.com/in/zhuofeng-li-6a528626a/) / [Twitter](https://x.com/intent/follow?screen_name=zhuofengli96475)  / [Google Scholar](https://scholar.google.com/citations?&user=V3ZBIT4AAAAJ) / [Email](mailto:zhuofengli12345@gmail.com)  / [WeChat](/assets/img/wechat_qr.jpg)
 
 [0]: https://www.tamu.edu/index.html
 [1]: https://yuzhimanhua.github.io/
