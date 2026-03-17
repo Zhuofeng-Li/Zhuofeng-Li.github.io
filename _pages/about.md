@@ -31,7 +31,7 @@ Hi there 👋. My name is Zhuofeng Li. I'm a CS Ph.D. student at [Texas A&M Univ
 
 My research lies in LLM/VLM-post training, including reasoning, alignment, evaluation, and applications. Recently, I am particularly focus on agentic reinforcement learning. 
 
-As part of this direction, I lead / co-lead  [OpenResearcher](https://github.com/TIGER-AI-Lab/OpenResearcher) (Top 3 Trending Dataset on Hugging Face & 350+⭐), [AgentFlow](https://agentflow.stanford.edu/) (ICLR 26 Oral & 1.6K+⭐) and [VerlTool](https://github.com/TIGER-AI-Lab/verl-tool) (850+⭐) to push the boundaries of agentic reasoning.
+As part of this direction, I lead / co-lead  [OpenResearcher](https://github.com/TIGER-AI-Lab/OpenResearcher) (Adopted by [NVIDIA’s Nemotron family of models](https://research.nvidia.com/labs/nemotron/projects/) & Top 3 Trending Dataset on Hugging Face & 400+⭐), [AgentFlow](https://agentflow.stanford.edu/) (ICLR 26 Oral & 1.6K+⭐) and [VerlTool](https://github.com/TIGER-AI-Lab/verl-tool) (850+⭐) to push the boundaries of agentic reasoning.
 
 🤝 I am actively seeking **research collaborations** and **intern opportunities** in LLM/VLM post-training, reinforcement learning, agents, and other exciting directions. Feel Feel free to reach out me through **[zhuofengli12345@gmail.com](mailto:zhuofengli12345@gmail.com)**
 
