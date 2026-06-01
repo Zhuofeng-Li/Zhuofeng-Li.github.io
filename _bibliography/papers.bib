@@ -2,24 +2,6 @@
 ---
 
 
-@inproceedings{li2026openresearcher,
-  title={OpenResearcher: A Fully Open Pipeline for Long-Horizon Deep Research Trajectory Synthesis},
-  author={Zhuofeng Li and Dongfu Jiang and Xueguang Ma and Haoxiang Zhang and Ping Nie and Yuyu Zhang and Kai Zou and Jianwen Xie and Yu Zhang and Wenhu Chen},
-  booktitle = {arxiv preprint},
-  month = Mar,
-  year = {2026},
-  arxiv = "2603.20278",
-  abstract = "Training deep research agents requires long-horizon trajectories that interleave search, evidence aggregation, and multi-step reasoning. However, existing data collection pipelines typically rely on proprietary web APIs, making large-scale trajectory synthesis costly, unstable, and difficult to reproduce. We present OpenResearcher, a reproducible pipeline that decouples one-time corpus bootstrapping from multi-turn trajectory synthesis and executes the search-and-browse loop entirely offline using three explicit browser primitives—search, open, and find—over a 15M-document corpus. Using GPT-OSS-120B as the teacher model, we synthesize over 97K trajectories, including a substantial long-horizon tail with 100+ tool calls. After supervised fine-tuning a 30B-A3B backbone, we achieve 54.8% accuracy on BrowseComp-Plus, a +34.0 point improvement over the base model, while remaining competitive on BrowseComp, GAIA, and xbench-DeepSearch. The offline, fully instrumented environment also enables controlled analysis, revealing practical insights into deep research pipeline design. We release the pipeline, synthesized trajectories, model checkpoints, and the offline search environment.",
-  preview={openresearcher.png},
-  github = "TIGER-AI-Lab/OpenResearcher",
-  huggingface="https://huggingface.co/OpenResearcher",
-  twitter="https://x.com/zhuofengli96475/status/2036475211063648414",
-  selected = true,
-  num_co_first_author = 5,
-  abbr={Arxiv},
-  bibtex_show={true}
-}
-
 @inproceedings{li2025agentflow,
   title={In-The-Flow Agentic System Optimization for Effective Planning and Tool Use},
   author={Zhuofeng Li and Haoxiang Zhang and Seungju Han and Sheng Liu and Jianwen Xie and Yu Zhang and Yejin Choi and James Zou and Pan Lu},
@@ -42,7 +24,7 @@
 @inproceedings{jiang2025verltool,
   title={VerlTool: Towards Holistic Agentic Reinforcement Learning with Tool Use},
   author={Dongfu Jiang and Yi Lu and Zhuofeng Li and Zhiheng Lyu and Ping Nie and Haozhe Wang and Alex Su and Hui Chen and Kai Zou and Chao Du and Tianyu Pang and Wenhu Chen},
-  booktitle = {ICLR 2026 Workshop Best Paper},
+  booktitle = {ICLR 2026 SPOT Best Paper},
   month = Sep,
   year = {2025},
   arxiv = "2509.01055",
@@ -53,9 +35,43 @@
   twitter="https://x.com/zhuofengli96475/status/1963216180438814901",
   selected = true,
   num_co_first_author = 4,
-  abbr={ICLR 2026 Workshop Best Paper},
+  abbr={ICLR 2026 SPOT Best Paper},
   bibtex_show={true}
 }
+
+@inproceedings{li2026dci,
+  title={Beyond Semantic Similarity: Rethinking Retrieval for Agentic Search via Direct Corpus Interaction},
+  author={Zhuofeng Li and Haoxiang Zhang and Cong Wei and Pan Lu and Ping Nie and Yi Lu and Yuyang Bai and Shangbin Feng and Hangxiao Zhu and Ming Zhong and Yuyu Zhang and Jianwen Xie and Yejin Choi and James Zou and Jiawei Han and Wenhu Chen and Jimmy Lin and Dongfu Jiang and Yu Zhang},
+  booktitle = {arxiv preprint},
+  month = May,
+  year = {2026},
+  arxiv = "2605.05242",
+  abstract = "Modern retrieval systems, whether lexical or semantic, expose a corpus through a fixed similarity interface that compresses access into a single top-k retrieval step before reasoning. This abstraction is efficient, but for agentic search, it becomes a bottleneck: exact lexical constraints, sparse clue conjunctions, local context checks, and multi-step hypothesis refinement are difficult to implement by calling a conventional off-the-shelf retriever, and evidence filtered out early cannot be recovered by stronger downstream reasoning. Agentic tasks further exacerbate this limitation because they require agents to orchestrate multiple steps, including discovering intermediate entities, combining weak clues, and revising the plan after observing partial evidence. To tackle the limitation, we study direct corpus interaction (DCI), where an agent searches the raw corpus directly with general-purpose terminal tools (e.g., grep, file reads, shell commands, lightweight scripts), without any embedding model, vector index, or retrieval API. This approach requires no offline indexing and adapts naturally to evolving local corpora. Across IR benchmarks and end-to-end agentic search tasks, this simple setup substantially outperforms strong sparse, dense, and reranking baselines on several BRIGHT and BEIR datasets, and attains strong accuracy on BrowseComp-Plus and multi-hop QA without relying on any conventional semantic retriever. Our results indicate that as language agents become stronger, retrieval quality depends not only on reasoning ability but also on the resolution of the interface through which the model interacts with the corpus, with which DCI opens a broader interface-design space for agentic search.",
+  preview={dci.png},
+  selected = true,
+  abbr={Arxiv},
+  bibtex_show={true}
+}
+
+@inproceedings{li2026openresearcher,
+  title={OpenResearcher: A Fully Open Pipeline for Long-Horizon Deep Research Trajectory Synthesis},
+  author={Zhuofeng Li and Dongfu Jiang and Xueguang Ma and Haoxiang Zhang and Ping Nie and Yuyu Zhang and Kai Zou and Jianwen Xie and Yu Zhang and Wenhu Chen},
+  booktitle = {arxiv preprint},
+  month = Mar,
+  year = {2026},
+  arxiv = "2603.20278",
+  abstract = "Training deep research agents requires long-horizon trajectories that interleave search, evidence aggregation, and multi-step reasoning. However, existing data collection pipelines typically rely on proprietary web APIs, making large-scale trajectory synthesis costly, unstable, and difficult to reproduce. We present OpenResearcher, a reproducible pipeline that decouples one-time corpus bootstrapping from multi-turn trajectory synthesis and executes the search-and-browse loop entirely offline using three explicit browser primitives—search, open, and find—over a 15M-document corpus. Using GPT-OSS-120B as the teacher model, we synthesize over 97K trajectories, including a substantial long-horizon tail with 100+ tool calls. After supervised fine-tuning a 30B-A3B backbone, we achieve 54.8% accuracy on BrowseComp-Plus, a +34.0 point improvement over the base model, while remaining competitive on BrowseComp, GAIA, and xbench-DeepSearch. The offline, fully instrumented environment also enables controlled analysis, revealing practical insights into deep research pipeline design. We release the pipeline, synthesized trajectories, model checkpoints, and the offline search environment.",
+  preview={openresearcher.png},
+  github = "TIGER-AI-Lab/OpenResearcher",
+  huggingface="https://huggingface.co/OpenResearcher",
+  twitter="https://x.com/zhuofengli96475/status/2036475211063648414",
+  selected = true,
+  num_co_first_author = 5,
+  abbr={Arxiv},
+  bibtex_show={true}
+}
+
+
 
 @inproceedings{li2026reviewgrounder,
   title={ReviewGrounder: Improving Review Substantiveness with Rubric-Guided, Tool-Integrated Agents},
