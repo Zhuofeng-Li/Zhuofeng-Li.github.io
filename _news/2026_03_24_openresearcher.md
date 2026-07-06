@@ -5,7 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🔥  <span class="text-highlight">New!</span> **OpenResearcher [paper](https://arxiv.org/abs/2603.20278) is now available**, highlighting practical insights into deep research pipeline design. Already adopted by **NVIDIA's Nemotron family of models**!
-
-
-
+🔥 <span class="text-highlight">New!</span> **OpenResearcher [paper](https://arxiv.org/abs/2603.20278) is now available**, highlighting practical insights into deep research pipeline design. Already adopted by **NVIDIA's Nemotron family of models**!

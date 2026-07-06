@@ -29,14 +29,13 @@ announcements:
 
 Hi there 👋. My name is Zhuofeng Li. I'm a CS Ph.D. student at [Texas A&M University][0], advised by Prof. [Yu Zhang][1]. I am also a visiting student at [Stanford University][6] working with Prof. [Yejin Choi][2] and Prof. [James Zou][3]. Previously, I interned [TIGER-Lab][14] at University of Waterloo working with Prof. [Wenhu Chen][5].
 
-My research lies in large-scale post-training and RL, including agents, reasoning, alignment, evaluation, and applications. Recently, I am particularly focus on agentic RL. 
+My research lies in large-scale post-training and RL, including agents, reasoning, alignment, evaluation, and applications. Recently, I am particularly focus on agentic RL.
 
-As part of this direction, I lead / co-lead  [AgentFlow](https://agentflow.stanford.edu/) (ICLR 26 Oral & 1.9K+⭐), [VerlTool](https://github.com/TIGER-AI-Lab/verl-tool) (ICLR 26 SPOT Best Paper & 950+⭐), [OpenResearcher](https://github.com/TIGER-AI-Lab/OpenResearcher) (Adopted by [NVIDIA’s Nemotron family of models](https://research.nvidia.com/labs/nemotron/projects/) & Top 3 Trending Dataset on Hugging Face & 700+⭐) to push the boundaries of agentic reasoning.
+As part of this direction, I lead / co-lead [AgentFlow](https://agentflow.stanford.edu/) (ICLR 26 Oral & 1.9K+⭐), [VerlTool](https://github.com/TIGER-AI-Lab/verl-tool) (ICLR 26 SPOT Best Paper & 950+⭐), [OpenResearcher](https://github.com/TIGER-AI-Lab/OpenResearcher) (Adopted by [NVIDIA’s Nemotron family of models](https://research.nvidia.com/labs/nemotron/projects/) & Top 3 Trending Dataset on Hugging Face & 700+⭐) to push the boundaries of agentic reasoning.
 
 🤝 I am actively seeking **research collaborations** and **intern opportunities** in LLM/VLM post-training, reinforcement learning, agents, and other exciting directions. Feel Feel free to reach out me through **[zhuofengli12345@gmail.com](mailto:zhuofengli12345@gmail.com)**
 
-
-[Github](https://github.com/Zhuofeng-Li)  /  [Linkedin](https://www.linkedin.com/in/zhuofeng-li-6a528626a/) / [Twitter](https://x.com/intent/follow?screen_name=zhuofengli96475)  / [Google Scholar](https://scholar.google.com/citations?&user=V3ZBIT4AAAAJ) / [Email](mailto:zhuofengli12345@gmail.com)  / [WeChat](/assets/img/wechat_qr.jpg)
+[Github](https://github.com/Zhuofeng-Li) / [Linkedin](https://www.linkedin.com/in/zhuofeng-li-6a528626a/) / [Twitter](https://x.com/intent/follow?screen_name=zhuofengli96475) / [Google Scholar](https://scholar.google.com/citations?&user=V3ZBIT4AAAAJ) / [Email](mailto:zhuofengli12345@gmail.com) / [WeChat](/assets/img/wechat_qr.jpg)
 
 [0]: https://www.tamu.edu/index.html
 [1]: https://yuzhimanhua.github.io/
