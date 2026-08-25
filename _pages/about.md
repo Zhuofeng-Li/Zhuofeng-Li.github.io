@@ -31,9 +31,11 @@ Hi there 👋. My name is Zhuofeng Li. I'm a CS Ph.D. student at [Texas A&M Univ
 
 My research lies in large-scale post-training and RL, including agents, reasoning, alignment, evaluation, and applications. Recently, I am particularly focus on agentic RL.
 
+
+
 As part of this direction, I lead / co-lead [AgentFlow](https://agentflow.stanford.edu/) (ICLR 26 Oral & 1.9K+⭐), [VerlTool](https://github.com/TIGER-AI-Lab/verl-tool) (ICLR 26 SPOT Best Paper & 950+⭐), [OpenResearcher](https://github.com/TIGER-AI-Lab/OpenResearcher) (Adopted by [NVIDIA’s Nemotron family of models](https://research.nvidia.com/labs/nemotron/projects/) & Top 3 Trending Dataset on Hugging Face & 700+⭐) to push the boundaries of agentic reasoning.
 
-🤝 I am actively seeking **research collaborations** and **intern opportunities** in LLM/VLM post-training, reinforcement learning, agents, and other exciting directions. Feel Feel free to reach out me through **[zhuofengli12345@gmail.com](mailto:zhuofengli12345@gmail.com)**
+<p style="color: #dc3545;"><strong>I am actively looking for Internship and Full-Time opportunities! Feel free to reach out me through **[zhuofengli12345@gmail.com](mailto:zhuofengli12345@gmail.com)**</strong></p>
 
 [Github](https://github.com/Zhuofeng-Li) / [Linkedin](https://www.linkedin.com/in/zhuofeng-li-6a528626a/) / [Twitter](https://x.com/intent/follow?screen_name=zhuofengli96475) / [Google Scholar](https://scholar.google.com/citations?&user=V3ZBIT4AAAAJ) / [Email](mailto:zhuofengli12345@gmail.com) / [WeChat](/assets/img/wechat_qr.jpg)
 
