@@ -1,6 +1,66 @@
 ---
 ---
+@inproceedings{li2026dci,
+  title={Beyond Semantic Similarity: Rethinking Retrieval for Agentic Search via Direct Corpus Interaction},
+  author={Zhuofeng Li and Haoxiang Zhang and Cong Wei and Pan Lu and Ping Nie and Yi Lu and Yuyang Bai and Shangbin Feng and Hangxiao Zhu and Ming Zhong and Yuyu Zhang and Jianwen Xie and Yejin Choi and James Zou and Jiawei Han and Wenhu Chen and Jimmy Lin and Dongfu Jiang and Yu Zhang},
+  booktitle = {arxiv preprint},
+  month = May,
+  year = {2026},
+  arxiv = "2605.05242",
+  abstract = "Modern retrieval systems, whether lexical or semantic, expose a corpus through a fixed similarity interface that compresses access into a single top-k retrieval step before reasoning. This abstraction is efficient, but for agentic search, it becomes a bottleneck: exact lexical constraints, sparse clue conjunctions, local context checks, and multi-step hypothesis refinement are difficult to implement by calling a conventional off-the-shelf retriever, and evidence filtered out early cannot be recovered by stronger downstream reasoning. Agentic tasks further exacerbate this limitation because they require agents to orchestrate multiple steps, including discovering intermediate entities, combining weak clues, and revising the plan after observing partial evidence. To tackle the limitation, we study direct corpus interaction (DCI), where an agent searches the raw corpus directly with general-purpose terminal tools (e.g., grep, file reads, shell commands, lightweight scripts), without any embedding model, vector index, or retrieval API. This approach requires no offline indexing and adapts naturally to evolving local corpora. Across IR benchmarks and end-to-end agentic search tasks, this simple setup substantially outperforms strong sparse, dense, and reranking baselines on several BRIGHT and BEIR datasets, and attains strong accuracy on BrowseComp-Plus and multi-hop QA without relying on any conventional semantic retriever. Our results indicate that as language agents become stronger, retrieval quality depends not only on reasoning ability but also on the resolution of the interface through which the model interacts with the corpus, with which DCI opens a broader interface-design space for agentic search.",
+  preview={dci.png},
+  selected = true,
+  abbr={Arxiv},
+  bibtex_show={true}
+}
 
+@inproceedings{zhang2026masking,
+  title={Masking Stale Observations Helps Search Agents -- Until It Doesn't: A Regime Map and Its Mechanism},
+  author={Haoxiang Zhang and Qixin Xu and Zhuofeng Li and Lei Zhang and Pengcheng Jiang and Yu Zhang and Julian McAuley},
+  booktitle = {arxiv preprint},
+  month = May,
+  year = {2026},
+  arxiv = "2606.00408",
+  abstract = "Masking stale observations improves context efficiency in long-horizon search agents, but its benefits are not universal. Through extensive testing across model sizes (4B to 284B parameters) and retriever systems, we find that performance gains follow an inverted-U pattern: benefits plateau with weak retrievers, peak when strong retrievers pair with mid-sized models, and decline sharply as models reach saturation. We show that masking trades tokens for additional turns, removing observations receiving minimal attention and rarely-revisited pages. This approach succeeds by converting failures to successes but fails when discarding evidence the model could have leveraged. Our results indicate that effective context management depends on specific operational conditions rather than universal applicability, offering guidance for optimizing agentic deep search systems.",
+  num_co_first_author = 3,
+  abbr={EMNLP 2026},
+  bibtex_show={true}
+}
+
+@inproceedings{li2026openresearcher,
+  title={OpenResearcher: A Fully Open Pipeline for Long-Horizon Deep Research Trajectory Synthesis},
+  author={Zhuofeng Li and Dongfu Jiang and Xueguang Ma and Haoxiang Zhang and Ping Nie and Yuyu Zhang and Kai Zou and Jianwen Xie and Yu Zhang and Wenhu Chen},
+  booktitle = {arxiv preprint},
+  month = Mar,
+  year = {2026},
+  arxiv = "2603.20278",
+  abstract = "Training deep research agents requires long-horizon trajectories that interleave search, evidence aggregation, and multi-step reasoning. However, existing data collection pipelines typically rely on proprietary web APIs, making large-scale trajectory synthesis costly, unstable, and difficult to reproduce. We present OpenResearcher, a reproducible pipeline that decouples one-time corpus bootstrapping from multi-turn trajectory synthesis and executes the search-and-browse loop entirely offline using three explicit browser primitives—search, open, and find—over a 15M-document corpus. Using GPT-OSS-120B as the teacher model, we synthesize over 97K trajectories, including a substantial long-horizon tail with 100+ tool calls. After supervised fine-tuning a 30B-A3B backbone, we achieve 54.8% accuracy on BrowseComp-Plus, a +34.0 point improvement over the base model, while remaining competitive on BrowseComp, GAIA, and xbench-DeepSearch. The offline, fully instrumented environment also enables controlled analysis, revealing practical insights into deep research pipeline design. We release the pipeline, synthesized trajectories, model checkpoints, and the offline search environment.",
+  preview={openresearcher.png},
+  github = "TIGER-AI-Lab/OpenResearcher",
+  huggingface="https://huggingface.co/OpenResearcher",
+  twitter="https://x.com/zhuofengli96475/status/2036475211063648414",
+  selected = true,
+  num_co_first_author = 2,
+  abbr={EMNLP 2026},
+  bibtex_show={true}
+}
+
+
+
+@inproceedings{li2026reviewgrounder,
+  title={ReviewGrounder: Improving Review Substantiveness with Rubric-Guided, Tool-Integrated Agents},
+  author={Zhuofeng Li and Yi Lu and Dongfu Jiang and Haoxiang Zhang and Yuyang Bai and Chuan Li and Yu Wang and Shuiwang Ji and Jianwen Xie and Yu Zhang},
+  booktitle = {ACL 2026},
+  month = Apr,
+  year = {2026},
+  arxiv = "2604.14261",
+  abstract = "The rapid rise in AI conference submissions has driven increasing exploration of large language models (LLMs) for peer review support. However, LLM-based reviewers often generate superficial, formulaic comments lacking substantive, evidence-grounded feedback. We attribute this to the underutilization of two key components of human reviewing: explicit rubrics and contextual grounding in existing work. To address this, we introduce REVIEWBENCH, a benchmark evaluating review text according to paper-specific rubrics derived from official guidelines, the paper's content, and human-written reviews. We further propose REVIEWGROUNDER, a rubric-guided, tool-integrated multi-agent framework that decomposes reviewing into drafting and grounding stages, enriching shallow drafts via targeted evidence consolidation. Experiments on REVIEWBENCH show that REVIEWGROUNDER, using a Phi-4-14B-based drafter and a GPT-OSS-120B-based grounding stage, consistently outperforms baselines with substantially stronger/larger backbones (e.g., GPT-4.1 and DeepSeek-R1-670B) in both alignment with human judgments and rubric-based review quality across 8 dimensions.",
+  preview={reviewgrounder.png},
+  selected = true,
+  num_co_first_author = 2,
+  abbr={ACL 2026},
+  bibtex_show={true}
+}
 
 @inproceedings{li2025agentflow,
   title={In-The-Flow Agentic System Optimization for Effective Planning and Tool Use},
@@ -38,56 +98,6 @@
   abbr={ICLR 2026 SPOT Best Paper},
   bibtex_show={true}
 }
-
-@inproceedings{li2026dci,
-  title={Beyond Semantic Similarity: Rethinking Retrieval for Agentic Search via Direct Corpus Interaction},
-  author={Zhuofeng Li and Haoxiang Zhang and Cong Wei and Pan Lu and Ping Nie and Yi Lu and Yuyang Bai and Shangbin Feng and Hangxiao Zhu and Ming Zhong and Yuyu Zhang and Jianwen Xie and Yejin Choi and James Zou and Jiawei Han and Wenhu Chen and Jimmy Lin and Dongfu Jiang and Yu Zhang},
-  booktitle = {arxiv preprint},
-  month = May,
-  year = {2026},
-  arxiv = "2605.05242",
-  abstract = "Modern retrieval systems, whether lexical or semantic, expose a corpus through a fixed similarity interface that compresses access into a single top-k retrieval step before reasoning. This abstraction is efficient, but for agentic search, it becomes a bottleneck: exact lexical constraints, sparse clue conjunctions, local context checks, and multi-step hypothesis refinement are difficult to implement by calling a conventional off-the-shelf retriever, and evidence filtered out early cannot be recovered by stronger downstream reasoning. Agentic tasks further exacerbate this limitation because they require agents to orchestrate multiple steps, including discovering intermediate entities, combining weak clues, and revising the plan after observing partial evidence. To tackle the limitation, we study direct corpus interaction (DCI), where an agent searches the raw corpus directly with general-purpose terminal tools (e.g., grep, file reads, shell commands, lightweight scripts), without any embedding model, vector index, or retrieval API. This approach requires no offline indexing and adapts naturally to evolving local corpora. Across IR benchmarks and end-to-end agentic search tasks, this simple setup substantially outperforms strong sparse, dense, and reranking baselines on several BRIGHT and BEIR datasets, and attains strong accuracy on BrowseComp-Plus and multi-hop QA without relying on any conventional semantic retriever. Our results indicate that as language agents become stronger, retrieval quality depends not only on reasoning ability but also on the resolution of the interface through which the model interacts with the corpus, with which DCI opens a broader interface-design space for agentic search.",
-  preview={dci.png},
-  selected = true,
-  abbr={Arxiv},
-  bibtex_show={true}
-}
-
-@inproceedings{li2026openresearcher,
-  title={OpenResearcher: A Fully Open Pipeline for Long-Horizon Deep Research Trajectory Synthesis},
-  author={Zhuofeng Li and Dongfu Jiang and Xueguang Ma and Haoxiang Zhang and Ping Nie and Yuyu Zhang and Kai Zou and Jianwen Xie and Yu Zhang and Wenhu Chen},
-  booktitle = {arxiv preprint},
-  month = Mar,
-  year = {2026},
-  arxiv = "2603.20278",
-  abstract = "Training deep research agents requires long-horizon trajectories that interleave search, evidence aggregation, and multi-step reasoning. However, existing data collection pipelines typically rely on proprietary web APIs, making large-scale trajectory synthesis costly, unstable, and difficult to reproduce. We present OpenResearcher, a reproducible pipeline that decouples one-time corpus bootstrapping from multi-turn trajectory synthesis and executes the search-and-browse loop entirely offline using three explicit browser primitives—search, open, and find—over a 15M-document corpus. Using GPT-OSS-120B as the teacher model, we synthesize over 97K trajectories, including a substantial long-horizon tail with 100+ tool calls. After supervised fine-tuning a 30B-A3B backbone, we achieve 54.8% accuracy on BrowseComp-Plus, a +34.0 point improvement over the base model, while remaining competitive on BrowseComp, GAIA, and xbench-DeepSearch. The offline, fully instrumented environment also enables controlled analysis, revealing practical insights into deep research pipeline design. We release the pipeline, synthesized trajectories, model checkpoints, and the offline search environment.",
-  preview={openresearcher.png},
-  github = "TIGER-AI-Lab/OpenResearcher",
-  huggingface="https://huggingface.co/OpenResearcher",
-  twitter="https://x.com/zhuofengli96475/status/2036475211063648414",
-  selected = true,
-  num_co_first_author = 5,
-  abbr={Arxiv},
-  bibtex_show={true}
-}
-
-
-
-@inproceedings{li2026reviewgrounder,
-  title={ReviewGrounder: Improving Review Substantiveness with Rubric-Guided, Tool-Integrated Agents},
-  author={Zhuofeng Li and Yi Lu and Dongfu Jiang and Haoxiang Zhang and Yuyang Bai and Chuan Li and Yu Wang and Shuiwang Ji and Jianwen Xie and Yu Zhang},
-  booktitle = {ACL 2026},
-  month = Apr,
-  year = {2026},
-  arxiv = "2604.14261",
-  abstract = "The rapid rise in AI conference submissions has driven increasing exploration of large language models (LLMs) for peer review support. However, LLM-based reviewers often generate superficial, formulaic comments lacking substantive, evidence-grounded feedback. We attribute this to the underutilization of two key components of human reviewing: explicit rubrics and contextual grounding in existing work. To address this, we introduce REVIEWBENCH, a benchmark evaluating review text according to paper-specific rubrics derived from official guidelines, the paper's content, and human-written reviews. We further propose REVIEWGROUNDER, a rubric-guided, tool-integrated multi-agent framework that decomposes reviewing into drafting and grounding stages, enriching shallow drafts via targeted evidence consolidation. Experiments on REVIEWBENCH show that REVIEWGROUNDER, using a Phi-4-14B-based drafter and a GPT-OSS-120B-based grounding stage, consistently outperforms baselines with substantially stronger/larger backbones (e.g., GPT-4.1 and DeepSeek-R1-670B) in both alignment with human judgments and rubric-based review quality across 8 dimensions.",
-  preview={reviewgrounder.png},
-  selected = true,
-  num_co_first_author = 2,
-  abbr={ACL 2026},
-  bibtex_show={true}
-}
-
 
 @inproceedings{lin2025gref,
   title={GReF: A Unified Generative Framework for Efficient Reranking via Ordered Multi-token Prediction},
