@@ -409,7 +409,7 @@ ninja.data = [{
           title: 'OpenResearcher paper is now available, highlighting practical insights into deep research pipeline design....',
           description: "",
           section: "News",},{id: "news-new-two-papers-accepted-at-emnlp-2026",
-          title: '🔥 New!  Two papers accepted at EMNLP 2026!',
+          title: '🔥 New! Two papers accepted at EMNLP 2026!',
           description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
