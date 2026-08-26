@@ -33,7 +33,7 @@ My research lies in large-scale post-training and RL, including agents, reasonin
 
 As part of this direction, I lead / co-lead [AgentFlow](https://agentflow.stanford.edu/) (ICLR 26 Oral & 1.9K+⭐), [VerlTool](https://github.com/TIGER-AI-Lab/verl-tool) (ICLR 26 SPOT Best Paper & 950+⭐), [OpenResearcher](https://github.com/TIGER-AI-Lab/OpenResearcher) (Adopted by [NVIDIA’s Nemotron family of models](https://research.nvidia.com/labs/nemotron/projects/) & Top 3 Trending Dataset on Hugging Face & 700+⭐) to push the boundaries of agentic reasoning.
 
-<p style="color: #dc3545;"><strong>I am actively looking for Internship and Full-Time opportunities! Feel free to reach out me through **[zhuofengli12345@gmail.com](mailto:zhuofengli12345@gmail.com)**</strong></p>
+<p style="color: #dc3545;"><strong>I am actively looking for Internship and Full-Time opportunities! Feel free to reach out to me through <a href="mailto:zhuofengli12345@gmail.com">zhuofengli12345@gmail.com</a>.</strong></p>
 
 [Github](https://github.com/Zhuofeng-Li) / [Linkedin](https://www.linkedin.com/in/zhuofeng-li-6a528626a/) / [Twitter](https://x.com/intent/follow?screen_name=zhuofengli96475) / [Google Scholar](https://scholar.google.com/citations?&user=V3ZBIT4AAAAJ) / [Email](mailto:zhuofengli12345@gmail.com) / [WeChat](/assets/img/wechat_qr.jpg)
 
