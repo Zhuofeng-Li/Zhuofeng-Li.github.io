@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='https://deepmind.google/'>Google DeepMind</a>; <a href='https://www.stanford.edu/'>Stanford University</a>; <a href='https://www.tamu.edu/index.html'>Texas A&M University</a>;
+subtitle: <a href='https://www.tamu.edu/index.html'>Texas A&M University</a>; <a href='https://www.stanford.edu/'>Stanford University</a>;
 
 profile:
   align: right
