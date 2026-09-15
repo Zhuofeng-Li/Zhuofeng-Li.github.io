@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='https://www.tamu.edu/index.html'>Texas A&M University</a>; <a href='https://www.stanford.edu/'>Stanford University</a>;
+subtitle: <a href='https://deepmind.google/'>Google DeepMind</a>; <a href='https://www.stanford.edu/'>Stanford University</a>; <a href='https://www.tamu.edu/index.html'>Texas A&M University</a>;
 
 profile:
   align: right
@@ -27,9 +27,9 @@ announcements:
 #   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hi there 👋. My name is Zhuofeng Li. I'm a CS Ph.D. student at [Texas A&M University][0], advised by Prof. [Yu Zhang][1]. I was also a visiting student at [Stanford University][6] working with Prof. [Yejin Choi][2] and Prof. [James Zou][3]. Previously, I interned [TIGER-Lab][14] at University of Waterloo working with Prof. [Wenhu Chen][5].
+Hi there 👋. My name is Zhuofeng Li. I am a student researcher at [Google DeepMind](https://deepmind.google/) and a CS Ph.D. student at [Texas A&M University][0], advised by Prof. [Yu Zhang][1]. I was also a visiting student at [Stanford University][6] working with Prof. [Yejin Choi][2] and Prof. [James Zou][3]. Previously, I interned [TIGER-Lab][14] at University of Waterloo working with Prof. [Wenhu Chen][5].
 
-My research lies in large-scale post-training and RL, including agents, reasoning, alignment, evaluation, and applications. Recently, I am particularly focus on agentic RL.
+My research lies in large-scale post-training and RL, including agents, reasoning, agentic, alignment, evaluation, and applications. Recently, I am particularly focus on recursive self-improvement (RSI).
 
 As part of this direction, I lead / co-lead [AgentFlow](https://agentflow.stanford.edu/) (ICLR 26 Oral & 1.9K+⭐), [VerlTool](https://github.com/TIGER-AI-Lab/verl-tool) (ICLR 26 SPOT Best Paper & 950+⭐), [OpenResearcher](https://github.com/TIGER-AI-Lab/OpenResearcher) (Adopted by [NVIDIA’s Nemotron family of models](https://research.nvidia.com/labs/nemotron/projects/) & Top 3 Trending Dataset on Hugging Face & 700+⭐) to push the boundaries of agentic reasoning.
 
