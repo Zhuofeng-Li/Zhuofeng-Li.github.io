@@ -31,7 +31,7 @@ Hi there 👋. My name is Zhuofeng Li. I am a student researcher at [Google Deep
 
 My research lies in large-scale post-training and RL, including agents, reasoning, agentic, alignment, evaluation, and applications. Recently, I am particularly focus on recursive self-improvement (RSI).
 
-As part of this direction, I lead / co-lead [AgentFlow](https://agentflow.stanford.edu/) (ICLR 26 Oral & 1.9K+⭐), [VerlTool](https://github.com/TIGER-AI-Lab/verl-tool) (ICLR 26 SPOT Best Paper & 950+⭐), [OpenResearcher](https://github.com/TIGER-AI-Lab/OpenResearcher) (Adopted by [NVIDIA’s Nemotron family of models](https://research.nvidia.com/labs/nemotron/projects/) & Top 3 Trending Dataset on Hugging Face & 700+⭐) to push the boundaries of agentic reasoning.
+As part of this direction, I lead / co-lead [OpenRSI-Index](https://github.com/OpenRSI-Foundation/OpenRSI-Index), [AgentFlow](https://agentflow.stanford.edu/) (ICLR 26 Oral & 1.9K+⭐), [VerlTool](https://github.com/TIGER-AI-Lab/verl-tool) (ICLR 26 SPOT Best Paper & 950+⭐), [OpenResearcher](https://github.com/TIGER-AI-Lab/OpenResearcher) (Adopted by [NVIDIA’s Nemotron family of models](https://research.nvidia.com/labs/nemotron/projects/) & Top 3 Trending Dataset on Hugging Face & 700+⭐) to push the boundaries of agentic reasoning.
 
 <p style="color: #dc3545;"><strong>I am actively looking for Internship and Full-Time opportunities! Feel free to reach out to me through <a href="mailto:zhuofengli12345@gmail.com">zhuofengli12345@gmail.com</a>.</strong></p>
 
