@@ -1,6 +1,10 @@
 "li":
   - firstname: ["Yuetai"]
     url: https://yuetl9.github.io/
+  - firstname: ["Cara"]
+    url: https://www.linkedin.com/in/carali7769/
+  - firstname: ["Hanchen"]
+    url: https://hanchenli.github.io/
 
 "feng":
   - firstname: ["Yichen"]
@@ -9,6 +13,8 @@
 "han":
   - firstname: ["Xinyang"]
     url: https://davidhanx.github.io/
+  - firstname: ["Rilyn"]
+    url: https://rilynhan.com/
 
 "chai":
   - firstname: ["Wenhao"]
@@ -33,7 +39,6 @@
 "bach":
   - firstname: ["Johann Sebastian", "J. S."]
     url: https://en.wikipedia.org/wiki/Johann_Sebastian_Bach
-
   - firstname: ["Carl Philipp Emanuel", "C. P. E."]
     url: https://en.wikipedia.org/wiki/Carl_Philipp_Emanuel_Bach
 
@@ -52,3 +57,181 @@
 "planck":
   - firstname: ["Max"]
     url: https://en.wikipedia.org/wiki/Max_Planck
+
+"chen":
+  - firstname: ["Nuo"]
+    url: https://nuojohnchen.github.io/
+  - firstname: ["Wenhu"]
+    url: https://wenhuchen.github.io/
+
+"cui":
+  - firstname: ["Zhi-Hao"]
+    url: https://www.zhcui.com/
+
+"gu":
+  - firstname: ["Shangding"]
+    url: https://scholar.google.com/citations?user=E1GCDXUAAAAJ
+
+"hu":
+  - firstname: ["Zhengyu"]
+    url: https://dblp.org/pid/270/4119.html
+
+"hua":
+  - firstname: ["Hang"]
+    url: https://hanghuacs.notion.site/
+
+"huang":
+  - firstname: ["Yue"]
+    url: https://howiehwong.github.io/
+
+"jiang":
+  - firstname: ["Fengqing"]
+    url: https://fqjiang.work/
+
+"liang":
+  - firstname: ["Shujia"]
+    url: https://www.linkedin.com/in/shujia-liang/
+
+"liu":
+  - firstname: ["Xiang"]
+    url: https://scholar.google.com/citations?user=Dj9s3oEAAAAJ
+
+"lu":
+  - firstname: ["Pan"]
+    url: https://lupantech.github.io/
+  - firstname: ["Hanqing"]
+    url: https://hanqinglu.github.io/
+
+"lyu":
+  - firstname: ["Bohan"]
+    url: https://bohanlyu.com/
+
+"ma":
+  - firstname: ["Zixian"]
+    url: https://zixianma.github.io/
+
+"mang":
+  - firstname: ["Qiuyang"]
+    url: https://joyemang33.github.io/
+
+"shao":
+  - firstname: ["Rulin"]
+    url: https://rulinshao.github.io/
+
+"srinivasan":
+  - firstname: ["Venkat"]
+    url: https://huggingface.co/venkat-srinivasan-nvidia
+
+"sun":
+  - firstname: ["Yiyou"]
+    url: https://sunyiyou.github.io/
+  - firstname: ["Huan"]
+    url: https://u.osu.edu/ihudas/
+
+"wang":
+  - firstname: ["Guan"]
+    url: https://scholar.google.com/citations?user=cIRPBeYAAAAJ&hl=en
+  - firstname: ["Ning"]
+    url: https://www.linkedin.com/in/nwangucla/
+
+"wu":
+  - firstname: ["Yangzhen"]
+    url: https://x.com/yangzhen04
+
+"xie":
+  - firstname: ["Jian"]
+    url: https://hsaest.github.io/
+
+"xu":
+  - firstname: ["Zhangchen"]
+    url: https://zhangchenxu.com/
+
+"yu":
+  - firstname: ["Brian"]
+    url: https://github.com/bri25yu
+
+"zhang":
+  - firstname: ["Gaoyuan"]
+    url: https://mitibm.mit.edu/people/gaoyuan-zhang/
+  - firstname: ["Qizheng"]
+    url: https://alex-q-z.github.io/
+  - firstname: ["Weichen"]
+    url: https://openreview.net/profile?id=~Weichen_Zhang8
+  - firstname: ["Jian"]
+    url: https://www.linkedin.com/in/jian-zhang-10383a98/
+  - firstname: ["Yu"]
+    url: https://yuzhimanhua.github.io/
+
+"zheng":
+  - firstname: ["Kaiyuan"]
+    url: https://scholar.google.com/citations?user=6kkyR1wAAAAJ
+
+"cheung":
+  - firstname: ["Alvin"]
+    url: https://people.eecs.berkeley.edu/~akcheung/
+
+"choi":
+  - firstname: ["Yejin"]
+    url: https://yejinc.github.io/
+
+"gao":
+  - firstname: ["Jianfeng"]
+    url: https://www.microsoft.com/en-us/research/people/jfgao/
+
+"hajishirzi":
+  - firstname: ["Hannaneh"]
+    url: https://homes.cs.washington.edu/~hannaneh/
+
+"koh":
+  - firstname: ["Pang Wei"]
+    url: https://koh.pw/
+
+"krishna":
+  - firstname: ["Ranjay"]
+    url: https://ranjaykrishna.com/
+
+"narasimhan":
+  - firstname: ["Karthik"]
+    url: https://www.cs.princeton.edu/~karthikn/
+
+"olukotun":
+  - firstname: ["Kunle"]
+    url: https://arsenalfc.stanford.edu/kunle/
+
+"panda":
+  - firstname: ["Rameswar"]
+    url: https://rpand002.github.io/
+
+"poovendran":
+  - firstname: ["Radha"]
+    url: https://people.ece.uw.edu/radha/
+
+"salakhutdinov":
+  - firstname: ["Ruslan"]
+    url: https://www.cs.cmu.edu/~rsalakhu/
+
+"song":
+  - firstname: ["Dawn"]
+    url: https://dawnsong.io/
+
+"su":
+  - firstname: ["Yu"]
+    url: https://ysu1989.github.io/
+
+"vinyals":
+  - firstname: ["Oriol"]
+    url: https://www.discoveryloop.com/
+
+"yang":
+  - firstname: ["Diyi"]
+    url: https://cs.stanford.edu/~diyiy/
+  - firstname: ["Ming‑Hsuan"]
+    url: https://faculty.ucmerced.edu/mhyang/
+
+"yue":
+  - firstname: ["Xiang"]
+    url: https://xiangyue9607.github.io/
+
+"zettlemoyer":
+  - firstname: ["Luke"]
+    url: https://homes.cs.washington.edu/~lsz/

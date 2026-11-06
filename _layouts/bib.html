@@ -122,6 +122,14 @@
       <a href="{{ entry.blog }}">
         <img alt="Blog" src="https://img.shields.io/badge/-Blog-FFCC99?style=flat" />
       </a>
+      {%- endif %} {%- if entry.team %}
+      <a href="{{ entry.team }}">
+        <img alt="Team" src="https://img.shields.io/badge/-Team-FFCC99?style=flat" />
+      </a>
+      {%- endif %} {%- if entry.logs %}
+      <a href="{{ entry.logs }}">
+        <img alt="Logs" src="https://img.shields.io/badge/-Logs-FFCC99?style=flat" />
+      </a>
       {%- endif %} {%- if entry.huggingface %}
       <a href="{{ entry.huggingface }}">
         <img alt="Huggingface Collections" src="https://img.shields.io/badge/-🤗%20Huggingface-red?style=flat" />
