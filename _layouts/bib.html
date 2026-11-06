@@ -15,7 +15,13 @@
   <!-- Entry bib key -->
   <div id="{{entry.key}}" class="col-sm-8">
     <!-- Title -->
-    <div class="title"><a href="http://arxiv.org/abs/{{ entry.arxiv }}" style="color: inherit; text-decoration: none">{{entry.title}}</a></div>
+    <div class="title">
+      {% if entry.arxiv %}
+      <a href="http://arxiv.org/abs/{{ entry.arxiv }}" style="color: inherit; text-decoration: none">{{entry.title}}</a>
+      {% elsif entry.website %}
+      <a href="{{ entry.website }}" style="color: inherit; text-decoration: none">{{entry.title}}</a>
+      {% else %}{{entry.title}}{% endif %}
+    </div>
     <!-- Author -->
     <div class="author">
       {% assign author_array_size = entry.author_array | size %} {% assign author_array_limit = author_array_size %} {%- if site.max_author_limit and
@@ -203,9 +209,9 @@
     {%- endif %}
   </div>
   <div class="col-sm-2 preview">
-    {% if entry.preview contains '://' -%}
+    {% if entry.preview %} {% if entry.preview contains '://' -%}
     <img data-zoomable class="preview z-depth-1 rounded" src="{{ entry.preview }}" />
     {%- else -%} {%- assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' -%} {% include figure.html path=entry_path
-    class="preview z-depth-1 rounded" zoomable=true alt=entry.preview -%} {%- endif -%}
+    class="preview z-depth-1 rounded" zoomable=true alt=entry.preview -%} {%- endif -%} {% endif %}
   </div>
 </div>
