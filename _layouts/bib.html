@@ -15,13 +15,7 @@
   <!-- Entry bib key -->
   <div id="{{entry.key}}" class="col-sm-8">
     <!-- Title -->
-    <div class="title">
-      {% if entry.arxiv %}
-      <a href="http://arxiv.org/abs/{{ entry.arxiv }}" style="color: inherit; text-decoration: none">{{entry.title}}</a>
-      {% elsif entry.website %}
-      <a href="{{ entry.website }}" style="color: inherit; text-decoration: none">{{entry.title}}</a>
-      {% else %}{{entry.title}}{% endif %}
-    </div>
+    <div class="title"><a href="http://arxiv.org/abs/{{ entry.arxiv }}" style="color: inherit; text-decoration: none">{{entry.title}}</a></div>
     <!-- Author -->
     <div class="author">
       {% assign author_array_size = entry.author_array | size %} {% assign author_array_limit = author_array_size %} {%- if site.max_author_limit and
@@ -122,14 +116,6 @@
       <a href="{{ entry.blog }}">
         <img alt="Blog" src="https://img.shields.io/badge/-Blog-FFCC99?style=flat" />
       </a>
-      {%- endif %} {%- if entry.team %}
-      <a href="{{ entry.team }}">
-        <img alt="Team" src="https://img.shields.io/badge/-Team-FFCC99?style=flat" />
-      </a>
-      {%- endif %} {%- if entry.logs %}
-      <a href="{{ entry.logs }}">
-        <img alt="Logs" src="https://img.shields.io/badge/-Logs-FFCC99?style=flat" />
-      </a>
       {%- endif %} {%- if entry.huggingface %}
       <a href="{{ entry.huggingface }}">
         <img alt="Huggingface Collections" src="https://img.shields.io/badge/-🤗%20Huggingface-red?style=flat" />
@@ -217,9 +203,9 @@
     {%- endif %}
   </div>
   <div class="col-sm-2 preview">
-    {% if entry.preview %} {% if entry.preview contains '://' -%}
+    {% if entry.preview contains '://' -%}
     <img data-zoomable class="preview z-depth-1 rounded" src="{{ entry.preview }}" />
     {%- else -%} {%- assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' -%} {% include figure.html path=entry_path
-    class="preview z-depth-1 rounded" zoomable=true alt=entry.preview -%} {%- endif -%} {% endif %}
+    class="preview z-depth-1 rounded" zoomable=true alt=entry.preview -%} {%- endif -%}
   </div>
 </div>
