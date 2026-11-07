@@ -111,21 +111,37 @@ advisors:
   - Luke Zettlemoyer
 
 # Logos shown under the cover image (files in assets/img/logos/inst/).
-# Affiliations of the advisors/initiators as listed on index.openrsi.foundation.
-# shape: square makes compact emblems a bit taller than wordmarks; h (px) overrides the height.
+# Current (or 2026) affiliations of initiators, organizers and advisors, from their
+# homepages / Scholar / index.openrsi.foundation. Per logo: shape: square makes compact
+# marks taller, h (px) overrides the height, text adds a name next to marks without a wordmark.
 institutions_label: Team from
-institutions:
-  - { name: Stanford University, logo: stanford.png, shape: square }
-  - { name: UC Berkeley, logo: berkeley.svg }
-  - { name: MIT, logo: mit.svg }
-  - { name: Princeton University, logo: princeton.svg }
-  - { name: Carnegie Mellon University, logo: cmu.svg }
-  - { name: University of Washington, logo: uw.svg, shape: square, h: 24 }
-  - { name: Microsoft, logo: microsoft.svg }
-  - { name: NVIDIA, logo: nvidia.svg, h: 15 }
-  - { name: Amazon, logo: amazon.svg }
-  - { name: IBM Research, logo: ibm-research.svg }
-  - { name: University of Waterloo, logo: waterloo.svg }
-  - { name: Texas A&M University, logo: tamu.png, shape: square, h: 32 }
-  - { name: The Ohio State University, logo: ohio-state.svg }
-  - { name: UC Merced, logo: uc-merced.svg }
+institution_groups:
+  - name: Industry
+    logos:
+      - { name: Google DeepMind, logo: google-deepmind.svg, shape: square, text: Google DeepMind }
+      - { name: Google, logo: google.svg }
+      - { name: Meta, logo: meta.svg }
+      - { name: Microsoft, logo: microsoft.svg }
+      - { name: NVIDIA, logo: nvidia.svg, h: 13 }
+      - { name: Amazon, logo: amazon.svg }
+      - { name: Apple, logo: apple.svg, shape: square, h: 20 }
+      - { name: IBM Research, logo: ibm-research.svg }
+      - { name: Ai2, logo: ai2.svg }
+      - { name: Snowflake, logo: snowflake.svg }
+      - { name: Discovery Loop, logo: discovery-loop.svg, h: 16, text: Discovery Loop }
+  - name: Academia
+    logos:
+      - { name: Stanford University, logo: stanford.png, shape: square, text: Stanford }
+      - { name: UC Berkeley, logo: berkeley.svg }
+      - { name: MIT, logo: mit.svg }
+      - { name: Princeton University, logo: princeton.svg }
+      - { name: Carnegie Mellon University, logo: cmu.svg }
+      - { name: Harvard University, logo: harvard.svg }
+      - { name: University of Washington, logo: uw.svg, shape: square, h: 22 }
+      - { name: University of Waterloo, logo: waterloo.svg }
+      - { name: National University of Singapore, logo: nus.svg, shape: square, text: NUS }
+      - { name: Texas A&M University, logo: tamu.png, shape: square, text: Texas A&M }
+      - { name: The Ohio State University, logo: ohio-state.svg }
+      - { name: University of Notre Dame, logo: notre-dame.svg, shape: square, text: Notre Dame }
+      - { name: UC Irvine, logo: uci.svg, h: 16 }
+      - { name: UC Merced, logo: uc-merced.svg }

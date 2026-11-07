@@ -5,26 +5,34 @@
       {% assign fp_img = fp.image | prepend: 'assets/img/publication_preview/' %}
       {% include figure.liquid loading="eager" path=fp_img class="fp-img" sizes="420px" alt=fp.title %}
     </a>
-    {% if fp.institutions %}
+    {% if fp.institution_groups %}
       <div class="fp-inst">
         <div class="fp-inst-label">{{ fp.institutions_label | default: 'Team from' }}</div>
-        <ul class="fp-inst-cloud">
-          {% for i in fp.institutions %}
-            <li title="{{ i.name }}">
-              <img
-                src="{{ i.logo | prepend: '/assets/img/logos/inst/' | relative_url }}"
-                alt="{{ i.name }}"
-                loading="lazy"
-                {% if i.shape == 'square' %}
-                  class="sq"
-                {% endif %}
-                {% if i.h %}
-                  style="height: {{ i.h }}px"
-                {% endif %}
-              >
-            </li>
+        <div class="fp-inst-panel">
+          {% for g in fp.institution_groups %}
+            <div class="fp-inst-group">{{ g.name }}</div>
+            <ul class="fp-inst-cloud">
+              {% for i in g.logos %}
+                <li title="{{ i.name }}">
+                  <img
+                    src="{{ i.logo | prepend: '/assets/img/logos/inst/' | relative_url }}"
+                    alt="{{ i.name }}"
+                    loading="lazy"
+                    {% if i.shape == 'square' %}
+                      class="sq"
+                    {% endif %}
+                    {% if i.h %}
+                      style="height: {{ i.h }}px"
+                    {% endif %}
+                  >
+                  {%- if i.text -%}
+                    <span class="fp-inst-name">{{ i.text }}</span>
+                  {%- endif -%}
+                </li>
+              {% endfor %}
+            </ul>
           {% endfor %}
-        </ul>
+        </div>
       </div>
     {% endif %}
   </div>
