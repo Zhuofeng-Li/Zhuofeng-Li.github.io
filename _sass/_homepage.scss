@@ -517,6 +517,78 @@ a {
   }
 }
 
+.fp-inst {
+  margin-top: 1rem;
+}
+
+.home .fp-inst-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--global-text-color-light);
+  margin-bottom: 0.5rem;
+}
+
+// White panel so dark wordmarks stay readable in dark mode too
+.fp-inst-panel {
+  padding: 0.6rem 0.7rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid var(--home-border);
+  background: #fff;
+}
+
+.home .fp-inst-group {
+  margin: 0.15rem 0 0.4rem;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #8a8f98;
+
+  & ~ .fp-inst-group {
+    margin-top: 0.65rem;
+    padding-top: 0.55rem;
+    border-top: 1px solid #eceef2;
+  }
+}
+
+.fp-inst-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem 0.85rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  // override `.fp-media img` (cover image styles)
+  .fp-media & img {
+    width: auto;
+    height: 18px;
+    border: 0;
+    border-radius: 0;
+
+    &.sq {
+      height: 24px;
+    }
+  }
+}
+
+.home .fp-inst-name {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #2b2f36;
+  white-space: nowrap;
+}
+
 .fp-body {
   flex: 1;
   min-width: 0;
