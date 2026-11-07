@@ -58,7 +58,7 @@ honors:
     text: TMLR J2C Certification — StructEval
 ---
 
-I am a Ph.D. student in Computer Science at [Texas A&M University](https://www.tamu.edu/), advised by Prof. [Yu Zhang](https://yuzhimanhua.github.io/), and a **Student Researcher at [Google DeepMind](https://deepmind.google/)**. Previously, I was a visiting student at [Stanford University](https://www.stanford.edu/) working with Prof. [Yejin Choi](https://yejinc.github.io/) and Prof. [James Zou](https://www.james-zou.com/), and a research intern at [TIGER-Lab](https://github.com/TIGER-AI-Lab) (University of Waterloo) with Prof. [Wenhu Chen](https://wenhuchen.github.io/).
+I am a **Student Researcher at [Google DeepMind](https://deepmind.google/)** and a Ph.D. student in Computer Science at [Texas A&M University](https://www.tamu.edu/), advised by Prof. [Yu Zhang](https://yuzhimanhua.github.io/). Previously, I was a visiting student at [Stanford University](https://www.stanford.edu/) working with Prof. [Yejin Choi](https://yejinc.github.io/) and Prof. [James Zou](https://www.james-zou.com/), and a research intern at [TIGER-Lab](https://github.com/TIGER-AI-Lab) (University of Waterloo) with Prof. [Wenhu Chen](https://wenhuchen.github.io/).
 
 My research is on **large-scale post-training and reinforcement learning for LLM agents**. Lately I focus on **recursive self-improvement (RSI)**: agents that get better by training on their own experience.
 
