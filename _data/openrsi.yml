@@ -78,12 +78,13 @@ organizers:
   - Kaiyuan Zheng
 # Shown first and in bold on the homepage card.
 advisors_highlight:
-  - Wenhu Chen
-  - Jian Zhang
+  - Yejin Choi
   - Oriol Vinyals
   - Karthik R. Narasimhan
+  - Jian Zhang
   - Luke Zettlemoyer
   - Hannaneh Hajishirzi
+  - Wenhu Chen
 advisors:
   - Wenhu Chen
   - Alvin Cheung
