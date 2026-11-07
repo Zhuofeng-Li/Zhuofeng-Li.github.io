@@ -705,6 +705,11 @@ a {
         color: var(--global-text-color);
       }
 
+      > .author-hl {
+        font-weight: 600;
+        color: var(--global-text-color);
+      }
+
       a {
         color: inherit;
         border-bottom: 1px dashed var(--home-border);

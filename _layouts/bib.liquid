@@ -73,6 +73,11 @@
             {% assign author_is_self = true %}
           {% endif %}
         {%- endif -%}
+        {%- assign author_full_name = author.first | append: ' ' | append: author_last_name -%}
+        {%- assign author_is_hl = false -%}
+        {%- if site.highlight_authors contains author_full_name -%}
+          {%- assign author_is_hl = true -%}
+        {%- endif -%}
         {% assign coauthor_url = null %}
         {%- assign clean_last_name = author_last_name | downcase | remove_accents -%}
         {% if site.data.coauthors[clean_last_name] %}
@@ -95,6 +100,11 @@
             {{- author.first }}
             {{ author_last_html -}}
           </em>
+        {%- elsif author_is_hl -%}
+          <strong class="author-hl">
+            {{- author.first }}
+            {{ author_last_html -}}
+          </strong>
         {%- else -%}
           {%- if coauthor_url -%}
             <a href="{{ coauthor_url }}">
