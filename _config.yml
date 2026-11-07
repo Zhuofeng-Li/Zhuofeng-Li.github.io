@@ -8,13 +8,12 @@ middle_name:
 last_name: Li
 email: zhuofengli12345@gmail.com
 contact_note: >
-  Email and Wechat are the preferred ways to reach me.
+  Email is the best way to reach me. I am open to full-time and internship opportunities.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Zhuofeng Li's academic homepage. CS PhD student at Texas A&M University researching LLM/VLM post-training, reinforcement learning, alignment, and evaluation. Seeking research collaborations and internship opportunities in AI and machine learning.
+  Zhuofeng Li — CS Ph.D. student at Texas A&M University and Student Researcher at Google DeepMind, working on large-scale post-training, agentic reinforcement learning, and recursive self-improvement for LLM agents. Open to research scientist / engineer roles and internships.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
 keywords: [
     "machine learning",
     "AI",
@@ -34,7 +33,7 @@ icon: prof_pic.jpg # the emoji used as the favicon (alternatively, provide image
 
 url: https://Zhuofeng-Li.github.io # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root
-last_updated: false # set to true if you want to display last updated in the footer
+last_updated: true # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 back_to_top: true # set to false to disable the back to top button
 
@@ -61,7 +60,7 @@ repo_trophies:
 # -----------------------------------------------------------------------------
 
 navbar_fixed: true
-footer_fixed: true
+footer_fixed: false
 search_enabled: false
 socials_in_search: true
 posts_in_search: true
@@ -323,15 +322,20 @@ filtered_bibtex_keywords:
     bibtex_show,
     blog,
     code,
+    github,
     google_scholar_id,
+    highlight,
     html,
+    huggingface,
     inspirehep_id,
+    num_co_first_author,
     pdf,
     poster,
     preview,
     selected,
     slides,
     supp,
+    twitter,
     video,
     website,
   ]
@@ -454,7 +458,7 @@ third_party_libraries:
     version: "5.5.0"
   google_fonts:
     url:
-      fonts: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&display=swap"
+      fonts: "https://fonts.googleapis.com/css?family=Inter:400,500,600,700|Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&display=swap"
   highlightjs:
     integrity:
       css:

@@ -3,7 +3,7 @@
 @inproceedings{li2026dci,
   title={Beyond Semantic Similarity: Rethinking Retrieval for Agentic Search via Direct Corpus Interaction},
   author={Zhuofeng Li and Haoxiang Zhang and Cong Wei and Pan Lu and Ping Nie and Yi Lu and Yuyang Bai and Shangbin Feng and Hangxiao Zhu and Ming Zhong and Yuyu Zhang and Jianwen Xie and Yejin Choi and James Zou and Jiawei Han and Wenhu Chen and Jimmy Lin and Dongfu Jiang and Yu Zhang},
-  booktitle = {arxiv preprint},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS), Spotlight},
   month = May,
   year = {2026},
   arxiv = "2605.05242",
@@ -11,13 +11,15 @@
   preview={dci.png},
   selected = true,
   abbr={NeurIPS 2026 Spotlight},
+  highlight={NeurIPS 2026 Spotlight · #1 Paper of the Day on Hugging Face},
+  huggingface="https://huggingface.co/papers/2605.05242",
   bibtex_show={true}
 }
 
 @inproceedings{zhang2026masking,
   title={Masking Stale Observations Helps Search Agents -- Until It Doesn't: A Regime Map and Its Mechanism},
   author={Haoxiang Zhang and Qixin Xu and Zhuofeng Li and Lei Zhang and Pengcheng Jiang and Yu Zhang and Julian McAuley},
-  booktitle = {arxiv preprint},
+  booktitle = {Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP)},
   month = May,
   year = {2026},
   arxiv = "2606.00408",
@@ -30,7 +32,7 @@
 @inproceedings{li2026openresearcher,
   title={OpenResearcher: A Fully Open Pipeline for Long-Horizon Deep Research Trajectory Synthesis},
   author={Zhuofeng Li and Dongfu Jiang and Xueguang Ma and Haoxiang Zhang and Ping Nie and Yuyu Zhang and Kai Zou and Jianwen Xie and Yu Zhang and Wenhu Chen},
-  booktitle = {arxiv preprint},
+  booktitle = {Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP)},
   month = Mar,
   year = {2026},
   arxiv = "2603.20278",
@@ -42,15 +44,14 @@
   selected = true,
   num_co_first_author = 2,
   abbr={EMNLP 2026},
+  highlight={Adopted by NVIDIA Nemotron models · Top-3 Trending Dataset on Hugging Face},
   bibtex_show={true}
 }
-
-
 
 @inproceedings{li2026reviewgrounder,
   title={ReviewGrounder: Improving Review Substantiveness with Rubric-Guided, Tool-Integrated Agents},
   author={Zhuofeng Li and Yi Lu and Dongfu Jiang and Haoxiang Zhang and Yuyang Bai and Chuan Li and Yu Wang and Shuiwang Ji and Jianwen Xie and Yu Zhang},
-  booktitle = {ACL 2026},
+  booktitle = {Proceedings of the Annual Meeting of the Association for Computational Linguistics (ACL)},
   month = Apr,
   year = {2026},
   arxiv = "2604.14261",
@@ -62,15 +63,28 @@
   bibtex_show={true}
 }
 
+@inproceedings{zhang2026clawbench,
+  title={ClawBench: Can AI Agents Complete Everyday Online Tasks?},
+  author={Yuxuan Zhang and Yubo Wang and Yipeng Zhu and Penghui Du and Junwen Miao and Xuan Lu and Zhuofeng Li and Xingwei Qu and Zhengkang Guo and Yuanzhe Shen and Dingjie Song and Han Zhou and Tuney Zheng and Xian Wu and Hao Yu and Songcheng Cai and Yi Lu and Yunzhuo Hao and Minyi Lei and Liang Chen and Kai Zou and Huifeng Yin and Wendong Xu and Dongfu Jiang and Ping Nie and Jiaheng Liu and Wenhu Chen and Kelsey R. Allen},
+  booktitle = {arxiv preprint},
+  month = Apr,
+  year = {2026},
+  arxiv = "2604.08523",
+  huggingface="https://huggingface.co/papers/2604.08523",
+  highlight={Adopted by Meta Superintelligence Labs},
+  abbr={Preprint},
+  bibtex_show={true}
+}
+
 @inproceedings{li2025agentflow,
   title={In-The-Flow Agentic System Optimization for Effective Planning and Tool Use},
   author={Zhuofeng Li and Haoxiang Zhang and Seungju Han and Sheng Liu and Jianwen Xie and Yu Zhang and Yejin Choi and James Zou and Pan Lu},
-  booktitle = {ICLR 2026 Oral & NeurIPS 2025 Workshop Best Paper Runner-up},
+  booktitle = {International Conference on Learning Representations (ICLR), Oral},
   month = Oct,
   year = {2025},
   arxiv = "2510.05592",
   abstract = "Outcome-driven reinforcement learning has advanced reasoning in large language models (LLMs), but prevailing tool-augmented approaches train a single, monolithic policy that interleaves thoughts and tool calls under full context; this scales poorly with long horizons and diverse tools and generalizes weakly to new scenarios. Agentic systems offer a promising alternative by decomposing work across specialized modules, yet most remain training-free or rely on offline training decoupled from the live dynamics of multi-turn interaction. We introduce AgentFlow, a trainable, in-the-flow agentic framework that coordinates four modules (planner, executor, verifier, generator) through an evolving memory and directly optimizes its planner inside the multi-turn loop. To train on-policy in live environments, we propose Flow-based Group Refined Policy Optimization (Flow-GRPO), which tackles long-horizon, sparse-reward credit assignment by converting multi-turn optimization into a sequence of tractable single-turn policy updates. It broadcasts a single, verifiable trajectory-level outcome to every turn to align local planner decisions with global success and stabilizes learning with group-normalized advantages. Across ten benchmarks, AgentFlow with a 7B-scale backbone outperforms top-performing baselines with average accuracy gains of 14.9% on search, 14.0% on agentic, 14.5% on mathematical, and 4.1% on scientific tasks, even surpassing larger proprietary models like GPT-4o. Further analyses confirm the benefits of in-the-flow optimization, showing improved planning, enhanced tool-calling reliability, and positive scaling with model size and reasoning turns.",
-  website = "https://agentflow.stanford.edu/#",
+  website = "https://agentflow.stanford.edu/",
   preview={agentflow.png},
   github = "lupantech/AgentFlow",
   huggingface="https://huggingface.co/AgentFlow",
@@ -78,13 +92,14 @@
   selected = true,
   num_co_first_author = 2,
   abbr={ICLR 2026 Oral},
+  highlight={ICLR 2026 Oral (Top 1.1%) · NeurIPS 2025 Workshop Best Paper Runner-up · #2 Paper of the Day on Hugging Face},
   bibtex_show={true}
 }
 
 @inproceedings{jiang2025verltool,
   title={VerlTool: Towards Holistic Agentic Reinforcement Learning with Tool Use},
   author={Dongfu Jiang and Yi Lu and Zhuofeng Li and Zhiheng Lyu and Ping Nie and Haozhe Wang and Alex Su and Hui Chen and Kai Zou and Chao Du and Tianyu Pang and Wenhu Chen},
-  booktitle = {ICLR 2026 SPOT Best Paper},
+  booktitle = {ICLR 2026 Workshop on Scaling Post-Training (SPOT)},
   month = Sep,
   year = {2025},
   arxiv = "2509.01055",
@@ -96,6 +111,19 @@
   selected = true,
   num_co_first_author = 4,
   abbr={ICLR 2026 SPOT Best Paper},
+  highlight={ICLR 2026 SPOT Workshop Best Paper},
+  bibtex_show={true}
+}
+
+@inproceedings{he2025videoscore2,
+  title={VideoScore2: Think before You Score in Generative Video Evaluation},
+  author={Xuan He and Dongfu Jiang and Ping Nie and Minghao Liu and Zhengxuan Jiang and Mingyi Su and Wentao Ma and Junru Lin and Chun Ye and Yi Lu and Keming Wu and Benjamin Schneider and Quy Duc Do and Zhuofeng Li and Yiming Jia and Yuxuan Zhang and Guo Cheng and Haozhe Wang and Wangchunshu Zhou and Qunshu Lin and Yuanxing Zhang and Ge Zhang and Wenhao Huang and Wenhu Chen},
+  booktitle = {Transactions on Machine Learning Research (TMLR)},
+  month = Sep,
+  year = {2025},
+  arxiv = "2509.22799",
+  website = "https://tiger-ai-lab.github.io/VideoScore2/",
+  abbr={TMLR 2026},
   bibtex_show={true}
 }
 
@@ -110,18 +138,18 @@
   selected = true,
   num_co_first_author = 2,
   abbr={CIKM 2025},
+  highlight={Deployed in Kuaishou, serving 300M+ daily active users},
   bibtex_show={true}
 }
 
 @inproceedings{zhang2025avoiding,
   title={Avoiding Structural Pitfalls: Self-Supervised Low-Rank Feature Tuning for Graph Test-Time Adaptation},
   author={Haoxiang Zhang and Zhuofeng Li and Qiannan Zhang and Ziyi Kou and Juncheng Li and Shichao Pei},
-  booktitle = {Transactions on Machine Learning Research (TMLR), Oct 2025},
+  booktitle = {Transactions on Machine Learning Research (TMLR)},
   month = Oct,
   year = {2025},
   abstract = "Graph Neural Networks (GNNs) have shown impressive performance on graph-structured data, but they often struggle to generalize when facing distribution shifts at test time. Existing test-time adaptation methods for graphs primarily focus on node feature adjustments while overlooking structural information, leading to suboptimal adaptation. We propose a novel self-supervised low-rank feature tuning approach that jointly considers both node features and graph structure during test-time adaptation. Our method leverages self-supervised learning objectives and low-rank matrix factorization to efficiently adapt GNNs to new graph distributions without requiring labeled data, avoiding common structural pitfalls that plague existing approaches.",
   preview={goat.png},
-  selected = true,
   num_co_first_author = 2,
   abbr={TMLR 2025},
   bibtex_show={true}
@@ -130,13 +158,12 @@
 @inproceedings{sani2026imagenworld,
   title={ImagenWorld: Stress-Testing Image Generation Models with Explainable Human Evaluation on Open-ended Real-World Tasks},
   author={Samin Mahdizadeh Sani and Max Ku and Nima Jamali and Matina Mahdizadeh Sani and Paria Khoshtab and Wei-Chieh Sun and Parnian Fazel and Zhi Rui Tam and Thomas Chong and Edisy Kin Wai Chan and Donald Wai Tong Tsang and Chiao-Wei Hsu and Ting Wai Lam and Ho Yin Sam Ng and Chiafeng Chu and Chak-Wing Mak and Keming Wu and Hiu Tung Wong and Yik Chun Ho and Chi Ruan and Zhuofeng Li and I-Sheng Fang and Shih-Ying Yeh and Ho Kei Cheng and Ping Nie and Wenhu Chen},
-  booktitle = {ICLR 2026},
+  booktitle = {International Conference on Learning Representations (ICLR)},
   month = Jan,
   year = {2026},
   abstract = "We introduce ImagenWorld, a benchmark of 3.6K condition sets spanning six core tasks (generation and editing, with single or multiple references) and six topical domains (artworks, photorealistic images, information graphics, textual graphics, computer graphics, and screenshots). The benchmark is supported by 20K fine-grained human annotations and an explainable evaluation schema that tags localized object-level and segment-level errors, complementing automated VLM-based metrics. Our large-scale evaluation of 14 models yields several insights: (1) models typically struggle more in editing tasks than in generation tasks, especially in local edits. (2) models excel in artistic and photorealistic settings but struggle with symbolic and text-heavy domains such as screenshots and information graphics. (3) closed-source systems lead overall, while targeted data curation narrows the gap in text-heavy cases. (4) modern VLM-based metrics achieve Kendall accuracies up to 0.79, approximating human ranking, but fall short of fine-grained, explainable error attribution.",
   preview={imagenworld.png},
   website = "https://tiger-ai-lab.github.io/ImagenWorld/",
-  selected = true,
   abbr={ICLR 2026},
   bibtex_show={true}
 }
@@ -144,7 +171,7 @@
 @inproceedings{ma2025videoeval,
   title={VideoEval-Pro: Robust and Realistic Long Video Understanding Evaluation},
   author={Wentao Ma and Weiming Ren and Yiming Jia and Zhuofeng Li and Ping Nie and Ge Zhang and Wenhu Chen},
-  booktitle = "arxiv preprint",
+  booktitle = "International Conference on Learning Representations (ICLR)",
   month = May,
   year = "2025",
   arxiv = "2505.14640",
@@ -153,16 +180,14 @@
   website = "https://tiger-ai-lab.github.io/VideoEval-Pro/",
   github = "TIGER-AI-Lab/VideoEval-Pro",
   huggingface="https://huggingface.co/papers/2505.14640",
-  twitter="https://x.com/zhuofengli96475/status/1963216180438814901",
-  selected = true,
-  abbr={Arxiv},
+  abbr={ICLR 2026},
   bibtex_show={true}
 }
 
 @inproceedings{yang2025structeval,
   title={StructEval: Benchmarking LLMs' Capabilities to Generate Structural Outputs},
   author={Jialin Yang and Dongfu Jiang and Lipeng He and Sherman Siu and Yuxuan Zhang and Disen Liao and Zhuofeng Li and Huaye Zeng and Yiming Jia and Haozhe Wang and others},
-  booktitle = "Transactions on Machine Learning Research (TMLR), Dec 2025",
+  booktitle = "Transactions on Machine Learning Research (TMLR)",
   month = May,
   year = "2025",
   arxiv = "2505.20139",
@@ -171,14 +196,13 @@
   website = "https://tiger-ai-lab.github.io/StructEval/",
   github = "https://github.com/TIGER-AI-Lab/StructEval",
   huggingface="https://huggingface.co/papers/2505.20139",
-  selected = true,
   abbr={TMLR 2025},
+  highlight={J2C Certification (selected for presentation at ICML / NeurIPS / ICLR)},
   bibtex_show={true}
 }
 
-
 @inproceedings{li2024teg,
-  title={Teg-db: A comprehensive dataset and benchmark of textual-edge graphs},
+  title={TEG-DB: A Comprehensive Dataset and Benchmark of Textual-Edge Graphs},
   author={Zhuofeng Li and Zixing Gou and Xiangnan Zhang and Zhongyuan Liu and Sirui Li and Yuntong Hu and Chen Ling and Zheng Zhang and Liang Zhao},
   booktitle={Advances in Neural Information Processing Systems},
   volume={37},
@@ -191,13 +215,13 @@
   website = "https://github.com/Zhuofeng-Li/TEG-Benchmark",
   github = "Zhuofeng-Li/TEG-Benchmark",
   huggingface="https://huggingface.co/papers/2406.10310",
-  selected = true,
+  num_co_first_author = 2,
   abbr={NeurIPS 2024},
   bibtex_show={true}
 }
 
 @inproceedings{ling2024link,
-  title={Link prediction on textual edge graphs},
+  title={Link Prediction on Textual Edge Graphs},
   author={Chen Ling* and Zhuofeng Li* and Yuntong Hu and Zheng Zhang and Zhongyuan Liu and Shuang Zheng and Jian Pei and Liang Zhao},
   booktitle = "arxiv preprint",
   month = May,
@@ -210,9 +234,8 @@
   bibtex_show={true}
 }
 
-
 @inproceedings{hu2024hireview,
-  title={Hireview: Hierarchical taxonomy-driven automatic literature review generation},
+  title={HiReview: Hierarchical Taxonomy-Driven Automatic Literature Review Generation},
   author={Yuntong Hu and Zhuofeng Li and Zheng Zhang and Chen Ling and Raasikh Kanjiani and Boxin Zhao and Liang Zhao},
   booktitle = "arxiv preprint",
   month = Jul,
@@ -223,9 +246,8 @@
   bibtex_show={true}
 }
 
-
 @inproceedings{li2024learning,
-  title={Learning from novel knowledge: Continual few-shot knowledge graph completion},
+  title={Learning from Novel Knowledge: Continual Few-shot Knowledge Graph Completion},
   author={Zhuofeng Li and Haoxiang Zhang and Qiannan Zhang and Ziyi Kou and Shichao Pei},
   booktitle={Proceedings of the 33rd ACM International Conference on Information and Knowledge Management},
   pages={1326--1335},
@@ -233,12 +255,8 @@
   year={2024},
   abstract = "Knowledge graph completion has been increasingly recognized as a vital approach for uncovering missing knowledge and addressing the incompleteness issue in KGs. To enhance inference on rare relations and mitigate the impact of the long-tail distribution, the dominant strategy designs few-shot models following the meta-learning paradigm. However, these approaches typically operate under the assumption that KGs are available instantly, disregarding the newly emerging relations during KG enrichment. We propose a novel framework designed to equip the few-shot model with the ability to learn sequentially from novel relations through data-level rehearsal and model-level modulation to address catastrophic forgetting, alongside multi-view relation augmentation aimed at resolving the issue of insufficient novel relations.",
   preview={cfkgc.png},
-  selected = true,
+  num_co_first_author = 2,
   abbr={CIKM 2024},
   bibtex_show={true}
 }
-
-
-
-
 

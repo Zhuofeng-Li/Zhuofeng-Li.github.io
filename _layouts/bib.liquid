@@ -2,7 +2,7 @@
 ---
 <div class="row">
   {% if site.enable_publication_thumbnails %}
-    <div class="col col-sm-2 abbr">
+    <div class="col-sm-3 abbr">
       {%- if entry.abbr -%}
         {%- if site.data.venues[entry.abbr] -%}
           {% assign venue_style = null %}
@@ -34,7 +34,7 @@
             include figure.liquid
             loading="eager"
             path=entry_path
-            sizes = "200px"
+            sizes = "300px"
             class="preview z-depth-1 rounded"
             zoomable=true
             avoid_scaling=true
@@ -46,7 +46,7 @@
   {% endif %}
 
   <!-- Entry bib key -->
-  <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
+  <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-sm-9{% else %}col-sm-12{% endif %}">
     <!-- Title -->
     <div class="title">{{ entry.title }}</div>
     <!-- Author -->
@@ -104,15 +104,14 @@
           {%- else -%}
             {{- author.first }}
             {{ author_last_html -}}
-          {% endif %}
+          {%- endif -%}
         {%- endif -%}
-
-        {% if num_co_first_author > 1 %}
-          {% if forloop.index <= num_co_first_author %}
+        {%- if num_co_first_author > 1 -%}
+          {%- if forloop.index <= num_co_first_author -%}
             <sup>*</sup>
-          {% endif %}
-        {% endif %}
-      {% endfor %}
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor %}
       {%- assign more_authors = author_array_size | minus: author_array_limit -%}
 
       {%- assign more_authors_hide = more_authors | append: ' more author' -%}
@@ -197,89 +196,97 @@
       {{ entry.note | strip }}
     </div>
 
+    <!-- Highlight (awards, impact) -->
+    {% if entry.highlight %}
+      <div class="pub-highlight"><i class="fa-solid fa-trophy"></i> {{ entry.highlight }}</div>
+    {% endif %}
+
     <!-- Links/Buttons -->
+    {% assign gh_repo = false %}
     <div class="links">
       {% if entry.arxiv %}
-        <a href="http://arxiv.org/abs/{{ entry.arxiv }}">
-          <img alt="arXiv" src="https://img.shields.io/badge/arXiv-b31b1b.svg?logo=arXiv">
-        </a>
-      {% endif %}
-      {% if entry.abstract %}
-        <a class="abstract z-depth-0" role="button"><img alt="Abstract" src="https://img.shields.io/badge/-Abs-FFCC99?style=flat"></a>
-      {% endif %}
-      {% if entry.bibtex_show %}
-        <a class="bibtex z-depth-0" role="button"><img alt="Bibtex" src="https://img.shields.io/badge/-Bib-FFCC99?style=flat"></a>
-      {% endif %}
-      {% if entry.doi %}
-        <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button">DOI</a>
-      {% endif %}
-      {% if entry.html %}
-        {% if entry.html contains '://' %}
-          <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button">HTML</a>
-        {% else %}
-          <a href="{{ entry.html | prepend: '/assets/html/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">HTML</a>
-        {% endif %}
+        <a href="https://arxiv.org/abs/{{ entry.arxiv }}" class="pub-btn" role="button"><i class="ai ai-arxiv"></i> arXiv</a>
       {% endif %}
       {% if entry.pdf %}
         {% if entry.pdf contains '://' %}
-          <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
+          <a href="{{ entry.pdf }}" class="pub-btn" role="button"><i class="fa-regular fa-file-pdf"></i> PDF</a>
         {% else %}
-          <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
+          <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="pub-btn" role="button"
+            ><i class="fa-regular fa-file-pdf"></i> PDF</a
+          >
         {% endif %}
+      {% endif %}
+      {% if entry.website %}
+        <a href="{{ entry.website }}" class="pub-btn" role="button"><i class="fa-solid fa-globe"></i> Website</a>
+      {% endif %}
+      {% if entry.github %}
+        {% if entry.github contains '://' %}
+          {% assign gh_repo = entry.github | remove: 'https://github.com/' | remove: 'http://github.com/' %}
+        {% else %}
+          {% assign gh_repo = entry.github %}
+        {% endif %}
+        <a href="https://github.com/{{ gh_repo }}" class="pub-btn" role="button"><i class="fa-brands fa-github"></i> Code</a>
+      {% endif %}
+      {% if entry.code %}
+        <a href="{{ entry.code }}" class="pub-btn" role="button"><i class="fa-solid fa-code"></i> Code</a>
+      {% endif %}
+      {% if entry.huggingface %}
+        <a href="{{ entry.huggingface }}" class="pub-btn" role="button">🤗 Hugging Face</a>
+      {% endif %}
+      {% if entry.html %}
+        {% if entry.html contains '://' %}
+          <a href="{{ entry.html }}" class="pub-btn" role="button">HTML</a>
+        {% else %}
+          <a href="{{ entry.html | prepend: '/assets/html/' | relative_url }}" class="pub-btn" role="button">HTML</a>
+        {% endif %}
+      {% endif %}
+      {% if entry.doi %}
+        <a href="https://doi.org/{{ entry.doi }}" class="pub-btn" role="button">DOI</a>
       {% endif %}
       {% if entry.supp %}
         {% if entry.supp contains '://' %}
-          <a href="{{ entry.supp }}" class="btn btn-sm z-depth-0" role="button">Supp</a>
+          <a href="{{ entry.supp }}" class="pub-btn" role="button">Supp</a>
         {% else %}
-          <a href="{{ entry.supp | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Supp</a>
+          <a href="{{ entry.supp | prepend: '/assets/pdf/' | relative_url }}" class="pub-btn" role="button">Supp</a>
         {% endif %}
       {% endif %}
       {% if entry.video and site.enable_video_embedding %}
-        <a class="abstract btn btn-sm z-depth-0" role="button">Video</a>
+        <a class="abstract pub-btn" role="button"><i class="fa-solid fa-play"></i> Video</a>
       {% elsif entry.video %}
-        <a href="{{ entry.video }}" class="btn btn-sm z-depth-0" role="button">Video</a>
-      {% endif %}
-      {% if entry.code %}
-        <a href="{{ entry.code }}" class="btn btn-sm z-depth-0" role="button">Code</a>
+        <a href="{{ entry.video }}" class="pub-btn" role="button"><i class="fa-solid fa-play"></i> Video</a>
       {% endif %}
       {% if entry.poster %}
         {% if entry.poster contains '://' %}
-          <a href="{{ entry.poster }}" class="btn btn-sm z-depth-0" role="button">Poster</a>
+          <a href="{{ entry.poster }}" class="pub-btn" role="button">Poster</a>
         {% else %}
-          <a href="{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Poster</a>
+          <a href="{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}" class="pub-btn" role="button">Poster</a>
         {% endif %}
       {% endif %}
       {% if entry.slides %}
         {% if entry.slides contains '://' %}
-          <a href="{{ entry.slides }}" class="z-depth-0" role="button"
-            ><img alt="Slides" src="https://img.shields.io/badge/-Slides-FFCC99?style=flat"
-          ></a>
+          <a href="{{ entry.slides }}" class="pub-btn" role="button"><i class="fa-solid fa-person-chalkboard"></i> Slides</a>
         {% else %}
-          <a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}" class="z-depth-0" role="button"
-            ><img alt="Slides" src="https://img.shields.io/badge/-Slides-FFCC99?style=flat"
-          ></a>
+          <a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}" class="pub-btn" role="button"
+            ><i class="fa-solid fa-person-chalkboard"></i> Slides</a
+          >
         {% endif %}
       {% endif %}
-      {% if entry.website %}
-        <a href="{{ entry.website }}">
-          <img alt="Website" src="https://img.shields.io/badge/-Website-FFCC99?style=flat">
-        </a>
-      {% endif %}
       {% if entry.blog %}
-        <a href="{{ entry.blog }}">
-          <img alt="Blog" src="https://img.shields.io/badge/-Blog-FFCC99?style=flat">
-        </a>
-      {% endif %}
-      {% if entry.huggingface %}
-        <a href="{{ entry.huggingface }}">
-          <img alt="Huggingface Collections" src="https://img.shields.io/badge/-🤗%20Huggingface-red?style=flat">
-        </a>
+        <a href="{{ entry.blog }}" class="pub-btn" role="button"><i class="fa-solid fa-pen-nib"></i> Blog</a>
       {% endif %}
       {% if entry.twitter %}
-        <a href="{{ entry.twitter }}"><img alt="X (formerly Twitter) URL" src="https://img.shields.io/badge/-Tweet-1DA1F2?style=flat&logo=x"></a>
+        <a href="{{ entry.twitter }}" class="pub-btn" role="button"><i class="fa-brands fa-x-twitter"></i> Thread</a>
       {% endif %}
-      {% if entry.github %}
-        <a href="https://github.com/{{ entry.github }}"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/{{ entry.github }}"></a>
+      {% if entry.abstract %}
+        <a class="abstract pub-btn" role="button">Abstract</a>
+      {% endif %}
+      {% if entry.bibtex_show %}
+        <a class="bibtex pub-btn" role="button">BibTeX</a>
+      {% endif %}
+      {% if gh_repo %}
+        <a href="https://github.com/{{ gh_repo }}" class="pub-stars" aria-label="GitHub stars"
+          ><img alt="GitHub stars" src="https://img.shields.io/github/stars/{{ gh_repo }}?style=social"
+        ></a>
       {% endif %}
     </div>
     {% if site.enable_publication_badges %}
