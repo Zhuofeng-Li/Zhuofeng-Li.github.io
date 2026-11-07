@@ -123,7 +123,6 @@ institution_groups:
       - { name: Meta, logo: meta.svg }
       - { name: Microsoft, logo: microsoft.svg }
       - { name: NVIDIA, logo: nvidia.svg, h: 13 }
-      - { name: Amazon, logo: amazon.svg }
       - { name: Apple, logo: apple.svg, shape: square, h: 20 }
       - { name: IBM Research, logo: ibm-research.svg }
       - { name: Ai2, logo: ai2.svg }
@@ -137,6 +136,7 @@ institution_groups:
       - { name: Princeton University, logo: princeton.svg }
       - { name: Carnegie Mellon University, logo: cmu.svg }
       - { name: Harvard University, logo: harvard.svg }
+      - { name: Yale University, logo: yale.svg }
       - { name: University of Washington, logo: uw.svg, shape: square, h: 22 }
       - { name: University of Waterloo, logo: waterloo.svg }
       - { name: National University of Singapore, logo: nus.svg, shape: square, text: NUS }
