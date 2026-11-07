@@ -1,0 +1,33 @@
+{% assign e = include.e %}
+<li class="xp-item{% if e.current %} current{% endif %}">
+  <a class="xp-logo" href="{{ e.url }}" aria-label="{{ e.org }}">
+    {%- assign logo_exists = 'false' -%}
+    {%- if e.logo -%}
+      {%- capture logo_exists %}{% file_exists assets/img/logos/{{ e.logo }} %}{% endcapture -%}
+    {%- endif -%}
+    {%- if logo_exists == 'true' -%}
+      <img src="{{ e.logo | prepend: '/assets/img/logos/' | relative_url }}" alt="{{ e.org }} logo" loading="lazy">
+    {%- else -%}
+      <span class="xp-monogram">
+        {%- if e.short %}{{ e.short }}{% else %}{{ e.org | slice: 0 }}{% endif -%}
+      </span>
+    {%- endif -%}
+  </a>
+  <div class="xp-main">
+    <div class="xp-head">
+      <span class="xp-org"
+        ><a href="{{ e.url }}">{{ e.org }}</a>
+        {%- if e.team -%}
+          <span class="xp-team"> · {{ e.team }}</span>
+        {%- endif -%}
+      </span>
+      {% if e.date and e.date != '' -%}
+        <span class="xp-date">{{ e.date }}</span>
+      {%- endif %}
+    </div>
+    <div class="xp-role">{{ e.role }}</div>
+    {% if e.desc %}
+      <div class="xp-desc">{{ e.desc }}</div>
+    {% endif %}
+  </div>
+</li>

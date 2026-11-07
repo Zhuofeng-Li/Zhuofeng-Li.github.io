@@ -1,0 +1,32 @@
+# Shown on the homepage Experience section. Newest first.
+# (An `education:` list with the same fields would add an Education section.)
+# Fields: org, url, role, team, date, desc (optional, HTML allowed), current (optional),
+# logo (file in assets/img/logos/; if missing, the `short` monogram is shown instead)
+
+experience:
+  - org: Google DeepMind
+    url: https://deepmind.google/
+    logo: deepmind.png
+    short: GDM
+    role: Student Researcher
+    date: Sep 2026 – Present
+    current: true
+    desc: Large-scale post-training and recursive self-improvement for LLM agents.
+
+  - org: Stanford University
+    url: https://www.stanford.edu/
+    logo: stanford.png
+    short: S
+    role: Visiting Student Researcher
+    team: Zou Group & Choi's Lab
+    date: Jun 2025 – Dec 2025
+    desc: Led <a href="https://agentflow.stanford.edu/">AgentFlow</a> (ICLR 2026 Oral) with Prof. James Zou and Prof. Yejin Choi.
+
+  - org: University of Waterloo & Sea AI Lab
+    url: https://github.com/TIGER-AI-Lab
+    logo: waterloo.png
+    short: UW
+    role: Research Intern
+    team: TIGER-Lab
+    date: Jan 2025 – Aug 2025
+    desc: Co-led <a href="https://github.com/TIGER-AI-Lab/verl-tool">VerlTool</a>, an async agentic RL framework, with Prof. Wenhu Chen.

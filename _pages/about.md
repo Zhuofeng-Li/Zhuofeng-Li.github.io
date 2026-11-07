@@ -2,59 +2,67 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='https://deepmind.google/'>Google DeepMind</a>; <a href='https://www.stanford.edu/'>Stanford University</a>; <a href='https://www.tamu.edu/index.html'>Texas A&M University</a>;
+
+tagline: Scaling recursive self-improvement (RSI), large-scale post-training, and reinforcement learning for LLM agents.
+
+affiliations:
+  - name: Google DeepMind
+    url: https://deepmind.google/
+    role: Student Researcher
+  - name: Stanford University
+    url: https://www.stanford.edu/
+    role: Visiting Student
+  - name: Texas A&M University
+    url: https://www.tamu.edu/
+    role: CS Ph.D. Student
+
+job_status: Open to Full-Time and Internship roles. Let's talk!
+
+cv_pdf: cv.pdf
 
 profile:
-  align: right
   image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
-  # more_info: >
-  #   <p>555 your office number</p>
-  #   <p>123 your address street</p>
-  #   <p>Your City, State 12345</p>
+
+stats:
+  - value: "ICLR '26 Oral"
+    label: "AgentFlow · top 1.1%"
+    url: https://agentflow.stanford.edu/
+  - value: "NeurIPS '26 Spotlight"
+    label: "DCI · #1 HF Paper of the Day"
+    url: https://arxiv.org/abs/2605.05242
+  - value: "2 Best Paper"
+    label: "ICLR '26 SPOT · NeurIPS '25 (runner-up)"
+  - value: "5K+ ⭐"
+    label: "GitHub stars on my projects"
+    url: https://github.com/Zhuofeng-Li
+  - value: "NVIDIA · Meta"
+    label: "Nemotron & MSL adopted our work"
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 
 announcements:
   enabled: true # includes a list of news items
-  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
+  limit: 6 # number of news items shown before "Show earlier news"
 
-# latest_posts:
-#   enabled: true
-#   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-#   limit: 3 # leave blank to include all the blog posts
+honors:
+  - year: 2026
+    text: NeurIPS 2026 Spotlight — DCI (#1 Paper of the Day on Hugging Face)
+  - year: 2026
+    text: ICLR 2026 Oral (top 1.1%) — AgentFlow
+  - year: 2026
+    text: Best Paper Award, ICLR 2026 Workshop on Scaling Post-Training (SPOT) — VerlTool
+  - year: 2025
+    text: Best Paper Runner-up, NeurIPS 2025 Efficient Reasoning Workshop — AgentFlow
+  - year: 2025
+    text: TMLR J2C Certification — StructEval
 ---
 
-Hi there 👋. My name is Zhuofeng Li. I am a student researcher at [Google DeepMind](https://deepmind.google/) and a CS Ph.D. student at [Texas A&M University][0], advised by Prof. [Yu Zhang][1]. I was also a visiting student at [Stanford University][6] working with Prof. [Yejin Choi][2] and Prof. [James Zou][3]. Previously, I interned [TIGER-Lab][14] at University of Waterloo working with Prof. [Wenhu Chen][5].
+I am a **Student Researcher at [Google DeepMind](https://deepmind.google/)** and a Ph.D. student in Computer Science at [Texas A&M University](https://www.tamu.edu/), advised by Prof. [Yu Zhang](https://yuzhimanhua.github.io/). Previously, I was a visiting student at [Stanford University](https://www.stanford.edu/) working with Prof. [Yejin Choi](https://yejinc.github.io/) and Prof. [James Zou](https://www.james-zou.com/), and a research intern at [TIGER-Lab](https://github.com/TIGER-AI-Lab) (University of Waterloo) with Prof. [Wenhu Chen](https://wenhuchen.github.io/).
 
-My research lies in large-scale post-training and RL, including agents, reasoning, agentic, alignment, evaluation, and applications. Recently, I am particularly focus on recursive self-improvement (RSI).
+My research is on **large-scale post-training and reinforcement learning for LLM agents**. Lately I focus on **recursive self-improvement (RSI)**: agents that get better by training on their own experience.
 
-As part of this direction, I lead / co-lead [OpenRSI-Index](https://github.com/OpenRSI-Foundation/OpenRSI-Index), [AgentFlow](https://agentflow.stanford.edu/) (ICLR 26 Oral & 1.9K+⭐), [VerlTool](https://github.com/TIGER-AI-Lab/verl-tool) (ICLR 26 SPOT Best Paper & 950+⭐), [DCI](https://arxiv.org/pdf/2605.05242)(NeurIPS 2026 Spotlight & 400+⭐) [OpenResearcher](https://github.com/TIGER-AI-Lab/OpenResearcher) (Adopted by [NVIDIA’s Nemotron family of models](https://research.nvidia.com/labs/nemotron/projects/) & Top 3 Trending Dataset on Hugging Face & 700+⭐) to push the boundaries of agentic reasoning.
-
-<p style="color: #dc3545;"><strong>I am actively looking for Internship and Full-Time opportunities! Feel free to reach out to me through <a href="mailto:zhuofengli12345@gmail.com">zhuofengli12345@gmail.com</a>.</strong></p>
-
-[Github](https://github.com/Zhuofeng-Li) / [Linkedin](https://www.linkedin.com/in/zhuofeng-li-6a528626a/) / [Twitter](https://x.com/intent/follow?screen_name=zhuofengli96475) / [Google Scholar](https://scholar.google.com/citations?&user=V3ZBIT4AAAAJ) / [Email](mailto:zhuofengli12345@gmail.com) / [WeChat](/assets/img/wechat_qr.jpg)
-
-[0]: https://www.tamu.edu/index.html
-[1]: https://yuzhimanhua.github.io/
-[2]: https://yejinc.github.io/
-[3]: https://www.james-zou.com/
-[4]: https://lupantech.github.io/
-[5]: https://wenhuchen.github.io/
-[6]: https://www.stanford.edu/
-[7]: https://uwaterloo.ca/
-[8]: https://scholar.google.com.hk/citations?user=IIoFY90AAAAJ&hl=zh-CN
-[9]: https://inklab.usc.edu/
-[10]: https://lianhui.ucsd.edu/
-[11]: https://allenai.org/
-[12]: https://huggingface.co/TIGER-Lab
-[13]: https://research.nvidia.com/labs/adlr/
-[14]: https://github.com/TIGER-AI-Lab
-
-<!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
-
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
-
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them. -->
+- **Recursive self-improvement.** Tech Lead of [OpenRSI Index](https://index.openrsi.foundation/), an open benchmark for AI research agents that improve foundation models.
+- **Agentic RL and training infrastructure.** [AgentFlow](https://agentflow.stanford.edu/) (ICLR 2026 Oral, 2K+ ⭐) and [VerlTool](https://github.com/TIGER-AI-Lab/verl-tool) (ICLR 2026 SPOT Best Paper, 1K+ ⭐).
+- **Agentic data pipelines and harnesses.** [OpenResearcher](https://github.com/TIGER-AI-Lab/OpenResearcher) (adopted by [NVIDIA Nemotron](https://research.nvidia.com/labs/nemotron/projects/), 1.2K+ ⭐) and [DCI](https://arxiv.org/abs/2605.05242) (NeurIPS 2026 Spotlight, 400+ ⭐).
+- **Evaluation of agents and models.** [ClawBench](https://arxiv.org/abs/2604.08523) (adopted by Meta Superintelligence Labs), [StructEval](https://tiger-ai-lab.github.io/StructEval/), [ImagenWorld](https://tiger-ai-lab.github.io/ImagenWorld/).
