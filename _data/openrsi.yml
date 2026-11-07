@@ -76,6 +76,14 @@ organizers:
   - Qizheng Zhang
   - Weichen Zhang
   - Kaiyuan Zheng
+# Shown first and in bold on the homepage card.
+advisors_highlight:
+  - Wenhu Chen
+  - Jian Zhang
+  - Oriol Vinyals
+  - Karthik R. Narasimhan
+  - Luke Zettlemoyer
+  - Hannaneh Hajishirzi
 advisors:
   - Wenhu Chen
   - Alvin Cheung
@@ -85,7 +93,7 @@ advisors:
   - Pang Wei Koh
   - Ranjay Krishna
   - Hanqing Lu
-  - Karthik Narasimhan
+  - Karthik R. Narasimhan
   - Kunle Olukotun
   - Rameswar Panda
   - Radha Poovendran

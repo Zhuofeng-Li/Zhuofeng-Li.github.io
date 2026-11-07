@@ -597,6 +597,17 @@ a {
   color: var(--global-text-color);
 }
 
+.fp-adv-hl {
+  color: var(--global-text-color);
+  font-weight: 600;
+}
+
+.home .fp-note {
+  font-size: 0.78rem;
+  color: var(--global-text-color-light);
+  margin: -0.4rem 0 0.6rem;
+}
+
 .fp-self-role {
   color: var(--home-gold);
   font-weight: 600;

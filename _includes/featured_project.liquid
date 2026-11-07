@@ -22,11 +22,16 @@
         <span class="fp-team-names">
           {%- for p in fp.initiators -%}
             {%- if p.self -%}
-              <strong class="fp-self">{{ p.name }}</strong> <span class="fp-self-role">({{ p.role }})</span>
+              <strong class="fp-self">
+                {{- p.name -}}
+                <sup>*</sup></strong
+              >
+              <span class="fp-self-role">({{ p.role }})</span>
             {%- elsif p.url -%}
-              <a href="{{ p.url }}">{{ p.name }}</a>
+              <a href="{{ p.url }}">{{ p.name }}</a><sup>*</sup>
             {%- else -%}
-              {{ p.name }}
+              {{ p.name -}}
+              <sup>*</sup>
             {%- endif -%}
             {%- unless forloop.last %}, {% endunless -%}
           {%- endfor -%}
@@ -34,13 +39,27 @@
       </div>
       <div class="fp-team-row">
         <span class="fp-team-label">Advisors</span>
-        <span class="fp-team-names">{{ fp.advisors | join: ', ' }}</span>
+        <span class="fp-team-names">
+          {%- for a in fp.advisors_highlight -%}
+            <strong class="fp-adv-hl">{{ a }}</strong>,{{ ' ' }}
+          {%- endfor -%}
+          {%- assign shown = 0 -%}
+          {%- for a in fp.advisors -%}
+            {%- unless fp.advisors_highlight contains a -%}
+              {%- if shown > 0 %}, {% endif -%}
+              {{ a }}
+              {%- assign shown = shown | plus: 1 -%}
+            {%- endunless -%}
+          {%- endfor -%}
+        </span>
       </div>
       <details class="fp-team-row fp-organizers">
         <summary><span class="fp-team-label">Organizers</span> {{ fp.organizers | size }} contributors (show)</summary>
         <span class="fp-team-names">{{ fp.organizers | join: ', ' }}</span>
       </details>
     </div>
+
+    <p class="fp-note"><sup>*</sup> Equal contribution among initiators.</p>
 
     <div class="fp-links">
       {% for l in fp.links %}
