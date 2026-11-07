@@ -366,32 +366,51 @@ a {
 }
 
 .xp-item {
-  position: relative;
-  padding: 0 0 1.1rem 1.4rem;
-  border-left: 2px solid var(--home-border);
-  margin-left: 0.3rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 0.75rem 0;
 
-  &:last-child {
-    border-left-color: transparent;
-    padding-bottom: 0;
+  & + & {
+    border-top: 1px dashed var(--home-border);
   }
+}
 
-  &::before {
-    content: "";
-    position: absolute;
-    left: -7px;
-    top: 0.45rem;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--global-bg-color);
-    border: 2px solid var(--global-text-color-light);
-  }
+.home a.xp-logo {
+  flex: 0 0 52px;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  border: 1px solid var(--home-border);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 0.15rem;
 
-  &.current::before {
+  &:hover {
+    text-decoration: none;
     border-color: var(--global-theme-color);
-    background: var(--global-theme-color);
   }
+
+  img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+  }
+}
+
+.xp-monogram {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--global-theme-color);
+  letter-spacing: -0.02em;
+}
+
+.xp-main {
+  flex: 1;
+  min-width: 0;
 }
 
 .xp-head {

@@ -116,23 +116,7 @@ layout: default
       <h2 class="section-title">Experience</h2>
       <ul class="xp">
         {% for e in site.data.experience.experience %}
-          <li class="xp-item{% if e.current %} current{% endif %}">
-            <div class="xp-head">
-              <span class="xp-org"
-                ><a href="{{ e.url }}">{{ e.org }}</a>
-                {%- if e.team -%}
-                  <span class="xp-team"> · {{ e.team }}</span>
-                {%- endif -%}
-              </span>
-              {% if e.date != '' -%}
-                <span class="xp-date">{{ e.date }}</span>
-              {%- endif %}
-            </div>
-            <div class="xp-role">{{ e.role }}</div>
-            {% if e.desc %}
-              <div class="xp-desc">{{ e.desc }}</div>
-            {% endif %}
-          </li>
+          {% include xp_item.liquid e=e %}
         {% endfor %}
       </ul>
     </section>
@@ -175,18 +159,7 @@ layout: default
       <h2 class="section-title">Education</h2>
       <ul class="xp">
         {% for e in site.data.experience.education %}
-          <li class="xp-item">
-            <div class="xp-head">
-              <span class="xp-org"
-                ><a href="{{ e.url }}">{{ e.org }}</a></span
-              >
-              <span class="xp-date">{{ e.date }}</span>
-            </div>
-            <div class="xp-role">{{ e.role }}</div>
-            {% if e.desc %}
-              <div class="xp-desc">{{ e.desc }}</div>
-            {% endif %}
-          </li>
+          {% include xp_item.liquid e=e %}
         {% endfor %}
       </ul>
     </section>

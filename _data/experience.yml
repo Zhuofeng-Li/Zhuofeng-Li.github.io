@@ -1,9 +1,12 @@
 # Shown on the homepage (Experience + Education sections). Newest first.
-# Fields: org, url, role, team, date, desc (optional, markdown allowed), current (optional)
+# Fields: org, url, role, team, date, desc (optional, HTML allowed), current (optional),
+# logo (file in assets/img/logos/; if missing, the `short` monogram is shown instead)
 
 experience:
   - org: Google DeepMind
     url: https://deepmind.google/
+    logo: deepmind.png
+    short: GDM
     role: Student Researcher
     date: 2026 – Present
     current: true
@@ -11,6 +14,8 @@ experience:
 
   - org: Stanford University
     url: https://www.stanford.edu/
+    logo: stanford.png
+    short: S
     role: Visiting Student Researcher
     team: Zou Group & Choi's Lab
     date: Jun 2025 – Dec 2025
@@ -18,21 +23,18 @@ experience:
 
   - org: University of Waterloo & Sea AI Lab
     url: https://github.com/TIGER-AI-Lab
+    logo: waterloo.png
+    short: UW
     role: Research Intern
     team: TIGER-Lab
     date: Jan 2025 – Aug 2025
     desc: Co-led <a href="https://github.com/TIGER-AI-Lab/verl-tool">VerlTool</a>, an async agentic RL framework, with Prof. Wenhu Chen.
 
-  - org: Kuaishou
-    url: https://www.kuaishou.com/
-    role: Research Intern
-    team: Recommendation
-    date: ""
-    desc: Built GReF, a generative reranker deployed to 300M+ daily active users (CIKM 2025).
-
 education:
   - org: Texas A&M University
     url: https://www.tamu.edu/
+    logo: tamu.png
+    short: A&M
     role: Ph.D. in Computer Science
     date: Aug 2025 – Present
     desc: >-
