@@ -9,13 +9,6 @@ experience:
     current: true
     desc: Large-scale post-training and recursive self-improvement for LLM agents.
 
-  - org: Amazon
-    url: https://www.amazon.science/
-    role: Applied Scientist Intern
-    team: Rufus Foundation Model Team
-    date: May 2026 – Aug 2026
-    desc: "Large-scale post-training and agent-swarm RL. Mentors: Dr. Qingyu Yin and Dr. Xin Liu."
-
   - org: Stanford University
     url: https://www.stanford.edu/
     role: Visiting Student Researcher

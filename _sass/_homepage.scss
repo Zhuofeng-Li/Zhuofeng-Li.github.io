@@ -269,7 +269,7 @@ a {
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 0.75rem;
   margin-top: 1.75rem;
 }
@@ -294,7 +294,7 @@ a {
 }
 
 .stat-value {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--global-theme-color);
   line-height: 1.3;
@@ -472,6 +472,147 @@ a {
   }
 }
 
+// Featured project (OpenRSI) ---------------------------------------------------
+
+.featured-project {
+  display: flex;
+  gap: 1.5rem;
+  margin: 0.75rem 0 0.5rem;
+  padding: 1.25rem;
+  border-radius: 14px;
+  border: 1px solid var(--home-border);
+  background: linear-gradient(135deg, var(--home-accent-soft), transparent 60%), var(--home-surface);
+}
+
+.fp-media {
+  flex: 0 0 300px;
+
+  figure {
+    margin: 0;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid var(--home-border);
+  }
+}
+
+.fp-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.fp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.fp-tag,
+.fp-role {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.15rem 0.55rem;
+  border-radius: 6px;
+}
+
+.fp-tag {
+  background: var(--global-theme-color);
+  color: #fff;
+}
+
+.fp-role {
+  background: var(--home-gold-soft);
+  color: var(--home-gold);
+}
+
+.home .fp-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem;
+
+  a {
+    color: var(--global-text-color);
+  }
+}
+
+.home .fp-desc {
+  font-size: 0.93rem;
+  margin-bottom: 0.75rem;
+}
+
+.fp-team {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+.fp-team-row {
+  margin-bottom: 0.35rem;
+
+  summary {
+    cursor: pointer;
+    color: var(--global-text-color-light);
+  }
+}
+
+.fp-team-label {
+  display: inline-block;
+  min-width: 5.5rem;
+  font-weight: 700;
+  color: var(--global-text-color);
+}
+
+.fp-team-names {
+  color: var(--global-text-color-light);
+
+  a {
+    color: inherit !important;
+    border-bottom: 1px dashed var(--home-border);
+  }
+}
+
+.fp-self {
+  color: var(--global-text-color);
+}
+
+.fp-self-role {
+  color: var(--home-gold);
+  font-weight: 600;
+}
+
+.fp-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+
+  a.pub-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.12rem 0.6rem;
+    border: 1px solid var(--home-border);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--global-text-color);
+    background: var(--global-bg-color);
+
+    &:hover {
+      text-decoration: none;
+      border-color: var(--global-theme-color);
+      color: var(--global-theme-color);
+    }
+  }
+
+  a.pub-stars img {
+    height: 20px;
+  }
+}
+
 // Publications (shared by homepage and /publications/) ------------------------
 
 .pub-legend {
@@ -619,9 +760,23 @@ footer.sticky-bottom {
 
 // Responsive ------------------------------------------------------------------
 
+@media (max-width: 860px) {
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 767px) {
   .stats {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .featured-project {
+    flex-direction: column;
+
+    .fp-media {
+      flex-basis: auto;
+    }
   }
 }
 

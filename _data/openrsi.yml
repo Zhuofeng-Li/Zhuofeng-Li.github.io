@@ -1,0 +1,102 @@
+# Featured project card on the homepage (_includes/featured_project.liquid).
+# Team roster and order from the official OpenRSI Index team page.
+title: OpenRSI Index
+tag: Featured · 2026
+role: Tech Lead
+image: openrsi.png
+url: https://index.openrsi.foundation/
+description:
+  An open benchmark for testing whether AI research agents can push foundation-model development beyond human-designed baselines. It turns real
+  open-source research projects into verifiable tasks with fixed compute budgets, spanning pre-training, post-training, systems, and vision.
+links:
+  - name: Website
+    icon: fa-solid fa-globe
+    url: https://index.openrsi.foundation/
+  - name: Code
+    icon: fa-brands fa-github
+    url: https://github.com/OpenRSI-Foundation/OpenRSI-Index
+  - name: Blog
+    icon: fa-solid fa-pen-nib
+    url: https://index.openrsi.foundation/blog/introducing-rsi-index
+  - name: Team
+    icon: fa-solid fa-users
+    url: https://index.openrsi.foundation/team
+  - name: Logs
+    icon: fa-solid fa-chart-line
+    url: https://index.openrsi.foundation/logs/
+  - name: Hugging Face
+    emoji: 🤗
+    url: https://huggingface.co/datasets/OpenRSI-Foundation/OpenRSI-Index-Logs
+  - name: Thread
+    icon: fa-brands fa-x-twitter
+    url: https://x.com/OpenRSI/status/2102831770458890626
+github: OpenRSI-Foundation/OpenRSI-Index
+source: https://index.openrsi.foundation/team
+initiators:
+  - name: Yuetai Li
+    url: https://yuetl9.github.io/
+  - name: Zhuofeng Li
+    self: true
+    role: Tech Lead
+  - name: Yichen Feng
+    url: https://yichenfeng.me/
+  - name: Xinyang Han
+    url: https://davidhanx.github.io/
+  - name: Wenhao Chai
+    url: https://wenhaochai.com/
+  - name: Chenglei Si
+    url: https://noviscl.github.io/
+organizers:
+  - Nuo Chen
+  - Zhi-Hao Cui
+  - Shangding Gu
+  - Rilyn Han
+  - Zhengyu Hu
+  - Hang Hua
+  - Yue Huang
+  - Fengqing Jiang
+  - Cara Li
+  - Hanchen Li
+  - Shujia Liang
+  - Xiang Liu
+  - Pan Lu
+  - Bohan Lyu
+  - Zixian Ma
+  - Qiuyang Mang
+  - Rulin Shao
+  - Venkat Srinivasan
+  - Yiyou Sun
+  - Guan Wang
+  - Ning Wang
+  - Yangzhen Wu
+  - Jian Xie
+  - Zhangchen Xu
+  - Brian Yu
+  - Gaoyuan Zhang
+  - Qizheng Zhang
+  - Weichen Zhang
+  - Kaiyuan Zheng
+advisors:
+  - Wenhu Chen
+  - Alvin Cheung
+  - Yejin Choi
+  - Jianfeng Gao
+  - Hannaneh Hajishirzi
+  - Pang Wei Koh
+  - Ranjay Krishna
+  - Hanqing Lu
+  - Karthik Narasimhan
+  - Kunle Olukotun
+  - Rameswar Panda
+  - Radha Poovendran
+  - Ruslan Salakhutdinov
+  - Dawn Song
+  - Yu Su
+  - Huan Sun
+  - Oriol Vinyals
+  - Diyi Yang
+  - Ming‑Hsuan Yang
+  - Xiang Yue
+  - Jian Zhang
+  - Yu Zhang
+  - Luke Zettlemoyer

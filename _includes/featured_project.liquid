@@ -1,0 +1,59 @@
+{% assign fp = site.data.openrsi %}
+<div class="featured-project">
+  <div class="fp-media">
+    <a href="{{ fp.url }}">
+      {% assign fp_img = fp.image | prepend: 'assets/img/publication_preview/' %}
+      {% include figure.liquid loading="eager" path=fp_img class="fp-img" sizes="420px" alt=fp.title %}
+    </a>
+  </div>
+  <div class="fp-body">
+    <div class="fp-tags">
+      <span class="fp-tag">{{ fp.tag }}</span>
+      <span class="fp-role"><i class="fa-solid fa-star"></i> My role: {{ fp.role }}</span>
+    </div>
+    <h3 class="fp-title">
+      <a href="{{ fp.url }}">{{ fp.title }}</a>
+    </h3>
+    <p class="fp-desc">{{ fp.description }}</p>
+
+    <div class="fp-team">
+      <div class="fp-team-row">
+        <span class="fp-team-label">Initiators</span>
+        <span class="fp-team-names">
+          {%- for p in fp.initiators -%}
+            {%- if p.self -%}
+              <strong class="fp-self">{{ p.name }}</strong> <span class="fp-self-role">({{ p.role }})</span>
+            {%- elsif p.url -%}
+              <a href="{{ p.url }}">{{ p.name }}</a>
+            {%- else -%}
+              {{ p.name }}
+            {%- endif -%}
+            {%- unless forloop.last %}, {% endunless -%}
+          {%- endfor -%}
+        </span>
+      </div>
+      <div class="fp-team-row">
+        <span class="fp-team-label">Advisors</span>
+        <span class="fp-team-names">{{ fp.advisors | join: ', ' }}</span>
+      </div>
+      <details class="fp-team-row fp-organizers">
+        <summary><span class="fp-team-label">Organizers</span> {{ fp.organizers | size }} contributors (show)</summary>
+        <span class="fp-team-names">{{ fp.organizers | join: ', ' }}</span>
+      </details>
+    </div>
+
+    <div class="fp-links">
+      {% for l in fp.links %}
+        <a class="pub-btn" href="{{ l.url }}">
+          {%- if l.icon %}<i class="{{ l.icon }}"></i>{% else %}{{ l.emoji }}{% endif %}
+          {{ l.name -}}
+        </a>
+      {% endfor %}
+      {% if fp.github %}
+        <a href="https://github.com/{{ fp.github }}" class="pub-stars" aria-label="GitHub stars"
+          ><img alt="GitHub stars" src="https://img.shields.io/github/stars/{{ fp.github }}?style=social"
+        ></a>
+      {% endif %}
+    </div>
+  </div>
+</div>

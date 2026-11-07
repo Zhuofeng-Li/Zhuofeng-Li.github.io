@@ -148,6 +148,9 @@ layout: default
       <p class="pub-legend">
         * equal contribution. Full list on <a href="https://scholar.google.com/citations?user={{ socials.scholar_userid }}">Google Scholar</a>.
       </p>
+      {% if site.data.openrsi %}
+        {% include featured_project.liquid %}
+      {% endif %}
       {% include selected_papers.liquid %}
     </section>
   {% endif %}
