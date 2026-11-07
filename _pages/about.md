@@ -3,7 +3,7 @@ layout: about
 title: about
 permalink: /
 
-tagline: Working on recursive self-improvement (RSI), large-scale post-training, and reinforcement learning for LLM agents.
+tagline: Scaling recursive self-improvement (RSI), large-scale post-training, and reinforcement learning for LLM agents.
 
 affiliations:
   - name: Google DeepMind
@@ -32,7 +32,7 @@ stats:
     url: https://arxiv.org/abs/2605.05242
   - value: "2 Best Paper"
     label: "ICLR '26 SPOT · NeurIPS '25 (runner-up)"
-  - value: "4K+ ⭐"
+  - value: "5K+ ⭐"
     label: "GitHub stars on my projects"
     url: https://github.com/Zhuofeng-Li
   - value: "NVIDIA · Meta"
@@ -63,6 +63,6 @@ I am a **Student Researcher at [Google DeepMind](https://deepmind.google/)** and
 My research is on **large-scale post-training and reinforcement learning for LLM agents**. Lately I focus on **recursive self-improvement (RSI)**: agents that get better by training on their own experience.
 
 - **Recursive self-improvement.** Tech Lead of [OpenRSI Index](https://index.openrsi.foundation/), an open benchmark for AI research agents that improve foundation models.
-- **Agentic RL and training infrastructure.** [AgentFlow](https://agentflow.stanford.edu/) (ICLR 2026 Oral, 1.9K+ ⭐) and [VerlTool](https://github.com/TIGER-AI-Lab/verl-tool) (ICLR 2026 SPOT Best Paper, 950+ ⭐).
-- **Agentic data pipelines and harnesses.** [OpenResearcher](https://github.com/TIGER-AI-Lab/OpenResearcher) (adopted by [NVIDIA Nemotron](https://research.nvidia.com/labs/nemotron/projects/), 700+ ⭐) and [DCI](https://arxiv.org/abs/2605.05242) (NeurIPS 2026 Spotlight, 400+ ⭐).
+- **Agentic RL and training infrastructure.** [AgentFlow](https://agentflow.stanford.edu/) (ICLR 2026 Oral, 2K+ ⭐) and [VerlTool](https://github.com/TIGER-AI-Lab/verl-tool) (ICLR 2026 SPOT Best Paper, 1K+ ⭐).
+- **Agentic data pipelines and harnesses.** [OpenResearcher](https://github.com/TIGER-AI-Lab/OpenResearcher) (adopted by [NVIDIA Nemotron](https://research.nvidia.com/labs/nemotron/projects/), 1.2K+ ⭐) and [DCI](https://arxiv.org/abs/2605.05242) (NeurIPS 2026 Spotlight, 400+ ⭐).
 - **Evaluation of agents and models.** [ClawBench](https://arxiv.org/abs/2604.08523) (adopted by Meta Superintelligence Labs), [StructEval](https://tiger-ai-lab.github.io/StructEval/), [ImagenWorld](https://tiger-ai-lab.github.io/ImagenWorld/).
