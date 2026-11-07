@@ -16,7 +16,7 @@ affiliations:
     url: https://www.tamu.edu/
     role: CS Ph.D. Student
 
-job_status: Open to full-time and internship roles in RSI, LLM post-training, agentic RL, and agents. Let's talk!
+job_status: Open to Full-Time and Internship roles. Let's talk!
 
 cv_pdf: cv.pdf
 
