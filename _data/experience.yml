@@ -1,4 +1,5 @@
-# Shown on the homepage (Experience + Education sections). Newest first.
+# Shown on the homepage Experience section. Newest first.
+# (An `education:` list with the same fields would add an Education section.)
 # Fields: org, url, role, team, date, desc (optional, HTML allowed), current (optional),
 # logo (file in assets/img/logos/; if missing, the `short` monogram is shown instead)
 
@@ -29,13 +30,3 @@ experience:
     team: TIGER-Lab
     date: Jan 2025 – Aug 2025
     desc: Co-led <a href="https://github.com/TIGER-AI-Lab/verl-tool">VerlTool</a>, an async agentic RL framework, with Prof. Wenhu Chen.
-
-education:
-  - org: Texas A&M University
-    url: https://www.tamu.edu/
-    logo: tamu.png
-    short: A&M
-    role: Ph.D. in Computer Science
-    date: Aug 2025 – Present
-    desc: >-
-      Advisor: Prof. <a href="https://yuzhimanhua.github.io/">Yu Zhang</a>
