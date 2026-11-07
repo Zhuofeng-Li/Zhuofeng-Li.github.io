@@ -5,6 +5,28 @@
       {% assign fp_img = fp.image | prepend: 'assets/img/publication_preview/' %}
       {% include figure.liquid loading="eager" path=fp_img class="fp-img" sizes="420px" alt=fp.title %}
     </a>
+    {% if fp.institutions %}
+      <div class="fp-inst">
+        <div class="fp-inst-label">{{ fp.institutions_label | default: 'Team from' }}</div>
+        <ul class="fp-inst-cloud">
+          {% for i in fp.institutions %}
+            <li title="{{ i.name }}">
+              <img
+                src="{{ i.logo | prepend: '/assets/img/logos/inst/' | relative_url }}"
+                alt="{{ i.name }}"
+                loading="lazy"
+                {% if i.shape == 'square' %}
+                  class="sq"
+                {% endif %}
+                {% if i.h %}
+                  style="height: {{ i.h }}px"
+                {% endif %}
+              >
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
   </div>
   <div class="fp-body">
     <div class="fp-tags">

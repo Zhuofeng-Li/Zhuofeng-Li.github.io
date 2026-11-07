@@ -517,6 +517,51 @@ a {
   }
 }
 
+.fp-inst {
+  margin-top: 1rem;
+}
+
+.home .fp-inst-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--global-text-color-light);
+  margin-bottom: 0.5rem;
+}
+
+// White panel so dark wordmarks stay readable in dark mode too
+.fp-inst-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0.85rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid var(--home-border);
+  background: #fff;
+
+  li {
+    display: flex;
+    align-items: center;
+  }
+
+  // override `.fp-media img` (cover image styles)
+  .fp-media & img {
+    width: auto;
+    height: 20px;
+    border: 0;
+    border-radius: 0;
+
+    &.sq {
+      height: 30px;
+    }
+  }
+}
+
 .fp-body {
   flex: 1;
   min-width: 0;

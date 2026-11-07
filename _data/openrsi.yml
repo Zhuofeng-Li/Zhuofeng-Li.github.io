@@ -109,3 +109,23 @@ advisors:
   - Jian Zhang
   - Yu Zhang
   - Luke Zettlemoyer
+
+# Logos shown under the cover image (files in assets/img/logos/inst/).
+# Affiliations of the advisors/initiators as listed on index.openrsi.foundation.
+# shape: square makes compact emblems a bit taller than wordmarks; h (px) overrides the height.
+institutions_label: Team from
+institutions:
+  - { name: Stanford University, logo: stanford.png, shape: square }
+  - { name: UC Berkeley, logo: berkeley.svg }
+  - { name: MIT, logo: mit.svg }
+  - { name: Princeton University, logo: princeton.svg }
+  - { name: Carnegie Mellon University, logo: cmu.svg }
+  - { name: University of Washington, logo: uw.svg, shape: square, h: 24 }
+  - { name: Microsoft, logo: microsoft.svg }
+  - { name: NVIDIA, logo: nvidia.svg, h: 15 }
+  - { name: Amazon, logo: amazon.svg }
+  - { name: IBM Research, logo: ibm-research.svg }
+  - { name: University of Waterloo, logo: waterloo.svg }
+  - { name: Texas A&M University, logo: tamu.png, shape: square, h: 32 }
+  - { name: The Ohio State University, logo: ohio-state.svg }
+  - { name: UC Merced, logo: uc-merced.svg }
