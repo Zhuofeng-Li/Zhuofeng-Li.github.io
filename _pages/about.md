@@ -3,7 +3,7 @@ layout: about
 title: about
 permalink: /
 
-tagline: Building self-improving LLM agents through large-scale post-training and reinforcement learning.
+tagline: Working on recursive self-improvement (RSI), large-scale post-training, and reinforcement learning for LLM agents.
 
 affiliations:
   - name: Google DeepMind
