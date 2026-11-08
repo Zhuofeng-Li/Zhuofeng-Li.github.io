@@ -16,7 +16,7 @@ affiliations:
     url: https://www.tamu.edu/
     role: CS Ph.D. Student
 
-job_status: Open to Full-Time and Internship roles. Let's talk!
+job_status: Open to full-time and internship opportunities. Feel free to email me.
 
 cv_pdf: cv.pdf
 
