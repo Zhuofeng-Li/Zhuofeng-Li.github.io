@@ -573,30 +573,8 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 96px auto 0; max-widt
 </figure>
 
 <section class="col">
-  <p>The PRs range from a one-line setting (#2524) to about 3,900 changed lines (#3189). Each shipped with its own serving study rather than a single number, and the studies also report where a change did not help, such as #2525, whose gain is within noise.</p>
-</section>
-
-<section class="col">
-  <p>Figure&nbsp;4 shows when each PR was opened and merged. All fourteen merged on eight days between October&nbsp;7 and November&nbsp;2.</p>
-</section>
-
-<figure class="wide" id="fig4">
-  <div class="prfig">
-    <div class="prcal-wrap">
-      <div class="prcal" id="prcal" role="img" aria-label="Calendar of October 4 to November 2, 2026. Fourteen PRs merged on eight days: three on October 7, two each on October 17, 19, 22 and November 2, and one each on October 20, 27 and November 1."></div>
-      <div class="prkey"><span>Merged</span><i class="pc m1"></i><i class="pc m2"></i><i class="pc m3"></i><span>1 to 3 PRs</span><span class="gap"></span><i class="pc op"></i><span>PRs opened that day</span></div>
-    </div>
-    <div>
-      <div class="prhead" id="prhead"></div>
-      <ol class="prlist" id="prlist"></ol>
-    </div>
-  </div>
-  <figcaption><b>Figure 4</b>The fourteen PRs on GitHub. Each square is a day (UTC), shaded by how many PRs merged that day; a ring marks a day PRs were opened. Hover a day or a PR to match them.</figcaption>
-</figure>
-
-<section class="col">
   <h2>Why it came together quickly</h2>
-  <p>Figure 5 shows the best search run for each of the first six models, from the task logs. In five of the six, the first candidate to pass every guard arrived within eight hours.</p>
+  <p>Figure&nbsp;4 shows the best search run for each of the first six models, from the task logs. In five of the six, the first candidate to pass every guard arrived within eight hours.</p>
 </section>
 
 <figure class="wide fig-multi">
@@ -612,7 +590,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 96px auto 0; max-widt
       <p>Reward is throughput over the task&rsquo;s frozen baseline. Guards also check latency and WER, so a faster candidate can still fail.</p>
     </div>
   </div>
-  <figcaption><b>Figure 5</b>The best search run for each model, in hours since the run started. Each task scores against its own benchmark, so rewards are not comparable across panels or with Table&nbsp;1.</figcaption>
+  <figcaption><b>Figure 4</b>The best search run for each model, in hours since the run started. Each task scores against its own benchmark, so rewards are not comparable across panels or with Table&nbsp;1.</figcaption>
 </figure>
 
 <section class="col">
@@ -647,7 +625,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 96px auto 0; max-widt
       <div class="key"><span><i style="background:var(--rust-soft);border:1.5px solid var(--rust)"></i>Scarce resource</span><span><i style="background:var(--navy);border:1px solid var(--navy-line)"></i>Runs on compute</span><span><i style="border:1.5px dashed var(--ink-3)"></i>Human work OpenRSI does not take on yet</span></div>
     </div>
   </div>
-  <figcaption><b>Figure 6</b>Where the bottleneck moves once a problem is well defined. Top: before OpenRSI. Bottom: with Harnessed RSI, agents take over the search for speedups, and people define the problem and decide what to merge.</figcaption>
+  <figcaption><b>Figure 5</b>Where the bottleneck moves once a problem is well defined. Top: before OpenRSI. Bottom: with Harnessed RSI, agents take over the search for speedups, and people define the problem and decide what to merge.</figcaption>
 </figure>
 
 <section class="col">
@@ -1119,77 +1097,6 @@ function onVisible(node, cb) {
   });
 })();
 
-/* Figure 4: the fourteen PRs, as a GitHub-style calendar and PR list. Dates are UTC; opened dates from the PR pages, merge dates from main. */
-(function () {
-  var PRS = [
-    [2524, "[Perf][CosyVoice3] Park idle speaker encoder workers", "2026-10-04", "2026-10-07"],
-    [2525, "[Perf][MOSS-TTS] Reuse same-dtype input embedding accumulator", "2026-10-04", "2026-10-07"],
-    [2555, "[Perf][CosyVoice3] Avoid reference-feature list conversion between stages", "2026-10-05", "2026-10-07"],
-    [2778, "[Perf][Fish-S2-Pro] Skip unused quantizer reconstruction and pack waveforms", "2026-10-13", "2026-10-17"],
-    [2779, "[Perf][Qwen3-TTS] Reuse Base prefill and vocoder graphs", "2026-10-13", "2026-10-17"],
-    [2880, "[Perf][Qwen3-ASR] Capture full prefill and exact-size decode graphs", "2026-10-16", "2026-10-19"],
-    [2882, "[Perf][Qwen3-ASR] Plan encoder chunks before device transfer", "2026-10-16", "2026-10-19"],
-    [2901, "[Perf][Whisper] Combine trajectory streaming and inference optimizations", "2026-10-17", "2026-10-20"],
-    [2859, "[Perf][MOSS-TTS] Fuse channel embeddings and overlap graphed decode", "2026-10-16", "2026-10-22"],
-    [2881, "[Perf][Qwen3-ASR] Overlap whole-prompt prefill with decode", "2026-10-16", "2026-10-22"],
-    [3071, "[Perf][MOSS-TD] Reduce prefill and audio encoder overhead", "2026-10-22", "2026-10-27"],
-    [3136, "[Perf][Ming3-TTS] Accelerate non-streaming 0.5B synthesis", "2026-10-24", "2026-11-01"],
-    [3189, "[Feat][Ming3-TTS] Add streaming audio for Tiny", "2026-10-25", "2026-11-02"],
-    [3190, "[Feat][Ming3-TTS] Enable streaming audio for 0.5B", "2026-10-25", "2026-11-02"]
-  ];
-  var MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  function fmt(iso) { var p = iso.split("-"); return MON[+p[1] - 1] + " " + (+p[2]); }
-  var MERGE = '<svg class="mg" viewBox="0 0 16 16" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="4" cy="3.25" r="1.75"/><circle cx="4" cy="12.75" r="1.75"/><circle cx="12" cy="9" r="1.75"/><path d="M4 5v6M4 5.5c0 2.6 2.6 3.5 6.25 3.5"/></g></svg>';
-  var cal = document.getElementById("prcal"), list = document.getElementById("prlist"), tip = document.getElementById("tip");
-  var head = document.getElementById("prhead");
-  var days = {};
-  PRS.forEach(function (p) { days[p[3]] = 1; });
-  head.innerHTML = MERGE + "<span><b>" + PRS.length + " merged</b> on " + Object.keys(days).length + " days, " + fmt(PRS[0][3]) + " to " + fmt(PRS[PRS.length - 1][3]) + "</span>";
-  function add(cls, txt, col, row) { var d = document.createElement("div"); d.className = cls; d.textContent = txt; d.style.gridColumn = col; d.style.gridRow = row; cal.appendChild(d); return d; }
-  add("ml", "Oct", 2, 1); add("ml", "Nov", 6, 1);
-  add("dl", "Mon", 1, 3); add("dl", "Wed", 1, 5); add("dl", "Fri", 1, 7);
-  var start = Date.UTC(2026, 9, 4), last = Date.UTC(2026, 10, 2), cells = {}, rows = [];
-  function showTip(e, msg) { tip.textContent = msg; tip.hidden = false; tip.style.left = Math.min(e.clientX + 14, window.innerWidth - 290) + "px"; tip.style.top = (e.clientY + 14) + "px"; }
-  function clear() { cal.querySelectorAll(".hl").forEach(function (n) { n.classList.remove("hl"); }); rows.forEach(function (r) { r.classList.remove("hl"); }); }
-  for (var i = 0; i < 35; i++) {
-    var t = start + i * 864e5, iso = new Date(t).toISOString().slice(0, 10);
-    var c = add("pc", "", 2 + Math.floor(i / 7), 2 + (i % 7));
-    if (t > last) { c.className = "pc void"; continue; }
-    var m = PRS.filter(function (p) { return p[3] === iso; }), o = PRS.filter(function (p) { return p[2] === iso; });
-    c.textContent = new Date(t).getUTCDate();
-    if (m.length) c.classList.add("m" + Math.min(3, m.length));
-    if (o.length) c.classList.add("op");
-    cells[iso] = c;
-    var msg = fmt(iso);
-    if (m.length) msg += "\nMerged: " + m.map(function (p) { return "#" + p[0]; }).join(", ");
-    if (o.length) msg += "\nOpened: " + o.map(function (p) { return "#" + p[0]; }).join(", ");
-    if (!m.length && !o.length) msg += "\nNo PRs opened or merged";
-    (function (c, msg, iso) {
-      c.addEventListener("mousemove", function (e) { showTip(e, msg); });
-      c.addEventListener("mouseenter", function () { rows.forEach(function (r) { if (r.dataset.o === iso || r.dataset.m === iso) r.classList.add("hl"); }); });
-      c.addEventListener("mouseleave", function () { tip.hidden = true; clear(); });
-      c.addEventListener("click", function (e) { showTip(e, msg); });
-    })(c, msg, iso);
-  }
-  var prev = "";
-  PRS.forEach(function (p) {
-    var li = document.createElement("li"), url = "https://github.com/sgl-project/sglang-omni/pull/" + p[0];
-    li.dataset.o = p[2]; li.dataset.m = p[3];
-    var tag = p[1].match(/^((?:\[[^\]]+\])+)\s*(.*)$/);
-    li.innerHTML = "<span class='d'></span>" + MERGE + "<a class='t'></a><span class='mt'><a></a> · opened <span class='od'></span></span>";
-    li.querySelector(".d").textContent = p[3] === prev ? "" : fmt(p[3]);
-    prev = p[3];
-    var a = li.querySelector("a.t"); a.href = url;
-    var g = document.createElement("i"); g.textContent = tag ? tag[1] + " " : ""; a.appendChild(g);
-    a.appendChild(document.createTextNode(tag ? tag[2] : p[1]));
-    var n = li.querySelector(".mt a"); n.href = url; n.textContent = "#" + p[0];
-    li.querySelector(".od").textContent = fmt(p[2]);
-    li.addEventListener("mouseenter", function () { [p[2], p[3]].forEach(function (d) { if (cells[d]) cells[d].classList.add("hl"); }); li.classList.add("hl"); });
-    li.addEventListener("mouseleave", clear);
-    list.appendChild(li); rows.push(li);
-  });
-  document.addEventListener("scroll", function () { tip.hidden = true; }, { passive: true });
-})();
 })();
 </script>
 
