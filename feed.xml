@@ -1,811 +1,610 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://zhuofeng-li.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhuofeng-li.github.io/" rel="alternate" type="text/html" hreflang="en"/><updated>2026-11-07T21:03:02+00:00</updated><id>https://zhuofeng-li.github.io/feed.xml</id><title type="html">blank</title><subtitle>Zhuofeng Li — CS Ph.D. student at Texas A&amp;M University and Student Researcher at Google DeepMind, working on large-scale post-training, agentic reinforcement learning, and recursive self-improvement for LLM agents. Open to research scientist / engineer roles and internships. </subtitle><entry><title type="html">a post with plotly.js</title><link href="https://zhuofeng-li.github.io/blog/2025/plotly/" rel="alternate" type="text/html" title="a post with plotly.js"/><published>2025-03-26T14:24:00+00:00</published><updated>2025-03-26T14:24:00+00:00</updated><id>https://zhuofeng-li.github.io/blog/2025/plotly</id><content type="html" xml:base="https://zhuofeng-li.github.io/blog/2025/plotly/"><![CDATA[<p>This is an example post with some <a href="https://plotly.com/javascript/">plotly</a> code.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">plotly
-</span><span class="sb">{
-  "data": [
-    {
-      "x": [1, 2, 3, 4],
-      "y": [10, 15, 13, 17],
-      "type": "scatter"
-    },
-    {
-      "x": [1, 2, 3, 4],
-      "y": [16, 5, 11, 9],
-      "type": "scatter"
-    }
-  ]
-}</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>Which generates:</p> <pre><code class="language-plotly">{
-  "data": [
-    {
-      "x": [1, 2, 3, 4],
-      "y": [10, 15, 13, 17],
-      "type": "scatter"
-    },
-    {
-      "x": [1, 2, 3, 4],
-      "y": [16, 5, 11, 9],
-      "type": "scatter"
-    }
-  ]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://zhuofeng-li.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhuofeng-li.github.io/" rel="alternate" type="text/html" hreflang="en"/><updated>2026-11-09T16:09:58+00:00</updated><id>https://zhuofeng-li.github.io/feed.xml</id><title type="html">blank</title><subtitle>Zhuofeng Li — CS Ph.D. student at Texas A&amp;M University and Student Researcher at Google DeepMind, working on large-scale post-training, agentic reinforcement learning, and recursive self-improvement for LLM agents. Open to research scientist / engineer roles and internships. </subtitle><entry><title type="html">OpenRSI × SGLang-Omni: Scaling RSI for AI Infra</title><link href="https://zhuofeng-li.github.io/blog/2026/openrsi-sglang-omni/" rel="alternate" type="text/html" title="OpenRSI × SGLang-Omni: Scaling RSI for AI Infra"/><published>2026-11-03T00:00:00+00:00</published><updated>2026-11-03T00:00:00+00:00</updated><id>https://zhuofeng-li.github.io/blog/2026/openrsi-sglang-omni</id><content type="html" xml:base="https://zhuofeng-li.github.io/blog/2026/openrsi-sglang-omni/"><![CDATA[<!doctype html> <html lang="en"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"> <meta name="description" content="Agents ran a continuous, verifier-checked performance-optimization loop on SGLang-Omni: fourteen merged PRs across eight omni models."> <meta property="og:title" content="OpenRSI × SGLang-Omni: Scaling RSI for AI Infra"> <meta property="og:description" content="Agents ran a continuous, verifier-checked performance-optimization loop on SGLang-Omni: fourteen merged PRs across eight omni models."> <meta property="og:type" content="article"> <meta name="twitter:card" content="summary"> <link rel="shortcut icon" href="/assets/img/prof_pic.jpg"> <title>OpenRSI × SGLang-Omni: Scaling RSI for AI Infra</title> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap"> <style>:root{color-scheme:light;--bg:#faf9f5;--panel:#f0eee6;--ink:#141413;--ink-2:#3d3d3a;--ink-3:#73726c;--rule:#e5e3da;--navy:#dc8467;--navy-line:#dc8467;--navy-ink:#fff;--navy-ink-2:#fff4ee;--rust:#c96442;--rust-soft:rgba(217,119,87,0.12);--base:#b0aea5;--code-bg:#f0eee6;--f-sans:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;--f-mono:"Geist Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;--fs-xs:12px;--fs-sm:14px;--fs-md:17px;--fs-lg:21px;--fs-xl:30px;--side:.41;--col:680px}@media(min-width:900px){:root{--col:min(1200px,calc(100vw *(1 - var(--side))))}}*{box-sizing:border-box}body{background:var(--bg);color:var(--ink);font-family:var(--f-sans);font-size:var(--fs-md);line-height:1.7;font-weight:400;-webkit-font-smoothing:antialiased;padding-left:max(20px,env(safe-area-inset-left,0));padding-right:max(20px,env(safe-area-inset-right,0));padding-block:40px 120px}.col{max-width:var(--col);margin-inline:auto;min-width:0}.wide{max-width:max(1040px,var(--col));margin-inline:auto;min-width:0}.top{display:flex;justify-content:space-between;align-items:center;font-size:var(--fs-sm);color:var(--ink-3);padding-bottom:72px}.mark{font-weight:600;color:var(--ink);letter-spacing:-0.01em;font-size:var(--fs-md)}.mark span{color:var(--rust)}.date{font-family:var(--f-mono);font-size:var(--fs-xs);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}h1{font-size:clamp(34px,5.2vw,50px);line-height:1.05;font-weight:500;letter-spacing:-0.035em;margin:14px 0 22px;text-wrap:balance}.dek{font-size:var(--fs-lg);line-height:1.55;color:var(--ink-2);font-weight:300;margin:0 0 28px}.meta{font-size:var(--fs-sm);color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 18px}.meta a{color:var(--ink-2)}.meta.links{margin-top:10px}.meta.links a{color:var(--rust);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:3px}.meta.links a:hover{text-decoration-color:var(--rust)}.intro{margin-top:56px}.intro h2{margin-top:0}.authors{font-size:var(--fs-sm);line-height:1.6;color:var(--ink-2);margin-bottom:6px}.authors a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:4px;text-decoration-thickness:1px;white-space:nowrap}.authors a:hover{text-decoration-color:var(--rust)}.authors span{color:var(--ink);white-space:nowrap}.authors sup{color:var(--rust);font-size:.75em;margin-left:1px}h2,h3{color:var(--rust)}h2{font-size:var(--fs-xl);line-height:1.2;font-weight:500;letter-spacing:-0.025em;margin:96px 0 18px;text-wrap:balance}h3{font-size:var(--fs-md);font-weight:600;letter-spacing:-0.01em;margin:40px 0 8px}p{margin:0 0 18px}p,li,figcaption,.dek,.pull,.bd{text-wrap:pretty}a{color:var(--ink);text-decoration-color:var(--rust);text-underline-offset:3px;text-decoration-thickness:1.5px}a.pr{font-variant-numeric:tabular-nums}.tnotes a.pr,figcaption a.pr{color:inherit;text-decoration-thickness:1px}strong{font-weight:600}code{font-family:var(--f-mono);font-size:.84em;background:var(--code-bg);padding:1px 5px}figure{margin:48px auto}.fig-body{overflow-x:auto;-webkit-overflow-scrolling:touch}figcaption{max-width:var(--col);margin:16px auto 0;font-size:var(--fs-sm);line-height:1.6;color:var(--ink-3)}figcaption b{color:var(--ink);font-weight:600;text-transform:uppercase;font-size:var(--fs-xs);letter-spacing:.08em;margin-right:8px;font-family:var(--f-mono)}svg{display:block;width:100%;height:auto;font-family:var(--f-sans)}.tx{fill:var(--ink)}.tx2{fill:var(--ink-2)}.tx3{fill:var(--ink-3)}.txr{fill:var(--rust)}.txn{fill:var(--navy-ink)}.txn2{fill:var(--navy-ink-2)}.bx{fill:var(--bg);stroke:var(--rule);stroke-width:1.25}.bx-ink{fill:var(--bg);stroke:var(--ink-3);stroke-width:1.25}.bx-nv{fill:var(--navy);stroke:var(--navy-line);stroke-width:1.25}.bx-panel{fill:var(--panel)}.bx-rust{fill:var(--rust-soft);stroke:var(--rust);stroke-width:1.25}.ln{stroke:var(--ink-3);stroke-width:1.25;fill:none}.ln-r{stroke:var(--rust);stroke-width:1.5;fill:none}.ln-d{stroke:var(--rule);stroke-width:1.25;fill:none;stroke-dasharray:4 4}.ah{fill:var(--ink-3)}.ah-r{fill:var(--rust)}.f-nv{fill:var(--navy)}.f-rust{fill:var(--rust)}.f-base{fill:var(--base)}.f-bg{fill:var(--bg)}.f-panel{fill:var(--panel)}.s11,.s12{font-size:var(--fs-xs)}.s13,.s15{font-size:var(--fs-sm)}.s17{font-size:var(--fs-md)}.w5{font-weight:500}.w6{font-weight:600}.mono{font-family:var(--f-mono)}.cap{font-family:var(--f-mono);font-size:var(--fs-xs);letter-spacing:.08em}.fig-paradigm svg{min-width:760px}.fig-pipe svg{min-width:900px}.anim [data-step]{transition:opacity .35s ease}.anim.playing [data-step]{opacity:.28}.anim.playing [data-step].on{opacity:1}.anim [data-step].on rect.card{stroke:var(--rust);stroke-width:2.5}.anim .arw{transition:stroke .3s ease,opacity .3s ease}.anim.playing .arw{opacity:.35}.anim.playing .arw.on{opacity:1;stroke:var(--rust);stroke-width:2}.player{display:flex;align-items:baseline;gap:14px;max-width:var(--col);margin:14px auto 0;font-size:var(--fs-sm);color:var(--ink-2);min-height:1.7em}
+.player button{flex:none;font:500 var(--fs-xs)/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);background:var(--bg);border:1px solid var(--rule);padding:6px 10px;cursor:pointer}.player button:hover{border-color:var(--rust);color:var(--rust)}.player button:focus-visible{outline:2px solid var(--rust);outline-offset:2px}.player .now b{font-family:var(--f-mono);font-weight:500;color:var(--rust);margin-right:8px}.tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--bg);font-size:var(--fs-xs);line-height:1.5;padding:7px 10px;z-index:5;max-width:280px;white-space:pre-line}.tip[hidden]{display:none!important}.shift{display:grid;grid-template-columns:120px repeat(5,minmax(0,1fr));gap:8px;font-size:var(--fs-sm);min-width:860px}.shift .ph{font-size:var(--fs-xs);font-weight:600;letter-spacing:.02em;padding:0 4px 6px;border-bottom:1.5px solid var(--ink-3);color:var(--ink-2)}.shift .ph.pre{border-bottom-style:dashed}.shift .human{border:1.5px dashed var(--ink-3);background:transparent}.shift .human small{color:var(--ink-2)}.shift .h{font-size:var(--fs-xs);color:var(--ink-3);padding:0 4px 4px}.shift .rl{font-size:var(--fs-sm);color:var(--ink-2);font-weight:500;align-self:center}.shift .c{border:1px solid var(--rule);padding:12px 14px;line-height:1.4}.shift .c small{display:block;color:var(--ink-3);font-size:var(--fs-xs);margin-top:3px}.shift .agent{background:var(--navy);border-color:var(--navy-line);color:var(--navy-ink)}.shift .agent small{color:var(--navy-ink-2)}.shift .scarce{border:1.5px solid var(--rust);background:var(--rust-soft)}.shift .scarce small{color:var(--ink-2)}.shift .key{grid-column:2 / -1;font-size:var(--fs-xs);color:var(--ink-3);display:flex;gap:18px;flex-wrap:wrap;padding-top:6px}.shift .key i{display:inline-block;width:12px;height:12px;vertical-align:-2px;margin-right:6px}.pull{font-size:var(--fs-lg);line-height:1.45;font-weight:400;letter-spacing:-0.015em;margin:40px 0;color:var(--ink);text-wrap:balance}.pull::before{content:"";display:block;width:32px;height:2px;background:var(--rust);margin-bottom:18px}ol.pts{list-style:none;padding:0;margin:18px 0;display:grid;gap:22px;counter-reset:p}ol.pts li{counter-increment:p;display:grid;grid-template-columns:28px minmax(0,1fr)}ol.pts li::before{content:counter(p,decimal-leading-zero);font-family:var(--f-mono);font-size:var(--fs-xs);color:var(--ink-3);padding-top:5px}ol.pts b{font-weight:600}ul.costs{list-style:none;padding:0;margin:4px 0 22px;display:grid;gap:14px}ul.costs li{position:relative;padding-left:22px}ul.costs li::before{content:"";position:absolute;left:0;top:.8em;width:10px;height:2px;background:var(--rust)}ul.costs b{font-weight:600}a:focus-visible{outline:2px solid var(--rust);outline-offset:3px;border-radius:2px}.btn{display:inline-block;padding:11px 18px;background:var(--ink);color:var(--bg);text-decoration:none;font-size:var(--fs-sm);font-weight:500}.thanks{font-size:var(--fs-sm);color:var(--ink-3)}hr{border:0;border-top:1px solid var(--rule);margin:96px auto 0;max-width:var(--col)}.prfig{display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px 56px;align-items:start}.prcal-wrap{position:sticky;top:24px}.prcal{display:grid;grid-template-columns:34px repeat(5,32px);grid-template-rows:18px repeat(7,32px);gap:4px}.prcal .ml,.prcal .dl{font-family:var(--f-mono);font-size:var(--fs-xs);color:var(--ink-3);line-height:1;align-self:end}.prcal .dl{align-self:center}.pc{border-radius:3px;background:var(--panel);display:grid;place-items:center;font-family:var(--f-mono);font-size:var(--fs-xs);color:var(--ink-3);font-variant-numeric:tabular-nums;cursor:default}.pc.m1{background:color-mix(in srgb,var(--rust) 45%,var(--panel));color:var(--ink)}.pc.m2{background:color-mix(in srgb,var(--rust) 72%,var(--panel));color:var(--navy-ink)}.pc.m3{background:var(--rust);color:var(--navy-ink)}.pc.op{box-shadow:inset 0 0 0 2px var(--ink-2)}.pc.void{background:transparent;color:transparent}.pc.hl,.prkey .pc.hl{outline:2px solid var(--ink);outline-offset:1px}.prkey{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:14px;font-size:var(--fs-xs);color:var(--ink-3);max-width:210px}.prkey i{display:inline-block;width:12px;height:12px;border-radius:2px}.prkey .gap{width:100%;height:0}.prhead{display:flex;align-items:center;gap:8px;padding:0 0 10px;border-bottom:1px solid var(--ink);font-size:var(--fs-sm);color:var(--ink-2)}.prhead b{font-weight:600;color:var(--ink)}.mg{width:16px;height:16px;color:var(--rust);flex:none}.prlist{list-style:none;margin:0;padding:0}.prlist li{display:grid;grid-template-columns:52px 16px minmax(0,1fr) auto;gap:0 10px;align-items:center;padding:7px 6px 7px 0;border-bottom:1px solid var(--rule);font-size:var(--fs-sm);line-height:1.45;transition:background .15s ease}.prlist li.hl{background:var(--rust-soft)}.prlist .d{font-family:var(--f-mono);font-size:var(--fs-xs);color:var(--ink-3);padding-left:6px}.prlist a.t{color:var(--ink);text-decoration:none;min-width:0}
+.prlist a.t:hover{text-decoration:underline;text-decoration-color:var(--rust)}.prlist .t i{font-style:normal;color:var(--ink-3)}.prlist .mt{font-family:var(--f-mono);font-size:var(--fs-xs);color:var(--ink-3);white-space:nowrap;font-variant-numeric:tabular-nums}.prlist .mt a{color:var(--ink-2);text-decoration:none}.prlist .mt a:hover{color:var(--rust)}@media(max-width:760px){.prfig{grid-template-columns:minmax(0,1fr)}.prcal-wrap{position:static}.prlist li{grid-template-columns:44px 16px minmax(0,1fr)}.prlist .mt{grid-column:3}}.multi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 32px}.mp,.mkey{border-top:1px solid var(--ink);padding-top:12px;min-width:0}.mh{display:flex;justify-content:space-between;align-items:baseline;gap:12px}.mh h4{margin:0;font-size:var(--fs-md);font-weight:600;letter-spacing:-0.01em}.mh b{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-weight:500;font-size:var(--fs-lg);line-height:1.1;color:var(--rust)}.ms{display:grid;gap:0;font-size:var(--fs-xs);line-height:1.5;color:var(--ink-3);margin:3px 0 10px}.ms .prs{font-family:var(--f-mono);display:inline-flex;flex-wrap:wrap;gap:0 8px}.ms .prs a{color:var(--ink-2);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:2px}.ms .prs a:hover{color:var(--rust);text-decoration-color:var(--rust)}.mkey{grid-column:1 / -1}.mkey h4{margin:0 0 12px;font-size:var(--fs-md);font-weight:600;letter-spacing:-0.01em}.mkey ul{list-style:none;margin:0 0 10px;padding:0;display:flex;flex-wrap:wrap;gap:8px 28px}.mkey li{display:grid;grid-template-columns:34px auto;column-gap:12px;font-size:var(--fs-sm);line-height:1.45;color:var(--ink-2)}.mkey li svg{width:34px;height:16px;margin-top:2px}.mkey p{margin:0;font-size:var(--fs-xs);line-height:1.5;color:var(--ink-3)}.dot-hit{cursor:default}@media(max-width:880px){.multi{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.multi{grid-template-columns:minmax(0,1fr);gap:32px}}.pat{border-top:1px solid var(--ink)}.pat-row{display:grid;grid-template-columns:380px minmax(0,1fr);grid-template-areas:"fig head" "fig body";column-gap:48px;row-gap:8px;align-items:center;padding:28px 0;border-bottom:1px solid var(--rule)}.pat-row>svg{grid-area:fig;width:380px;max-width:100%}.pat-row>.pat-tx{grid-area:body;align-self:start}.pat-row>h4{grid-area:head;align-self:end;margin:0;font-size:var(--fs-md);font-weight:600;letter-spacing:-0.01em;line-height:1.35}.pat-row>h4 span{font-family:var(--f-mono);font-size:var(--fs-xs);font-weight:500;color:var(--ink-3);margin-right:10px}.pat-tx p{margin:0 0 12px;font-size:var(--fs-sm);line-height:1.65;color:var(--ink-2)}.chips{display:flex;flex-wrap:wrap;gap:6px 8px}.chips a{font-size:var(--fs-xs);line-height:1.4;color:var(--ink-2);text-decoration:none;border:1px solid var(--rule);border-radius:999px;padding:3px 10px;white-space:nowrap}.chips a b{font-family:var(--f-mono);font-weight:500;color:var(--ink);margin-right:6px}.chips a:hover{border-color:var(--rust)}@media(max-width:760px){.pat-row{grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "fig" "body";row-gap:14px;padding:22px 0}.pat-row>svg{width:100%;max-width:420px}}.board{border-top:0}.br{display:grid;grid-template-columns:150px 140px minmax(0,1fr) 150px 150px 104px;gap:18px;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--rule);font-size:var(--fs-sm);line-height:1.5}.br.bh{font-size:var(--fs-xs);line-height:1.4;color:var(--ink-3);padding:0 0 10px;border-bottom:1px solid var(--ink);align-items:end}.br.bh small{display:block;font-size:var(--fs-xs)}.bm a.task{font-weight:600;text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:3px;text-decoration-thickness:1px}.bm a.task:hover{text-decoration-color:var(--rust)}.bm sup{font-weight:500;font-size:var(--fs-xs);color:var(--rust);margin-left:2px}.bm .cmt{display:block;font-family:var(--f-mono);font-size:var(--fs-xs);color:var(--ink-3);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:2px}.bm .cmt:hover{color:var(--rust)}.bp{font-family:var(--f-mono);font-size:var(--fs-xs);display:inline-flex;flex-wrap:wrap;gap:0 10px}.bp a{text-decoration:underline;text-decoration-color:var(--rule);color:var(--ink-2)}.bp a:hover{text-decoration-color:var(--rust);color:var(--rust)}.bd{color:var(--ink-2)}.bv{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-weight:500;font-size:var(--fs-sm);color:var(--rust);white-space:nowrap}.bv .sl{color:var(--ink-3);font-weight:400;margin:0 2px}.bdf{color:var(--ink-2)}.board .br:last-child{border-bottom:1px solid var(--rule)}.tnotes{margin:12px 0 0;padding:0 0 0 18px;font-size:var(--fs-xs);line-height:1.6;color:var(--ink-3);display:grid;gap:3px}.tnotes li::marker{color:var(--rust);font-weight:500}.tnotes b{color:var(--ink-2);font-weight:600}@media(max-width:900px){.br{grid-template-columns:minmax(0,1fr) auto;gap:4px 14px}
+.br .bm{grid-column:1}.br .bdf{grid-column:2;grid-row:1;text-align:right}.br .bpr,.br .bd{grid-column:1 / -1}.br .bv{grid-column:1 / -1}.br .bv::before{content:attr(data-g) "  ";font-family:var(--f-sans);font-weight:600;font-size:var(--fs-xs);color:var(--ink-3)}.br.bh{display:none}.board{border-top:1px solid var(--ink)}}.margin-ctl{position:fixed;z-index:6;right:max(16px,calc(env(safe-area-inset-right,0)+16px));bottom:max(16px,calc(env(safe-area-inset-bottom,0)+16px));display:none;align-items:center;gap:4px;background:var(--bg);border:1px solid var(--rule);padding:4px 4px 4px 10px;font-size:var(--fs-xs);color:var(--ink-3);box-shadow:0 2px 10px rgba(20,20,19,.06)}.margin-ctl button{font:500 var(--fs-xs)/1 var(--f-mono);padding:6px 8px;border:1px solid transparent;background:transparent;color:var(--ink-2);cursor:pointer}.margin-ctl button[aria-pressed="true"]{border-color:var(--rust);color:var(--rust)}.margin-ctl button:focus-visible{outline:2px solid var(--rust);outline-offset:2px}@media(min-width:900px){.margin-ctl{display:flex}}@media(max-width:560px){body{font-size:16px;padding-block:24px 80px}.top{padding-bottom:48px}.dek{font-size:18px}h2{font-size:25px;margin-top:72px}.pull{font-size:19px}}@media(prefers-reduced-motion:reduce){.anim [data-step],.anim .arw{transition:none}}</style> </head> <body> <div class="top col"><span class="mark">Open<span>RSI</span></span><a href="/blog/" style="color:var(--ink-3);text-decoration:none">&larr; Zhuofeng Li &middot; Blog</a></div> <header class="col"> <div class="date">November 2026</div> <h1><span style="color:var(--rust)">OpenRSI ×&nbsp;SGLang&#8209;Omni:</span> Scaling RSI for AI Infra</h1> <p class="dek">OpenRSI scales recursive self-improvement to real-world AI infrastructure. Our agents run a continuous performance-optimization loop, with every gain validated by an independent verifier, while people define each problem and review the changes at the end. In partnership with SGLang-Omni, this loop has run across eight omni models and delivered significant performance gains for each, with fourteen PRs so far, all reviewed and merged by the SGLang&#8209;Omni maintainers.</p> <div class="authors"><a href="https://zhuofeng-li.github.io/">Zhuofeng Li</a><sup>*</sup>, <a href="https://github.com/db-ol">Aaron Tian</a><sup>*</sup>, <a href="https://yichenfeng.me/">Yichen Feng</a>, <a href="https://wenhaochai.com/">Wenhao Chai</a>, <a href="https://davidhanx.github.io/">Xinyang Han</a>, <a href="https://caralinotes.com/">Cara Li</a>, <span style="white-space:nowrap"><a href="https://yuetl9.github.io/">Yuetai Li</a>, <a href="https://github.com/zhaochenyang20">Chenyang Zhao</a><sup>*</sup></span></div> <div class="meta"><span>* Project lead</span><span>A collaboration between OpenRSI and the SGLang&#8209;Omni&nbsp;team</span><span>November 3, 2026</span></div> <div class="meta links"><a href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI">OpenRSI&#8209;SGLang&#8209;Omni tasks&nbsp;↗</a><a href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/RSI-Harness">RSI&#8209;Harness&nbsp;↗</a><a href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/blob/main/CONTRIBUTING.md">RSI&#8209;Anything data pipeline&nbsp;↗</a></div> </header> <section class="col intro"> <h2>Introduction</h2> <p>Recursive self-improvement (RSI), AI that improves itself, is one of the most important research problems in AI, yet most demonstrations stay on benchmarks and toy problems. OpenRSI takes a first step toward real-world RSI: our agents improve the infrastructure that serves AI models, and each verified, merged change becomes the baseline for the next round. Concretely, given an objective, agents formulate a hypothesis, design experiments and refine their approach from the evidence, iterating continuously while an independent verifier validates every gain.</p> <p>Here we partnered with the SGLang&#8209;Omni team. Together we set the goal: make omni models run faster in SGLang-Omni, without touching model weights or slowing down any other model. We turned that goal into tasks with <a href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/blob/main/CONTRIBUTING.md">RSI&#8209;Anything</a>, and our agents ran those tasks on <a href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/RSI-Harness">RSI&#8209;Harness</a>. They produce optimizations that pass upstream review and complement human experts by taking on the experiment-heavy part of the work at a pace no human can match. The results ship as code that people run: SGLang&#8209;Omni maintainers have since merged fourteen PRs from this work across eight omni models (Table 1). The agents&rsquo; part is performance optimization. Defining the tasks, system design such as Ming3&#8209;TTS streaming, and review were done by people.</p> </section> <figure class="wide"> <div class="board"> <div class="br bh"><div>Model<small>task · commits</small></div><div>Merged PRs</div><div>What the agents changed</div><div>H100 gain, %<small>non-streaming / streaming</small></div><div>H200 gain, %<small>non-streaming / streaming</small></div><div>On by default</div></div> <div class="br"><div class="bm"><a class="task" href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/cosyvoice3/sglang-omni-cosyvoice3-dual-mode-runtime/">CosyVoice3</a><a class="cmt" href="https://github.com/sgl-project/sglang-omni/compare/f29a1195d12826bcedfda78f4e58429745eda5b8...fe4b23f06b27f7b2492703891c8036a919d2041e" title="sglang-omni main f29a119 → fe4b23f">f29a119→fe4b23f</a></div><div class="bpr"><span class="bp"><a href="https://github.com/sgl-project/sglang-omni/pull/2524">#2524</a><a href="https://github.com/sgl-project/sglang-omni/pull/2555">#2555</a></span></div><div class="bd">Idle threads sleep; features cross stages as tensors.</div><div class="bv" data-g="H100" title="req/s 10.49 → 15.15 · 9.58 → 14.00">+44.4<span class="sl">/</span>+46.2</div><div class="bv" data-g="H200" title="req/s 7.96 → 11.78 · 6.63 → 10.36">+48.1<span class="sl">/</span>+56.3</div><div class="bdf">Yes</div></div> <div class="br"><div class="bm"><a class="task" href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/moss-tts-v1.5/sglang-omni-moss-v1.5-dual-mode-runtime/">MOSS&#8209;TTS</a><sup>1</sup><a class="cmt" href="https://github.com/sgl-project/sglang-omni/compare/a65abc07e535a57589aebc7ebbf92498e2170761...53ea2678733ac7b4c4744895e8cf2632117c2dcd" title="sglang-omni main a65abc0 → 53ea267">a65abc0→53ea267</a></div><div class="bpr"><span class="bp"><a href="https://github.com/sgl-project/sglang-omni/pull/2525">#2525</a><a href="https://github.com/sgl-project/sglang-omni/pull/2859">#2859</a></span></div><div class="bd">Fused embeddings; overlapped, graphed decode.</div><div class="bv" data-g="H100" title="req/s 10.30 → 15.30 · 5.32 → 9.37">+48.5<span class="sl">/</span>+76.3</div><div class="bv" data-g="H200" title="req/s 9.98 → 16.49 · 3.90 → 9.73">+65.2<span class="sl">/</span>+149.5</div><div class="bdf">Yes</div></div> <div class="br"><div class="bm"><a class="task" href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/fish-s2-pro/sglang-omni-fish-s2-pro-dual-mode-runtime/">Fish S2&#8209;Pro</a><a class="cmt" href="https://github.com/sgl-project/sglang-omni/compare/08182f2bc44dbf951e086927d6eb657f3a419171...28c3e35a33bef2f45b3315431f4a512d6ed463cf" title="sglang-omni main 08182f2 → 28c3e35">08182f2→28c3e35</a></div><div class="bpr"><span class="bp"><a href="https://github.com/sgl-project/sglang-omni/pull/2778">#2778</a></span></div><div class="bd">Skips an unused quantizer pass; packs waveforms.</div><div class="bv" data-g="H100" title="req/s 7.92 → 8.69 · 7.93 → 7.95">+9.6<span class="sl">/</span>+0.3</div><div class="bv" data-g="H200" title="req/s 7.10 → 8.05 · 7.00 → 7.15">+13.4<span class="sl">/</span>+2.1</div><div class="bdf">Yes</div></div> <div class="br"><div class="bm"><a class="task" href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/qwen3-tts-0.6b/sglang-omni-qwen3-tts-base-0.6b-dual-mode-runtime/">Qwen3&#8209;TTS</a><sup>2</sup><a class="cmt" href="https://github.com/sgl-project/sglang-omni/compare/8220d220703cf8d8f5c5d9a2cde00b5ed13717b8...08182f2bc44dbf951e086927d6eb657f3a419171" title="sglang-omni main 8220d22 → 08182f2">8220d22→08182f2</a></div><div class="bpr"><span class="bp"><a href="https://github.com/sgl-project/sglang-omni/pull/2779">#2779</a></span></div><div class="bd">Reuses prefill and vocoder graphs.</div><div class="bv" data-g="H100" title="req/s 22.79 → 28.53 · 34.68 → 36.32">+25.2<span class="sl">/</span>+4.7</div><div class="bv" data-g="H200" title="req/s 19.85 → 28.61 · 31.23 → 34.97">+44.1<span class="sl">/</span>+12.0</div><div class="bdf">Yes</div></div> <div class="br"><div class="bm"><a class="task" href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/qwen3-asr-1.7b/qwen3-asr-streaming-throughput/">Qwen3&#8209;ASR</a><sup>3</sup><a class="cmt" href="https://github.com/sgl-project/sglang-omni/compare/e43663e908bf1c3aee15abfd3a19d44373459108...cca9cf580b87b0c039e8da001c415e5c4046bfb2" title="sglang-omni main e43663e → cca9cf5">e43663e→cca9cf5</a></div><div class="bpr"><span class="bp"><a href="https://github.com/sgl-project/sglang-omni/pull/2880">#2880</a><a href="https://github.com/sgl-project/sglang-omni/pull/2881">#2881</a><a href="https://github.com/sgl-project/sglang-omni/pull/2882">#2882</a></span></div><div class="bd">Overlapped prefill, captured graphs, planned encoder chunks.</div><div class="bv" data-g="H100" title="req/s 130.49 → 149.07 · 132.62 → 139.23">+14.2<span class="sl">/</span>+5.0</div><div class="bv" data-g="H200" title="req/s 105.16 → 121.38 · 110.15 → 119.40">+15.4<span class="sl">/</span>+8.4</div><div class="bdf">On CUDA</div></div> <div class="br"><div class="bm"><a class="task" href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/whisper-large-v3/whisper-asr-streaming-throughput/">Whisper</a><a class="cmt" href="https://github.com/sgl-project/sglang-omni/compare/4809648d486bdff88dee5199b3e448af3c250f00...ff302a0c1ee9c28bce8604c14e374a02d3ec5ade" title="sglang-omni main 4809648 → ff302a0">4809648→ff302a0</a></div><div class="bpr"><span class="bp"><a href="https://github.com/sgl-project/sglang-omni/pull/2901">#2901</a></span></div><div class="bd">Incremental text streaming, FlashAttention&#8209;4 encoder, prefill graphs.</div><div class="bv" data-g="H100" title="req/s 65.45 → 70.43 · 67.97 → 76.25">+7.6<span class="sl">/</span>+12.2</div><div class="bv" data-g="H200" title="req/s 55.72 → 63.54 · 59.22 → 69.63">+14.0<span class="sl">/</span>+17.6</div><div class="bdf">Yes</div></div> <div class="br"><div class="bm"><a class="task" href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/moss-transcribe-diarize/moss-transcribe-diarize-streaming-throughput/">MOSS&#8209;TD</a><sup>4</sup><a class="cmt" href="https://github.com/sgl-project/sglang-omni/compare/6e1a217974743f7f858537169d835c42f9f0d5b9...39113da3ec2ed39d4bfa370e35b06ea3edd96757" title="sglang-omni main 6e1a217 → 39113da">6e1a217→39113da</a></div><div class="bpr"><span class="bp"><a href="https://github.com/sgl-project/sglang-omni/pull/3071">#3071</a></span></div><div class="bd">Prefill graphs, packed encoder attention, async prefill.</div><div class="bv" data-g="H100" title="req/s 101.89 → 121.05 · 101.24 → 131.62">+18.8<span class="sl">/</span>+30.0</div><div class="bv" data-g="H200" title="req/s 87.67 → 105.15 · 94.71 → 125.13">+19.9<span class="sl">/</span>+32.1</div><div class="bdf">On CUDA</div></div> <div class="br"><div class="bm"><a class="task" href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/ming3-0.5b/">Ming3&#8209;TTS</a><sup>5</sup><a class="cmt" href="https://github.com/sgl-project/sglang-omni/compare/e727710aa6a0b29cef7dc362155c350dae313f21...069cfe406c07ff57d7647d6e19e36de1aeda3c1e" title="sglang-omni main e727710 → 069cfe4">e727710→069cfe4</a></div><div class="bpr"><span class="bp"><a href="https://github.com/sgl-project/sglang-omni/pull/3136">#3136</a><a href="https://github.com/sgl-project/sglang-omni/pull/3189">#3189</a><a href="https://github.com/sgl-project/sglang-omni/pull/3190">#3190</a></span></div><div class="bd">GPU reference preprocessing, graphs, async decode, fused flow math.</div><div class="bv" data-g="H100" title="req/s 8.30 → 35.39 · 8.59 → 16.66">+326.5<span class="sl">/</span>+93.9</div><div class="bv" data-g="H200" title="req/s 7.15 → 31.78 · 7.42 → 15.92">+344.3<span class="sl">/</span>+114.5</div><div class="bdf">0.5B only</div></div> </div> <ol class="tnotes"> <li><b>MOSS&#8209;TTS.</b> The range also holds <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2805">#2805</a>, <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2662">#2662</a>, <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2770">#2770</a>, <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2772">#2772</a> and the SGLang&nbsp;0.5.22 upgrade (<a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2964">#2964</a>), on different images. <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2859">#2859</a> adds ~41&nbsp;s startup and 3.7&nbsp;GiB VRAM. The low H200 streaming baseline is unexplained.</li> <li><b>Qwen3&#8209;TTS.</b> Includes new 0.6B vocoder batching defaults.</li> <li><b>Qwen3&#8209;ASR.</b> The range also holds <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2964">#2964</a>, on different images. <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2881">#2881</a> raises some streaming tail latency.</li> <li><b>MOSS&#8209;TD.</b> One 64&#8209;client streaming first&#8209;text p95 rose.</li> <li><b>Ming3&#8209;TTS.</b> The range holds 28 other PRs, and <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/3136">#3136</a> also fixes a baseline sampling bug. People designed the streaming in <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/3189">#3189</a> and <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/3190">#3190</a>.</li> </ol> <figcaption><b>Table 1</b>Throughput gain from main before each model&#8217;s first OpenRSI PR to main after its last, at 128 requests per round. Hover a gain for req/s.</figcaption> </figure> <section class="col"> <h2>Method: Harnessed RSI</h2> <p>Today the usual way to optimize a serving stack with AI is an engineer driving a coding agent such as Codex or Claude Code. The agent writes and runs code; the human picks each experiment, reads each result and decides what comes next. <strong>The human is the loop</strong> (Figure&nbsp;1, left), and for systems work that is costly:</p> <ul class="costs"> <li><b>Many rounds, mostly idle.</b> The human has to step in on every round, and each round waits until they read the result and write the next prompt. Most of the wall-clock time is spent waiting on a human, so the loop is slow and inefficient.</li> <li><b>The human caps what the AI can do.</b> The agent only explores what the human thinks to try and has time to check. A serving stack holds countless small knobs, settings and code paths, far more than anyone can try one by one, and finding which ones matter takes measurement. One line that stops idle threads from spinning was first proposed inside a larger change (<a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2443">#2443</a>); split out and measured on its own, it was worth +32.5% streaming throughput (<a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2524">#2524</a>).</li> </ul> <p><strong>Harnessed RSI</strong> (Figure&nbsp;1, right) takes the human out of the inner loop of performance optimization, not out of the work. Defining a problem well, with its task, benchmark and guards, takes human effort, and system design stays with people. Once that is done, agents propose, run and measure changes to the serving runtime round after round, and people return to review what they find.</p> <ol class="pts"> <li><div><b>Two nested loops that never stop.</b> An agent explores in the inner loop. The harness governs the outer loop, deciding when work is judged and carrying every lesson into the next round. Rounds run back to back, without waiting on anyone.</div></li> <li><div><b>Every step is verified.</b> Nothing counts until an independent verifier, which the agent never sees, confirms it. Within a search, each confirmed gain becomes the bar the next round must beat. Across PRs, later work builds on what landed: <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2555">#2555</a> was measured with <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2524">#2524</a> in place, and <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/3071">#3071</a> reuses the asynchronous prefill that <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2881">#2881</a> added. That is the recursive part today: AI improving the infrastructure that AI runs on.</div></li> </ol> </section> <figure class="wide fig-paradigm anim" id="fig1"> <div class="fig-body"> <svg viewBox="0 0 1040 380" role="img" aria-label="With a coding agent the human is the loop; with Harnessed RSI the human writes the contract and reviews the result while agents and an isolated evaluator run the loop"> <defs> <marker id="pa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ah"/></marker> <marker id="pa-r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ah-r"/></marker> </defs> <text x="20" y="26" class="cap tx3">HUMAN + CODING AGENT</text> <text x="20" y="52" class="s17 w5 tx">The human is the loop</text> <g data-step="" data-k="L1"><rect x="20" y="88" width="200" height="60" class="bx-ink card"/> <text x="120" y="114" text-anchor="middle" class="s13 w5 tx">Human</text><text x="120" y="132" text-anchor="middle" class="s12 tx3">picks the next try</text></g> <g data-step="" data-k="L2"><rect x="290" y="88" width="200" height="60" class="bx-nv card"/> <text x="390" y="114" text-anchor="middle" class="s13 w5 txn">Agent</text><text x="390" y="132" text-anchor="middle" class="s12 txn2">edits and runs code</text></g> <g data-step="" data-k="L3"><rect x="290" y="230" width="200" height="60" class="bx-ink card"/> <text x="390" y="256" text-anchor="middle" class="s13 w5 tx">Human</text><text x="390" y="274" text-anchor="middle" class="s12 tx3">reads the output</text></g> <g data-step="" data-k="L4"><rect x="20" y="230" width="200" height="60" class="bx-ink card"/> <text x="120" y="256" text-anchor="middle" class="s13 w5 tx">Human</text><text x="120" y="274" text-anchor="middle" class="s12 tx3">judges whether it helped</text></g> <path d="M222 118H286" class="ln arw" data-k="L2" marker-end="url(#pa)"/> <path d="M390 150V226" class="ln arw" data-k="L3" marker-end="url(#pa)"/> <path d="M288 260H224" class="ln arw" data-k="L4" marker-end="url(#pa)"/> <path d="M120 228V152" class="ln arw" data-k="L1" marker-end="url(#pa)"/> <text x="255" y="194" text-anchor="middle" class="s12 tx3">one round</text> <text x="255" y="210" text-anchor="middle" class="s12 tx3">per prompt</text> <text x="20" y="338" class="s13 tx2">Rounds scale with human hours.</text> <text x="20" y="358" class="s13 tx3">Evidence is whatever the human checked.</text> <line x1="540" y1="20" x2="540" y2="360" class="ln-d"/> <text x="580" y="26" class="cap txr">HARNESSED RSI</text> <text x="580" y="52" class="s17 w5 tx">The harness runs the loop</text> <g data-step="" data-k="R0"><rect x="580" y="72" width="440" height="40" class="bx-ink card"/> <text x="600" y="97" class="s13 tx"><tspan class="w5">People define:</tspan><tspan class="tx3"> task = model, question, baseline, verifier</tspan></text></g> <path d="M800 112V136" class="ln arw" data-k="R0" marker-end="url(#pa)"/> <rect x="580" y="140" width="440" height="152" class="bx-panel"/> <text x="598" y="162" class="cap tx3">OUTER LOOP · RSI-HARNESS</text> <g data-step="" data-k="R1"><rect x="600" y="180" width="170" height="64" class="bx-nv card"/> <text x="685" y="207" text-anchor="middle" class="s13 w5 txn">Inner loop: agent</text> <text x="685" y="225" text-anchor="middle" class="s12 txn2">persistent workspace</text></g> <g data-step="" data-k="R2"><rect x="830" y="180" width="170" height="64" class="bx-rust card"/> <text x="915" y="207" text-anchor="middle" class="s13 w5 tx">Verifier</text> <text x="915" y="225" text-anchor="middle" class="s12 tx2">fresh run, hidden tests</text></g> <path d="M772 200H826" class="ln arw" data-k="R2" marker-end="url(#pa)"/> <path d="M828 228H774" class="ln arw" data-k="R1" marker-end="url(#pa)"/> <text x="800" y="192" text-anchor="middle" class="s11 tx3">submit</text> <text x="800" y="246" text-anchor="middle" class="s11 tx3">feedback</text> <text x="600" y="276" class="s12 tx3">Repeats until the submission or time limit.</text> <path d="M915 294V308" class="ln arw" data-k="R3" marker-end="url(#pa)"/> <g data-step="" data-k="R3"><rect x="720" y="312" width="300" height="40" class="bx-ink card"/> <text x="740" y="337" class="s13 tx"><tspan class="w5">Best verified result</tspan><tspan class="tx3"> → new baseline</tspan></text></g> <text x="580" y="327" class="s13 tx2">Rounds scale</text> <text x="580" y="347" class="s13 tx2">with compute.</text> </svg> </div> <div class="player"><button type="button" class="pp" aria-pressed="false">Pause</button><span class="now" aria-live="off"></span></div> <figcaption><b>Figure 1</b>Where the human sits. With a coding agent, every round passes through a human. With Harnessed RSI, the agent is the inner loop, RSI-Harness runs the outer loop against a verifier, and each verified result becomes the next baseline. Both loops run on the same clock in the animation, which is schematic.</figcaption> </figure> <section class="col"> <h2>RSI&#8209;Anything: A scalable RSI pipeline for SGLang&#8209;Omni</h2> <p>On top of the harness we built RSI&#8209;Anything, a lightweight pipeline built to scale RSI across SGLang&#8209;Omni quickly: it turns a research proposal into merged SGLang&#8209;Omni code. Agents handle the experiments and the implementation iteration: building an executable benchmark from the proposal, searching for improvements, reproducing their own gains and opening the pull request with evidence. People write the proposal and own the merge. In review, SGLang&#8209;Omni maintainers set requirements and joined the design over many rounds, and in some cases contributed code or reproduced results on their own.</p> </section> <figure class="wide fig-pipe anim" id="fig2"> <div class="fig-body"> <svg viewBox="0 0 1040 360" role="img" aria-label="RSI-Anything pipeline for SGLang-Omni: people write the proposal and agents build the Harbor task; agents then run RSI-Harness, reproduce the gain and open the upstream PR; SGLang-Omni maintainers review over many rounds and merge; each merge becomes the baseline for the next proposal"> <defs> <marker id="pb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ah"/></marker> <marker id="pb-r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ah-r"/></marker> </defs> <g data-step="" data-k="lh"><rect x="8" y="8" width="152" height="28" class="bx-ink card"/> <text x="84" y="27" text-anchor="middle" class="cap tx">HUMAN</text></g> <g data-step="" data-k="ag"><rect x="180" y="8" width="668" height="28" class="bx-nv card"/> <text x="514" y="27" text-anchor="middle" class="cap txn">AGENTS: EXPERIMENTS AND CODE</text></g> <g data-step="" data-k="lm"><rect x="868" y="8" width="152" height="28" class="bx-ink card"/> <text x="944" y="27" text-anchor="middle" class="cap tx">MAINTAINERS</text></g> <g transform="translate(0,48)"> <g data-step="" data-k="c1"> <rect x="8" y="20" width="152" height="150" class="bx card"/> <text x="24" y="46" class="mono s12 tx3">01</text><text x="144" y="46" text-anchor="end" class="cap tx3">DEFINE</text> <text x="24" y="98" class="s15 w6 tx">Proposal</text> <text x="24" y="118" class="s12 tx2">Research contract</text> <text x="24" y="152" class="mono s11 tx3">proposal.md</text> </g> <g data-step="" data-k="c2"> <rect x="180" y="20" width="152" height="150" class="bx card"/> <text x="196" y="46" class="mono s12 tx3">02</text><text x="316" y="46" text-anchor="end" class="cap tx3">BUILD</text> <text x="196" y="98" class="s15 w6 tx">Harbor task</text> <text x="196" y="118" class="s12 tx2">Executable benchmark</text> <text x="196" y="152" class="mono s11 tx3">task + evaluator</text> </g> <g data-step="" data-k="c3"> <rect x="352" y="20" width="152" height="150" class="bx-nv card"/> <text x="368" y="46" class="mono s12 txn2">03</text><text x="488" y="46" text-anchor="end" class="cap txn2">ITERATE</text> <text x="368" y="98" class="s15 w6 txn">RSI-Harness</text> <text x="368" y="118" class="s12 txn2">Edit · run · evaluate</text> <text x="368" y="152" class="mono s11 txn2">candidates + logs</text> </g> <g data-step="" data-k="c4"> <rect x="524" y="20" width="152" height="150" class="bx card"/> <text x="540" y="46" class="mono s12 tx3">04</text><text x="660" y="46" text-anchor="end" class="cap tx3">VERIFY</text> <text x="540" y="98" class="s15 w6 tx">Trajectory review</text> <text x="540" y="118" class="s12 tx2">Reproduce the gain</text> <text x="540" y="152" class="mono s11 tx3">verified gains</text> </g> <g data-step="" data-k="c5"> <rect x="696" y="20" width="152" height="150" class="bx card"/> <text x="712" y="46" class="mono s12 tx3">05</text><text x="832" y="46" text-anchor="end" class="cap tx3">CONTRIBUTE</text> <text x="712" y="98" class="s15 w6 tx">Upstream PR</text> <text x="712" y="118" class="s12 tx2">Code + evidence</text> <text x="712" y="152" class="mono s11 tx3">pull request</text> </g> <g data-step="" data-k="c6"> <rect x="868" y="20" width="152" height="150" class="bx-rust card"/> <text x="884" y="46" class="mono s12 txr">06</text><text x="1004" y="46" text-anchor="end" class="cap txr">LAND</text> <text x="884" y="98" class="s15 w6 tx">SGLang&#8209;Omni</text> <text x="884" y="118" class="s12 tx2">Review, then merge</text> <text x="884" y="152" class="mono s11 tx2">merged change</text> </g> <path d="M162 95H176" class="ln arw" data-k="p12" marker-end="url(#pb)"/> <path d="M334 95H348" class="ln arw" data-k="p23" marker-end="url(#pb)"/> <path d="M506 95H520" class="ln arw" data-k="p34" marker-end="url(#pb)"/> <path d="M678 95H692" class="ln arw" data-k="p45" marker-end="url(#pb)"/> <path d="M850 95H864" class="ln arw" data-k="p56" marker-end="url(#pb)"/> <path d="M600 172V204H428V174" class="ln arw" data-k="b43" marker-end="url(#pb)"/> <path d="M944 172V204H772V174" class="ln arw" data-k="b65" marker-end="url(#pb)"/> <rect x="470" y="196" width="88" height="16" class="f-bg"/> <text x="514" y="208" text-anchor="middle" class="s12 tx3">more evidence</text> <rect x="810" y="196" width="96" height="16" class="f-bg"/> <text x="858" y="208" text-anchor="middle" class="s12 tx3">refine &amp; retest</text> <rect x="8" y="240" width="1012" height="56" class="bx-panel"/> <text x="28" y="272" class="cap tx3">REPEAT</text> <g data-step="" data-k="r1"><text x="230" y="273" text-anchor="middle" class="s13 tx">Reproducible gain</text></g> <g data-step="" data-k="r2"><text x="470" y="273" text-anchor="middle" class="s13 tx">Upstream merge</text></g> <g data-step="" data-k="r3"><text x="710" y="273" text-anchor="middle" class="s13 tx">New baseline</text></g> <g data-step="" data-k="r4"><text x="950" y="273" text-anchor="middle" class="s13 w6 txr">Next proposal</text></g> <path d="M298 268H408" class="ln arw" data-k="r2" marker-end="url(#pb)"/> <path d="M528 268H656" class="ln arw" data-k="r3" marker-end="url(#pb)"/> <path d="M760 268H884" class="ln arw" data-k="r4" marker-end="url(#pb)"/> </g> </svg> </div> <div class="player"><button type="button" class="pp" aria-pressed="false">Pause</button><span class="now" aria-live="off"></span></div> <figcaption><b>Figure 2</b>The <a href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/blob/main/CONTRIBUTING.md">RSI&#8209;Anything</a> pipeline for SGLang&#8209;Omni. People write the proposal, and agents turn it into a Harbor task with an executable benchmark and evaluator (01 to 02). Agents then run the experiments and iterate on the code (03 to 05). SGLang&#8209;Omni maintainers review over many rounds, sometimes adding code or reproducing results, before they merge (06). Work goes back when a gain does not reproduce (04 to 03) or when review asks for changes (06 to 05).</figcaption> </figure> <section class="col"> <h2>Merged PRs</h2> <p>The fourteen PRs touch every stage of speech serving, from audio encoders to decoders and vocoders, and they fall into five patterns (Figure 3). Almost all of them remove overhead in the runtime around the model; <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2901">#2901</a> also adds incremental text streaming for Whisper, and <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/3189">#3189</a> and <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/3190">#3190</a>, designed by people, add streaming audio for Ming3-TTS.</p> <p>These changes target runtime overhead without changing model weights or sampling settings. Output correctness and quality were checked within the reported test coverage; unchanged waveforms or perceptual quality are not established.</p> </section> <figure class="wide" id="fig3"> <svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false"><defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" class="f-bg"/><line x1="0" y1="0" x2="0" y2="6" stroke="var(--base)" stroke-width="2.5"/></pattern></defs></svg> <div class="pat"> <div class="pat-row"> <h4><span>01</span>Idle threads compete for cores</h4> <svg class="pfig" data-p="1" viewBox="0 0 380 168" role="img" aria-label="Before, two of four CPU cores are held by idle threads that spin, so pipeline work waits for a core. After, idle threads sleep, all four cores run work and the batch finishes in half the time."></svg> <div class="pat-tx"> <p>Threads that spin while they wait hold CPU cores the rest of the pipeline needs. Letting them sleep gives those cores back, so queued work starts at once.</p> <div class="chips"><a href="https://github.com/sgl-project/sglang-omni/pull/2524"><b>#2524</b>CosyVoice3</a></div> </div> </div> <div class="pat-row"> <h4><span>02</span>Data is converted at every hop</h4> <svg class="pfig" data-p="2" viewBox="0 0 380 168" role="img" aria-label="Before, features go tensor to list to wire bytes to list to tensor, pausing at each conversion. After, they go tensor to clone to tensor and arrive much sooner."></svg> <div class="pat-tx"> <p>Tensors were turned into Python lists to cross a stage boundary, then rebuilt on the other side. Now they travel as tensors, and only the final message carries typed bytes.</p> <div class="chips"><a href="https://github.com/sgl-project/sglang-omni/pull/2555"><b>#2555</b>CosyVoice3</a><a href="https://github.com/sgl-project/sglang-omni/pull/2778"><b>#2778</b>Fish S2&#8209;Pro</a></div> </div> </div> <div class="pat-row"> <h4><span>03</span>Work nobody uses</h4> <svg class="pfig" data-p="3" viewBox="0 0 380 150" role="img" aria-label="Before, part of the work is computed and then discarded. After, it is skipped and the step finishes earlier."></svg> <div class="pat-tx"> <p>Some results were computed and thrown away: a quantizer reconstruction no caller needed, a fresh tensor for every embedding channel, a frontend that ran twice on a fallback path, audio features extracted past where they were needed, reference audio encoded again on every request. The agents skip that work.</p> <div class="chips"><a href="https://github.com/sgl-project/sglang-omni/pull/2525"><b>#2525</b>MOSS&#8209;TTS</a><a href="https://github.com/sgl-project/sglang-omni/pull/2778"><b>#2778</b>Fish S2&#8209;Pro</a><a href="https://github.com/sgl-project/sglang-omni/pull/2882"><b>#2882</b>Qwen3&#8209;ASR</a><a href="https://github.com/sgl-project/sglang-omni/pull/3071"><b>#3071</b>MOSS&#8209;TD</a><a href="https://github.com/sgl-project/sglang-omni/pull/3136"><b>#3136</b>Ming3&#8209;TTS</a></div> </div> </div> <div class="pat-row"> <h4><span>04</span>Too many small GPU launches</h4> <svg class="pfig" data-p="4" viewBox="0 0 380 150" role="img" aria-label="Before, small kernels launch one at a time with idle gaps between them. After, one CUDA graph replays them back to back and the step ends sooner."></svg> <div class="pat-tx"> <p>Launching small kernels one at a time leaves the GPU waiting on the CPU. Capturing whole steps as CUDA graphs, or fusing kernels, replays them at once. <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2901">#2901</a> also moves encoder attention to FlashAttention&#8209;4.</p> <div class="chips"><a href="https://github.com/sgl-project/sglang-omni/pull/2779"><b>#2779</b>Qwen3&#8209;TTS</a><a href="https://github.com/sgl-project/sglang-omni/pull/2859"><b>#2859</b>MOSS&#8209;TTS</a><a href="https://github.com/sgl-project/sglang-omni/pull/2880"><b>#2880</b>Qwen3&#8209;ASR</a><a href="https://github.com/sgl-project/sglang-omni/pull/2901"><b>#2901</b>Whisper</a><a href="https://github.com/sgl-project/sglang-omni/pull/3071"><b>#3071</b>MOSS&#8209;TD</a><a href="https://github.com/sgl-project/sglang-omni/pull/3136"><b>#3136</b>Ming3&#8209;TTS</a></div> </div> </div> <div class="pat-row"> <h4><span>05</span>Two machines that wait on each other</h4> <svg class="pfig" data-p="5" viewBox="0 0 380 204" role="img" aria-label="Prefill and decode run on two separate machines. Before, they take turns and each sits idle while the other works. After, the prefill machine starts request 2 while the decode machine decodes request 1; request 2 then waits only until the decode machine is free."></svg> <div class="pat-tx"> <p>Prefill and decode run on <strong>two separate machines</strong>. They used to take turns, so each machine sat idle while the other worked. Now the prefill machine starts the next request as soon as it finishes the last one. Its decode starts the moment the decode machine finishes the request before it, so neither machine sits idle.</p> <div class="chips"><a href="https://github.com/sgl-project/sglang-omni/pull/2779"><b>#2779</b>Qwen3&#8209;TTS</a><a href="https://github.com/sgl-project/sglang-omni/pull/2859"><b>#2859</b>MOSS&#8209;TTS</a><a href="https://github.com/sgl-project/sglang-omni/pull/2881"><b>#2881</b>Qwen3&#8209;ASR</a><a href="https://github.com/sgl-project/sglang-omni/pull/3071"><b>#3071</b>MOSS&#8209;TD</a><a href="https://github.com/sgl-project/sglang-omni/pull/3136"><b>#3136</b>Ming3&#8209;TTS</a></div> </div> </div> </div> <figcaption><b>Figure 3</b>Fourteen PRs, five patterns. A PR that combines several patterns appears under each of them. <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/3189">#3189</a> and <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/3190">#3190</a> add streaming, a new feature, so they are not shown. The animations are schematic, not measured timelines; both rows of each run on the same clock.</figcaption> </figure> <section class="col"> <p>The PRs range from a one-line setting (<a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2524">#2524</a>) to about 3,900 changed lines (<a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/3189">#3189</a>). Each shipped with its own serving study, and the studies also report where a change did not help, such as <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2525">#2525</a>, whose gain is within noise.</p> <p>Figure 4 shows when each PR was opened and merged. All fourteen merged on eight days between October 7 and November 2.</p> </section> <figure class="wide" id="fig4"> <div class="prfig"> <div class="prcal-wrap"> <div class="prcal" id="prcal" role="img" aria-label="Calendar of October 4 to November 2, 2026. Fourteen PRs merged on eight days: three on October 7, two each on October 17, 19, 22 and November 2, and one each on October 20, 27 and November 1."></div> <div class="prkey"><span>Merged</span><i class="pc m1"></i><i class="pc m2"></i><i class="pc m3"></i><span>1 to 3 PRs</span><span class="gap"></span><i class="pc op"></i><span>PRs opened that day</span></div> </div> <div> <div class="prhead" id="prhead"></div> <ol class="prlist" id="prlist"></ol> </div> </div> <figcaption><b>Figure 4</b>The fourteen PRs on GitHub. Each square is a day (UTC), shaded by how many PRs merged that day; a ring marks a day PRs were opened. Hover a day or a PR to match them.</figcaption> </figure> <section class="col"> <h2>Why it came together quickly</h2> <p>Figure 5 shows the best search run for each of the first six models, from the task logs. In five of the six, the first candidate to pass every guard arrived within eight hours.</p> </section> <figure class="wide fig-multi"> <div class="multi" id="multi"> <div class="mkey"> <h4>How to read</h4> <ul> <li><svg viewBox="0 0 34 16" aria-hidden="true"><path d="M1 13H12V5H33" fill="none" stroke="var(--rust)" stroke-width="2.25" stroke-linejoin="round"/><circle cx="12" cy="5" r="3.5" fill="var(--rust)" stroke="var(--bg)" stroke-width="1.5"/></svg><span>Best run: its best reward so far. Each dot passed every guard.</span></li> <li><svg viewBox="0 0 34 16" aria-hidden="true"><circle cx="17" cy="8" r="4" fill="var(--bg)" stroke="var(--base)" stroke-width="1.5"/></svg><span>Measured, but failed a guard</span></li> <li><svg viewBox="0 0 34 16" aria-hidden="true"><line x1="1" x2="33" y1="15" y2="15" stroke="var(--ink-3)" stroke-width="1"/><line x1="17" x2="17" y1="7" y2="15" stroke="var(--ink-3)" stroke-width="1.5"/></svg><span>No complete measurement</span></li> <li><svg viewBox="0 0 34 16" aria-hidden="true"><line x1="1" x2="33" y1="8" y2="8" stroke="var(--base)" stroke-width="1.5" stroke-dasharray="4 4"/></svg><span>Frozen baseline, 1.0×</span></li> </ul> <p>Reward is throughput over the task&rsquo;s frozen baseline. Guards also check latency and WER, so a faster candidate can still fail.</p> </div> </div> <figcaption><b>Figure 5</b>The best search run for each model, in hours since the run started. PR links list each model&rsquo;s merged PRs. Each task scores against its own benchmark, so rewards are not comparable across panels or with Table&nbsp;1.</figcaption> </figure> <section class="col"> <ol class="pts"> <li><div><b>Serving has a scoreboard.</b> Throughput and latency can be measured automatically, which gives the loop a dense, reliable signal. Quality is harder to score: WER covers transcription accuracy, not how the audio sounds.</div></li> <li><div><b>One harness, many tasks.</b> The same harness ran every search, and one proposal led to PRs for four models. Once a task and its evaluator exist, another agent round costs compute, not someone's afternoon.</div></li> <li><div><b>Guards keep results honest.</b> Every submission is scored in a clean environment, and a faster candidate that regresses latency or WER earns no reward.</div></li> <li><div><b>Evidence arrives with the diff.</b> Every PR came with a serving study and stated caveats, and most with an audit of the raw benchmark records. That gave review a concrete starting point, though review still took a median of about three and a half days and up to 23 commits.</div></li> </ol> <h2>What this means for inference optimization</h2> <p class="pull">Once a problem is well defined, inference optimization turns from work limited by expert attention into a search limited by compute, evaluator quality and review bandwidth.</p> </section> <figure class="wide"> <div class="fig-body"> <div class="shift"> <div></div><div class="ph pre">Define the problem</div><div class="ph" style="grid-column: 3 / -1">Once the problem is well defined</div> <div></div><div class="h">Design and first implementation</div><div class="h">Find the idea</div><div class="h">Implement</div><div class="h">Measure</div><div class="h">Review and merge</div> <div class="rl">Before</div> <div class="c scarce">Engineers<small>system design, first implementation</small></div> <div class="c scarce">Engineer<small>competes with every other priority</small></div> <div class="c scarce">Engineer<small>one change at a time</small></div> <div class="c scarce">Engineer<small>manual benchmark runs</small></div> <div class="c">Maintainer<small>checks the claim from scratch</small></div> <div class="rl">Today</div> <div class="c human">Engineers<small>design, first implementation, task, benchmark and guards</small></div> <div class="c agent">Agents × N<small>from a written proposal</small></div> <div class="c agent">Agents × N<small>in parallel workspaces</small></div> <div class="c scarce">Evaluator<small>its quality caps what is found</small></div> <div class="c scarce">Maintainer<small>review time becomes the limit</small></div> <div class="key"><span><i style="background:var(--rust-soft);border:1.5px solid var(--rust)"></i>Scarce resource</span><span><i style="background:var(--navy);border:1px solid var(--navy-line)"></i>Runs on compute</span><span><i style="border:1.5px dashed var(--ink-3)"></i>Human work OpenRSI does not take on yet</span></div> </div> </div> <figcaption><b>Figure 6</b>Where the bottleneck moves once a problem is well defined. Top: before OpenRSI. Bottom: with Harnessed RSI, agents take over the search for speedups, and people define the problem and decide what to merge.</figcaption> </figure> <section class="col"> <ol class="pts"> <li><div><b>The long tail gets searched to the end.</b> No human can try every thread setting, data conversion and launch pattern in a serving stack. Agents can work through them one by one and measure each on its own, which is how <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2524">#2524</a> showed that a single setting can be worth about a third of throughput.</div></li> <li><div><b>Tuning becomes continuous.</b> Once a task and its evaluator exist, a new model, runtime or machine shape simply starts another round.</div></li> <li><div><b>Results depend on the deployment.</b> <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2524">#2524</a> is worth +82.9% on 8 cores and +33.6% on 16. Agents can afford to measure every target configuration.</div></li> <li><div><b>The evaluator is the product.</b> Agents optimize what is measured, so benchmarks, quality checks and guards against reward hacking become the main engineering work. For speech, WER alone is not enough.</div></li> </ol> <h2>What&rsquo;s next</h2> <p>This is the first of many collaborations between OpenRSI and the SGLang&#8209;Omni team. Next, we want to hand agents more of the loop that people still run today, and move toward fully autonomous RSI for AI infrastructure. Stay tuned.</p> <p><a href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/RSI-Harness">RSI&#8209;Harness</a> and <a href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/blob/main/CONTRIBUTING.md">RSI&#8209;Anything</a> are open source. We welcome new tasks: <a href="https://github.com/OpenRSI-Foundation/OpenRSI-Index#-call-for-contributors">contribute one</a>, and contributors with accepted tasks are invited as co-authors.</p> <a class="btn" href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/RSI-Harness">RSI-Harness on GitHub</a> </section> <hr> <section class="col"> <h3>Acknowledgements</h3> <p class="thanks">Led by Zhuofeng Li, Aaron Tian and Chenyang Zhao, with Yichen Feng, Wenhao Chai, Xinyang Han, Cara Li and Yuetai Li. Thanks to the SGLang&#8209;Omni team for many rounds of review, design input, code and independent reproductions, and to the other SGLang-Omni contributors whose optimizations landed in the same period.</p> </section> <div class="tip" id="tip" hidden></div> <script>
+var NS = "http://www.w3.org/2000/svg";
+var REDUCED = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function el(tag, attrs, text) {
+  var e = document.createElementNS(NS, tag);
+  for (var k in attrs) e.setAttribute(k, attrs[k]);
+  if (text != null) e.textContent = text;
+  return e;
 }
-</code></pre> <p>Also another example chart.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">plotly
-</span><span class="sb">{
-  "data": [
-    {
-      "x": [1, 2, 3, 4],
-      "y": [10, 15, 13, 17],
-      "mode": "markers"
-    },
-    {
-      "x": [2, 3, 4, 5],
-      "y": [16, 5, 11, 9],
-      "mode": "lines"
-    },
-    {
-      "x": [1, 2, 3, 4],
-      "y": [12, 9, 15, 12],
-      "mode": "lines+markers"
-    }
-  ],
-  "layout": {
-    "title": {
-      "text": "Line and Scatter Plot"
-    }
-  }
-}</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>This is how it looks like:</p> <pre><code class="language-plotly">{
-  "data": [
-    {
-      "x": [1, 2, 3, 4],
-      "y": [10, 15, 13, 17],
-      "mode": "markers"
-    },
-    {
-      "x": [2, 3, 4, 5],
-      "y": [16, 5, 11, 9],
-      "mode": "lines"
-    },
-    {
-      "x": [1, 2, 3, 4],
-      "y": [12, 9, 15, 12],
-      "mode": "lines+markers"
-    }
-  ],
-  "layout": {
-    "title": {
-      "text": "Line and Scatter Plot"
-    }
-  }
+function onVisible(node, cb) {
+  if (!("IntersectionObserver" in window)) { cb(true); return; }
+  new IntersectionObserver(function (es) { es.forEach(function (e) { cb(e.isIntersecting); }); }, { threshold: 0.3 }).observe(node);
 }
-</code></pre>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="charts"/><summary type="html"><![CDATA[this is what included plotly.js code could look like]]></summary></entry><entry><title type="html">a post with image galleries</title><link href="https://zhuofeng-li.github.io/blog/2024/photo-gallery/" rel="alternate" type="text/html" title="a post with image galleries"/><published>2024-12-04T01:59:00+00:00</published><updated>2024-12-04T01:59:00+00:00</updated><id>https://zhuofeng-li.github.io/blog/2024/photo-gallery</id><content type="html" xml:base="https://zhuofeng-li.github.io/blog/2024/photo-gallery/"><![CDATA[<p>The images in this post are all zoomable, arranged into different mini-galleries using different libraries.</p> <h2 id="lightbox2"><a href="https://lokeshdhakar.com/projects/lightbox2/">Lightbox2</a></h2> <p><a href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-2500.jpg" data-lightbox="roadtrip"><img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-200.jpg"/></a> <a href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-2500.jpg" data-lightbox="roadtrip"><img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-200.jpg"/></a> <a href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-2500.jpg" data-lightbox="roadtrip"><img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-200.jpg"/></a></p> <hr/> <h2 id="photoswipe"><a href="https://photoswipe.com/">PhotoSwipe</a></h2> <div class="pswp-gallery pswp-gallery--single-column" id="gallery--getting-started"> <a href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-2500.jpg" data-pswp-width="1669" data-pswp-height="2500" target="_blank"> <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-200.jpg" alt=""/> </a> <a href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/7/img-2500.jpg" data-pswp-width="1875" data-pswp-height="2500" data-cropped="true" target="_blank"> <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/7/img-200.jpg" alt=""/> </a> <a href="https://unsplash.com" data-pswp-src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-2500.jpg" data-pswp-width="2500" data-pswp-height="1666" target="_blank"> <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-200.jpg" alt=""/> </a> <div> <a href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/6/img-2500.jpg" data-pswp-width="2500" data-pswp-height="1667" target="_blank"> <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/6/img-200.jpg" alt=""/> </a> </div> </div> <hr/> <h2 id="spotlight-js"><a href="https://nextapps-de.github.io/spotlight/">Spotlight JS</a></h2> <div class="spotlight-group"> <a class="spotlight" href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-2500.jpg"> <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-200.jpg"/> </a> <a class="spotlight" href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-2500.jpg"> <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-200.jpg"/> </a> <a class="spotlight" href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-2500.jpg"> <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-200.jpg"/> </a> </div> <div class="spotlight-group"> <a class="spotlight" href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/4/img-2500.jpg"> <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/4/img-200.jpg"/> </a> <a class="spotlight" href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/5/img-2500.jpg"> <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/5/img-200.jpg"/> </a> <a class="spotlight" href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/6/img-2500.jpg"> <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/6/img-200.jpg"/> </a> </div> <hr/> <h2 id="venobox"><a href="https://veno.es/venobox/">Venobox</a></h2> <p><a class="venobox" data-gall="myGallery" href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-2500.jpg"><img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-200.jpg"/></a> <a class="venobox" data-gall="myGallery" href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-2500.jpg"><img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-200.jpg"/></a> <a class="venobox" data-gall="myGallery" href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-2500.jpg"><img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-200.jpg"/></a></p>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="images"/><summary type="html"><![CDATA[this is what included image galleries could look like]]></summary></entry><entry><title type="html">a post with tabs</title><link href="https://zhuofeng-li.github.io/blog/2024/tabs/" rel="alternate" type="text/html" title="a post with tabs"/><published>2024-05-01T00:32:13+00:00</published><updated>2024-05-01T00:32:13+00:00</updated><id>https://zhuofeng-li.github.io/blog/2024/tabs</id><content type="html" xml:base="https://zhuofeng-li.github.io/blog/2024/tabs/"><![CDATA[<p>This is how a post with <a href="https://github.com/Ovski4/jekyll-tabs">tabs</a> looks like. Note that the tabs could be used for different purposes, not only for code.</p> <h2 id="first-tabs">First tabs</h2> <p>To add tabs, use the following syntax:</p> <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{%</span><span class="w"> </span><span class="nt">tabs</span><span class="w"> </span><span class="nv">group-name</span><span class="w"> </span><span class="cp">%}</span>
 
-<span class="cp">{%</span><span class="w"> </span><span class="nt">tab</span><span class="w"> </span><span class="nv">group-name</span><span class="w"> </span><span class="nv">tab-name-1</span><span class="w"> </span><span class="cp">%}</span>
+/* Review-only side margin switch */
+(function () {
+  var box = document.querySelector(".margin-ctl");
+  if (!box) return;
+  box.addEventListener("click", function (e) {
+    var b = e.target.closest("button"); if (!b) return;
+    document.documentElement.style.setProperty("--side", b.dataset.side);
+    box.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+  });
+})();
 
-Content 1
-
-<span class="cp">{%</span><span class="w"> </span><span class="nt">endtab</span><span class="w"> </span><span class="cp">%}</span>
-
-<span class="cp">{%</span><span class="w"> </span><span class="nt">tab</span><span class="w"> </span><span class="nv">group-name</span><span class="w"> </span><span class="nv">tab-name-2</span><span class="w"> </span><span class="cp">%}</span>
-
-Content 2
-
-<span class="cp">{%</span><span class="w"> </span><span class="nt">endtab</span><span class="w"> </span><span class="cp">%}</span>
-
-<span class="cp">{%</span><span class="w"> </span><span class="nt">endtabs</span><span class="w"> </span><span class="cp">%}</span>
-</code></pre></div></div> <p>With this you can generate visualizations like:</p> <ul id="log" class="tab" data-tab="7ef09d90-b96a-4b5a-9e17-0a659b9088ac" data-name="log"> <li class="active" id="log-php"> <a href="#">php </a> </li> <li id="log-js"> <a href="#">js </a> </li> <li id="log-ruby"> <a href="#">ruby </a> </li> </ul> <ul class="tab-content" id="7ef09d90-b96a-4b5a-9e17-0a659b9088ac" data-name="log"> <li class="active"> <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">var_dump</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">);</span>
-</code></pre></div></div> </li> <li> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">);</span>
-</code></pre></div></div> </li> <li> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">pputs</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span>
-</code></pre></div></div> </li> </ul> <h2 id="another-example">Another example</h2> <ul id="data-struct" class="tab" data-tab="8cc04b9c-2688-4edd-8bd1-af2292a6da02" data-name="data-struct"> <li class="active" id="data-struct-yaml"> <a href="#">yaml </a> </li> <li id="data-struct-json"> <a href="#">json </a> </li> </ul> <ul class="tab-content" id="8cc04b9c-2688-4edd-8bd1-af2292a6da02" data-name="data-struct"> <li class="active"> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">hello</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s2">"</span><span class="s">whatsup"</span>
-  <span class="pi">-</span> <span class="s2">"</span><span class="s">hi"</span>
-</code></pre></div></div> </li> <li> <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"hello"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"whatsup"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hi"</span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div> </li> </ul> <h2 id="tabs-for-something-else">Tabs for something else</h2> <ul id="something-else" class="tab" data-tab="204a75d6-43f1-4bec-aa94-62c7c91cbe43" data-name="something-else"> <li class="active" id="something-else-text"> <a href="#">text </a> </li> <li id="something-else-quote"> <a href="#">quote </a> </li> <li id="something-else-list"> <a href="#">list </a> </li> </ul> <ul class="tab-content" id="204a75d6-43f1-4bec-aa94-62c7c91cbe43" data-name="something-else"> <li class="active"> <p>Regular text</p> </li> <li> <blockquote> <p>A quote</p> </blockquote> </li> <li> <p>Hipster list</p> <ul> <li>brunch</li> <li>fixie</li> <li>raybans</li> <li>messenger bag</li> </ul> </li> </ul>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="code"/><summary type="html"><![CDATA[this is what included tabs in a post could look like]]></summary></entry><entry><title type="html">a post with typograms</title><link href="https://zhuofeng-li.github.io/blog/2024/typograms/" rel="alternate" type="text/html" title="a post with typograms"/><published>2024-04-29T23:36:10+00:00</published><updated>2024-04-29T23:36:10+00:00</updated><id>https://zhuofeng-li.github.io/blog/2024/typograms</id><content type="html" xml:base="https://zhuofeng-li.github.io/blog/2024/typograms/"><![CDATA[<p>This is an example post with some <a href="https://github.com/google/typograms/">typograms</a> code.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">typograms
-</span><span class="sb">+----+
-|    |---&gt; My first diagram!
-+----+</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>Which generates:</p> <pre><code class="language-typograms">+----+
-|    |---&gt; My first diagram!
-+----+
-</code></pre> <p>Another example:</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">typograms
-</span><span class="sb">.------------------------.
-|.----------------------.|
-||"https://example.com" ||
-|'----------------------'|
-| ______________________ |
-||                      ||
-||   Welcome!           ||
-||                      ||
-||                      ||
-||  .----------------.  ||
-||  | username       |  ||
-||  '----------------'  ||
-||  .----------------.  ||
-||  |"*******"       |  ||
-||  '----------------'  ||
-||                      ||
-||  .----------------.  ||
-||  |   "Sign-up"    |  ||
-||  '----------------'  ||
-||                      ||
-|+----------------------+|
-.------------------------.</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>which generates:</p> <pre><code class="language-typograms">.------------------------.
-|.----------------------.|
-||"https://example.com" ||
-|'----------------------'|
-| ______________________ |
-||                      ||
-||   Welcome!           ||
-||                      ||
-||                      ||
-||  .----------------.  ||
-||  | username       |  ||
-||  '----------------'  ||
-||  .----------------.  ||
-||  |"*******"       |  ||
-||  '----------------'  ||
-||                      ||
-||  .----------------.  ||
-||  |   "Sign-up"    |  ||
-||  '----------------'  ||
-||                      ||
-|+----------------------+|
-.------------------------.
-</code></pre> <p>For more examples, check out the <a href="https://google.github.io/typograms/#examples">typograms documentation</a>.</p>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="diagrams"/><summary type="html"><![CDATA[this is what included typograms code could look like]]></summary></entry><entry><title type="html">a post that can be cited</title><link href="https://zhuofeng-li.github.io/blog/2024/post-citation/" rel="alternate" type="text/html" title="a post that can be cited"/><published>2024-04-28T15:06:00+00:00</published><updated>2024-04-28T15:06:00+00:00</updated><id>https://zhuofeng-li.github.io/blog/2024/post-citation</id><content type="html" xml:base="https://zhuofeng-li.github.io/blog/2024/post-citation/"><![CDATA[<p>This is an example post that can be cited. The content of the post ends here, while the citation information is automatically provided below. The only thing needed is for you to set the <code class="language-plaintext highlighter-rouge">citation</code> key in the front matter to <code class="language-plaintext highlighter-rouge">true</code>.</p>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="citation"/><summary type="html"><![CDATA[this is what a post that can be cited looks like]]></summary></entry><entry><title type="html">a post with pseudo code</title><link href="https://zhuofeng-li.github.io/blog/2024/pseudocode/" rel="alternate" type="text/html" title="a post with pseudo code"/><published>2024-04-15T00:01:00+00:00</published><updated>2024-04-15T00:01:00+00:00</updated><id>https://zhuofeng-li.github.io/blog/2024/pseudocode</id><content type="html" xml:base="https://zhuofeng-li.github.io/blog/2024/pseudocode/"><![CDATA[<p>This is an example post with some pseudo code rendered by <a href="https://github.com/SaswatPadhi/pseudocode.js">pseudocode</a>. The example presented here is the same as the one in the <a href="https://saswat.padhi.me/pseudocode.js/">pseudocode.js</a> documentation, with only one simple but important change: everytime you would use <code class="language-plaintext highlighter-rouge">$</code>, you should use <code class="language-plaintext highlighter-rouge">$$</code> instead. Also, note that the <code class="language-plaintext highlighter-rouge">pseudocode</code> key in the front matter is set to <code class="language-plaintext highlighter-rouge">true</code> to enable the rendering of pseudo code. As an example, using this code:</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">pseudocode
-</span><span class="sb">% This quicksort algorithm is extracted from Chapter 7, Introduction to Algorithms (3rd edition)
-\begin{algorithm}
-\caption{Quicksort}
-\begin{algorithmic}
-\PROCEDURE{Quicksort}{$$A, p, r$$}
-    \IF{$$p &lt; r$$}
-        \STATE $$q = $$ \CALL{Partition}{$$A, p, r$$}
-        \STATE \CALL{Quicksort}{$$A, p, q - 1$$}
-        \STATE \CALL{Quicksort}{$$A, q + 1, r$$}
-    \ENDIF
-\ENDPROCEDURE
-\PROCEDURE{Partition}{$$A, p, r$$}
-    \STATE $$x = A[r]$$
-    \STATE $$i = p - 1$$
-    \FOR{$$j = p$$ \TO $$r - 1$$}
-        \IF{$$A[j] &lt; x$$}
-            \STATE $$i = i + 1$$
-            \STATE exchange
-            $$A[i]$$ with $$A[j]$$
-        \ENDIF
-        \STATE exchange $$A[i]$$ with $$A[r]$$
-    \ENDFOR
-\ENDPROCEDURE
-\end{algorithmic}
-\end{algorithm}</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>Generates:</p> <pre><code class="language-pseudocode">% This quicksort algorithm is extracted from Chapter 7, Introduction to Algorithms (3rd edition)
-\begin{algorithm}
-\caption{Quicksort}
-\begin{algorithmic}
-\PROCEDURE{Quicksort}{$$A, p, r$$}
-    \IF{$$p &lt; r$$}
-        \STATE $$q = $$ \CALL{Partition}{$$A, p, r$$}
-        \STATE \CALL{Quicksort}{$$A, p, q - 1$$}
-        \STATE \CALL{Quicksort}{$$A, q + 1, r$$}
-    \ENDIF
-\ENDPROCEDURE
-\PROCEDURE{Partition}{$$A, p, r$$}
-    \STATE $$x = A[r]$$
-    \STATE $$i = p - 1$$
-    \FOR{$$j = p$$ \TO $$r - 1$$}
-        \IF{$$A[j] &lt; x$$}
-            \STATE $$i = i + 1$$
-            \STATE exchange
-            $$A[i]$$ with $$A[j]$$
-        \ENDIF
-        \STATE exchange $$A[i]$$ with $$A[r]$$
-    \ENDFOR
-\ENDPROCEDURE
-\end{algorithmic}
-\end{algorithm}
-</code></pre>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="code"/><summary type="html"><![CDATA[this is what included pseudo code could look like]]></summary></entry><entry><title type="html">a post with code diff</title><link href="https://zhuofeng-li.github.io/blog/2024/code-diff/" rel="alternate" type="text/html" title="a post with code diff"/><published>2024-01-27T19:22:00+00:00</published><updated>2024-01-27T19:22:00+00:00</updated><id>https://zhuofeng-li.github.io/blog/2024/code-diff</id><content type="html" xml:base="https://zhuofeng-li.github.io/blog/2024/code-diff/"><![CDATA[<p>You can display diff code by using the regular markdown syntax:</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">diff
-</span><span class="gh">diff --git a/sample.js b/sample.js
-index 0000001..0ddf2ba
-</span><span class="gd">--- a/sample.js
-</span><span class="gi">+++ b/sample.js
-</span><span class="p">@@ -1 +1 @@</span>
-<span class="gd">-console.log("Hello World!")
-</span><span class="gi">+console.log("Hello from Diff2Html!")</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>Which generates:</p> <div class="language-diff highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh">diff --git a/sample.js b/sample.js
-index 0000001..0ddf2ba
-</span><span class="gd">--- a/sample.js
-</span><span class="gi">+++ b/sample.js
-</span><span class="p">@@ -1 +1 @@</span>
-<span class="gd">-console.log("Hello World!")
-</span><span class="gi">+console.log("Hello from Diff2Html!")
-</span></code></pre></div></div> <p>But this is difficult to read, specially if you have a large diff. You can use <a href="https://diff2html.xyz/">diff2html</a> to display a more readable version of the diff. For this, just use <code class="language-plaintext highlighter-rouge">diff2html</code> instead of <code class="language-plaintext highlighter-rouge">diff</code> for the code block language:</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">diff2html
-</span><span class="sb">diff --git a/sample.js b/sample.js
-index 0000001..0ddf2ba
---- a/sample.js
-+++ b/sample.js
-@@ -1 +1 @@
--console.log("Hello World!")
-+console.log("Hello from Diff2Html!")</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>If we use a longer example, for example <a href="https://github.com/rtfpessoa/diff2html/commit/c2c253d3e3f8b8b267f551e659f72b44ca2ac927">this commit from diff2html</a>, it will generate the following output:</p> <pre><code class="language-diff2html">From 2aaae31cc2a37bfff83430c2c914b140bee59b6a Mon Sep 17 00:00:00 2001
-From: Rodrigo Fernandes &lt;rtfrodrigo@gmail.com&gt;
-Date: Sun, 9 Oct 2016 16:41:54 +0100
-Subject: [PATCH 1/2] Initial template override support
-
----
- scripts/hulk.js                    |  4 ++--
- src/diff2html.js                   |  3 +--
- src/file-list-printer.js           | 11 ++++++++---
- src/hoganjs-utils.js               | 29 +++++++++++++++++------------
- src/html-printer.js                |  6 ++++++
- src/line-by-line-printer.js        |  6 +++++-
- src/side-by-side-printer.js        |  6 +++++-
- test/file-list-printer-tests.js    |  2 +-
- test/hogan-cache-tests.js          | 18 +++++++++++++++---
- test/line-by-line-tests.js         |  3 +--
- test/side-by-side-printer-tests.js |  3 +--
- 11 files changed, 62 insertions(+), 29 deletions(-)
-
-diff --git a/scripts/hulk.js b/scripts/hulk.js
-index 5a793c18..a4b1a4d5 100755
---- a/scripts/hulk.js
-+++ b/scripts/hulk.js
-@@ -173,11 +173,11 @@ function namespace(name) {
- // write a template foreach file that matches template extension
- templates = extractFiles(options.argv.remain)
-   .map(function(file) {
--    var openedFile = fs.readFileSync(file, 'utf-8');
-+    var openedFile = fs.readFileSync(file, 'utf-8').trim();
-     var name;
-     if (!openedFile) return;
-     name = namespace(path.basename(file).replace(/\..*$/, ''));
--    openedFile = removeByteOrderMark(openedFile.trim());
-+    openedFile = removeByteOrderMark(openedFile);
-     openedFile = wrap(file, name, openedFile);
-     if (!options.outputdir) return openedFile;
-     fs.writeFileSync(path.join(options.outputdir, name + '.js')
-diff --git a/src/diff2html.js b/src/diff2html.js
-index 21b0119e..64e138f5 100644
---- a/src/diff2html.js
-+++ b/src/diff2html.js
-@@ -7,7 +7,6 @@
-
- (function() {
-   var diffParser = require('./diff-parser.js').DiffParser;
--  var fileLister = require('./file-list-printer.js').FileListPrinter;
-   var htmlPrinter = require('./html-printer.js').HtmlPrinter;
-
-   function Diff2Html() {
-@@ -43,7 +42,7 @@
-
-     var fileList = '';
-     if (configOrEmpty.showFiles === true) {
--      fileList = fileLister.generateFileList(diffJson, configOrEmpty);
-+      fileList = htmlPrinter.generateFileListSummary(diffJson, configOrEmpty);
-     }
-
-     var diffOutput = '';
-diff --git a/src/file-list-printer.js b/src/file-list-printer.js
-index e408d9b2..1e0a2c61 100644
---- a/src/file-list-printer.js
-+++ b/src/file-list-printer.js
-@@ -8,11 +8,16 @@
- (function() {
-   var printerUtils = require('./printer-utils.js').PrinterUtils;
-
--  var hoganUtils = require('./hoganjs-utils.js').HoganJsUtils;
-+  var hoganUtils;
-+
-   var baseTemplatesPath = 'file-summary';
-   var iconsBaseTemplatesPath = 'icon';
-
--  function FileListPrinter() {
-+  function FileListPrinter(config) {
-+    this.config = config;
-+
-+    var HoganJsUtils = require('./hoganjs-utils.js').HoganJsUtils;
-+    hoganUtils = new HoganJsUtils(config);
-   }
-
-   FileListPrinter.prototype.generateFileList = function(diffFiles) {
-@@ -38,5 +43,5 @@
-     });
-   };
-
--  module.exports.FileListPrinter = new FileListPrinter();
-+  module.exports.FileListPrinter = FileListPrinter;
- })();
-diff --git a/src/hoganjs-utils.js b/src/hoganjs-utils.js
-index 9949e5fa..0dda08d7 100644
---- a/src/hoganjs-utils.js
-+++ b/src/hoganjs-utils.js
-@@ -8,18 +8,19 @@
- (function() {
-   var fs = require('fs');
-   var path = require('path');
--
-   var hogan = require('hogan.js');
-
-   var hoganTemplates = require('./templates/diff2html-templates.js');
-
--  var templatesPath = path.resolve(__dirname, 'templates');
-+  var extraTemplates;
-
--  function HoganJsUtils() {
-+  function HoganJsUtils(configuration) {
-+    this.config = configuration || {};
-+    extraTemplates = this.config.templates || {};
-   }
-
--  HoganJsUtils.prototype.render = function(namespace, view, params, configuration) {
--    var template = this.template(namespace, view, configuration);
-+  HoganJsUtils.prototype.render = function(namespace, view, params) {
-+    var template = this.template(namespace, view);
-     if (template) {
-       return template.render(params);
-     }
-@@ -27,17 +28,16 @@
-     return null;
-   };
-
--  HoganJsUtils.prototype.template = function(namespace, view, configuration) {
--    var config = configuration || {};
-+  HoganJsUtils.prototype.template = function(namespace, view) {
-     var templateKey = this._templateKey(namespace, view);
-
--    return this._getTemplate(templateKey, config);
-+    return this._getTemplate(templateKey);
-   };
-
--  HoganJsUtils.prototype._getTemplate = function(templateKey, config) {
-+  HoganJsUtils.prototype._getTemplate = function(templateKey) {
-     var template;
-
--    if (!config.noCache) {
-+    if (!this.config.noCache) {
-       template = this._readFromCache(templateKey);
-     }
-
-@@ -53,6 +53,7 @@
-
-     try {
-       if (fs.readFileSync) {
-+        var templatesPath = path.resolve(__dirname, 'templates');
-         var templatePath = path.join(templatesPath, templateKey);
-         var templateContent = fs.readFileSync(templatePath + '.mustache', 'utf8');
-         template = hogan.compile(templateContent);
-@@ -66,12 +67,16 @@
-   };
-
-   HoganJsUtils.prototype._readFromCache = function(templateKey) {
--    return hoganTemplates[templateKey];
-+    return extraTemplates[templateKey] || hoganTemplates[templateKey];
-   };
-
-   HoganJsUtils.prototype._templateKey = function(namespace, view) {
-     return namespace + '-' + view;
-   };
-
--  module.exports.HoganJsUtils = new HoganJsUtils();
-+  HoganJsUtils.prototype.compile = function(templateStr) {
-+    return hogan.compile(templateStr);
-+  };
-+
-+  module.exports.HoganJsUtils = HoganJsUtils;
- })();
-diff --git a/src/html-printer.js b/src/html-printer.js
-index 585d5b66..13f83047 100644
---- a/src/html-printer.js
-+++ b/src/html-printer.js
-@@ -8,6 +8,7 @@
- (function() {
-   var LineByLinePrinter = require('./line-by-line-printer.js').LineByLinePrinter;
-   var SideBySidePrinter = require('./side-by-side-printer.js').SideBySidePrinter;
-+  var FileListPrinter = require('./file-list-printer.js').FileListPrinter;
-
-   function HtmlPrinter() {
-   }
-@@ -22,5 +23,10 @@
-     return sideBySidePrinter.generateSideBySideJsonHtml(diffFiles);
-   };
-
-+  HtmlPrinter.prototype.generateFileListSummary = function(diffJson, config) {
-+    var fileListPrinter = new FileListPrinter(config);
-+    return fileListPrinter.generateFileList(diffJson);
-+  };
-+
-   module.exports.HtmlPrinter = new HtmlPrinter();
- })();
-diff --git a/src/line-by-line-printer.js b/src/line-by-line-printer.js
-index b07eb53c..d230bedd 100644
---- a/src/line-by-line-printer.js
-+++ b/src/line-by-line-printer.js
-@@ -11,7 +11,8 @@
-   var utils = require('./utils.js').Utils;
-   var Rematch = require('./rematch.js').Rematch;
-
--  var hoganUtils = require('./hoganjs-utils.js').HoganJsUtils;
-+  var hoganUtils;
-+
-   var genericTemplatesPath = 'generic';
-   var baseTemplatesPath = 'line-by-line';
-   var iconsBaseTemplatesPath = 'icon';
-@@ -19,6 +20,9 @@
-
-   function LineByLinePrinter(config) {
-     this.config = config;
-+
-+    var HoganJsUtils = require('./hoganjs-utils.js').HoganJsUtils;
-+    hoganUtils = new HoganJsUtils(config);
-   }
-
-   LineByLinePrinter.prototype.makeFileDiffHtml = function(file, diffs) {
-diff --git a/src/side-by-side-printer.js b/src/side-by-side-printer.js
-index bbf1dc8d..5e3033b3 100644
---- a/src/side-by-side-printer.js
-+++ b/src/side-by-side-printer.js
-@@ -11,7 +11,8 @@
-   var utils = require('./utils.js').Utils;
-   var Rematch = require('./rematch.js').Rematch;
-
--  var hoganUtils = require('./hoganjs-utils.js').HoganJsUtils;
-+  var hoganUtils;
-+
-   var genericTemplatesPath = 'generic';
-   var baseTemplatesPath = 'side-by-side';
-   var iconsBaseTemplatesPath = 'icon';
-@@ -26,6 +27,9 @@
-
-   function SideBySidePrinter(config) {
-     this.config = config;
-+
-+    var HoganJsUtils = require('./hoganjs-utils.js').HoganJsUtils;
-+    hoganUtils = new HoganJsUtils(config);
-   }
-
-   SideBySidePrinter.prototype.makeDiffHtml = function(file, diffs) {
-diff --git a/test/file-list-printer-tests.js b/test/file-list-printer-tests.js
-index a502a46f..60ea3208 100644
---- a/test/file-list-printer-tests.js
-+++ b/test/file-list-printer-tests.js
-@@ -1,6 +1,6 @@
- var assert = require('assert');
-
--var fileListPrinter = require('../src/file-list-printer.js').FileListPrinter;
-+var fileListPrinter = new (require('../src/file-list-printer.js').FileListPrinter)();
-
- describe('FileListPrinter', function() {
-   describe('generateFileList', function() {
-diff --git a/test/hogan-cache-tests.js b/test/hogan-cache-tests.js
-index 190bf6f8..3bb754ac 100644
---- a/test/hogan-cache-tests.js
-+++ b/test/hogan-cache-tests.js
-@@ -1,6 +1,6 @@
- var assert = require('assert');
-
--var HoganJsUtils = require('../src/hoganjs-utils.js').HoganJsUtils;
-+var HoganJsUtils = new (require('../src/hoganjs-utils.js').HoganJsUtils)();
- var diffParser = require('../src/diff-parser.js').DiffParser;
-
- describe('HoganJsUtils', function() {
-@@ -21,16 +21,28 @@ describe('HoganJsUtils', function() {
-       });
-       assert.equal(emptyDiffHtml, result);
-     });
-+
-     it('should render view without cache', function() {
-       var result = HoganJsUtils.render('generic', 'empty-diff', {
-         contentClass: 'd2h-code-line',
-         diffParser: diffParser
-       }, {noCache: true});
--      assert.equal(emptyDiffHtml + '\n', result);
-+      assert.equal(emptyDiffHtml, result);
-     });
-+
-     it('should return null if template is missing', function() {
--      var result = HoganJsUtils.render('generic', 'missing-template', {}, {noCache: true});
-+      var hoganUtils = new (require('../src/hoganjs-utils.js').HoganJsUtils)({noCache: true});
-+      var result = hoganUtils.render('generic', 'missing-template', {});
-       assert.equal(null, result);
-     });
-+
-+    it('should allow templates to be overridden', function() {
-+      var emptyDiffTemplate = HoganJsUtils.compile('&lt;p&gt;&lt;/p&gt;');
-+
-+      var config = {templates: {'generic-empty-diff': emptyDiffTemplate}};
-+      var hoganUtils = new (require('../src/hoganjs-utils.js').HoganJsUtils)(config);
-+      var result = hoganUtils.render('generic', 'empty-diff', {myName: 'Rodrigo Fernandes'});
-+      assert.equal('&lt;p&gt;Rodrigo Fernandes&lt;/p&gt;', result);
-+    });
-   });
- });
-diff --git a/test/line-by-line-tests.js b/test/line-by-line-tests.js
-index 1cd92073..8869b3df 100644
---- a/test/line-by-line-tests.js
-+++ b/test/line-by-line-tests.js
-@@ -14,7 +14,7 @@ describe('LineByLinePrinter', function() {
-         '            File without changes\n' +
-         '        &lt;/div&gt;\n' +
-         '    &lt;/td&gt;\n' +
--        '&lt;/tr&gt;\n';
-+        '&lt;/tr&gt;';
-
-       assert.equal(expected, fileHtml);
-     });
-@@ -422,7 +422,6 @@ describe('LineByLinePrinter', function() {
-         '        &lt;/div&gt;\n' +
-         '    &lt;/td&gt;\n' +
-         '&lt;/tr&gt;\n' +
--        '\n' +
-         '                &lt;/tbody&gt;\n' +
-         '            &lt;/table&gt;\n' +
-         '        &lt;/div&gt;\n' +
-diff --git a/test/side-by-side-printer-tests.js b/test/side-by-side-printer-tests.js
-index 76625f8e..771daaa5 100644
---- a/test/side-by-side-printer-tests.js
-+++ b/test/side-by-side-printer-tests.js
-@@ -14,7 +14,7 @@ describe('SideBySidePrinter', function() {
-         '            File without changes\n' +
-         '        &lt;/div&gt;\n' +
-         '    &lt;/td&gt;\n' +
--        '&lt;/tr&gt;\n';
-+        '&lt;/tr&gt;';
-
-       assert.equal(expectedRight, fileHtml.right);
-       assert.equal(expectedLeft, fileHtml.left);
-@@ -324,7 +324,6 @@ describe('SideBySidePrinter', function() {
-         '        &lt;/div&gt;\n' +
-         '    &lt;/td&gt;\n' +
-         '&lt;/tr&gt;\n' +
--        '\n' +
-         '                    &lt;/tbody&gt;\n' +
-         '                &lt;/table&gt;\n' +
-         '            &lt;/div&gt;\n' +
-
-From f3cadb96677d0eb82fc2752dc3ffbf35ca9b5bdb Mon Sep 17 00:00:00 2001
-From: Rodrigo Fernandes &lt;rtfrodrigo@gmail.com&gt;
-Date: Sat, 15 Oct 2016 13:21:22 +0100
-Subject: [PATCH 2/2] Allow uncompiled templates
-
----
- README.md                 |  3 +++
- src/hoganjs-utils.js      |  7 +++++++
- test/hogan-cache-tests.js | 24 +++++++++++++++++++++++-
- 3 files changed, 33 insertions(+), 1 deletion(-)
-
-diff --git a/README.md b/README.md
-index 132c8a28..46909f25 100644
---- a/README.md
-+++ b/README.md
-@@ -98,6 +98,9 @@ The HTML output accepts a Javascript object with configuration. Possible options
-   - `synchronisedScroll`: scroll both panes in side-by-side mode: `true` or `false`, default is `false`
-   - `matchWordsThreshold`: similarity threshold for word matching, default is 0.25
-   - `matchingMaxComparisons`: perform at most this much comparisons for line matching a block of changes, default is `2500`
-+  - `templates`: object with previously compiled templates to replace parts of the html
-+  - `rawTemplates`: object with raw not compiled templates to replace parts of the html
-+  &gt; For more information regarding the possible templates look into [src/templates](https://github.com/rtfpessoa/diff2html/tree/master/src/templates)
-
- ## Diff2HtmlUI Helper
-
-diff --git a/src/hoganjs-utils.js b/src/hoganjs-utils.js
-index 0dda08d7..b2e9c275 100644
---- a/src/hoganjs-utils.js
-+++ b/src/hoganjs-utils.js
-@@ -17,6 +17,13 @@
-   function HoganJsUtils(configuration) {
-     this.config = configuration || {};
-     extraTemplates = this.config.templates || {};
-+
-+    var rawTemplates = this.config.rawTemplates || {};
-+    for (var templateName in rawTemplates) {
-+      if (rawTemplates.hasOwnProperty(templateName)) {
-+        if (!extraTemplates[templateName]) extraTemplates[templateName] = this.compile(rawTemplates[templateName]);
-+      }
-+    }
-   }
-
-   HoganJsUtils.prototype.render = function(namespace, view, params) {
-diff --git a/test/hogan-cache-tests.js b/test/hogan-cache-tests.js
-index 3bb754ac..a34839c0 100644
---- a/test/hogan-cache-tests.js
-+++ b/test/hogan-cache-tests.js
-@@ -36,7 +36,7 @@ describe('HoganJsUtils', function() {
-       assert.equal(null, result);
-     });
-
--    it('should allow templates to be overridden', function() {
-+    it('should allow templates to be overridden with compiled templates', function() {
-       var emptyDiffTemplate = HoganJsUtils.compile('&lt;p&gt;&lt;/p&gt;');
-
-       var config = {templates: {'generic-empty-diff': emptyDiffTemplate}};
-@@ -44,5 +44,27 @@ describe('HoganJsUtils', function() {
-       var result = hoganUtils.render('generic', 'empty-diff', {myName: 'Rodrigo Fernandes'});
-       assert.equal('&lt;p&gt;Rodrigo Fernandes&lt;/p&gt;', result);
-     });
-+
-+    it('should allow templates to be overridden with uncompiled templates', function() {
-+      var emptyDiffTemplate = '&lt;p&gt;&lt;/p&gt;';
-+
-+      var config = {rawTemplates: {'generic-empty-diff': emptyDiffTemplate}};
-+      var hoganUtils = new (require('../src/hoganjs-utils.js').HoganJsUtils)(config);
-+      var result = hoganUtils.render('generic', 'empty-diff', {myName: 'Rodrigo Fernandes'});
-+      assert.equal('&lt;p&gt;Rodrigo Fernandes&lt;/p&gt;', result);
-+    });
-+
-+    it('should allow templates to be overridden giving priority to compiled templates', function() {
-+      var emptyDiffTemplate = HoganJsUtils.compile('&lt;p&gt;&lt;/p&gt;');
-+      var emptyDiffTemplateUncompiled = '&lt;p&gt;Not used!&lt;/p&gt;';
-+
-+      var config = {
-+        templates: {'generic-empty-diff': emptyDiffTemplate},
-+        rawTemplates: {'generic-empty-diff': emptyDiffTemplateUncompiled}
-+      };
-+      var hoganUtils = new (require('../src/hoganjs-utils.js').HoganJsUtils)(config);
-+      var result = hoganUtils.render('generic', 'empty-diff', {myName: 'Rodrigo Fernandes'});
-+      assert.equal('&lt;p&gt;Rodrigo Fernandes&lt;/p&gt;', result);
-+    });
-   });
- });
-</code></pre>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="code"/><summary type="html"><![CDATA[this is how you can display code diffs]]></summary></entry><entry><title type="html">a post with advanced image components</title><link href="https://zhuofeng-li.github.io/blog/2024/advanced-images/" rel="alternate" type="text/html" title="a post with advanced image components"/><published>2024-01-27T11:46:00+00:00</published><updated>2024-01-27T11:46:00+00:00</updated><id>https://zhuofeng-li.github.io/blog/2024/advanced-images</id><content type="html" xml:base="https://zhuofeng-li.github.io/blog/2024/advanced-images/"><![CDATA[<p>This is an example post with advanced image components.</p> <h2 id="image-slider">Image Slider</h2> <p>This is a simple image slider. It uses the <a href="https://swiperjs.com/">Swiper</a> library. Check the <a href="https://swiperjs.com/demos">examples page</a> for more information of what you can achieve with it.</p> <swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true"> <swiper-slide> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/9-480.webp 480w,/assets/img/9-800.webp 800w,/assets/img/9-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/9.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </swiper-slide> <swiper-slide> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/7-480.webp 480w,/assets/img/7-800.webp 800w,/assets/img/7-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/7.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </swiper-slide> <swiper-slide> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/8-480.webp 480w,/assets/img/8-800.webp 800w,/assets/img/8-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/8.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </swiper-slide> <swiper-slide> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/10-480.webp 480w,/assets/img/10-800.webp 800w,/assets/img/10-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/10.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </swiper-slide> <swiper-slide> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/12-480.webp 480w,/assets/img/12-800.webp 800w,/assets/img/12-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/12.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </swiper-slide> </swiper-container> <h2 id="image-comparison-slider">Image Comparison Slider</h2> <p>This is a simple image comparison slider. It uses the <a href="https://img-comparison-slider.sneas.io/">img-comparison-slider</a> library. Check the <a href="https://img-comparison-slider.sneas.io/examples.html">examples page</a> for more information of what you can achieve with it.</p> <img-comparison-slider> <figure slot="first"> <picture> <source class="responsive-img-srcset" srcset="/assets/img/prof_pic-480.webp 480w,/assets/img/prof_pic-800.webp 800w,/assets/img/prof_pic-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/prof_pic.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> <figure slot="second"> <picture> <source class="responsive-img-srcset" srcset="/assets/img/prof_pic_color-480.webp 480w,/assets/img/prof_pic_color-800.webp 800w,/assets/img/prof_pic_color-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/prof_pic_color.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </img-comparison-slider>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="images"/><summary type="html"><![CDATA[this is what advanced image components could look like]]></summary></entry><entry><title type="html">a post with vega lite</title><link href="https://zhuofeng-li.github.io/blog/2024/vega-lite/" rel="alternate" type="text/html" title="a post with vega lite"/><published>2024-01-27T00:20:00+00:00</published><updated>2024-01-27T00:20:00+00:00</updated><id>https://zhuofeng-li.github.io/blog/2024/vega-lite</id><content type="html" xml:base="https://zhuofeng-li.github.io/blog/2024/vega-lite/"><![CDATA[<p>This is an example post with some <a href="https://vega.github.io/vega-lite/">vega lite</a> code.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">vega_lite
-</span><span class="sb">{
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A dot plot showing each movie in the database, and the difference from the average movie rating. The display is sorted by year to visualize everything in sequential order. The graph is for all Movies before 2019.",
-  "data": {
-    "url": "https://raw.githubusercontent.com/vega/vega/main/docs/data/movies.json"
-  },
-  "transform": [
-    {"filter": "datum['IMDB Rating'] != null"},
-    {"filter": {"timeUnit": "year", "field": "Release Date", "range": [null, 2019]}},
-    {
-      "joinaggregate": [{
-        "op": "mean",
-        "field": "IMDB Rating",
-        "as": "AverageRating"
-      }]
-    },
-    {
-      "calculate": "datum['IMDB Rating'] - datum.AverageRating",
-      "as": "RatingDelta"
-    }
-  ],
-  "mark": "point",
-  "encoding": {
-    "x": {
-      "field": "Release Date",
-      "type": "temporal"
-    },
-    "y": {
-      "field": "RatingDelta",
-      "type": "quantitative",
-      "title": "Rating Delta"
-    },
-    "color": {
-      "field": "RatingDelta",
-      "type": "quantitative",
-      "scale": {"domainMid": 0},
-      "title": "Rating Delta"
-    }
-  }
-}</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>Which generates:</p> <pre><code class="language-vega_lite">{
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A dot plot showing each movie in the database, and the difference from the average movie rating. The display is sorted by year to visualize everything in sequential order. The graph is for all Movies before 2019.",
-  "data": {
-    "url": "https://raw.githubusercontent.com/vega/vega/main/docs/data/movies.json"
-  },
-  "transform": [
-    {"filter": "datum['IMDB Rating'] != null"},
-    {"filter": {"timeUnit": "year", "field": "Release Date", "range": [null, 2019]}},
-    {
-      "joinaggregate": [{
-        "op": "mean",
-        "field": "IMDB Rating",
-        "as": "AverageRating"
-      }]
-    },
-    {
-      "calculate": "datum['IMDB Rating'] - datum.AverageRating",
-      "as": "RatingDelta"
-    }
-  ],
-  "mark": "point",
-  "encoding": {
-    "x": {
-      "field": "Release Date",
-      "type": "temporal"
-    },
-    "y": {
-      "field": "RatingDelta",
-      "type": "quantitative",
-      "title": "Rating Delta"
-    },
-    "color": {
-      "field": "RatingDelta",
-      "type": "quantitative",
-      "scale": {"domainMid": 0},
-      "title": "Rating Delta"
-    }
-  }
-}
-</code></pre> <p>This plot supports both light and dark themes.</p>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="charts"/><summary type="html"><![CDATA[this is what included vega lite code could look like]]></summary></entry><entry><title type="html">a post with geojson</title><link href="https://zhuofeng-li.github.io/blog/2024/geojson-map/" rel="alternate" type="text/html" title="a post with geojson"/><published>2024-01-26T17:57:00+00:00</published><updated>2024-01-26T17:57:00+00:00</updated><id>https://zhuofeng-li.github.io/blog/2024/geojson-map</id><content type="html" xml:base="https://zhuofeng-li.github.io/blog/2024/geojson-map/"><![CDATA[<p>This is an example post with some <a href="https://geojson.org/">geojson</a> code. The support is provided thanks to <a href="https://leafletjs.com/">Leaflet</a>. To create your own visualization, go to <a href="https://geojson.io/">geojson.io</a>.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">geojson
-</span><span class="sb">{
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {},
-      "geometry": {
-        "coordinates": [
-          [
-            [
-              -60.11363029935569,
-              -2.904625022183211
-            ],
-            [
-              -60.11363029935569,
-              -3.162613728707967
-            ],
-            [
-              -59.820894493858034,
-              -3.162613728707967
-            ],
-            [
-              -59.820894493858034,
-              -2.904625022183211
-            ],
-            [
-              -60.11363029935569,
-              -2.904625022183211
-            ]
-          ]
-        ],
-        "type": "Polygon"
+/* Step player for Figures 1 and 2 */
+function stepper(fig, tracks, narrate) {
+  var nodes = [].slice.call(fig.querySelectorAll("[data-k]"));
+  var now = fig.querySelector(".now"), btn = fig.querySelector(".pp");
+  var visible = false, paused = REDUCED, running = false;
+  tracks.forEach(function (T) {
+    T.i = 0; T.timer = null; T.scope = {};
+    T.frames.forEach(function (f) { f.k.forEach(function (k) { T.scope[k] = 1; }); });
+  });
+  function light(T, keys) {
+    nodes.forEach(function (n) {
+      var k = n.getAttribute("data-k");
+      if (!T.scope[k]) return;
+      var on = keys.indexOf(k) >= 0;
+      n.classList.toggle("on", on);
+      if (n.classList.contains("arw")) {
+        if (!n.dataset.m) n.dataset.m = n.getAttribute("marker-end");
+        n.setAttribute("marker-end", on ? n.dataset.m.replace(")", "-r)") : n.dataset.m);
       }
-    }
-  ]
-}</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>Which generates:</p> <pre><code class="language-geojson">{
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {},
-      "geometry": {
-        "coordinates": [
-          [
-            [
-              -60.11363029935569,
-              -2.904625022183211
-            ],
-            [
-              -60.11363029935569,
-              -3.162613728707967
-            ],
-            [
-              -59.820894493858034,
-              -3.162613728707967
-            ],
-            [
-              -59.820894493858034,
-              -2.904625022183211
-            ],
-            [
-              -60.11363029935569,
-              -2.904625022183211
-            ]
-          ]
-        ],
-        "type": "Polygon"
-      }
-    }
-  ]
+    });
+  }
+  function tick(T) {
+    var f = T.frames[T.i];
+    light(T, f.k);
+    if (f.fn) f.fn();
+    if (narrate && f.txt != null) now.innerHTML = (f.tag ? "<b>" + f.tag + "</b>" : "") + f.txt;
+    T.i = T.i + 1 < T.frames.length ? T.i + 1 : (T.loop || 0);
+    T.timer = setTimeout(function () { tick(T); }, f.ms);
+  }
+  function start() {
+    if (running) return; running = true;
+    fig.classList.add("playing");
+    tracks.forEach(tick);
+  }
+  function stop() {
+    running = false;
+    tracks.forEach(function (T) { clearTimeout(T.timer); });
+  }
+  function sync() { if (visible && !paused) start(); else stop(); btn.textContent = paused ? "Play" : "Pause"; btn.setAttribute("aria-pressed", paused ? "true" : "false"); }
+  btn.addEventListener("click", function () { paused = !paused; sync(); });
+  onVisible(fig, function (v) { visible = v; sync(); });
+  if (REDUCED && narrate) now.textContent = "Press Play to step through the pipeline.";
+  sync();
 }
-</code></pre>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="charts"/><category term="maps"/><summary type="html"><![CDATA[this is what included geojson code could look like]]></summary></entry></feed>
+
+(function () {
+  var fig = document.getElementById("fig1");
+  var now = fig.querySelector(".now");
+  var hl = 0, hr = 0;
+  function show() { now.innerHTML = "<b>Rounds so far</b>human loop " + hl + " · harness " + hr; }
+  var left = { frames: [
+    { k: ["L1"], ms: 1700, fn: function () { hl++; show(); } },
+    { k: ["L2"], ms: 700 },
+    { k: ["L3"], ms: 1700 },
+    { k: ["L4"], ms: 1700 }
+  ] };
+  var cycle = [];
+  for (var i = 0; i < 4; i++) {
+    cycle.push({ k: ["R1"], ms: 420 });
+    cycle.push({ k: ["R2"], ms: 420, fn: function () { hr++; show(); } });
+  }
+  cycle.push({ k: ["R3"], ms: 800 });
+  var right = { frames: [{ k: ["R0"], ms: 1100 }].concat(cycle), loop: 1 };
+  stepper(fig, [left, right], false);
+  show();
+})();
+
+(function () {
+  var fig = document.getElementById("fig2");
+  var F = [
+    { k: ["c1", "lh"], tag: "01", txt: "People write the proposal, a research contract." },
+    { k: ["c2", "ag", "p12"], tag: "02", txt: "Agents turn it into a Harbor task with an executable benchmark and evaluator." },
+    { k: ["c3", "ag", "p23"], tag: "03", txt: "In RSI-Harness, agents edit, run and evaluate, round after round." },
+    { k: ["c4", "ag", "p34"], tag: "04", txt: "Agents review the trajectory and try to reproduce the gain." },
+    { k: ["c3", "ag", "b43"], tag: "04 → 03", txt: "The gain did not reproduce, so the work goes back for more evidence." },
+    { k: ["c4", "ag", "p34"], tag: "04", txt: "This time the gain reproduces." },
+    { k: ["c5", "ag", "p45"], tag: "05", txt: "Agents open the upstream PR with code and evidence." },
+    { k: ["c6", "lm", "p56"], tag: "06", txt: "SGLang-Omni maintainers review over many rounds." },
+    { k: ["c5", "ag", "b65"], tag: "06 → 05", txt: "Review asks for changes; agents refine and retest." },
+    { k: ["c6", "lm", "p56"], tag: "06", txt: "Maintainers merge the change." },
+    { k: ["r1"], tag: "Repeat", txt: "The gain is reproducible,", ms: 900 },
+    { k: ["r2"], tag: "Repeat", txt: "it lands upstream,", ms: 900 },
+    { k: ["r3"], tag: "Repeat", txt: "it becomes the new baseline,", ms: 900 },
+    { k: ["r4"], tag: "Repeat", txt: "and the next proposal starts from there.", ms: 1800 }
+  ];
+  F.forEach(function (f) { if (!f.ms) f.ms = 2000; });
+  stepper(fig, [{ frames: F }], true);
+})();
+
+/* Figure 3: animated pattern cases. Each draw(t) shows the state at t in [0, 1]; both rows share one clock. */
+(function () {
+  function anim(svg, draw, rest) {
+    var CYCLE = 7200, RUN = 6000, t0 = null, raf = null, visible = false;
+    draw(rest, 0);
+    if (REDUCED) return;
+    function frame(ts) {
+      if (t0 == null) t0 = ts;
+      var e = (ts - t0) % CYCLE;
+      draw(Math.min(1, e / RUN), ts);
+      raf = requestAnimationFrame(frame);
+    }
+    onVisible(svg, function (v) {
+      if (v && !visible) { visible = true; t0 = null; raf = requestAnimationFrame(frame); }
+      if (!v && visible) { visible = false; cancelAnimationFrame(raf); draw(rest, 0); }
+    });
+  }
+  function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+  function cap(svg, x, y, s, cls, anchor) { return svg.appendChild(el("text", { x: x, y: y, class: cls || "cap tx3", "text-anchor": anchor || "start" }, s)); }
+  var uid = 0;
+  function clipRect(svg, y, h) {
+    var id = "clp" + (++uid);
+    var defs = svg.querySelector("defs") || svg.insertBefore(el("defs", {}), svg.firstChild);
+    var cp = el("clipPath", { id: id }), r = el("rect", { x: 0, y: y, width: 0, height: h });
+    cp.appendChild(r); defs.appendChild(cp);
+    return { id: "url(#" + id + ")", rect: r };
+  }
+
+  var P = {};
+
+  /* 01: four CPU cores; spinning idle threads hold two of them */
+  P[1] = function (svg) {
+    var W = 56, X = [0, 62, 124, 186], rows = [];
+    [["BEFORE", 22, true], ["AFTER", 104, false]].forEach(function (R) {
+      var y = R[1], spin = R[2], row = { y: y, spin: spin, fills: [], spinners: [] };
+      cap(svg, 0, y - 8, R[0]);
+      cap(svg, 262, y - 8, spin ? "WAITING" : "ASLEEP");
+      X.forEach(function (x, i) {
+        svg.appendChild(el("rect", { x: x, y: y, width: W, height: 28, rx: 4, class: "bx" }));
+        if (spin && i >= 2) {
+          svg.appendChild(el("rect", { x: x, y: y, width: W, height: 28, rx: 4, fill: "url(#hatch)" }));
+          var s = el("circle", { cx: x + W / 2, cy: y + 14, r: 7, fill: "none", stroke: "var(--rust)", "stroke-width": 2.25, "stroke-dasharray": "26 30", "stroke-linecap": "round" });
+          svg.appendChild(s); row.spinners.push(s);
+        } else {
+          row.fills.push(svg.appendChild(el("rect", { x: x, y: y, width: 0, height: 28, rx: 4, class: "f-nv" })));
+        }
+      });
+      row.q = [0, 1].map(function (j) {
+        var x = 262 + j * 32;
+        if (spin) return svg.appendChild(el("rect", { x: x, y: y, width: 26, height: 28, rx: 4, class: "f-nv" }));
+        svg.appendChild(el("rect", { x: x + .5, y: y + .5, width: 25, height: 27, rx: 4, class: "ln-d" }));
+        svg.appendChild(el("text", { x: x + 13, y: y + 18, "text-anchor": "middle", class: "mono s11 tx3" }, "zz"));
+        return null;
+      });
+      row.done = svg.appendChild(el("text", { x: 380, y: y + 18, "text-anchor": "end", class: "mono s12 tx3" }, ""));
+      svg.appendChild(el("text", { x: 0, y: y + 46, class: "s12 " + (spin ? "txr" : "tx3") }, spin ? "two cores held by spinning idle threads" : "idle threads sleep; all four cores run work"));
+      rows.push(row);
+    });
+    var jobsB = [[0, .45], [0, .45], [.45, .9], [.45, .9]], jobsA = [[0, .45], [0, .45], [0, .45], [0, .45]];
+    return function (t, ts) {
+      rows.forEach(function (row) {
+        var jobs = row.spin ? jobsB : jobsA, done = 0;
+        row.fills.forEach(function (f, slot) {
+          var p = 0;
+          jobs.forEach(function (j, n) {
+            var s = row.spin ? n % 2 === slot : n === slot;
+            if (s && t >= j[0] && t < j[1]) p = (t - j[0]) / (j[1] - j[0]);
+          });
+          f.setAttribute("width", (W * p).toFixed(1));
+        });
+        jobs.forEach(function (j) { if (t >= j[1]) done++; });
+        if (row.spin) { var waiting = jobs.filter(function (j) { return j[0] > t; }).length; row.q.forEach(function (q, i) { q.setAttribute("opacity", i < waiting ? 1 : 0.12); }); }
+        row.done.textContent = done + "/4 done";
+        row.done.setAttribute("class", "mono s12 " + (done === 4 ? "txr w5" : "tx3"));
+        row.spinners.forEach(function (s) { s.setAttribute("transform", "rotate(" + ((ts || 0) * 0.6 % 360) + " " + s.getAttribute("cx") + " " + s.getAttribute("cy") + ")"); });
+      });
+    };
+  };
+
+  /* 02: a packet crosses a stage boundary, stopping at every conversion */
+  P[2] = function (svg) {
+    var rows = [], SPEED = 1 / 900; /* t per px */
+    [["BEFORE", 22, [["tensor", 30, 0], ["list", 110, 1], ["wire", 190, 1], ["list", 270, 1], ["tensor", 350, 0]]],
+     ["AFTER", 104, [["tensor", 30, 0], ["clone", 190, 0], ["tensor", 350, 0]]]].forEach(function (R) {
+      var y = R[1], st = R[2], row = { pills: [], st: st };
+      cap(svg, 0, y - 8, R[0]);
+      svg.appendChild(el("line", { x1: 30, x2: 350, y1: y + 13, y2: y + 13, class: "ln" }));
+      st.forEach(function (s) {
+        var g = svg.appendChild(el("g", {}));
+        g.appendChild(el("rect", { x: s[1] - 30, y: y, width: 60, height: 26, rx: 13, class: "f-bg" }));
+        var r = g.appendChild(el("rect", { x: s[1] - 30, y: y, width: 60, height: 26, rx: 13, class: s[2] ? "bx-rust" : "bx-ink" }));
+        var tx = g.appendChild(el("text", { x: s[1], y: y + 17, "text-anchor": "middle", class: "mono s11 tx" }, s[0]));
+        row.pills.push({ r: r, tx: tx, conv: s[2] });
+      });
+      row.dot = svg.appendChild(el("circle", { cx: 30, cy: y + 13, r: 5, fill: "var(--ink)", stroke: "var(--bg)", "stroke-width": 1.5 }));
+      row.arr = svg.appendChild(el("text", { x: 380, y: y - 8, "text-anchor": "end", class: "cap txr" }, ""));
+      svg.appendChild(el("text", { x: 0, y: y + 44, class: "s12 " + (st.length > 3 ? "txr" : "tx3") }, st.length > 3 ? "converted at every stage boundary" : "tensors stay tensors; typed bytes only at the final message"));
+      /* schedule: dwell .03 at start, travel at SPEED, dwell .1 at conversions, .03 at a clone */
+      var sch = [], tt = 0.03;
+      for (var i = 1; i < st.length; i++) {
+        var dt = (st[i][1] - st[i - 1][1]) * SPEED;
+        sch.push([tt, tt + dt, st[i - 1][1], st[i][1], i]);
+        tt += dt + (i < st.length - 1 ? (st[i][2] ? 0.1 : 0.03) : 0);
+      }
+      row.sch = sch; row.end = tt;
+      rows.push(row);
+    });
+    return function (t) {
+      rows.forEach(function (row) {
+        var x = 30, at = 0;
+        row.sch.forEach(function (s) {
+          if (t >= s[1]) { x = s[3]; at = s[4]; }
+          else if (t > s[0]) { x = s[2] + (s[3] - s[2]) * (t - s[0]) / (s[1] - s[0]); at = -1; }
+        });
+        row.dot.setAttribute("cx", x.toFixed(1));
+        row.dot.setAttribute("opacity", at === -1 ? 1 : 0);
+        row.pills.forEach(function (p, i) {
+          var on = i === at;
+          p.r.setAttribute("class", on ? (p.conv ? "f-rust" : "f-nv") : (p.conv ? "bx-rust" : "bx-ink"));
+          p.tx.setAttribute("class", "mono s11 " + (on ? "txn" : "tx"));
+        });
+        row.arr.textContent = t >= row.end ? "arrived ✓" : "";
+      });
+    };
+  };
+
+  /* shared: a playhead reveals each row at the same speed */
+  function sweep(svg, rows, speedEnd, x0) {
+    x0 = x0 || 0;
+    var head = el("line", { x1: 0, x2: 0, y1: 4, y2: +svg.getAttribute("viewBox").split(" ")[3] - 22, stroke: "var(--rust)", "stroke-width": 1.25, opacity: 0 });
+    svg.appendChild(head);
+    return function (t) {
+      var x = x0 + (speedEnd - x0) * t / 0.85;
+      rows.forEach(function (r) { var rx = +r.clip.rect.getAttribute("x"); r.clip.rect.setAttribute("width", Math.max(0, Math.min(x, r.end) - rx + 1)); });
+      var live = t > 0 && t < 0.85;
+      head.setAttribute("x1", x); head.setAttribute("x2", x); head.setAttribute("opacity", live ? 0.8 : 0);
+      return x;
+    };
+  }
+
+  /* 03: the unused part is computed, then thrown away */
+  P[3] = function (svg) {
+    var b = clipRect(svg, 20, 30), a = clipRect(svg, 98, 30);
+    cap(svg, 0, 12, "BEFORE"); cap(svg, 0, 90, "AFTER");
+    var gb = svg.appendChild(el("g", { "clip-path": b.id })), ga = svg.appendChild(el("g", { "clip-path": a.id }));
+    [[0, 110], [114, 224]].forEach(function (s) {
+      [[gb, 22], [ga, 100]].forEach(function (G) {
+        G[0].appendChild(el("rect", { x: s[0], y: G[1], width: s[1] - s[0], height: 26, rx: 4, class: "f-nv" }));
+        G[0].appendChild(el("text", { x: (s[0] + s[1]) / 2, y: G[1] + 17, "text-anchor": "middle", class: "mono s11 txn" }, "needed"));
+      });
+    });
+    var un = gb.appendChild(el("rect", { x: 228, y: 22, width: 152, height: 26, rx: 4, class: "bx-rust" }));
+    var unT = gb.appendChild(el("text", { x: 304, y: 39, "text-anchor": "middle", class: "mono s11 tx" }, "unused"));
+    svg.appendChild(el("rect", { x: 228.5, y: 100.5, width: 151, height: 25, rx: 4, class: "ln-d" }));
+    svg.appendChild(el("text", { x: 304, y: 117, "text-anchor": "middle", class: "s11 tx3" }, "skipped"));
+    var noteB = svg.appendChild(el("text", { x: 380, y: 66, "text-anchor": "end", class: "s12 txr" }, ""));
+    var doneA = svg.appendChild(el("text", { x: 224, y: 92, "text-anchor": "end", class: "cap txr" }, ""));
+    var saved = svg.appendChild(el("g", { opacity: 0 }));
+    saved.appendChild(el("path", { d: "M232 134H378M232 129V139M378 129V139", class: "ln-r" }));
+    saved.appendChild(el("text", { x: 305, y: 148, "text-anchor": "middle", class: "s11 txr" }, "saved"));
+    var sw = sweep(svg, [{ clip: b, end: 380 }, { clip: a, end: 224 }], 380);
+    return function (t) {
+      var x = sw(t);
+      var gone = t >= 0.85;
+      un.setAttribute("fill", gone ? "url(#hatch)" : ""); un.setAttribute("class", gone ? "" : "bx-rust");
+      unT.textContent = gone ? "" : "unused";
+      noteB.textContent = gone ? "computed, then discarded" : "";
+      doneA.textContent = x >= 224 ? "done ✓" : "";
+      saved.setAttribute("opacity", gone ? 1 : 0);
+    };
+  };
+
+  /* 04: launch gaps between small kernels vs. one graph replay */
+  P[4] = function (svg) {
+    var b = clipRect(svg, 20, 30), a = clipRect(svg, 98, 30);
+    cap(svg, 0, 12, "BEFORE"); cap(svg, 0, 90, "AFTER");
+    var gb = svg.appendChild(el("g", { "clip-path": b.id })), ga = svg.appendChild(el("g", { "clip-path": a.id }));
+    for (var i = 0, x = 0; i < 9; i++) {
+      gb.appendChild(el("rect", { x: x, y: 22, width: 22, height: 26, rx: 3, class: "f-nv" }));
+      if (i < 8) gb.appendChild(el("rect", { x: x + 22, y: 22, width: 18, height: 26, fill: "url(#hatch)" }));
+      x += 40;
+    }
+    ga.appendChild(el("rect", { x: 0.5, y: 100.5, width: 219, height: 25, rx: 5, class: "bx-ink" }));
+    for (i = 0; i < 9; i++) ga.appendChild(el("rect", { x: 3 + i * 24, y: 103, width: 22, height: 20, rx: 2, class: "f-nv" }));
+    svg.appendChild(el("text", { x: 0, y: 66, class: "s12 txr" }, "GPU idle while each kernel is launched"));
+    svg.appendChild(el("text", { x: 0, y: 144, class: "s12 tx3" }, "one CUDA graph replays the whole step"));
+    var saved = svg.appendChild(el("g", { opacity: 0 }));
+    saved.appendChild(el("path", { d: "M226 113H350M226 107V119M350 107V119", class: "ln-r" }));
+    saved.appendChild(el("text", { x: 288, y: 98, "text-anchor": "middle", class: "s11 txr" }, "saved"));
+    var sw = sweep(svg, [{ clip: b, end: 350 }, { clip: a, end: 220 }], 350);
+    return function (t) { sw(t); saved.setAttribute("opacity", t >= 0.85 ? 1 : 0); };
+  };
+
+  /* 05: prefill and decode on two machines */
+  P[5] = function (svg) {
+    var X0 = 72;
+    function lane(g, y, label) {
+      svg.appendChild(el("text", { x: 0, y: y + 11, class: "s12 w6 tx" }, label));
+      svg.appendChild(el("text", { x: 0, y: y + 24, class: "s12 tx3" }, "machine"));
+      svg.appendChild(el("line", { x1: X0, x2: 380, y1: y + 26.5, y2: y + 26.5, stroke: "var(--rule)", "stroke-width": 1 }));
+    }
+    function bar(g, x1, x2, y, kind, txt) {
+      if (kind === "idle") g.appendChild(el("rect", { x: x1, y: y + 2, width: x2 - x1, height: 22, fill: "url(#hatch)" }));
+      else g.appendChild(el("rect", { x: x1, y: y + 2, width: x2 - x1 - 2, height: 22, rx: 4, class: kind === "p" ? "f-nv" : "bx-ink" }));
+      if (txt) g.appendChild(el("text", { x: (x1 + x2) / 2, y: y + 17, "text-anchor": "middle", class: "mono s11 " + (kind === "p" ? "txn" : kind === "idle" ? "tx3" : "tx") }, txt));
+    }
+    function hand(g, x1, y1, x2, y2, dash) {
+      g.appendChild(el("path", { d: "M" + x1 + " " + y1 + "L" + x2 + " " + y2, class: "ln", "stroke-dasharray": dash ? "3 3" : "", "marker-end": "url(#p5a)" }));
+    }
+    var defs = svg.appendChild(el("defs", {}));
+    var mk = el("marker", { id: "p5a", viewBox: "0 0 10 10", refX: 9, refY: 5, markerWidth: 6, markerHeight: 6, orient: "auto" });
+    mk.appendChild(el("path", { d: "M0 0L10 5L0 10z", class: "ah" })); defs.appendChild(mk);
+    cap(svg, 0, 12, "BEFORE"); cap(svg, 0, 110, "AFTER");
+    lane(null, 18, "Prefill"); lane(null, 50, "Decode");
+    lane(null, 116, "Prefill"); lane(null, 148, "Decode");
+    var b = clipRect(svg, 14, 70), a = clipRect(svg, 112, 70);
+    b.rect.setAttribute("x", X0); a.rect.setAttribute("x", X0);
+    var gb = svg.appendChild(el("g", { "clip-path": b.id })), ga = svg.appendChild(el("g", { "clip-path": a.id }));
+    /* Before: P 48px, D 76px, strictly in turn */
+    bar(gb, 72, 120, 18, "p", "req 1"); bar(gb, 120, 196, 18, "idle", "idle"); bar(gb, 196, 244, 18, "p", "req 2");
+    bar(gb, 72, 120, 50, "idle", "idle"); bar(gb, 120, 196, 50, "d", "req 1"); bar(gb, 196, 244, 50, "idle", "idle"); bar(gb, 244, 320, 50, "d", "req 2");
+    hand(gb, 118, 44, 118, 52); hand(gb, 242, 44, 242, 52);
+    /* After: prefill of req 2 overlaps decode of req 1 */
+    bar(ga, 72, 120, 116, "p", "req 1"); bar(ga, 120, 168, 116, "p", "req 2");
+    bar(ga, 72, 120, 148, "idle", "idle"); bar(ga, 120, 196, 148, "d", "req 1"); bar(ga, 196, 272, 148, "d", "req 2");
+    hand(ga, 118, 142, 118, 150); hand(ga, 166, 142, 196, 150, true);
+    var wait = svg.appendChild(el("text", { x: 184, y: 113, "text-anchor": "middle", class: "s11 tx3", opacity: 0 }, "waits"));
+    svg.appendChild(el("text", { x: 0, y: 94, class: "s12 txr" }, "they take turns; each machine idles while the other works"));
+    svg.appendChild(el("text", { x: 0, y: 194, class: "s12 tx3" }, "req 2 is prefilled early, then decoded once decode is free"));
+    var saved = svg.appendChild(el("g", { opacity: 0 }));
+    saved.appendChild(el("path", { d: "M276 172H318M276 166V178M318 166V178", class: "ln-r" }));
+    saved.appendChild(el("text", { x: 350, y: 176, "text-anchor": "middle", class: "s11 txr" }, "saved"));
+    var sw = sweep(svg, [{ clip: b, end: 320 }, { clip: a, end: 272 }], 320, X0);
+    return function (t) { var x = sw(t); wait.setAttribute("opacity", x >= 168 ? 1 : 0); saved.setAttribute("opacity", t >= 0.85 ? 1 : 0); };
+  };
+
+  document.querySelectorAll("svg.pfig").forEach(function (svg) {
+    var draw = P[svg.dataset.p](svg);
+    anim(svg, draw, svg.dataset.p === "1" ? 0.25 : svg.dataset.p === "2" ? 0.5 : 1);
+  });
+})();
+
+/* Figure 4: the fourteen PRs, as a GitHub-style calendar and PR list. Dates are UTC; opened dates from the PR pages, merge dates from main. */
+(function () {
+  var PRS = [
+    [2524, "[Perf][CosyVoice3] Park idle speaker encoder workers", "2026-10-04", "2026-10-07"],
+    [2525, "[Perf][MOSS-TTS] Reuse same-dtype input embedding accumulator", "2026-10-04", "2026-10-07"],
+    [2555, "[Perf][CosyVoice3] Avoid reference-feature list conversion between stages", "2026-10-05", "2026-10-07"],
+    [2778, "[Perf][Fish-S2-Pro] Skip unused quantizer reconstruction and pack waveforms", "2026-10-13", "2026-10-17"],
+    [2779, "[Perf][Qwen3-TTS] Reuse Base prefill and vocoder graphs", "2026-10-13", "2026-10-17"],
+    [2880, "[Perf][Qwen3-ASR] Capture full prefill and exact-size decode graphs", "2026-10-16", "2026-10-19"],
+    [2882, "[Perf][Qwen3-ASR] Plan encoder chunks before device transfer", "2026-10-16", "2026-10-19"],
+    [2901, "[Perf][Whisper] Combine trajectory streaming and inference optimizations", "2026-10-17", "2026-10-20"],
+    [2859, "[Perf][MOSS-TTS] Fuse channel embeddings and overlap graphed decode", "2026-10-16", "2026-10-22"],
+    [2881, "[Perf][Qwen3-ASR] Overlap whole-prompt prefill with decode", "2026-10-16", "2026-10-22"],
+    [3071, "[Perf][MOSS-TD] Reduce prefill and audio encoder overhead", "2026-10-22", "2026-10-27"],
+    [3136, "[Perf][Ming3-TTS] Accelerate non-streaming 0.5B synthesis", "2026-10-24", "2026-11-01"],
+    [3189, "[Feat][Ming3-TTS] Add streaming audio for Tiny", "2026-10-25", "2026-11-02"],
+    [3190, "[Feat][Ming3-TTS] Enable streaming audio for 0.5B", "2026-10-25", "2026-11-02"]
+  ];
+  var MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  function fmt(iso) { var p = iso.split("-"); return MON[+p[1] - 1] + " " + (+p[2]); }
+  var MERGE = '<svg class="mg" viewBox="0 0 16 16" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="4" cy="3.25" r="1.75"/><circle cx="4" cy="12.75" r="1.75"/><circle cx="12" cy="9" r="1.75"/><path d="M4 5v6M4 5.5c0 2.6 2.6 3.5 6.25 3.5"/></g></svg>';
+  var cal = document.getElementById("prcal"), list = document.getElementById("prlist"), tip = document.getElementById("tip");
+  var head = document.getElementById("prhead");
+  var days = {};
+  PRS.forEach(function (p) { days[p[3]] = 1; });
+  head.innerHTML = MERGE + "<span><b>" + PRS.length + " merged</b> on " + Object.keys(days).length + " days, " + fmt(PRS[0][3]) + " to " + fmt(PRS[PRS.length - 1][3]) + "</span>";
+  function add(cls, txt, col, row) { var d = document.createElement("div"); d.className = cls; d.textContent = txt; d.style.gridColumn = col; d.style.gridRow = row; cal.appendChild(d); return d; }
+  add("ml", "Oct", 2, 1); add("ml", "Nov", 6, 1);
+  add("dl", "Mon", 1, 3); add("dl", "Wed", 1, 5); add("dl", "Fri", 1, 7);
+  var start = Date.UTC(2026, 9, 4), last = Date.UTC(2026, 10, 2), cells = {}, rows = [];
+  function showTip(e, msg) { tip.textContent = msg; tip.hidden = false; tip.style.left = Math.min(e.clientX + 14, window.innerWidth - 290) + "px"; tip.style.top = (e.clientY + 14) + "px"; }
+  function clear() { cal.querySelectorAll(".hl").forEach(function (n) { n.classList.remove("hl"); }); rows.forEach(function (r) { r.classList.remove("hl"); }); }
+  for (var i = 0; i < 35; i++) {
+    var t = start + i * 864e5, iso = new Date(t).toISOString().slice(0, 10);
+    var c = add("pc", "", 2 + Math.floor(i / 7), 2 + (i % 7));
+    if (t > last) { c.className = "pc void"; continue; }
+    var m = PRS.filter(function (p) { return p[3] === iso; }), o = PRS.filter(function (p) { return p[2] === iso; });
+    c.textContent = new Date(t).getUTCDate();
+    if (m.length) c.classList.add("m" + Math.min(3, m.length));
+    if (o.length) c.classList.add("op");
+    cells[iso] = c;
+    var msg = fmt(iso);
+    if (m.length) msg += "\nMerged: " + m.map(function (p) { return "#" + p[0]; }).join(", ");
+    if (o.length) msg += "\nOpened: " + o.map(function (p) { return "#" + p[0]; }).join(", ");
+    if (!m.length && !o.length) msg += "\nNo PRs opened or merged";
+    (function (c, msg, iso) {
+      c.addEventListener("mousemove", function (e) { showTip(e, msg); });
+      c.addEventListener("mouseenter", function () { rows.forEach(function (r) { if (r.dataset.o === iso || r.dataset.m === iso) r.classList.add("hl"); }); });
+      c.addEventListener("mouseleave", function () { tip.hidden = true; clear(); });
+      c.addEventListener("click", function (e) { showTip(e, msg); });
+    })(c, msg, iso);
+  }
+  var prev = "";
+  PRS.forEach(function (p) {
+    var li = document.createElement("li"), url = "https://github.com/sgl-project/sglang-omni/pull/" + p[0];
+    li.dataset.o = p[2]; li.dataset.m = p[3];
+    var tag = p[1].match(/^((?:\[[^\]]+\])+)\s*(.*)$/);
+    li.innerHTML = "<span class='d'></span>" + MERGE + "<a class='t'></a><span class='mt'><a></a> · opened <span class='od'></span></span>";
+    li.querySelector(".d").textContent = p[3] === prev ? "" : fmt(p[3]);
+    prev = p[3];
+    var a = li.querySelector("a.t"); a.href = url;
+    var g = document.createElement("i"); g.textContent = tag ? tag[1] + " " : ""; a.appendChild(g);
+    a.appendChild(document.createTextNode(tag ? tag[2] : p[1]));
+    var n = li.querySelector(".mt a"); n.href = url; n.textContent = "#" + p[0];
+    li.querySelector(".od").textContent = fmt(p[2]);
+    li.addEventListener("mouseenter", function () { [p[2], p[3]].forEach(function (d) { if (cells[d]) cells[d].classList.add("hl"); }); li.classList.add("hl"); });
+    li.addEventListener("mouseleave", clear);
+    list.appendChild(li); rows.push(li);
+  });
+  document.addEventListener("scroll", function () { tip.hidden = true; }, { passive: true });
+})();
+</script> <script>
+(function () {
+  var NS = "http://www.w3.org/2000/svg";
+  function el(tag, attrs, text) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  // From the task logs (openrsi-blog/fig6-gen.py), October 25, 2026: finished runs with at least three evaluations or six hours.
+  // e = hours the run lasted; s = [hour, reward] for each evaluation that passed every guard. For each model's best run (b):
+  // r = [hour, measured ratio, guards failed] for measured candidates that failed a guard; x = hours without a complete measurement.
+  var MODELS = [
+    { m: "CosyVoice3", n: 6, xmax: 60, ticks: [0, 12, 24, 36, 48], runs: [
+      { b: 1, e: 58.2, s: [[46.383,1.5389]], r: [[1.589, 1.3990, "CosyVoice3 WER; Qwen3-TTS CustomVoice latency, WER; MOSS-TTS throughput, latency"],[3.166, 1.3627, "Qwen3-TTS Base throughput, latency"],[10.906, 1.4345, "CosyVoice3 WER; Qwen3-TTS Base latency; Qwen3-TTS CustomVoice latency, WER"],[12.415, 0.9947, "CosyVoice3 latency, throughput; Qwen3-TTS CustomVoice WER"],[14.148, 1.4497, "Qwen3-TTS Base latency; Qwen3-TTS CustomVoice WER"],[14.916, 1.4268, "Qwen3-TTS CustomVoice WER"],[28.706, 1.2895, "Qwen3-TTS Base throughput, latency"],[30.127, 1.4313, "Qwen3-TTS CustomVoice WER"],[35.48, 1.3325, "Qwen3-TTS Base throughput, latency"],[44.216, 1.5239, "Qwen3-TTS Base latency"]], x: [37.958, 40.027, 51.087] }
+    ] },
+    { m: "MOSS-TTS", runs: [
+      { b: 1, e: 24.99, s: [[7.255,2.0102],[11.738,2.1117],[17.917,2.1217],[19.925,2.1561],[21.614,2.1675],[24.928,2.1955]], r: [[14.719, 2.1153, "streaming throughput"],[23.06, 2.1742, "throughput"]], x: [] },
+      { e: 24.04, s: [[15.128,1.9727],[19.007,2.0343]] },
+      { e: 24.02, s: [[15.322,1.9437],[21.363,1.974]] },
+      { e: 24.04, s: [[13.541,1.4824],[20.123,1.7106],[23.028,1.9353]] },
+      { e: 24.02, s: [[2.141,1.0019],[14.336,1.3554],[17.456,1.4303],[19.595,1.6811],[21.171,1.751],[23.843,1.8628]] },
+      { e: 24.22, s: [[12.337,1.2495],[19.216,1.4847],[21.701,1.6972],[24.189,1.7272]] },
+      { e: 24.05, s: [[7.179,1.1861],[12.161,1.696]] },
+      { e: 24.06, s: [[10.241,1.6465]] },
+      { e: 24.02, s: [[12.829,1.47],[20.867,1.567]] },
+      { e: 24.34, s: [[9.925,1.2914],[15.644,1.5649]] },
+      { e: 24.04, s: [[11.244,1.3525],[20.585,1.5384]] },
+      { e: 24.08, s: [[3.73,1.3475],[5.41,1.3609],[7.452,1.3646],[17.148,1.4267],[21.595,1.44]] },
+      { e: 24.09, s: [[3.407,1.0803],[5.279,1.111],[7.358,1.123],[9.271,1.1412],[13.092,1.1559],[14.566,1.2982],[16.009,1.3511],[21.213,1.3566]] },
+      { e: 24.11, s: [[3.862,1.0894],[8.209,1.2517],[11.13,1.2618],[14.268,1.3125],[19.567,1.3385]] },
+      { e: 24.1, s: [[1.138,1.0059],[2.777,1.0354],[4.259,1.0712],[5.627,1.0802],[6.988,1.093],[8.697,1.0957],[10.555,1.2711],[12.646,1.2847],[15.566,1.3267],[23.906,1.3377]] },
+      { e: 21.12, s: [[1.028,1.0237],[2.679,1.0481],[6.286,1.0745],[15.856,1.2402]] },
+      { e: 22.48, s: [[3.059,1.0172],[12.486,1.0672],[19.09,1.0949],[20.975,1.1156]] }
+    ] },
+    { m: "Fish S2-Pro", runs: [
+      { b: 1, e: 25.7, s: [[5.03,1.1062],[7.923,1.2075],[10.981,1.4999],[13.181,1.5748],[15.313,1.6169],[20.823,1.7164],[22.996,1.7392],[25.647,1.8033]], r: [[2.363, 0.9899, "throughput, latency, streaming latency"],[18.018, 1.6239, "latency, throughput, streaming latency"]], x: [] },
+      { e: 22.57, s: [[1.744,1.2488],[5.929,1.3551],[8.736,1.4979],[11.239,1.5426],[14.068,1.6009],[16.769,1.6193],[20.858,1.6882]] },
+      { e: 14.92, s: [[1.92,1.0833],[14.192,1.3346]] },
+      { e: 7.59, s: [[5.678,1.2121]] }
+    ] },
+    { m: "Qwen3-TTS", runs: [
+      { b: 1, e: 22.94, s: [[4.627,1.2687],[12.399,1.4436]], r: [[6.907, 1.2725, "latency, streaming latency"],[10.009, 1.2837, "latency"],[15.207, 1.3504, "throughput, latency, streaming throughput"],[18.459, 1.4383, "throughput"],[20.872, 1.4755, "latency, streaming latency"],[22.748, 1.4521, "streaming throughput"]], x: [1.702,2.293,7.35,7.542,8.553] },
+      { e: 24.14, s: [[2.426,1.0067],[8.929,1.1103],[17.851,1.2827]] },
+      { e: 13.49, s: [[2.966,1.0345],[6.943,1.1518],[13.4,1.2615]] },
+      { e: 24.07, s: [[21.912,1.2519]] },
+      { e: 24.01, s: [[3.685,1.1406]] },
+      { e: 24.14, s: [[4.77,1.0707],[17.422,1.0964]] },
+      { e: 7.06, s: [[2.836,1.0768]] },
+      { e: 7.77, s: [] },
+      { e: 24.12, s: [] },
+      { e: 7.77, s: [] }
+    ] },
+    { m: "Qwen3-ASR", runs: [
+      { b: 1, e: 24.02, s: [[7.364,1.2108],[8.818,1.3121],[10.005,1.5306],[14.074,1.6175],[21.428,1.6587]], r: [[4.356, 1.1355, "latency, streaming latency"],[6.491, 1.2185, "streaming latency"],[16.012, 1.6302, "latency"],[18.095, 1.6286, "latency"],[18.833, 1.6589, "streaming latency"],[20.443, 1.645, "latency, streaming latency"],[22.723, 1.6411, "latency, streaming latency, no gain over the current best"]], x: [3.896] },
+      { e: 24.02, s: [[6.912,1.0582],[11.11,1.1133],[13.53,1.1416],[17.296,1.3742],[21.067,1.5009]] },
+      { e: 24.02, s: [[3.863,1.1338],[6.566,1.3596],[8.052,1.442],[20.822,1.4857]] },
+      { e: 24.38, s: [[3.446,1.0391],[4.554,1.1862],[6.911,1.2481],[18.357,1.2779],[24.365,1.3167]] },
+      { e: 24.01, s: [[0.814,1.0295],[2.917,1.0323],[7.366,1.0909],[10.679,1.1089],[12.027,1.1137],[15.11,1.1395]] }
+    ] },
+    { m: "Whisper", runs: [
+      { b: 1, e: 24.04, s: [[4.191,1.3478],[5.421,1.6218],[6.394,1.737],[8.547,1.7587],[11.173,1.9449],[23.087,1.979]], r: [[9.969, 1.7868, "streaming latency"],[14.699, 1.9895, "streaming latency"],[17.334, 1.9889, "streaming latency"],[19.451, 1.9831, "streaming latency"]], x: [2.74,2.933], pr: 2901 },
+      { e: 25.71, s: [[4.444,1.0531],[6.386,1.0599],[9.891,1.1085],[11.62,1.1256]] }
+    ] }
+  ];
+  var PRS = { "CosyVoice3": [2524, 2555], "MOSS-TTS": [2525, 2859], "Fish S2-Pro": [2778], "Qwen3-TTS": [2779], "Qwen3-ASR": [2880, 2881, 2882], "Whisper": [2901] };
+  var YMIN = 0.9, YMAX = 2.3, XMAX = 26;
+  var tip = document.getElementById("tip");
+  var host = document.getElementById("multi");
+  function showTip(e, msg) { tip.textContent = msg; tip.hidden = false; tip.style.left = Math.min(e.clientX + 14, window.innerWidth - 290) + "px"; tip.style.top = (e.clientY + 14) + "px"; }
+  function hideTip() { tip.hidden = true; }
+  function bind(node, msg, on, off) {
+    node.addEventListener("mousemove", function (e) { showTip(e, msg); if (on) on(); });
+    node.addEventListener("mouseleave", function () { hideTip(); if (off) off(); });
+  }
+  function top(r) { return r.s.reduce(function (a, p) { return Math.max(a, p[1]); }, 1); }
+  // New bests in order; the line sits on the baseline until the first one.
+  function bests(r) { var cur = 1; return r.s.filter(function (p) { if (p[1] > cur) { cur = p[1]; return true; } return false; }); }
+  function step(r, x, y) {
+    var d = "";
+    bests(r).forEach(function (p) { d += (d ? "H" + x(p[0]) : "M" + x(p[0]) + " " + y(1)) + "V" + y(p[1]); });
+    return d ? d + "H" + x(r.e) : "";
+  }
+  function render() {
+    [].slice.call(host.querySelectorAll(".mp")).forEach(function (n) { host.removeChild(n); });
+    MODELS.forEach(function (M) {
+      var b = M.runs.filter(function (r) { return r.b; })[0];
+      var hi = top(b), nb = bests(b), first = nb[0][0];
+      var wrap = document.createElement("div");
+      wrap.className = "mp";
+      wrap.innerHTML = "<div class='mh'><h4></h4><b></b></div><div class='ms'></div>";
+      wrap.querySelector("h4").textContent = M.m;
+      wrap.querySelector("b").textContent = hi.toFixed(2) + "×";
+      var ms = wrap.querySelector(".ms");
+      var sum = document.createElement("span"); sum.textContent = "Best of " + (M.n || M.runs.length) + " runs · first gain at " + first.toFixed(1) + " h"; ms.appendChild(sum);
+      var prs = document.createElement("span"); prs.className = "prs"; prs.appendChild(document.createTextNode("PRs"));
+      (PRS[M.m] || []).forEach(function (n) { var a = document.createElement("a"); a.href = "https://github.com/sgl-project/sglang-omni/pull/" + n; a.textContent = "#" + n; prs.appendChild(a); });
+      ms.appendChild(prs);
+      host.appendChild(wrap);
+      var W = Math.max(260, Math.round(wrap.clientWidth || 320));
+      var H = Math.round(Math.min(210, Math.max(170, W * 0.55)));
+      var ml = 34, mr = 4, mt = 6, mb = 24;
+      var pw = W - ml - mr, ph = H - mt - mb;
+      var XM = M.xmax || XMAX;
+      var x = function (v) { return ml + v / XM * pw; };
+      var y = function (v) { return mt + (YMAX - v) / (YMAX - YMIN) * ph; };
+      var svg = el("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": M.m + ": the best of " + (M.n || M.runs.length) + " runs reached " + hi.toFixed(2) + " times its baseline; its first gain came at hour " + first.toFixed(1) });
+      wrap.appendChild(svg);
+      [1.5, 2].forEach(function (g) { svg.appendChild(el("line", { x1: ml, x2: W - mr, y1: y(g), y2: y(g), stroke: "var(--rule)", "stroke-width": 1 })); });
+      [1, 1.5, 2].forEach(function (g) { svg.appendChild(el("text", { x: ml - 6, y: y(g) + 4, "text-anchor": "end", class: "mono s11 tx3" }, g.toFixed(1) + "×")); });
+      svg.appendChild(el("line", { x1: ml, x2: W - mr, y1: mt + ph, y2: mt + ph, stroke: "var(--ink-3)", "stroke-width": 1 }));
+      var TK = M.ticks || [0, 6, 12, 18, 24];
+      TK.forEach(function (t, i) {
+        svg.appendChild(el("text", { x: x(t), y: H - 6, "text-anchor": t ? "middle" : "start", class: "mono s11 tx3" }, i === TK.length - 1 ? t + " h" : String(t)));
+      });
+      svg.appendChild(el("line", { x1: ml, x2: W - mr, y1: y(1), y2: y(1), stroke: "var(--base)", "stroke-width": 1.25, "stroke-dasharray": "4 4" }));
+      var hits = [];
+      // only the best run is drawn; the other runs count toward "Best of N runs"
+      var bd = step(b, x, y);
+      svg.appendChild(el("path", { d: bd + "V" + y(1) + "Z", fill: "var(--rust-soft)", "pointer-events": "none" }));
+      svg.appendChild(el("path", { d: bd, fill: "none", stroke: "var(--rust)", "stroke-width": 2.25, "stroke-linejoin": "round", "pointer-events": "none" }));
+      (b.x || []).forEach(function (h) {
+        var cx = x(h);
+        svg.appendChild(el("line", { x1: cx, x2: cx, y1: mt + ph - 8, y2: mt + ph, stroke: "var(--ink-3)", "stroke-width": 1.5 }));
+        var hit = el("rect", { x: cx - 5, y: mt + ph - 12, width: 10, height: 14, fill: "transparent" });
+        bind(hit, "Hour " + h.toFixed(1) + "\nNo complete measurement");
+        hits.push(hit);
+      });
+      (b.r || []).forEach(function (p) {
+        var c = el("circle", { cx: x(p[0]), cy: y(p[1]), r: 3.5, fill: "var(--bg)", stroke: "var(--base)", "stroke-width": 1.5 });
+        svg.appendChild(c);
+        var hit = el("circle", { cx: x(p[0]), cy: y(p[1]), r: 8, fill: "transparent", class: "dot-hit" });
+        bind(hit, "Hour " + p[0].toFixed(1) + " · measured " + p[1].toFixed(2) + "×\nFailed a guard: " + p[2],
+          function () { c.setAttribute("r", 5); }, function () { c.setAttribute("r", 3.5); });
+        hits.push(hit);
+      });
+      var dots = nb.map(function (p) {
+        var c = el("circle", { cx: x(p[0]), cy: y(p[1]), r: 3.75, fill: "var(--rust)", stroke: "var(--bg)", "stroke-width": 1.5 });
+        svg.appendChild(c);
+        return c;
+      });
+      hits.forEach(function (h) { svg.appendChild(h); });
+      nb.forEach(function (p, i) {
+        var hit = el("circle", { cx: x(p[0]), cy: y(p[1]), r: 9, fill: "transparent", class: "dot-hit" });
+        bind(hit, "Hour " + p[0].toFixed(1) + " · " + p[1].toFixed(2) + "× baseline\nPassed every guard · new best",
+          function () { dots[i].setAttribute("r", 5.5); },
+          function () { dots[i].setAttribute("r", 3.75); });
+        svg.appendChild(hit);
+      });
+    });
+  }
+  render();
+  var lastW = window.innerWidth, tm;
+  window.addEventListener("resize", function () { if (window.innerWidth === lastW) return; lastW = window.innerWidth; clearTimeout(tm); tm = setTimeout(render, 120); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(render);
+})();
+</script> <script>
+// Keep the last two words of every paragraph together so no line ends with one or two stray words.
+(function () {
+  var sel = "p, li, figcaption, .dek, .bd";
+  document.querySelectorAll(sel).forEach(function (el) {
+    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+    var nodes = [], n;
+    while ((n = walker.nextNode())) if (n.nodeValue.trim()) nodes.push(n);
+    var glued = 0;
+    for (var i = nodes.length - 1; i >= 0 && glued < 2; i--) {
+      var t = nodes[i].nodeValue.replace(/\s+$/, "");
+      var tail = nodes[i].nodeValue.slice(t.length);
+      var idx;
+      while (glued < 2 && (idx = t.lastIndexOf(" ")) > 0) {
+        t = t.slice(0, idx) + " " + t.slice(idx + 1);
+        glued++;
+      }
+      nodes[i].nodeValue = t + tail;
+      if (t.indexOf(" ") === -1 && glued < 2) continue;
+      break;
+    }
+  });
+})();
+</script> </body> </html>]]></content><author><name></name></author><category term="OpenRSI"/><category term="RSI"/><category term="AI infra"/><summary type="html"><![CDATA[Agents ran a continuous, verifier-checked performance-optimization loop on SGLang-Omni: fourteen merged PRs across eight omni models.]]></summary></entry></feed>
