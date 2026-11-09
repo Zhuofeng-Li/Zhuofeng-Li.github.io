@@ -4,7 +4,7 @@ title: "OpenRSI × SGLang-Omni: Scaling RSI for AI Infra"
 date: 2026-11-03
 description: "Agents ran a continuous, verifier-checked performance-optimization loop on SGLang-Omni: fourteen merged PRs across eight omni models."
 tags: [OpenRSI, RSI, AI infra]
-read_time: 15 # body includes inline scripts, so the word count would overstate it
+read_time: 16 # body includes inline scripts, so the word count would overstate it
 render_with_liquid: false
 ---
 <!doctype html>
@@ -22,9 +22,8 @@ render_with_liquid: false
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: text column takes (1 - --side) of the viewport on desktop; figures break out to at least 1040px. Claude light palette only.
-   Solid clay (--navy tokens, kept for class names) = agents/harness, clay text/tint (--rust) = measured gain, scarce resource, warm grey = baseline.
-   Type scale, five steps only: xs 12 · sm 14 · md 17 · lg 21 · xl 30 (h1 is the one exception). */
+/* Layout: research-note column (680px) on ivory; figures break out to 1040px. Claude light palette only.
+   Solid clay (--navy tokens, kept for class names) = agents/harness, clay text/tint (--rust) = measured gain, scarce resource, warm grey = baseline. */
 :root {
   color-scheme: light;
   --bg: #faf9f5;
@@ -47,63 +46,56 @@ render_with_liquid: false
   --fs-sm: 14px;
   --fs-md: 17px;
   --fs-lg: 21px;
-  --fs-xl: 30px;
-  --side: 0.41;
-  --col: 680px;
-}
-@media (min-width: 900px) {
-  :root { --col: min(1200px, calc(100vw * (1 - var(--side)))); }
 }
 
 * { box-sizing: border-box; }
 body {
   background: var(--bg); color: var(--ink);
-  font-family: var(--f-sans); font-size: var(--fs-md); line-height: 1.7; font-weight: 400;
+  font-family: var(--f-sans); font-size: 17px; line-height: 1.7; font-weight: 400;
   -webkit-font-smoothing: antialiased;
   padding-left: max(20px, env(safe-area-inset-left, 0px));
   padding-right: max(20px, env(safe-area-inset-right, 0px));
   padding-block: 40px 120px;
 }
-.col { max-width: var(--col); margin-inline: auto; min-width: 0; }
-.wide { max-width: max(1040px, var(--col)); margin-inline: auto; min-width: 0; }
+.col { max-width: 680px; margin-inline: auto; min-width: 0; }
+.wide { max-width: 1040px; margin-inline: auto; min-width: 0; }
 
-.top { display: flex; justify-content: space-between; align-items: center; font-size: var(--fs-sm); color: var(--ink-3); padding-bottom: 72px; }
-.mark { font-weight: 600; color: var(--ink); letter-spacing: -0.01em; font-size: var(--fs-md); }
+.top { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-3); padding-bottom: 72px; }
+.mark { font-weight: 600; color: var(--ink); letter-spacing: -0.01em; font-size: 15px; }
 .mark span { color: var(--rust); }
 
-.date { font-family: var(--f-mono); font-size: var(--fs-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+.date { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
 h1 { font-size: clamp(34px, 5.2vw, 50px); line-height: 1.05; font-weight: 500; letter-spacing: -0.035em; margin: 14px 0 22px; text-wrap: balance; }
-.dek { font-size: var(--fs-lg); line-height: 1.55; color: var(--ink-2); font-weight: 300; margin: 0 0 28px; }
-.meta { font-size: var(--fs-sm); color: var(--ink-3); display: flex; flex-wrap: wrap; gap: 4px 18px; }
+.dek { font-size: 20px; line-height: 1.55; color: var(--ink-2); font-weight: 300; margin: 0 0 28px; }
+.meta { font-size: 14px; color: var(--ink-3); display: flex; flex-wrap: wrap; gap: 4px 18px; }
 .meta a { color: var(--ink-2); }
 .meta.links { margin-top: 10px; }
 .meta.links a { color: var(--rust); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; }
 .meta.links a:hover { text-decoration-color: var(--rust); }
 .intro { margin-top: 56px; }
 .intro h2 { margin-top: 0; }
-.authors { font-size: var(--fs-sm); line-height: 1.6; color: var(--ink-2); margin-bottom: 6px; }
+.intro p:first-child::first-line { color: var(--ink); }
+.authors { font-size: 15px; line-height: 1.6; color: var(--ink-2); margin-bottom: 6px; }
 .authors a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 4px; text-decoration-thickness: 1px; white-space: nowrap; }
 .authors a:hover { text-decoration-color: var(--rust); }
 .authors span { color: var(--ink); white-space: nowrap; }
 .authors sup { color: var(--rust); font-size: 0.75em; margin-left: 1px; }
 
 h2, h3 { color: var(--rust); }
-h2 { font-size: var(--fs-xl); line-height: 1.2; font-weight: 500; letter-spacing: -0.025em; margin: 96px 0 18px; text-wrap: balance; }
-h3 { font-size: var(--fs-md); font-weight: 600; letter-spacing: -0.01em; margin: 40px 0 8px; }
+h2 { font-size: 30px; line-height: 1.2; font-weight: 500; letter-spacing: -0.025em; margin: 96px 0 18px; text-wrap: balance; }
+h3 { font-size: 19px; font-weight: 600; letter-spacing: -0.01em; margin: 40px 0 8px; }
 p { margin: 0 0 18px; }
-p, li, figcaption, .dek, .pull, .bd { text-wrap: pretty; }
+p, li, figcaption, .dek, .card p, .pull, details > div, .bd { text-wrap: pretty; }
 a { color: var(--ink); text-decoration-color: var(--rust); text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
-a.pr { font-variant-numeric: tabular-nums; }
-.tnotes a.pr, figcaption a.pr { color: inherit; text-decoration-thickness: 1px; }
 strong { font-weight: 600; }
-code { font-family: var(--f-mono); font-size: 0.84em; background: var(--code-bg); padding: 1px 5px; }
+code { font-family: var(--f-mono); font-size: 0.84em; background: var(--code-bg); padding: 1px 5px; border-radius: 0; }
 
 figure { margin: 48px auto; }
 .fig-body { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-figcaption { max-width: var(--col); margin: 16px auto 0; font-size: var(--fs-sm); line-height: 1.6; color: var(--ink-3); }
-figcaption b { color: var(--ink); font-weight: 600; text-transform: uppercase; font-size: var(--fs-xs); letter-spacing: 0.08em; margin-right: 8px; font-family: var(--f-mono); }
+figcaption { max-width: 680px; margin: 16px auto 0; font-size: 14px; line-height: 1.6; color: var(--ink-3); }
+figcaption b { color: var(--ink); font-weight: 600; text-transform: uppercase; font-size: 11.5px; letter-spacing: 0.08em; margin-right: 8px; font-family: var(--f-mono); }
 
-/* SVG system: the old size classes now map onto the scale */
+/* SVG system */
 svg { display: block; width: 100%; height: auto; font-family: var(--f-sans); }
 .tx { fill: var(--ink); } .tx2 { fill: var(--ink-2); } .tx3 { fill: var(--ink-3); } .txr { fill: var(--rust); }
 .txn { fill: var(--navy-ink); } .txn2 { fill: var(--navy-ink-2); }
@@ -116,66 +108,102 @@ svg { display: block; width: 100%; height: auto; font-family: var(--f-sans); }
 .ln-r { stroke: var(--rust); stroke-width: 1.5; fill: none; }
 .ln-d { stroke: var(--rule); stroke-width: 1.25; fill: none; stroke-dasharray: 4 4; }
 .ah { fill: var(--ink-3); } .ah-r { fill: var(--rust); }
-.f-nv { fill: var(--navy); } .f-rust { fill: var(--rust); } .f-base { fill: var(--base); } .f-bg { fill: var(--bg); } .f-panel { fill: var(--panel); }
-.s11, .s12 { font-size: var(--fs-xs); } .s13, .s15 { font-size: var(--fs-sm); } .s17 { font-size: var(--fs-md); }
+.f-nv { fill: var(--navy); } .f-rust { fill: var(--rust); } .f-base { fill: var(--base); } .f-bg { fill: var(--bg); }
+.s13 { font-size: 13px; } .s12 { font-size: 12px; } .s11 { font-size: 11.5px; } .s15 { font-size: 15px; } .s17 { font-size: 17px; }
 .w5 { font-weight: 500; } .w6 { font-weight: 600; }
 .mono { font-family: var(--f-mono); }
-.cap { font-family: var(--f-mono); font-size: var(--fs-xs); letter-spacing: 0.08em; }
+.cap { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.1em; }
 .fig-paradigm svg { min-width: 760px; }
 .fig-pipe svg { min-width: 900px; }
+.fig-pipe svg a:hover text { text-decoration: underline; }
 
-/* Step animations (Fig 1, Fig 2) */
-.anim [data-step] { transition: opacity .35s ease; }
-.anim.playing [data-step] { opacity: .28; }
-.anim.playing [data-step].on { opacity: 1; }
-.anim [data-step].on rect.card { stroke: var(--rust); stroke-width: 2.5; }
-.anim .arw { transition: stroke .3s ease, opacity .3s ease; }
-.anim.playing .arw { opacity: .35; }
-.anim.playing .arw.on { opacity: 1; stroke: var(--rust); stroke-width: 2; }
-.player { display: flex; align-items: baseline; gap: 14px; max-width: var(--col); margin: 14px auto 0; font-size: var(--fs-sm); color: var(--ink-2); min-height: 1.7em; }
-.player button { flex: none; font: 500 var(--fs-xs)/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); background: var(--bg); border: 1px solid var(--rule); padding: 6px 10px; cursor: pointer; }
-.player button:hover { border-color: var(--rust); color: var(--rust); }
-.player button:focus-visible { outline: 2px solid var(--rust); outline-offset: 2px; }
-.player .now b { font-family: var(--f-mono); font-weight: 500; color: var(--rust); margin-right: 8px; }
-
-/* Tooltips */
-.tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--bg); font-size: var(--fs-xs); line-height: 1.5; padding: 7px 10px; z-index: 5; max-width: 280px; white-space: pre-line; }
+/* Legends and tooltips */
+.legend { display: flex; gap: 20px; font-size: 13px; color: var(--ink-2); margin-bottom: 18px; flex-wrap: wrap; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 7px; vertical-align: -1px; }
+.legend .b { border: 2px solid var(--base); background: var(--bg); }
+.legend .r { background: var(--rust); }
+.dot-hit { cursor: default; }
+.tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--bg); font-size: 12.5px; line-height: 1.45; padding: 7px 10px; border-radius: 0; z-index: 5; max-width: 260px; }
 .tip[hidden] { display: none !important; }
 
 /* Bottleneck grid */
-.shift { display: grid; grid-template-columns: 120px repeat(5, minmax(0, 1fr)); gap: 8px; font-size: var(--fs-sm); min-width: 860px; }
-.shift .ph { font-size: var(--fs-xs); font-weight: 600; letter-spacing: .02em; padding: 0 4px 6px; border-bottom: 1.5px solid var(--ink-3); color: var(--ink-2); }
+.shift { display: grid; grid-template-columns: 120px repeat(5, minmax(0, 1fr)); gap: 8px; font-size: 14px; min-width: 860px; }
+.shift .ph { font-size: 12px; font-weight: 600; letter-spacing: .02em; padding: 0 4px 6px; border-bottom: 1.5px solid var(--ink-3); color: var(--ink-2); }
 .shift .ph.pre { border-bottom-style: dashed; }
 .shift .human { border: 1.5px dashed var(--ink-3); background: transparent; }
 .shift .human small { color: var(--ink-2); }
-.shift .h { font-size: var(--fs-xs); color: var(--ink-3); padding: 0 4px 4px; }
-.shift .rl { font-size: var(--fs-sm); color: var(--ink-2); font-weight: 500; align-self: center; }
-.shift .c { border: 1px solid var(--rule); padding: 12px 14px; line-height: 1.4; }
-.shift .c small { display: block; color: var(--ink-3); font-size: var(--fs-xs); margin-top: 3px; }
+.shift .h { font-size: 12px; color: var(--ink-3); padding: 0 4px 4px; }
+.shift .rl { font-size: 13px; color: var(--ink-2); font-weight: 500; align-self: center; }
+.shift .c { border: 1px solid var(--rule); border-radius: 0; padding: 12px 14px; line-height: 1.4; }
+.shift .c small { display: block; color: var(--ink-3); font-size: 12.5px; margin-top: 3px; }
 .shift .agent { background: var(--navy); border-color: var(--navy-line); color: var(--navy-ink); }
 .shift .agent small { color: var(--navy-ink-2); }
 .shift .scarce { border: 1.5px solid var(--rust); background: var(--rust-soft); }
 .shift .scarce small { color: var(--ink-2); }
-.shift .key { grid-column: 2 / -1; font-size: var(--fs-xs); color: var(--ink-3); display: flex; gap: 18px; flex-wrap: wrap; padding-top: 6px; }
-.shift .key i { display: inline-block; width: 12px; height: 12px; vertical-align: -2px; margin-right: 6px; }
+.shift .key { grid-column: 2 / -1; font-size: 12.5px; color: var(--ink-3); display: flex; gap: 18px; flex-wrap: wrap; padding-top: 6px; }
+.shift .key i { display: inline-block; width: 12px; height: 12px; border-radius: 0; vertical-align: -2px; margin-right: 6px; }
 
-.pull { font-size: var(--fs-lg); line-height: 1.45; font-weight: 400; letter-spacing: -0.015em; margin: 40px 0; color: var(--ink); text-wrap: balance; }
+.pull { font-size: 26px; line-height: 1.4; font-weight: 400; letter-spacing: -0.02em; margin: 40px 0; color: var(--ink); text-wrap: balance; }
 .pull::before { content: ""; display: block; width: 32px; height: 2px; background: var(--rust); margin-bottom: 18px; }
 
 ol.pts { list-style: none; padding: 0; margin: 18px 0; display: grid; gap: 22px; counter-reset: p; }
 ol.pts li { counter-increment: p; display: grid; grid-template-columns: 28px minmax(0,1fr); }
-ol.pts li::before { content: counter(p, decimal-leading-zero); font-family: var(--f-mono); font-size: var(--fs-xs); color: var(--ink-3); padding-top: 5px; }
+ol.pts li::before { content: counter(p, decimal-leading-zero); font-family: var(--f-mono); font-size: 12px; color: var(--ink-3); padding-top: 5px; }
 ol.pts b { font-weight: 600; }
 ul.costs { list-style: none; padding: 0; margin: 4px 0 22px; display: grid; gap: 14px; }
 ul.costs li { position: relative; padding-left: 22px; }
 ul.costs li::before { content: ""; position: absolute; left: 0; top: 0.8em; width: 10px; height: 2px; background: var(--rust); }
 ul.costs b { font-weight: 600; }
-a:focus-visible { outline: 2px solid var(--rust); outline-offset: 3px; border-radius: 2px; }
 
-.btn { display: inline-block; padding: 11px 18px; background: var(--ink); color: var(--bg); text-decoration: none; font-size: var(--fs-sm); font-weight: 500; }
-.thanks { font-size: var(--fs-sm); color: var(--ink-3); }
-hr { border: 0; border-top: 1px solid var(--rule); margin: 96px auto 0; max-width: var(--col); }
+details { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); margin: 32px 0; }
+summary { cursor: pointer; padding: 16px 0; font-weight: 500; list-style: none; display: flex; justify-content: space-between; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font-family: var(--f-mono); color: var(--ink-3); }
+details[open] summary::after { content: "−"; }
+details > div { padding-bottom: 18px; font-size: 15.5px; color: var(--ink-2); }
+summary:focus-visible, a:focus-visible { outline: 2px solid var(--rust); outline-offset: 3px; border-radius: 2px; }
 
+.btn { display: inline-block; padding: 11px 18px; border-radius: 0; background: var(--ink); color: var(--bg); text-decoration: none; font-size: 15px; font-weight: 500; }
+.thanks { font-size: 14.5px; color: var(--ink-3); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 96px auto 0; max-width: 680px; }
+
+/* Search frontier */
+.front { display: grid; grid-template-columns: minmax(0, 1fr); }
+.front .panel h4 { margin: 0 0 2px; font-size: 14px; font-weight: 600; }
+.front .panel h4 span { font-family: var(--f-mono); font-weight: 500; color: var(--ink-3); margin-right: 8px; }
+.front .panel .sub { font-size: 12.5px; color: var(--ink-3); margin-bottom: 6px; }
+.front svg a text { cursor: pointer; }
+.front svg a:hover tspan.pr { text-decoration: underline; }
+.legend i.lg-line { border-radius: 0; display: inline-block; width: 18px; height: 0; border-top: 2.5px solid var(--rust); vertical-align: 4px; margin-right: 7px; }
+.legend i.lg-dash { border-radius: 0; display: inline-block; width: 18px; height: 0; border-top: 1.5px dashed var(--base); vertical-align: 4px; margin-right: 7px; }
+.legend i.lg-tick { border-radius: 0; display: inline-block; width: 0; height: 10px; border-left: 1.5px solid var(--ink-3); vertical-align: -1px; margin: 0 7px 0 4px; }
+.legend .rf { background: var(--rust); box-shadow: 0 0 0 2px var(--bg), 0 0 0 3px var(--rust); width: 8px; height: 8px; margin-left: 2px; }
+.tip { white-space: pre-line; }
+@media (max-width: 880px) {
+  .front { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+}
+
+/* Search runs per model */
+.multi { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 32px; }
+.mp, .mkey { border-top: 1px solid var(--ink); padding-top: 12px; min-width: 0; }
+.mh { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.mh h4 { margin: 0; font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+.mh b { font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-weight: 500; font-size: 22px; line-height: 1.1; letter-spacing: -0.02em; color: var(--rust); }
+.ms { font-size: 12.5px; line-height: 1.45; color: var(--ink-3); margin: 3px 0 10px; }
+.mp svg a text { cursor: pointer; }
+.mp svg a:hover text { text-decoration: underline; }
+.mkey h4 { margin: 0 0 12px; font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+.mkey ul { list-style: none; margin: 0 0 14px; padding: 0; display: grid; gap: 10px; }
+.mkey li { display: grid; grid-template-columns: 34px minmax(0, 1fr); column-gap: 12px; font-size: 13px; line-height: 1.45; color: var(--ink-2); }
+.mkey li svg { width: 34px; height: 16px; margin-top: 2px; }
+.mkey p { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--ink-3); }
+.mkey { grid-column: 1 / -1; }
+.mkey ul { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-bottom: 10px; }
+.mkey li { grid-template-columns: 34px auto; }
+@media (max-width: 880px) { .multi { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .multi { grid-template-columns: minmax(0, 1fr); gap: 32px; } }
+
+/* Ten PRs, five patterns */
 /* Fig 4: the fourteen PRs, GitHub-style calendar + PR list */
 .prfig { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 28px 56px; align-items: start; }
 .prcal-wrap { position: sticky; top: 24px; }
@@ -212,90 +240,83 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 96px auto 0; max-widt
   .prlist .mt { grid-column: 3; }
 }
 
-/* Fig 5: search runs per model */
-.multi { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 32px; }
-.mp, .mkey { border-top: 1px solid var(--ink); padding-top: 12px; min-width: 0; }
-.mh { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-.mh h4 { margin: 0; font-size: var(--fs-md); font-weight: 600; letter-spacing: -0.01em; }
-.mh b { font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-weight: 500; font-size: var(--fs-lg); line-height: 1.1; color: var(--rust); }
-.ms { display: grid; gap: 0; font-size: var(--fs-xs); line-height: 1.5; color: var(--ink-3); margin: 3px 0 10px; }
-.ms .prs { font-family: var(--f-mono); display: inline-flex; flex-wrap: wrap; gap: 0 8px; }
-.ms .prs a { color: var(--ink-2); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 2px; }
-.ms .prs a:hover { color: var(--rust); text-decoration-color: var(--rust); }
-.mkey { grid-column: 1 / -1; }
-.mkey h4 { margin: 0 0 12px; font-size: var(--fs-md); font-weight: 600; letter-spacing: -0.01em; }
-.mkey ul { list-style: none; margin: 0 0 10px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 28px; }
-.mkey li { display: grid; grid-template-columns: 34px auto; column-gap: 12px; font-size: var(--fs-sm); line-height: 1.45; color: var(--ink-2); }
-.mkey li svg { width: 34px; height: 16px; margin-top: 2px; }
-.mkey p { margin: 0; font-size: var(--fs-xs); line-height: 1.5; color: var(--ink-3); }
-.dot-hit { cursor: default; }
-@media (max-width: 880px) { .multi { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 560px) { .multi { grid-template-columns: minmax(0, 1fr); gap: 32px; } }
-
-/* Five patterns */
 .pat { border-top: 1px solid var(--ink); }
-.pat-row { display: grid; grid-template-columns: 380px minmax(0, 1fr); grid-template-areas: "fig head" "fig body"; column-gap: 48px; row-gap: 8px; align-items: center; padding: 28px 0; border-bottom: 1px solid var(--rule); }
-.pat-row > svg { grid-area: fig; width: 380px; max-width: 100%; }
+.pat-row { display: grid; grid-template-columns: 380px minmax(0, 1fr); grid-template-areas: "fig head" "fig body"; column-gap: 44px; row-gap: 8px; align-items: center; padding: 26px 0; border-bottom: 1px solid var(--rule); }
+.pat-row > svg { grid-area: fig; }
 .pat-row > .pat-tx { grid-area: body; align-self: start; }
-.pat-row > h4 { grid-area: head; align-self: end; margin: 0; font-size: var(--fs-md); font-weight: 600; letter-spacing: -0.01em; line-height: 1.35; }
-.pat-row > h4 span { font-family: var(--f-mono); font-size: var(--fs-xs); font-weight: 500; color: var(--ink-3); margin-right: 10px; }
-.pat-tx p { margin: 0 0 12px; font-size: var(--fs-sm); line-height: 1.65; color: var(--ink-2); }
+.pat-row svg { width: 380px; max-width: 100%; }
+.pat-row > h4 { grid-area: head; align-self: end; margin: 0; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.35; }
+.pat-row > h4 span { font-family: var(--f-mono); font-size: 12px; font-weight: 500; color: var(--ink-3); margin-right: 10px; }
+.pat-tx p { margin: 0 0 12px; font-size: 15px; line-height: 1.6; color: var(--ink-2); }
 .chips { display: flex; flex-wrap: wrap; gap: 6px 8px; }
-.chips a { font-size: var(--fs-xs); line-height: 1.4; color: var(--ink-2); text-decoration: none; border: 1px solid var(--rule); border-radius: 999px; padding: 3px 10px; white-space: nowrap; }
+.chips a { font-size: 12.5px; line-height: 1.4; color: var(--ink-2); text-decoration: none; border: 1px solid var(--rule); border-radius: 999px; padding: 3px 10px; white-space: nowrap; }
 .chips a b { font-family: var(--f-mono); font-weight: 500; color: var(--ink); margin-right: 6px; }
 .chips a:hover { border-color: var(--rust); }
-@media (max-width: 760px) {
+.tl svg a text { cursor: pointer; }
+.tl svg a:hover tspan.mono, .tl svg a:hover text.mono { text-decoration: underline; }
+@media (max-width: 720px) {
   .pat-row { grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "fig" "body"; row-gap: 14px; padding: 22px 0; }
-  .pat-row > svg { width: 100%; max-width: 420px; }
+  .pat-row svg { width: 100%; max-width: 380px; }
 }
 
-/* Table 1 */
+/* What's next board */
 .board { border-top: 0; }
-.br { display: grid; grid-template-columns: 150px 140px minmax(0, 1fr) 150px 150px 104px; gap: 18px; align-items: baseline; padding: 13px 0; border-bottom: 1px solid var(--rule); font-size: var(--fs-sm); line-height: 1.5; }
-.br.bh { font-size: var(--fs-xs); line-height: 1.4; color: var(--ink-3); padding: 0 0 10px; border-bottom: 1px solid var(--ink); align-items: end; }
-.br.bh small { display: block; font-size: var(--fs-xs); }
-.bm a.task { font-weight: 600; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; text-decoration-thickness: 1px; }
-.bm a.task:hover { text-decoration-color: var(--rust); }
-.bm sup { font-weight: 500; font-size: var(--fs-xs); color: var(--rust); margin-left: 2px; }
-.bm .cmt { display: block; font-family: var(--f-mono); font-size: var(--fs-xs); color: var(--ink-3); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 2px; }
-.bm .cmt:hover { color: var(--rust); }
-.bp { font-family: var(--f-mono); font-size: var(--fs-xs); display: inline-flex; flex-wrap: wrap; gap: 0 10px; }
-.bp a { text-decoration: underline; text-decoration-color: var(--rule); color: var(--ink-2); }
-.bp a:hover { text-decoration-color: var(--rust); color: var(--rust); }
-.bd { color: var(--ink-2); }
-.bv { font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-weight: 500; font-size: var(--fs-sm); color: var(--rust); white-space: nowrap; }
-.bv .sl { color: var(--ink-3); font-weight: 400; margin: 0 2px; }
-.bdf { color: var(--ink-2); }
-.board .br:last-child { border-bottom: 1px solid var(--rule); }
-.tnotes { margin: 12px 0 0; padding: 0 0 0 18px; font-size: var(--fs-xs); line-height: 1.6; color: var(--ink-3); display: grid; gap: 3px; }
+.br { display: grid; grid-template-columns: 92px 70px 112px minmax(0, 1fr) 132px 132px 160px; gap: 14px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--rule); font-size: 14.5px; line-height: 1.5; }
+.bm { font-weight: 600; }
+.bm .tn { font-weight: 500; font-size: 11px; color: var(--rust); margin-left: 2px; }
+.tnotes { margin: 14px 0 0; padding: 0 0 0 18px; font-size: 13px; line-height: 1.55; color: var(--ink-3); display: grid; gap: 6px; }
 .tnotes li::marker { color: var(--rust); font-weight: 500; }
-.tnotes b { color: var(--ink-2); font-weight: 600; }
+.bc .cmt { display: block; font-family: var(--f-mono); font-weight: 400; font-size: 12px; line-height: 1.45; color: var(--ink-2); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 2px; }
+.bc .cmt:hover { color: var(--rust); }
+.bt .bs { margin-top: 8px; }
+.bs { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.st { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 8px; border-radius: 0; white-space: nowrap; }
+.s-done { background: var(--rust); color: var(--bg); }
+.s-live { background: var(--navy); color: var(--navy-ink); }
+.bp { font-family: var(--f-mono); font-size: 12.5px; display: inline-flex; flex-wrap: wrap; gap: 0 8px; }
+.bp a { text-decoration: underline; text-decoration-color: var(--rule); color: var(--ink-3); }
+.bp a:hover { text-decoration-color: var(--rust); }
+.bd { color: var(--ink-2); }
+.bd .cv { color: var(--ink-3); font-size: 13.5px; }
+.br.bh { font-size: 12px; line-height: 1.4; color: var(--ink-3); padding: 0 0 10px; border-bottom: 1px solid var(--ink); align-items: end; }
+.br.bh small { display: block; }
+.board .br:last-child { border-bottom: 1px solid var(--rule); }
+.bv { font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-weight: 500; font-size: 16px; color: var(--rust); }
+.bdf { color: var(--ink-3); font-size: 13px; line-height: 1.45; }
+.bdf b { display: block; color: var(--ink); font-weight: 600; font-size: 13.5px; }
+.bv small.cm { font-family: var(--f-mono); font-size: 11.5px; margin-top: 4px; }
+.bv small.cm a { color: var(--ink-3); }
+.bv.bg { font-size: 13px; white-space: nowrap; }
+.bv2 { display: grid; gap: 4px; color: var(--ink); font-size: 14px; }
+.bv2 .gv { display: grid; grid-template-columns: 40px minmax(0, 1fr); column-gap: 8px; align-items: baseline; }
+.bv2 .gv b { font-weight: 500; color: var(--rust); font-size: 15px; display: block; }
+.bv2 .gv small { grid-column: 2; }
+.bv2 .g { display: block; font-weight: 600; font-family: var(--f-sans); font-size: 11.5px; color: var(--ink-3); letter-spacing: .02em; }
+.bv2 small { white-space: nowrap; }
+.bv small { display: block; font-family: var(--f-sans); font-weight: 400; font-size: 12.5px; color: var(--ink-3); line-height: 1.4; margin-top: 2px; }
 @media (max-width: 900px) {
-  .br { grid-template-columns: minmax(0, 1fr) auto; gap: 4px 14px; }
-  .br .bm { grid-column: 1; } .br .bdf { grid-column: 2; grid-row: 1; text-align: right; }
-  .br .bpr, .br .bd { grid-column: 1 / -1; }
-  .br .bv { grid-column: 1 / -1; }
-  .br .bv::before { content: attr(data-g) "  "; font-family: var(--f-sans); font-weight: 600; font-size: var(--fs-xs); color: var(--ink-3); }
+  .br { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 14px; }
+  .br .bm { grid-column: 1; } .br .bv { grid-column: 2; grid-row: 1 / span 2; text-align: right; }
+  .br .bv2 { grid-column: 1 / -1; grid-row: auto; text-align: left; grid-template-columns: minmax(0, 1fr); }
+  .br .bv.bg { grid-column: 1 / -1; grid-row: auto; text-align: left; }
+  .br .bg::before { content: attr(data-g) " "; font-family: var(--f-sans); font-weight: 600; font-size: 11.5px; color: var(--ink-3); margin-right: 6px; }
+  .br .bv2 small { white-space: normal; }
+  .br .bs, .br .bt, .br .bc { grid-column: 1; }
+  .br .bc .cmt { display: inline; } .br .bc .cmt br { display: none; }
+  .br .bc::before { content: "Commits "; color: var(--ink-3); font-size: 12.5px; }
+  .br .bt::before { content: "OpenRSI-Task "; color: var(--ink-3); font-size: 12.5px; } .br .bd, .br .bdf { grid-column: 1 / -1; }
   .br.bh { display: none; }
   .board { border-top: 1px solid var(--ink); }
 }
 
-/* Review-only control for the side margin */
-.margin-ctl { position: fixed; z-index: 6; right: max(16px, calc(env(safe-area-inset-right, 0px) + 16px)); bottom: max(16px, calc(env(safe-area-inset-bottom, 0px) + 16px)); display: none; align-items: center; gap: 4px; background: var(--bg); border: 1px solid var(--rule); padding: 4px 4px 4px 10px; font-size: var(--fs-xs); color: var(--ink-3); box-shadow: 0 2px 10px rgba(20,20,19,.06); }
-.margin-ctl button { font: 500 var(--fs-xs)/1 var(--f-mono); padding: 6px 8px; border: 1px solid transparent; background: transparent; color: var(--ink-2); cursor: pointer; }
-.margin-ctl button[aria-pressed="true"] { border-color: var(--rust); color: var(--rust); }
-.margin-ctl button:focus-visible { outline: 2px solid var(--rust); outline-offset: 2px; }
-@media (min-width: 900px) { .margin-ctl { display: flex; } }
-
+@media (max-width: 880px) {
+}
 @media (max-width: 560px) {
   body { font-size: 16px; padding-block: 24px 80px; }
   .top { padding-bottom: 48px; }
   .dek { font-size: 18px; }
   h2 { font-size: 25px; margin-top: 72px; }
-  .pull { font-size: 19px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .anim [data-step], .anim .arw { transition: none; }
+  .pull { font-size: 21px; }
 }
 </style>
 
@@ -305,7 +326,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 96px auto 0; max-widt
 
 <header class="col">
   <div class="date">November 2026</div>
-  <h1><span style="color:var(--rust)">OpenRSI ×&nbsp;SGLang&#8209;Omni:</span> Scaling RSI for AI Infra</h1>
+  <h1><span style="color:var(--rust)">OpenRSI&nbsp;×&nbsp;SGLang&#8209;Omni:</span> Scaling RSI for AI Infra</h1>
   <p class="dek">OpenRSI scales recursive self-improvement to real-world AI infrastructure. Our agents run a continuous performance-optimization loop, with every gain validated by an independent verifier, while people define each problem and review the changes at the end. In partnership with SGLang-Omni, this loop has run across eight omni models and delivered significant performance gains for each, with fourteen PRs so far, all reviewed and merged by the SGLang&#8209;Omni maintainers.</p>
   <div class="authors"><a href="https://zhuofeng-li.github.io/">Zhuofeng Li</a><sup>*</sup>, <a href="https://github.com/db-ol">Aaron Tian</a><sup>*</sup>, <a href="https://yichenfeng.me/">Yichen Feng</a>, <a href="https://wenhaochai.com/">Wenhao Chai</a>, <a href="https://davidhanx.github.io/">Xinyang Han</a>, <a href="https://caralinotes.com/">Cara Li</a>, <span style="white-space:nowrap"><a href="https://yuetl9.github.io/">Yuetai Li</a>, <a href="https://github.com/zhaochenyang20">Chenyang Zhao</a><sup>*</sup></span></div>
   <div class="meta"><span>* Project lead</span><span>A collaboration between OpenRSI and the SGLang&#8209;Omni&nbsp;team</span><span>November 3, 2026</span></div>
@@ -320,24 +341,18 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 96px auto 0; max-widt
 
 <figure class="wide">
   <div class="board">
-    <div class="br bh"><div>Model<small>task · commits</small></div><div>Merged PRs</div><div>What the agents changed</div><div>H100 gain, %<small>non-streaming / streaming</small></div><div>H200 gain, %<small>non-streaming / streaming</small></div><div>On by default</div></div>
-    <div class="br"><div class="bm"><a class="task" href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/cosyvoice3/sglang-omni-cosyvoice3-dual-mode-runtime/">CosyVoice3</a><a class="cmt" href="https://github.com/sgl-project/sglang-omni/compare/f29a1195d12826bcedfda78f4e58429745eda5b8...fe4b23f06b27f7b2492703891c8036a919d2041e" title="sglang-omni main f29a119 → fe4b23f">f29a119→fe4b23f</a></div><div class="bpr"><span class="bp"><a href="https://github.com/sgl-project/sglang-omni/pull/2524">#2524</a><a href="https://github.com/sgl-project/sglang-omni/pull/2555">#2555</a></span></div><div class="bd">Idle threads sleep; features cross stages as tensors.</div><div class="bv" data-g="H100" title="req/s 10.49 → 15.15 · 9.58 → 14.00">+44.4<span class="sl">/</span>+46.2</div><div class="bv" data-g="H200" title="req/s 7.96 → 11.78 · 6.63 → 10.36">+48.1<span class="sl">/</span>+56.3</div><div class="bdf">Yes</div></div>
-    <div class="br"><div class="bm"><a class="task" href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/moss-tts-v1.5/sglang-omni-moss-v1.5-dual-mode-runtime/">MOSS&#8209;TTS</a><sup>1</sup><a class="cmt" href="https://github.com/sgl-project/sglang-omni/compare/a65abc07e535a57589aebc7ebbf92498e2170761...53ea2678733ac7b4c4744895e8cf2632117c2dcd" title="sglang-omni main a65abc0 → 53ea267">a65abc0→53ea267</a></div><div class="bpr"><span class="bp"><a href="https://github.com/sgl-project/sglang-omni/pull/2525">#2525</a><a href="https://github.com/sgl-project/sglang-omni/pull/2859">#2859</a></span></div><div class="bd">Fused embeddings; overlapped, graphed decode.</div><div class="bv" data-g="H100" title="req/s 10.30 → 15.30 · 5.32 → 9.37">+48.5<span class="sl">/</span>+76.3</div><div class="bv" data-g="H200" title="req/s 9.98 → 16.49 · 3.90 → 9.73">+65.2<span class="sl">/</span>+149.5</div><div class="bdf">Yes</div></div>
-    <div class="br"><div class="bm"><a class="task" href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/fish-s2-pro/sglang-omni-fish-s2-pro-dual-mode-runtime/">Fish S2&#8209;Pro</a><a class="cmt" href="https://github.com/sgl-project/sglang-omni/compare/08182f2bc44dbf951e086927d6eb657f3a419171...28c3e35a33bef2f45b3315431f4a512d6ed463cf" title="sglang-omni main 08182f2 → 28c3e35">08182f2→28c3e35</a></div><div class="bpr"><span class="bp"><a href="https://github.com/sgl-project/sglang-omni/pull/2778">#2778</a></span></div><div class="bd">Skips an unused quantizer pass; packs waveforms.</div><div class="bv" data-g="H100" title="req/s 7.92 → 8.69 · 7.93 → 7.95">+9.6<span class="sl">/</span>+0.3</div><div class="bv" data-g="H200" title="req/s 7.10 → 8.05 · 7.00 → 7.15">+13.4<span class="sl">/</span>+2.1</div><div class="bdf">Yes</div></div>
-    <div class="br"><div class="bm"><a class="task" href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/qwen3-tts-0.6b/sglang-omni-qwen3-tts-base-0.6b-dual-mode-runtime/">Qwen3&#8209;TTS</a><sup>2</sup><a class="cmt" href="https://github.com/sgl-project/sglang-omni/compare/8220d220703cf8d8f5c5d9a2cde00b5ed13717b8...08182f2bc44dbf951e086927d6eb657f3a419171" title="sglang-omni main 8220d22 → 08182f2">8220d22→08182f2</a></div><div class="bpr"><span class="bp"><a href="https://github.com/sgl-project/sglang-omni/pull/2779">#2779</a></span></div><div class="bd">Reuses prefill and vocoder graphs.</div><div class="bv" data-g="H100" title="req/s 22.79 → 28.53 · 34.68 → 36.32">+25.2<span class="sl">/</span>+4.7</div><div class="bv" data-g="H200" title="req/s 19.85 → 28.61 · 31.23 → 34.97">+44.1<span class="sl">/</span>+12.0</div><div class="bdf">Yes</div></div>
-    <div class="br"><div class="bm"><a class="task" href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/qwen3-asr-1.7b/qwen3-asr-streaming-throughput/">Qwen3&#8209;ASR</a><sup>3</sup><a class="cmt" href="https://github.com/sgl-project/sglang-omni/compare/e43663e908bf1c3aee15abfd3a19d44373459108...cca9cf580b87b0c039e8da001c415e5c4046bfb2" title="sglang-omni main e43663e → cca9cf5">e43663e→cca9cf5</a></div><div class="bpr"><span class="bp"><a href="https://github.com/sgl-project/sglang-omni/pull/2880">#2880</a><a href="https://github.com/sgl-project/sglang-omni/pull/2881">#2881</a><a href="https://github.com/sgl-project/sglang-omni/pull/2882">#2882</a></span></div><div class="bd">Overlapped prefill, captured graphs, planned encoder chunks.</div><div class="bv" data-g="H100" title="req/s 130.49 → 149.07 · 132.62 → 139.23">+14.2<span class="sl">/</span>+5.0</div><div class="bv" data-g="H200" title="req/s 105.16 → 121.38 · 110.15 → 119.40">+15.4<span class="sl">/</span>+8.4</div><div class="bdf">On CUDA</div></div>
-    <div class="br"><div class="bm"><a class="task" href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/whisper-large-v3/whisper-asr-streaming-throughput/">Whisper</a><a class="cmt" href="https://github.com/sgl-project/sglang-omni/compare/4809648d486bdff88dee5199b3e448af3c250f00...ff302a0c1ee9c28bce8604c14e374a02d3ec5ade" title="sglang-omni main 4809648 → ff302a0">4809648→ff302a0</a></div><div class="bpr"><span class="bp"><a href="https://github.com/sgl-project/sglang-omni/pull/2901">#2901</a></span></div><div class="bd">Incremental text streaming, FlashAttention&#8209;4 encoder, prefill graphs.</div><div class="bv" data-g="H100" title="req/s 65.45 → 70.43 · 67.97 → 76.25">+7.6<span class="sl">/</span>+12.2</div><div class="bv" data-g="H200" title="req/s 55.72 → 63.54 · 59.22 → 69.63">+14.0<span class="sl">/</span>+17.6</div><div class="bdf">Yes</div></div>
-    <div class="br"><div class="bm"><a class="task" href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/moss-transcribe-diarize/moss-transcribe-diarize-streaming-throughput/">MOSS&#8209;TD</a><sup>4</sup><a class="cmt" href="https://github.com/sgl-project/sglang-omni/compare/6e1a217974743f7f858537169d835c42f9f0d5b9...39113da3ec2ed39d4bfa370e35b06ea3edd96757" title="sglang-omni main 6e1a217 → 39113da">6e1a217→39113da</a></div><div class="bpr"><span class="bp"><a href="https://github.com/sgl-project/sglang-omni/pull/3071">#3071</a></span></div><div class="bd">Prefill graphs, packed encoder attention, async prefill.</div><div class="bv" data-g="H100" title="req/s 101.89 → 121.05 · 101.24 → 131.62">+18.8<span class="sl">/</span>+30.0</div><div class="bv" data-g="H200" title="req/s 87.67 → 105.15 · 94.71 → 125.13">+19.9<span class="sl">/</span>+32.1</div><div class="bdf">On CUDA</div></div>
-    <div class="br"><div class="bm"><a class="task" href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/ming3-0.5b/">Ming3&#8209;TTS</a><sup>5</sup><a class="cmt" href="https://github.com/sgl-project/sglang-omni/compare/e727710aa6a0b29cef7dc362155c350dae313f21...069cfe406c07ff57d7647d6e19e36de1aeda3c1e" title="sglang-omni main e727710 → 069cfe4">e727710→069cfe4</a></div><div class="bpr"><span class="bp"><a href="https://github.com/sgl-project/sglang-omni/pull/3136">#3136</a><a href="https://github.com/sgl-project/sglang-omni/pull/3189">#3189</a><a href="https://github.com/sgl-project/sglang-omni/pull/3190">#3190</a></span></div><div class="bd">GPU reference preprocessing, graphs, async decode, fused flow math.</div><div class="bv" data-g="H100" title="req/s 8.30 → 35.39 · 8.59 → 16.66">+326.5<span class="sl">/</span>+93.9</div><div class="bv" data-g="H200" title="req/s 7.15 → 31.78 · 7.42 → 15.92">+344.3<span class="sl">/</span>+114.5</div><div class="bdf">0.5B only</div></div>
+    <div class="br bh"><div>Model</div><div>Commits<small>before → after</small></div><div>OpenRSI&#8209;Task<small>and merged PRs</small></div><div>What the agents changed</div><div>H100 gain<small>non-streaming / streaming</small></div><div>H200 gain<small>non-streaming / streaming</small></div><div>On by default?<small>and defaults the PRs changed</small></div></div>
+    <div class="br"><div class="bm">CosyVoice3</div><div class="bc"><a class="cmt" href="https://github.com/sgl-project/sglang-omni/compare/f29a1195d12826bcedfda78f4e58429745eda5b8...fe4b23f06b27f7b2492703891c8036a919d2041e" title="sglang-omni main, before → after">f29a119 <br>→ fe4b23f</a></div><div class="bt"><span class="bp"><a href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/cosyvoice3/sglang-omni-cosyvoice3-dual-mode-runtime/">cosyvoice3</a></span><div class="bs"><span class="bp"><a href="https://github.com/sgl-project/sglang-omni/pull/2524">#2524</a> <a href="https://github.com/sgl-project/sglang-omni/pull/2555">#2555</a></span></div></div><div class="bd">Idle encoder threads sleep instead of spinning; reference features cross stages as tensors.</div><div class="bv bg" data-g="H100" title="req/s 10.49 → 15.15 · 9.58 → 14.00">+44.4%&thinsp;/&thinsp;+46.2%</div><div class="bv bg" data-g="H200" title="req/s 7.96 → 11.78 · 6.63 → 10.36">+48.1%&thinsp;/&thinsp;+56.3%</div><div class="bdf"><b>Yes</b>Code only; no default settings changed.</div></div>
+    <div class="br"><div class="bm">MOSS&#8209;TTS<sup class="tn">1</sup></div><div class="bc"><a class="cmt" href="https://github.com/sgl-project/sglang-omni/compare/a65abc07e535a57589aebc7ebbf92498e2170761...53ea2678733ac7b4c4744895e8cf2632117c2dcd" title="sglang-omni main, before → after">a65abc0 <br>→ 53ea267</a></div><div class="bt"><span class="bp"><a href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/moss-tts-v1.5/sglang-omni-moss-v1.5-dual-mode-runtime/">moss-tts-v1.5</a></span><div class="bs"><span class="bp"><a href="https://github.com/sgl-project/sglang-omni/pull/2525">#2525</a> <a href="https://github.com/sgl-project/sglang-omni/pull/2859">#2859</a></span></div></div><div class="bd">In-place embedding sums, fused channel embeddings and overlapped graphed decode.</div><div class="bv bg" data-g="H100" title="req/s 10.30 → 15.30 · 5.32 → 9.37">+48.5%&thinsp;/&thinsp;+76.3%</div><div class="bv bg" data-g="H200" title="req/s 9.98 → 16.49 · 3.90 → 9.73">+65.2%&thinsp;/&thinsp;+149.5%</div><div class="bdf"><b>Yes</b>#2859 turns on async decode and lowers the AR memory share from 0.72 to 0.60.</div></div>
+    <div class="br"><div class="bm">Fish S2&#8209;Pro</div><div class="bc"><a class="cmt" href="https://github.com/sgl-project/sglang-omni/compare/08182f2bc44dbf951e086927d6eb657f3a419171...28c3e35a33bef2f45b3315431f4a512d6ed463cf" title="sglang-omni main, before → after">08182f2 <br>→ 28c3e35</a></div><div class="bt"><span class="bp"><a href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/fish-s2-pro/sglang-omni-fish-s2-pro-dual-mode-runtime/">fish-s2-pro</a></span><div class="bs"><span class="bp"><a href="https://github.com/sgl-project/sglang-omni/pull/2778">#2778</a></span></div></div><div class="bd">Skips unused quantizer reconstruction and packs waveforms.</div><div class="bv bg" data-g="H100" title="req/s 7.92 → 8.69 · 7.93 → 7.95">+9.6%&thinsp;/&thinsp;+0.3%</div><div class="bv bg" data-g="H200" title="req/s 7.10 → 8.05 · 7.00 → 7.15">+13.4%&thinsp;/&thinsp;+2.1%</div><div class="bdf"><b>Yes</b>Code only; no default settings changed.</div></div>
+    <div class="br"><div class="bm">Qwen3&#8209;TTS</div><div class="bc"><a class="cmt" href="https://github.com/sgl-project/sglang-omni/compare/8220d220703cf8d8f5c5d9a2cde00b5ed13717b8...08182f2bc44dbf951e086927d6eb657f3a419171" title="sglang-omni main, before → after">8220d22 <br>→ 08182f2</a></div><div class="bt"><span class="bp"><a href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/qwen3-tts-0.6b/sglang-omni-qwen3-tts-base-0.6b-dual-mode-runtime/">qwen3-tts-0.6b</a> <a href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/qwen3-tts-1.7b/sglang-omni-qwen3-tts-base-1.7b-dual-mode-runtime/">qwen3-tts-1.7b</a></span><div class="bs"><span class="bp"><a href="https://github.com/sgl-project/sglang-omni/pull/2779">#2779</a></span></div></div><div class="bd">Reuses prefill and vocoder graphs for the Base model.</div><div class="bv bg" data-g="H100" title="req/s 22.79 → 28.53 · 34.68 → 36.32">+25.2%&thinsp;/&thinsp;+4.7%</div><div class="bv bg" data-g="H200" title="req/s 19.85 → 28.61 · 31.23 → 34.97">+44.1%&thinsp;/&thinsp;+12.0%</div><div class="bdf"><b>Yes</b>The gain includes new 0.6B vocoder batching defaults: two requests, no wait.</div></div>
+    <div class="br"><div class="bm">Qwen3&#8209;ASR<sup class="tn">2</sup></div><div class="bc"><a class="cmt" href="https://github.com/sgl-project/sglang-omni/compare/e43663e908bf1c3aee15abfd3a19d44373459108...cca9cf580b87b0c039e8da001c415e5c4046bfb2" title="sglang-omni main, before → after">e43663e <br>→ cca9cf5</a></div><div class="bt"><span class="bp"><a href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/qwen3-asr-1.7b/qwen3-asr-streaming-throughput/">qwen3-asr-1.7b</a></span><div class="bs"><span class="bp"><a href="https://github.com/sgl-project/sglang-omni/pull/2880">#2880</a> <a href="https://github.com/sgl-project/sglang-omni/pull/2881">#2881</a> <a href="https://github.com/sgl-project/sglang-omni/pull/2882">#2882</a></span></div></div><div class="bd">Overlaps prefill with decode, captures prefill and decode graphs, and plans encoder chunks.</div><div class="bv bg" data-g="H100" title="req/s 130.49 → 149.07 · 132.62 → 139.23">+14.2%&thinsp;/&thinsp;+5.0%</div><div class="bv bg" data-g="H200" title="req/s 105.16 → 121.38 · 110.15 → 119.40">+15.4%&thinsp;/&thinsp;+8.4%</div><div class="bdf"><b>Yes, on CUDA</b>#2880 and #2881 turn on full prefill graphs and async prefill. #2881 raises some streaming tail latency.</div></div>
+    <div class="br"><div class="bm">Whisper</div><div class="bc"><a class="cmt" href="https://github.com/sgl-project/sglang-omni/compare/4809648d486bdff88dee5199b3e448af3c250f00...ff302a0c1ee9c28bce8604c14e374a02d3ec5ade" title="sglang-omni main, before → after">4809648 <br>→ ff302a0</a></div><div class="bt"><span class="bp"><a href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/whisper-large-v3/whisper-asr-streaming-throughput/">whisper-v3</a></span><div class="bs"><span class="bp"><a href="https://github.com/sgl-project/sglang-omni/pull/2901">#2901</a></span></div></div><div class="bd">Incremental text streaming, FlashAttention-4 encoder attention and reachable prefill graphs, in one PR, plus optional encoder&#8209;batch pipelining.</div><div class="bv bg" data-g="H100" title="req/s 65.45 → 70.43 · 67.97 → 76.25">+7.6%&thinsp;/&thinsp;+12.2%</div><div class="bv bg" data-g="H200" title="req/s 55.72 → 63.54 · 59.22 → 69.63">+14.0%&thinsp;/&thinsp;+17.6%</div><div class="bdf"><b>Yes, as measured</b>Measured with defaults. Encoder pipelining, dense prefill and the thread cap stay off.</div></div>
+    <div class="br"><div class="bm">MOSS&#8209;TD</div><div class="bc"><a class="cmt" href="https://github.com/sgl-project/sglang-omni/compare/6e1a217974743f7f858537169d835c42f9f0d5b9...39113da3ec2ed39d4bfa370e35b06ea3edd96757" title="sglang-omni main, before → after">6e1a217 <br>→ 39113da</a></div><div class="bt"><span class="bp"><a href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/moss-transcribe-diarize/moss-transcribe-diarize-streaming-throughput/">moss-td</a></span><div class="bs"><span class="bp"><a href="https://github.com/sgl-project/sglang-omni/pull/3071">#3071</a></span></div></div><div class="bd">Full prefill graphs, packed encoder attention, trimmed fbank extraction and asynchronous prefill.</div><div class="bv bg" data-g="H100" title="req/s 101.89 → 121.05 · 101.24 → 131.62">+18.8%&thinsp;/&thinsp;+30.0%</div><div class="bv bg" data-g="H200" title="req/s 87.67 → 105.15 · 94.71 → 125.13">+19.9%&thinsp;/&thinsp;+32.1%</div><div class="bdf"><b>Yes, on CUDA</b>Full prefill and trimmed fbank become defaults. One 64-client streaming first-text p95 rose.</div></div>
+    <div class="br"><div class="bm">Ming3&#8209;TTS<sup class="tn">3</sup></div><div class="bc"><a class="cmt" href="https://github.com/sgl-project/sglang-omni/compare/e727710aa6a0b29cef7dc362155c350dae313f21...069cfe406c07ff57d7647d6e19e36de1aeda3c1e" title="sglang-omni main, before → after">e727710 <br>→ 069cfe4</a></div><div class="bt"><span class="bp"><a href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/tree/main/rsi-tasks/SGNOMI/ming3-0.5b/">ming3-0.5b</a></span><div class="bs"><span class="bp"><a href="https://github.com/sgl-project/sglang-omni/pull/3136">#3136</a> <a href="https://github.com/sgl-project/sglang-omni/pull/3189">#3189</a> <a href="https://github.com/sgl-project/sglang-omni/pull/3190">#3190</a></span></div></div><div class="bd">Cached GPU reference preprocessing, prefill and vocoder graphs, asynchronous decode and fused flow arithmetic for the 0.5B model.</div><div class="bv bg" data-g="H100" title="req/s 8.30 → 35.39 · 8.59 → 16.66">+326.5%&thinsp;/&thinsp;+93.9%</div><div class="bv bg" data-g="H200" title="req/s 7.15 → 31.78 · 7.42 → 15.92">+344.3%&thinsp;/&thinsp;+114.5%</div><div class="bdf"><b>0.5B only</b>GPU preprocessing, async decode and chunked prefill become defaults; streaming is opt-in.</div></div>
   </div>
-  <ol class="tnotes">
-    <li><b>MOSS&#8209;TTS.</b> The range also holds <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2805">#2805</a>, <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2662">#2662</a>, <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2770">#2770</a>, <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2772">#2772</a> and the SGLang&nbsp;0.5.22 upgrade (<a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2964">#2964</a>), on different images. <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2859">#2859</a> adds ~41&nbsp;s startup and 3.7&nbsp;GiB VRAM. The low H200 streaming baseline is unexplained.</li>
-    <li><b>Qwen3&#8209;TTS.</b> Includes new 0.6B vocoder batching defaults.</li>
-    <li><b>Qwen3&#8209;ASR.</b> The range also holds <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2964">#2964</a>, on different images. <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2881">#2881</a> raises some streaming tail latency.</li>
-    <li><b>MOSS&#8209;TD.</b> One 64&#8209;client streaming first&#8209;text p95 rose.</li>
-    <li><b>Ming3&#8209;TTS.</b> The range holds 28 other PRs, and <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/3136">#3136</a> also fixes a baseline sampling bug. People designed the streaming in <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/3189">#3189</a> and <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/3190">#3190</a>.</li>
-  </ol>
-  <figcaption><b>Table 1</b>Throughput gain from main before each model&#8217;s first OpenRSI PR to main after its last, at 128 requests per round. Hover a gain for req/s.</figcaption>
+  <ol class="tnotes"><li>Not all OpenRSI: the range also includes a streaming codec rewrite (#2805), #2662, #2770, #2772 and the SGLang&nbsp;0.5.22 upgrade (#2964), and the two sides run different images. #2859 adds about 41&nbsp;s of startup and 3.7&nbsp;GiB of peak VRAM. The H200 streaming baseline is low (3.90&nbsp;req/s, against 5.32 on H100) for reasons not yet known, so read +149.5% with care.</li><li>Not all OpenRSI: the range also includes the SGLang&nbsp;0.5.22 upgrade (#2964), and the two sides run different images.</li><li>Not all OpenRSI: the range includes 28 other PRs, #3136 also fixes a sampling bug in the baseline, and the benchmark reuses reference recordings. The opt&#8209;in streaming in #3189 and #3190 was designed by people.</li></ol>
+  <figcaption><b>Table 1</b>Merged OpenRSI changes in SGLang&#8209;Omni. Each row compares main before the model&#8217;s first OpenRSI PR with main after its last (Commits), at 128 requests per round. Gains are non-streaming / streaming.</figcaption>
 </figure>
 
 <section class="col">
@@ -345,39 +360,40 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 96px auto 0; max-widt
   <p>Today the usual way to optimize a serving stack with AI is an engineer driving a coding agent such as Codex or Claude Code. The agent writes and runs code; the human picks each experiment, reads each result and decides what comes next. <strong>The human is the loop</strong> (Figure&nbsp;1, left), and for systems work that is costly:</p>
   <ul class="costs">
     <li><b>Many rounds, mostly idle.</b> The human has to step in on every round, and each round waits until they read the result and write the next prompt. Most of the wall-clock time is spent waiting on a human, so the loop is slow and inefficient.</li>
-    <li><b>The human caps what the AI can do.</b> The agent only explores what the human thinks to try and has time to check. A serving stack holds countless small knobs, settings and code paths, far more than anyone can try one by one, and finding which ones matter takes measurement. One line that stops idle threads from spinning was first proposed inside a larger change (<a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2443">#2443</a>); split out and measured on its own, it was worth +32.5% streaming throughput (<a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2524">#2524</a>).</li>
+    <li><b>The human caps what the AI can do.</b> The agent only explores what the human thinks to try and has time to check. A serving stack holds countless small knobs, settings and code paths, far more than anyone can try one by one, and finding which ones matter takes measurement. One line that stops idle threads from spinning was first proposed inside a larger change (#2443); split out and measured on its own, it was worth +32.5% streaming throughput (#2524).</li>
   </ul>
   <p><strong>Harnessed RSI</strong> (Figure&nbsp;1, right) takes the human out of the inner loop of performance optimization, not out of the work. Defining a problem well, with its task, benchmark and guards, takes human effort, and system design stays with people. Once that is done, agents propose, run and measure changes to the serving runtime round after round, and people return to review what they find.</p>
   <ol class="pts">
     <li><div><b>Two nested loops that never stop.</b> An agent explores in the inner loop. The harness governs the outer loop, deciding when work is judged and carrying every lesson into the next round. Rounds run back to back, without waiting on anyone.</div></li>
-    <li><div><b>Every step is verified.</b> Nothing counts until an independent verifier, which the agent never sees, confirms it. Within a search, each confirmed gain becomes the bar the next round must beat. Across PRs, later work builds on what landed: <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2555">#2555</a> was measured with <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2524">#2524</a> in place, and <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/3071">#3071</a> reuses the asynchronous prefill that <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2881">#2881</a> added. That is the recursive part today: AI improving the infrastructure that AI runs on.</div></li>
+    <li><div><b>Every step is verified.</b> Nothing counts until an independent verifier, which the agent never sees, confirms it. Within a search, each confirmed gain becomes the bar the next round must beat. Across PRs, later work builds on what landed: #2555 was measured with #2524 in place, and #3071 reuses the asynchronous prefill that #2881 added. That is the recursive part today: AI improving the infrastructure that AI runs on.</div></li>
   </ol>
 </section>
 
-<figure class="wide fig-paradigm anim" id="fig1">
+<figure class="wide fig-paradigm">
   <div class="fig-body">
     <svg viewBox="0 0 1040 380" role="img" aria-label="With a coding agent the human is the loop; with Harnessed RSI the human writes the contract and reviews the result while agents and an isolated evaluator run the loop">
       <defs>
         <marker id="pa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ah"/></marker>
-        <marker id="pa-r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ah-r"/></marker>
       </defs>
       <!-- Left -->
       <text x="20" y="26" class="cap tx3">HUMAN + CODING AGENT</text>
       <text x="20" y="52" class="s17 w5 tx">The human is the loop</text>
-      <g data-step="" data-k="L1"><rect x="20" y="88" width="200" height="60" class="bx-ink card"/>
-        <text x="120" y="114" text-anchor="middle" class="s13 w5 tx">Human</text><text x="120" y="132" text-anchor="middle" class="s12 tx3">picks the next try</text></g>
-      <g data-step="" data-k="L2"><rect x="290" y="88" width="200" height="60" class="bx-nv card"/>
-        <text x="390" y="114" text-anchor="middle" class="s13 w5 txn">Agent</text><text x="390" y="132" text-anchor="middle" class="s12 txn2">edits and runs code</text></g>
-      <g data-step="" data-k="L3"><rect x="290" y="230" width="200" height="60" class="bx-ink card"/>
-        <text x="390" y="256" text-anchor="middle" class="s13 w5 tx">Human</text><text x="390" y="274" text-anchor="middle" class="s12 tx3">reads the output</text></g>
-      <g data-step="" data-k="L4"><rect x="20" y="230" width="200" height="60" class="bx-ink card"/>
-        <text x="120" y="256" text-anchor="middle" class="s13 w5 tx">Human</text><text x="120" y="274" text-anchor="middle" class="s12 tx3">judges whether it helped</text></g>
-      <path d="M222 118H286" class="ln arw" data-k="L2" marker-end="url(#pa)"/>
-      <path d="M390 150V226" class="ln arw" data-k="L3" marker-end="url(#pa)"/>
-      <path d="M288 260H224" class="ln arw" data-k="L4" marker-end="url(#pa)"/>
-      <path d="M120 228V152" class="ln arw" data-k="L1" marker-end="url(#pa)"/>
-      <text x="255" y="194" text-anchor="middle" class="s12 tx3">one round</text>
-      <text x="255" y="210" text-anchor="middle" class="s12 tx3">per prompt</text>
+      <g>
+        <rect x="20" y="88" width="200" height="60" class="bx-ink"/>
+        <text x="120" y="114" text-anchor="middle" class="s13 w5 tx">Human</text><text x="120" y="132" text-anchor="middle" class="s12 tx3">picks the next try</text>
+        <rect x="290" y="88" width="200" height="60" class="bx-nv"/>
+        <text x="390" y="114" text-anchor="middle" class="s13 w5 txn">Agent</text><text x="390" y="132" text-anchor="middle" class="s12 txn2">edits and runs code</text>
+        <rect x="290" y="230" width="200" height="60" class="bx-ink"/>
+        <text x="390" y="256" text-anchor="middle" class="s13 w5 tx">Human</text><text x="390" y="274" text-anchor="middle" class="s12 tx3">reads the output</text>
+        <rect x="20" y="230" width="200" height="60" class="bx-ink"/>
+        <text x="120" y="256" text-anchor="middle" class="s13 w5 tx">Human</text><text x="120" y="274" text-anchor="middle" class="s12 tx3">judges whether it helped</text>
+        <path d="M222 118H286" class="ln" marker-end="url(#pa)"/>
+        <path d="M390 150V226" class="ln" marker-end="url(#pa)"/>
+        <path d="M288 260H224" class="ln" marker-end="url(#pa)"/>
+        <path d="M120 228V152" class="ln" marker-end="url(#pa)"/>
+        <text x="255" y="194" text-anchor="middle" class="s12 tx3">one round</text>
+        <text x="255" y="210" text-anchor="middle" class="s12 tx3">per prompt</text>
+      </g>
       <text x="20" y="338" class="s13 tx2">Rounds scale with human hours.</text>
       <text x="20" y="358" class="s13 tx3">Evidence is whatever the human checked.</text>
 
@@ -386,31 +402,30 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 96px auto 0; max-widt
       <!-- Right -->
       <text x="580" y="26" class="cap txr">HARNESSED RSI</text>
       <text x="580" y="52" class="s17 w5 tx">The harness runs the loop</text>
-      <g data-step="" data-k="R0"><rect x="580" y="72" width="440" height="40" class="bx-ink card"/>
-        <text x="600" y="97" class="s13 tx"><tspan class="w5">People define:</tspan><tspan class="tx3"> task = model, question, baseline, verifier</tspan></text></g>
-      <path d="M800 112V136" class="ln arw" data-k="R0" marker-end="url(#pa)"/>
+      <rect x="580" y="72" width="440" height="40" class="bx-ink"/>
+      <text x="600" y="97" class="s13 tx"><tspan class="w5">People define:</tspan><tspan class="tx3"> task = model, question, baseline, verifier</tspan></text>
+      <path d="M800 112V136" class="ln" marker-end="url(#pa)"/>
       <rect x="580" y="140" width="440" height="152" class="bx-panel"/>
       <text x="598" y="162" class="cap tx3">OUTER LOOP · RSI-HARNESS</text>
-      <g data-step="" data-k="R1"><rect x="600" y="180" width="170" height="64" class="bx-nv card"/>
-        <text x="685" y="207" text-anchor="middle" class="s13 w5 txn">Inner loop: agent</text>
-        <text x="685" y="225" text-anchor="middle" class="s12 txn2">persistent workspace</text></g>
-      <g data-step="" data-k="R2"><rect x="830" y="180" width="170" height="64" class="bx-rust card"/>
-        <text x="915" y="207" text-anchor="middle" class="s13 w5 tx">Verifier</text>
-        <text x="915" y="225" text-anchor="middle" class="s12 tx2">fresh run, hidden tests</text></g>
-      <path d="M772 200H826" class="ln arw" data-k="R2" marker-end="url(#pa)"/>
-      <path d="M828 228H774" class="ln arw" data-k="R1" marker-end="url(#pa)"/>
+      <rect x="600" y="180" width="170" height="64" class="bx-nv"/>
+      <text x="685" y="207" text-anchor="middle" class="s13 w5 txn">Inner loop: agent</text>
+      <text x="685" y="225" text-anchor="middle" class="s12 txn2">persistent workspace</text>
+      <rect x="830" y="180" width="170" height="64" class="bx-rust"/>
+      <text x="915" y="207" text-anchor="middle" class="s13 w5 tx">Verifier</text>
+      <text x="915" y="225" text-anchor="middle" class="s12 tx2">fresh run, hidden tests</text>
+      <path d="M772 200H826" class="ln" marker-end="url(#pa)"/>
+      <path d="M828 228H774" class="ln" marker-end="url(#pa)"/>
       <text x="800" y="192" text-anchor="middle" class="s11 tx3">submit</text>
       <text x="800" y="246" text-anchor="middle" class="s11 tx3">feedback</text>
       <text x="600" y="276" class="s12 tx3">Repeats until the submission or time limit.</text>
-      <path d="M915 294V308" class="ln arw" data-k="R3" marker-end="url(#pa)"/>
-      <g data-step="" data-k="R3"><rect x="720" y="312" width="300" height="40" class="bx-ink card"/>
-        <text x="740" y="337" class="s13 tx"><tspan class="w5">Best verified result</tspan><tspan class="tx3"> → new baseline</tspan></text></g>
+      <path d="M915 294V308" class="ln" marker-end="url(#pa)"/>
+      <rect x="720" y="312" width="300" height="40" class="bx-ink"/>
+      <text x="740" y="337" class="s13 tx"><tspan class="w5">Best verified result</tspan><tspan class="tx3"> → new baseline</tspan></text>
       <text x="580" y="327" class="s13 tx2">Rounds scale</text>
       <text x="580" y="347" class="s13 tx2">with compute.</text>
     </svg>
   </div>
-  <div class="player"><button type="button" class="pp" aria-pressed="false">Pause</button><span class="now" aria-live="off"></span></div>
-  <figcaption><b>Figure 1</b>Where the human sits. With a coding agent, every round passes through a human. With Harnessed RSI, the agent is the inner loop, RSI-Harness runs the outer loop against a verifier, and each verified result becomes the next baseline. Both loops run on the same clock in the animation, which is schematic.</figcaption>
+  <figcaption><b>Figure 1</b>Where the human sits. With a coding agent, every round passes through a human. With Harnessed RSI, the agent is the inner loop, RSI-Harness runs the outer loop against a verifier, and each verified result becomes the next baseline.</figcaption>
 </figure>
 
 <section class="col">
@@ -418,69 +433,71 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 96px auto 0; max-widt
   <p>On top of the harness we built RSI&#8209;Anything, a lightweight pipeline built to scale RSI across SGLang&#8209;Omni quickly: it turns a research proposal into merged SGLang&#8209;Omni code. Agents handle the experiments and the implementation iteration: building an executable benchmark from the proposal, searching for improvements, reproducing their own gains and opening the pull request with evidence. People write the proposal and own the merge. In review, SGLang&#8209;Omni maintainers set requirements and joined the design over many rounds, and in some cases contributed code or reproduced results on their own.</p>
 </section>
 
-<figure class="wide fig-pipe anim" id="fig2">
+<figure class="wide fig-pipe">
   <div class="fig-body">
-    <svg viewBox="0 0 1040 360" role="img" aria-label="RSI-Anything pipeline for SGLang-Omni: people write the proposal and agents build the Harbor task; agents then run RSI-Harness, reproduce the gain and open the upstream PR; SGLang-Omni maintainers review over many rounds and merge; each merge becomes the baseline for the next proposal">
+    <svg viewBox="0 0 1040 360" role="img" aria-label="RSI-Anything pipeline for SGLang-Omni: people write the proposal and agents build the Harbor task; agents then run RSI-Harness, reproduce the gain and open the upstream PR; SGLang&#8209;Omni maintainers review over many rounds and merge; each merge becomes the baseline for the next proposal">
       <defs>
         <marker id="pb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ah"/></marker>
-        <marker id="pb-r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ah-r"/></marker>
       </defs>
-      <g data-step="" data-k="lh"><rect x="8" y="8" width="152" height="28" class="bx-ink card"/>
-        <text x="84" y="27" text-anchor="middle" class="cap tx">HUMAN</text></g>
-      <g data-step="" data-k="ag"><rect x="180" y="8" width="668" height="28" class="bx-nv card"/>
-        <text x="514" y="27" text-anchor="middle" class="cap txn">AGENTS: EXPERIMENTS AND CODE</text></g>
-      <g data-step="" data-k="lm"><rect x="868" y="8" width="152" height="28" class="bx-ink card"/>
-        <text x="944" y="27" text-anchor="middle" class="cap tx">MAINTAINERS</text></g>
+      <rect x="8" y="8" width="152" height="28" class="bx-ink"/>
+      <text x="84" y="26" text-anchor="middle" class="cap tx">HUMAN</text>
+      <rect x="180" y="8" width="668" height="28" class="bx-nv"/>
+      <text x="514" y="26" text-anchor="middle" class="cap txn">AGENTS: EXPERIMENTS AND CODE</text>
+      <rect x="868" y="8" width="152" height="28" class="bx-ink"/>
+      <text x="944" y="26" text-anchor="middle" class="cap tx">MAINTAINERS</text>
       <g transform="translate(0,48)">
-      <g data-step="" data-k="c1">
-        <rect x="8" y="20" width="152" height="150" class="bx card"/>
+      <!-- cards: x = 8 + i*172, w = 152 -->
+      <g>
+        <rect x="8" y="20" width="152" height="150" class="bx"/>
         <text x="24" y="46" class="mono s12 tx3">01</text><text x="144" y="46" text-anchor="end" class="cap tx3">DEFINE</text>
         <text x="24" y="98" class="s15 w6 tx">Proposal</text>
         <text x="24" y="118" class="s12 tx2">Research contract</text>
         <text x="24" y="152" class="mono s11 tx3">proposal.md</text>
       </g>
-      <g data-step="" data-k="c2">
-        <rect x="180" y="20" width="152" height="150" class="bx card"/>
+      <g>
+        <rect x="180" y="20" width="152" height="150" class="bx"/>
         <text x="196" y="46" class="mono s12 tx3">02</text><text x="316" y="46" text-anchor="end" class="cap tx3">BUILD</text>
         <text x="196" y="98" class="s15 w6 tx">Harbor task</text>
         <text x="196" y="118" class="s12 tx2">Executable benchmark</text>
         <text x="196" y="152" class="mono s11 tx3">task + evaluator</text>
       </g>
-      <g data-step="" data-k="c3">
-        <rect x="352" y="20" width="152" height="150" class="bx-nv card"/>
+      <g>
+        <rect x="352" y="20" width="152" height="150" class="bx-nv"/>
         <text x="368" y="46" class="mono s12 txn2">03</text><text x="488" y="46" text-anchor="end" class="cap txn2">ITERATE</text>
         <text x="368" y="98" class="s15 w6 txn">RSI-Harness</text>
         <text x="368" y="118" class="s12 txn2">Edit · run · evaluate</text>
         <text x="368" y="152" class="mono s11 txn2">candidates + logs</text>
       </g>
-      <g data-step="" data-k="c4">
-        <rect x="524" y="20" width="152" height="150" class="bx card"/>
+      <g>
+        <rect x="524" y="20" width="152" height="150" class="bx"/>
         <text x="540" y="46" class="mono s12 tx3">04</text><text x="660" y="46" text-anchor="end" class="cap tx3">VERIFY</text>
         <text x="540" y="98" class="s15 w6 tx">Trajectory review</text>
         <text x="540" y="118" class="s12 tx2">Reproduce the gain</text>
         <text x="540" y="152" class="mono s11 tx3">verified gains</text>
       </g>
-      <g data-step="" data-k="c5">
-        <rect x="696" y="20" width="152" height="150" class="bx card"/>
+      <g>
+        <rect x="696" y="20" width="152" height="150" class="bx"/>
         <text x="712" y="46" class="mono s12 tx3">05</text><text x="832" y="46" text-anchor="end" class="cap tx3">CONTRIBUTE</text>
         <text x="712" y="98" class="s15 w6 tx">Upstream PR</text>
         <text x="712" y="118" class="s12 tx2">Code + evidence</text>
         <text x="712" y="152" class="mono s11 tx3">pull request</text>
       </g>
-      <g data-step="" data-k="c6">
-        <rect x="868" y="20" width="152" height="150" class="bx-rust card"/>
+      <g>
+        <rect x="868" y="20" width="152" height="150" class="bx-rust"/>
         <text x="884" y="46" class="mono s12 txr">06</text><text x="1004" y="46" text-anchor="end" class="cap txr">LAND</text>
         <text x="884" y="98" class="s15 w6 tx">SGLang&#8209;Omni</text>
         <text x="884" y="118" class="s12 tx2">Review, then merge</text>
         <text x="884" y="152" class="mono s11 tx2">merged change</text>
       </g>
-      <path d="M162 95H176" class="ln arw" data-k="p12" marker-end="url(#pb)"/>
-      <path d="M334 95H348" class="ln arw" data-k="p23" marker-end="url(#pb)"/>
-      <path d="M506 95H520" class="ln arw" data-k="p34" marker-end="url(#pb)"/>
-      <path d="M678 95H692" class="ln arw" data-k="p45" marker-end="url(#pb)"/>
-      <path d="M850 95H864" class="ln arw" data-k="p56" marker-end="url(#pb)"/>
-      <path d="M600 172V204H428V174" class="ln arw" data-k="b43" marker-end="url(#pb)"/>
-      <path d="M944 172V204H772V174" class="ln arw" data-k="b65" marker-end="url(#pb)"/>
+      <g>
+        <path d="M162 95H176" class="ln" marker-end="url(#pb)"/>
+        <path d="M334 95H348" class="ln" marker-end="url(#pb)"/>
+        <path d="M506 95H520" class="ln" marker-end="url(#pb)"/>
+        <path d="M678 95H692" class="ln" marker-end="url(#pb)"/>
+        <path d="M850 95H864" class="ln" marker-end="url(#pb)"/>
+        <path d="M600 172V204H428V174" class="ln" marker-end="url(#pb)"/>
+        <path d="M944 172V204H772V174" class="ln" marker-end="url(#pb)"/>
+      </g>
       <rect x="470" y="196" width="88" height="16" class="f-bg"/>
       <text x="514" y="208" text-anchor="middle" class="s12 tx3">more evidence</text>
       <rect x="810" y="196" width="96" height="16" class="f-bg"/>
@@ -489,23 +506,22 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 96px auto 0; max-widt
       <!-- repeat -->
       <rect x="8" y="240" width="1012" height="56" class="bx-panel"/>
       <text x="28" y="272" class="cap tx3">REPEAT</text>
-      <g data-step="" data-k="r1"><text x="230" y="273" text-anchor="middle" class="s13 tx">Reproducible gain</text></g>
-      <g data-step="" data-k="r2"><text x="470" y="273" text-anchor="middle" class="s13 tx">Upstream merge</text></g>
-      <g data-step="" data-k="r3"><text x="710" y="273" text-anchor="middle" class="s13 tx">New baseline</text></g>
-      <g data-step="" data-k="r4"><text x="950" y="273" text-anchor="middle" class="s13 w6 txr">Next proposal</text></g>
-      <path d="M298 268H408" class="ln arw" data-k="r2" marker-end="url(#pb)"/>
-      <path d="M528 268H656" class="ln arw" data-k="r3" marker-end="url(#pb)"/>
-      <path d="M760 268H884" class="ln arw" data-k="r4" marker-end="url(#pb)"/>
+      <text x="230" y="273" text-anchor="middle" class="s13 tx">Reproducible gain</text>
+      <text x="470" y="273" text-anchor="middle" class="s13 tx">Upstream merge</text>
+      <text x="710" y="273" text-anchor="middle" class="s13 tx">New baseline</text>
+      <text x="950" y="273" text-anchor="middle" class="s13 w6 txr">Next proposal</text>
+      <path d="M298 268H408" class="ln" marker-end="url(#pb)"/>
+      <path d="M528 268H656" class="ln" marker-end="url(#pb)"/>
+      <path d="M760 268H884" class="ln" marker-end="url(#pb)"/>
       </g>
     </svg>
   </div>
-  <div class="player"><button type="button" class="pp" aria-pressed="false">Pause</button><span class="now" aria-live="off"></span></div>
   <figcaption><b>Figure 2</b>The <a href="https://github.com/OpenRSI-Foundation/OpenRSI-Index/blob/main/CONTRIBUTING.md">RSI&#8209;Anything</a> pipeline for SGLang&#8209;Omni. People write the proposal, and agents turn it into a Harbor task with an executable benchmark and evaluator (01 to 02). Agents then run the experiments and iterate on the code (03 to 05). SGLang&#8209;Omni maintainers review over many rounds, sometimes adding code or reproducing results, before they merge (06). Work goes back when a gain does not reproduce (04 to 03) or when review asks for changes (06 to 05).</figcaption>
 </figure>
 
 <section class="col">
   <h2>Merged PRs</h2>
-  <p>The fourteen PRs touch every stage of speech serving, from audio encoders to decoders and vocoders, and they fall into five patterns (Figure 3). Almost all of them remove overhead in the runtime around the model; <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2901">#2901</a> also adds incremental text streaming for Whisper, and <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/3189">#3189</a> and <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/3190">#3190</a>, designed by people, add streaming audio for Ming3-TTS.</p>
+  <p>The fourteen PRs touch every stage of speech serving, from audio encoders to decoders and vocoders, and they fall into five patterns (Figure 3). Almost all of them remove overhead in the runtime around the model; #2901 also adds incremental text streaming for Whisper, and #3189 and #3190, designed by people, add streaming audio for Ming3-TTS.</p>
   <p>These changes target runtime overhead without changing model weights or sampling settings. Output correctness and quality were checked within the reported test coverage; unchanged waveforms or perceptual quality are not established.</p>
 </section>
 
@@ -557,8 +573,11 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 96px auto 0; max-widt
 </figure>
 
 <section class="col">
-  <p>The PRs range from a one-line setting (<a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2524">#2524</a>) to about 3,900 changed lines (<a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/3189">#3189</a>). Each shipped with its own serving study, and the studies also report where a change did not help, such as <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2525">#2525</a>, whose gain is within noise.</p>
-  <p>Figure 4 shows when each PR was opened and merged. All fourteen merged on eight days between October 7 and November 2.</p>
+  <p>The PRs range from a one-line setting (#2524) to about 3,900 changed lines (#3189). Each shipped with its own serving study rather than a single number, and the studies also report where a change did not help, such as #2525, whose gain is within noise.</p>
+</section>
+
+<section class="col">
+  <p>Figure&nbsp;4 shows when each PR was opened and merged. All fourteen merged on eight days between October&nbsp;7 and November&nbsp;2.</p>
 </section>
 
 <figure class="wide" id="fig4">
@@ -593,7 +612,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 96px auto 0; max-widt
       <p>Reward is throughput over the task&rsquo;s frozen baseline. Guards also check latency and WER, so a faster candidate can still fail.</p>
     </div>
   </div>
-  <figcaption><b>Figure 5</b>The best search run for each model, in hours since the run started. PR links list each model&rsquo;s merged PRs. Each task scores against its own benchmark, so rewards are not comparable across panels or with Table&nbsp;1.</figcaption>
+  <figcaption><b>Figure 5</b>The best search run for each model, in hours since the run started. Each task scores against its own benchmark, so rewards are not comparable across panels or with Table&nbsp;1.</figcaption>
 </figure>
 
 <section class="col">
@@ -620,7 +639,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 96px auto 0; max-widt
       <div class="c scarce">Engineer<small>manual benchmark runs</small></div>
       <div class="c">Maintainer<small>checks the claim from scratch</small></div>
       <div class="rl">Today</div>
-      <div class="c human">Engineers<small>design, first implementation, task, benchmark and guards</small></div>
+      <div class="c human">People, still<small>design, first implementation, task, benchmark and guards</small></div>
       <div class="c agent">Agents × N<small>from a written proposal</small></div>
       <div class="c agent">Agents × N<small>in parallel workspaces</small></div>
       <div class="c scarce">Evaluator<small>its quality caps what is found</small></div>
@@ -633,9 +652,9 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 96px auto 0; max-widt
 
 <section class="col">
   <ol class="pts">
-    <li><div><b>The long tail gets searched to the end.</b> No human can try every thread setting, data conversion and launch pattern in a serving stack. Agents can work through them one by one and measure each on its own, which is how <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2524">#2524</a> showed that a single setting can be worth about a third of throughput.</div></li>
-    <li><div><b>Tuning becomes continuous.</b> Once a task and its evaluator exist, a new model, runtime or machine shape simply starts another round.</div></li>
-    <li><div><b>Results depend on the deployment.</b> <a class="pr" href="https://github.com/sgl-project/sglang-omni/pull/2524">#2524</a> is worth +82.9% on 8 cores and +33.6% on 16. Agents can afford to measure every target configuration.</div></li>
+    <li><div><b>The long tail gets searched to the end.</b> No human can try every thread setting, data conversion and launch pattern in a serving stack. Agents can work through them one by one and measure each on its own, which is how #2524 showed that a single setting can be worth about a third of throughput.</div></li>
+    <li><div><b>Tuning becomes continuous.</b> Once a task and its evaluator exist, a new model, runtime or machine shape can start another round instead of a new project.</div></li>
+    <li><div><b>Results depend on the deployment.</b> #2524 is worth +82.9% on 8 cores and +33.6% on 16. Agents can afford to measure each target configuration instead of assuming one answer.</div></li>
     <li><div><b>The evaluator is the product.</b> Agents optimize what is measured, so benchmarks, quality checks and guards against reward hacking become the main engineering work. For speech, WER alone is not enough.</div></li>
   </ol>
 
@@ -653,7 +672,198 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 96px auto 0; max-widt
 
 <div class="tip" id="tip" hidden></div>
 
+
 <script>
+(function () {
+  var NS = "http://www.w3.org/2000/svg";
+  function el(tag, attrs, text) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  // From the task logs (openrsi-blog/fig6-gen.py), October 25, 2026: finished runs with at least three evaluations or six hours.
+  // e = hours the run lasted; s = [hour, reward] for each evaluation that passed every guard. For each model's best run (b):
+  // r = [hour, measured ratio, guards failed] for measured candidates that failed a guard; x = hours without a complete measurement.
+  var MODELS = [
+    { m: "CosyVoice3", n: 6, xmax: 60, ticks: [0, 12, 24, 36, 48], runs: [
+      { b: 1, e: 58.2, s: [[46.383,1.5389]], r: [[1.589, 1.3990, "CosyVoice3 WER; Qwen3-TTS CustomVoice latency, WER; MOSS-TTS throughput, latency"],[3.166, 1.3627, "Qwen3-TTS Base throughput, latency"],[10.906, 1.4345, "CosyVoice3 WER; Qwen3-TTS Base latency; Qwen3-TTS CustomVoice latency, WER"],[12.415, 0.9947, "CosyVoice3 latency, throughput; Qwen3-TTS CustomVoice WER"],[14.148, 1.4497, "Qwen3-TTS Base latency; Qwen3-TTS CustomVoice WER"],[14.916, 1.4268, "Qwen3-TTS CustomVoice WER"],[28.706, 1.2895, "Qwen3-TTS Base throughput, latency"],[30.127, 1.4313, "Qwen3-TTS CustomVoice WER"],[35.48, 1.3325, "Qwen3-TTS Base throughput, latency"],[44.216, 1.5239, "Qwen3-TTS Base latency"]], x: [37.958, 40.027, 51.087] }
+    ] },
+    { m: "MOSS-TTS", runs: [
+      { b: 1, e: 24.99, s: [[7.255,2.0102],[11.738,2.1117],[17.917,2.1217],[19.925,2.1561],[21.614,2.1675],[24.928,2.1955]], r: [[14.719, 2.1153, "streaming throughput"],[23.06, 2.1742, "throughput"]], x: [] },
+      { e: 24.04, s: [[15.128,1.9727],[19.007,2.0343]] },
+      { e: 24.02, s: [[15.322,1.9437],[21.363,1.974]] },
+      { e: 24.04, s: [[13.541,1.4824],[20.123,1.7106],[23.028,1.9353]] },
+      { e: 24.02, s: [[2.141,1.0019],[14.336,1.3554],[17.456,1.4303],[19.595,1.6811],[21.171,1.751],[23.843,1.8628]] },
+      { e: 24.22, s: [[12.337,1.2495],[19.216,1.4847],[21.701,1.6972],[24.189,1.7272]] },
+      { e: 24.05, s: [[7.179,1.1861],[12.161,1.696]] },
+      { e: 24.06, s: [[10.241,1.6465]] },
+      { e: 24.02, s: [[12.829,1.47],[20.867,1.567]] },
+      { e: 24.34, s: [[9.925,1.2914],[15.644,1.5649]] },
+      { e: 24.04, s: [[11.244,1.3525],[20.585,1.5384]] },
+      { e: 24.08, s: [[3.73,1.3475],[5.41,1.3609],[7.452,1.3646],[17.148,1.4267],[21.595,1.44]] },
+      { e: 24.09, s: [[3.407,1.0803],[5.279,1.111],[7.358,1.123],[9.271,1.1412],[13.092,1.1559],[14.566,1.2982],[16.009,1.3511],[21.213,1.3566]] },
+      { e: 24.11, s: [[3.862,1.0894],[8.209,1.2517],[11.13,1.2618],[14.268,1.3125],[19.567,1.3385]] },
+      { e: 24.1, s: [[1.138,1.0059],[2.777,1.0354],[4.259,1.0712],[5.627,1.0802],[6.988,1.093],[8.697,1.0957],[10.555,1.2711],[12.646,1.2847],[15.566,1.3267],[23.906,1.3377]] },
+      { e: 21.12, s: [[1.028,1.0237],[2.679,1.0481],[6.286,1.0745],[15.856,1.2402]] },
+      { e: 22.48, s: [[3.059,1.0172],[12.486,1.0672],[19.09,1.0949],[20.975,1.1156]] }
+    ] },
+    { m: "Fish S2-Pro", runs: [
+      { b: 1, e: 25.7, s: [[5.03,1.1062],[7.923,1.2075],[10.981,1.4999],[13.181,1.5748],[15.313,1.6169],[20.823,1.7164],[22.996,1.7392],[25.647,1.8033]], r: [[2.363, 0.9899, "throughput, latency, streaming latency"],[18.018, 1.6239, "latency, throughput, streaming latency"]], x: [] },
+      { e: 22.57, s: [[1.744,1.2488],[5.929,1.3551],[8.736,1.4979],[11.239,1.5426],[14.068,1.6009],[16.769,1.6193],[20.858,1.6882]] },
+      { e: 14.92, s: [[1.92,1.0833],[14.192,1.3346]] },
+      { e: 7.59, s: [[5.678,1.2121]] }
+    ] },
+    { m: "Qwen3-TTS", runs: [
+      { b: 1, e: 22.94, s: [[4.627,1.2687],[12.399,1.4436]], r: [[6.907, 1.2725, "latency, streaming latency"],[10.009, 1.2837, "latency"],[15.207, 1.3504, "throughput, latency, streaming throughput"],[18.459, 1.4383, "throughput"],[20.872, 1.4755, "latency, streaming latency"],[22.748, 1.4521, "streaming throughput"]], x: [1.702,2.293,7.35,7.542,8.553] },
+      { e: 24.14, s: [[2.426,1.0067],[8.929,1.1103],[17.851,1.2827]] },
+      { e: 13.49, s: [[2.966,1.0345],[6.943,1.1518],[13.4,1.2615]] },
+      { e: 24.07, s: [[21.912,1.2519]] },
+      { e: 24.01, s: [[3.685,1.1406]] },
+      { e: 24.14, s: [[4.77,1.0707],[17.422,1.0964]] },
+      { e: 7.06, s: [[2.836,1.0768]] },
+      { e: 7.77, s: [] },
+      { e: 24.12, s: [] },
+      { e: 7.77, s: [] }
+    ] },
+    { m: "Qwen3-ASR", runs: [
+      { b: 1, e: 24.02, s: [[7.364,1.2108],[8.818,1.3121],[10.005,1.5306],[14.074,1.6175],[21.428,1.6587]], r: [[4.356, 1.1355, "latency, streaming latency"],[6.491, 1.2185, "streaming latency"],[16.012, 1.6302, "latency"],[18.095, 1.6286, "latency"],[18.833, 1.6589, "streaming latency"],[20.443, 1.645, "latency, streaming latency"],[22.723, 1.6411, "latency, streaming latency, no gain over the current best"]], x: [3.896] },
+      { e: 24.02, s: [[6.912,1.0582],[11.11,1.1133],[13.53,1.1416],[17.296,1.3742],[21.067,1.5009]] },
+      { e: 24.02, s: [[3.863,1.1338],[6.566,1.3596],[8.052,1.442],[20.822,1.4857]] },
+      { e: 24.38, s: [[3.446,1.0391],[4.554,1.1862],[6.911,1.2481],[18.357,1.2779],[24.365,1.3167]] },
+      { e: 24.01, s: [[0.814,1.0295],[2.917,1.0323],[7.366,1.0909],[10.679,1.1089],[12.027,1.1137],[15.11,1.1395]] }
+    ] },
+    { m: "Whisper", runs: [
+      { b: 1, e: 24.04, s: [[4.191,1.3478],[5.421,1.6218],[6.394,1.737],[8.547,1.7587],[11.173,1.9449],[23.087,1.979]], r: [[9.969, 1.7868, "streaming latency"],[14.699, 1.9895, "streaming latency"],[17.334, 1.9889, "streaming latency"],[19.451, 1.9831, "streaming latency"]], x: [2.74,2.933], pr: 2901 },
+      { e: 25.71, s: [[4.444,1.0531],[6.386,1.0599],[9.891,1.1085],[11.62,1.1256]] }
+    ] }
+  ];
+  var YMIN = 0.9, YMAX = 2.3, XMAX = 26;
+  var tip = document.getElementById("tip");
+  var host = document.getElementById("multi");
+  function showTip(e, msg) { tip.textContent = msg; tip.hidden = false; tip.style.left = Math.min(e.clientX + 14, window.innerWidth - 270) + "px"; tip.style.top = (e.clientY + 14) + "px"; }
+  function hideTip() { tip.hidden = true; }
+  function bind(node, msg, on, off) {
+    node.addEventListener("mousemove", function (e) { showTip(e, msg); if (on) on(); });
+    node.addEventListener("mouseleave", function () { hideTip(); if (off) off(); });
+  }
+  function top(r) { return r.s.reduce(function (a, p) { return Math.max(a, p[1]); }, 1); }
+  // New bests in order; the line sits on the baseline until the first one.
+  function bests(r) { var cur = 1; return r.s.filter(function (p) { if (p[1] > cur) { cur = p[1]; return true; } return false; }); }
+  function step(r, x, y) {
+    var d = "";
+    bests(r).forEach(function (p) { d += (d ? "H" + x(p[0]) : "M" + x(p[0]) + " " + y(1)) + "V" + y(p[1]); });
+    return d ? d + "H" + x(r.e) : "";
+  }
+  function render() {
+    [].slice.call(host.querySelectorAll(".mp")).forEach(function (n) { host.removeChild(n); });
+    MODELS.forEach(function (M) {
+      var b = M.runs.filter(function (r) { return r.b; })[0];
+      var hi = top(b), nb = bests(b), first = nb[0][0];
+      var wrap = document.createElement("div");
+      wrap.className = "mp";
+      wrap.innerHTML = "<div class='mh'><h4></h4><b></b></div><div class='ms'></div>";
+      wrap.querySelector("h4").textContent = M.m;
+      wrap.querySelector("b").textContent = hi.toFixed(2) + "×";
+      wrap.querySelector(".ms").textContent = "Best of " + (M.n || M.runs.length) + " runs · first gain at " + first.toFixed(1) + " h";
+      host.appendChild(wrap);
+      var W = Math.max(260, Math.round(wrap.clientWidth || 320));
+      var H = Math.round(Math.min(210, Math.max(170, W * 0.55)));
+      var ml = 34, mr = 4, mt = 6, mb = 24;
+      var pw = W - ml - mr, ph = H - mt - mb;
+      var XM = M.xmax || XMAX;
+      var x = function (v) { return ml + v / XM * pw; };
+      var y = function (v) { return mt + (YMAX - v) / (YMAX - YMIN) * ph; };
+      var svg = el("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": M.m + ": the best of " + (M.n || M.runs.length) + " runs reached " + hi.toFixed(2) + " times its baseline; its first gain came at hour " + first.toFixed(1) });
+      wrap.appendChild(svg);
+      [1.5, 2].forEach(function (g) { svg.appendChild(el("line", { x1: ml, x2: W - mr, y1: y(g), y2: y(g), stroke: "var(--rule)", "stroke-width": 1 })); });
+      [1, 1.5, 2].forEach(function (g) { svg.appendChild(el("text", { x: ml - 6, y: y(g) + 4, "text-anchor": "end", class: "mono s11 tx3" }, g.toFixed(1) + "×")); });
+      svg.appendChild(el("line", { x1: ml, x2: W - mr, y1: mt + ph, y2: mt + ph, stroke: "var(--ink-3)", "stroke-width": 1 }));
+      var TK = M.ticks || [0, 6, 12, 18, 24];
+      TK.forEach(function (t, i) {
+        svg.appendChild(el("text", { x: x(t), y: H - 6, "text-anchor": t ? "middle" : "start", class: "mono s11 tx3" }, i === TK.length - 1 ? t + " h" : String(t)));
+      });
+      svg.appendChild(el("line", { x1: ml, x2: W - mr, y1: y(1), y2: y(1), stroke: "var(--base)", "stroke-width": 1.25, "stroke-dasharray": "4 4" }));
+      var hits = [];
+      // only the best run is drawn; the other runs count toward "Best of N runs"
+      var bd = step(b, x, y);
+      svg.appendChild(el("path", { d: bd + "V" + y(1) + "Z", fill: "var(--rust-soft)", "pointer-events": "none" }));
+      svg.appendChild(el("path", { d: bd, fill: "none", stroke: "var(--rust)", "stroke-width": 2.25, "stroke-linejoin": "round", "pointer-events": "none" }));
+      (b.x || []).forEach(function (h) {
+        var cx = x(h);
+        svg.appendChild(el("line", { x1: cx, x2: cx, y1: mt + ph - 8, y2: mt + ph, stroke: "var(--ink-3)", "stroke-width": 1.5 }));
+        var hit = el("rect", { x: cx - 5, y: mt + ph - 12, width: 10, height: 14, fill: "transparent" });
+        bind(hit, "Hour " + h.toFixed(1) + "\nNo complete measurement");
+        hits.push(hit);
+      });
+      (b.r || []).forEach(function (p) {
+        var c = el("circle", { cx: x(p[0]), cy: y(p[1]), r: 3.5, fill: "var(--bg)", stroke: "var(--base)", "stroke-width": 1.5 });
+        svg.appendChild(c);
+        var hit = el("circle", { cx: x(p[0]), cy: y(p[1]), r: 8, fill: "transparent", class: "dot-hit" });
+        bind(hit, "Hour " + p[0].toFixed(1) + " · measured " + p[1].toFixed(2) + "×\nFailed a guard: " + p[2],
+          function () { c.setAttribute("r", 5); }, function () { c.setAttribute("r", 3.5); });
+        hits.push(hit);
+      });
+      var dots = nb.map(function (p) {
+        var c = el("circle", { cx: x(p[0]), cy: y(p[1]), r: 3.75, fill: "var(--rust)", stroke: "var(--bg)", "stroke-width": 1.5 });
+        svg.appendChild(c);
+        return c;
+      });
+      if (b.pr) {
+        // Name the PR under the longest flat stretch of the best line (rejected candidates sit just above it).
+        var seg = null;
+        nb.forEach(function (p, i) {
+          var end = i + 1 < nb.length ? nb[i + 1][0] : b.e;
+          if (!seg || end - p[0] > seg[1] - seg[0]) seg = [p[0], end, p[1]];
+        });
+        var a = el("a", { href: "https://github.com/sgl-project/sglang-omni/pull/" + b.pr });
+        a.appendChild(el("text", { x: x((seg[0] + seg[1]) / 2), y: y(seg[2]) + 17, "text-anchor": "middle", class: "mono s12 w5 txr" }, "#" + b.pr));
+        svg.appendChild(a);
+      }
+      hits.forEach(function (h) { svg.appendChild(h); });
+      nb.forEach(function (p, i) {
+        var hit = el("circle", { cx: x(p[0]), cy: y(p[1]), r: 9, fill: "transparent", class: "dot-hit" });
+        bind(hit, "Hour " + p[0].toFixed(1) + " · " + p[1].toFixed(2) + "× baseline\nPassed every guard · new best",
+          function () { dots[i].setAttribute("r", 5.5); },
+          function () { dots[i].setAttribute("r", 3.75); });
+        svg.appendChild(hit);
+      });
+    });
+  }
+  render();
+  var lastW = window.innerWidth, tm;
+  window.addEventListener("resize", function () { if (window.innerWidth === lastW) return; lastW = window.innerWidth; clearTimeout(tm); tm = setTimeout(render, 120); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(render);
+})();
+</script>
+
+<script>
+// Keep the last two words of every paragraph together so no line ends with one or two stray words.
+(function () {
+  var sel = "p, li, figcaption, .dek, details > div, .bd, .bv small";
+  document.querySelectorAll(sel).forEach(function (el) {
+    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+    var nodes = [], n;
+    while ((n = walker.nextNode())) if (n.nodeValue.trim()) nodes.push(n);
+    var glued = 0;
+    for (var i = nodes.length - 1; i >= 0 && glued < 2; i--) {
+      var t = nodes[i].nodeValue.replace(/\s+$/, "");
+      var tail = nodes[i].nodeValue.slice(t.length);
+      var idx;
+      while (glued < 2 && (idx = t.lastIndexOf(" ")) > 0) {
+        t = t.slice(0, idx) + "\u00a0" + t.slice(idx + 1);
+        glued++;
+      }
+      nodes[i].nodeValue = t + tail;
+      if (t.indexOf(" ") === -1 && glued < 2) continue;
+      break;
+    }
+  });
+})();
+</script>
+
+<script>
+(function () {
 var NS = "http://www.w3.org/2000/svg";
 var REDUCED = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 function el(tag, attrs, text) {
@@ -666,106 +876,6 @@ function onVisible(node, cb) {
   if (!("IntersectionObserver" in window)) { cb(true); return; }
   new IntersectionObserver(function (es) { es.forEach(function (e) { cb(e.isIntersecting); }); }, { threshold: 0.3 }).observe(node);
 }
-
-/* Review-only side margin switch */
-(function () {
-  var box = document.querySelector(".margin-ctl");
-  if (!box) return;
-  box.addEventListener("click", function (e) {
-    var b = e.target.closest("button"); if (!b) return;
-    document.documentElement.style.setProperty("--side", b.dataset.side);
-    box.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
-  });
-})();
-
-/* Step player for Figures 1 and 2 */
-function stepper(fig, tracks, narrate) {
-  var nodes = [].slice.call(fig.querySelectorAll("[data-k]"));
-  var now = fig.querySelector(".now"), btn = fig.querySelector(".pp");
-  var visible = false, paused = REDUCED, running = false;
-  tracks.forEach(function (T) {
-    T.i = 0; T.timer = null; T.scope = {};
-    T.frames.forEach(function (f) { f.k.forEach(function (k) { T.scope[k] = 1; }); });
-  });
-  function light(T, keys) {
-    nodes.forEach(function (n) {
-      var k = n.getAttribute("data-k");
-      if (!T.scope[k]) return;
-      var on = keys.indexOf(k) >= 0;
-      n.classList.toggle("on", on);
-      if (n.classList.contains("arw")) {
-        if (!n.dataset.m) n.dataset.m = n.getAttribute("marker-end");
-        n.setAttribute("marker-end", on ? n.dataset.m.replace(")", "-r)") : n.dataset.m);
-      }
-    });
-  }
-  function tick(T) {
-    var f = T.frames[T.i];
-    light(T, f.k);
-    if (f.fn) f.fn();
-    if (narrate && f.txt != null) now.innerHTML = (f.tag ? "<b>" + f.tag + "</b>" : "") + f.txt;
-    T.i = T.i + 1 < T.frames.length ? T.i + 1 : (T.loop || 0);
-    T.timer = setTimeout(function () { tick(T); }, f.ms);
-  }
-  function start() {
-    if (running) return; running = true;
-    fig.classList.add("playing");
-    tracks.forEach(tick);
-  }
-  function stop() {
-    running = false;
-    tracks.forEach(function (T) { clearTimeout(T.timer); });
-  }
-  function sync() { if (visible && !paused) start(); else stop(); btn.textContent = paused ? "Play" : "Pause"; btn.setAttribute("aria-pressed", paused ? "true" : "false"); }
-  btn.addEventListener("click", function () { paused = !paused; sync(); });
-  onVisible(fig, function (v) { visible = v; sync(); });
-  if (REDUCED && narrate) now.textContent = "Press Play to step through the pipeline.";
-  sync();
-}
-
-(function () {
-  var fig = document.getElementById("fig1");
-  var now = fig.querySelector(".now");
-  var hl = 0, hr = 0;
-  function show() { now.innerHTML = "<b>Rounds so far</b>human loop " + hl + " · harness " + hr; }
-  var left = { frames: [
-    { k: ["L1"], ms: 1700, fn: function () { hl++; show(); } },
-    { k: ["L2"], ms: 700 },
-    { k: ["L3"], ms: 1700 },
-    { k: ["L4"], ms: 1700 }
-  ] };
-  var cycle = [];
-  for (var i = 0; i < 4; i++) {
-    cycle.push({ k: ["R1"], ms: 420 });
-    cycle.push({ k: ["R2"], ms: 420, fn: function () { hr++; show(); } });
-  }
-  cycle.push({ k: ["R3"], ms: 800 });
-  var right = { frames: [{ k: ["R0"], ms: 1100 }].concat(cycle), loop: 1 };
-  stepper(fig, [left, right], false);
-  show();
-})();
-
-(function () {
-  var fig = document.getElementById("fig2");
-  var F = [
-    { k: ["c1", "lh"], tag: "01", txt: "People write the proposal, a research contract." },
-    { k: ["c2", "ag", "p12"], tag: "02", txt: "Agents turn it into a Harbor task with an executable benchmark and evaluator." },
-    { k: ["c3", "ag", "p23"], tag: "03", txt: "In RSI-Harness, agents edit, run and evaluate, round after round." },
-    { k: ["c4", "ag", "p34"], tag: "04", txt: "Agents review the trajectory and try to reproduce the gain." },
-    { k: ["c3", "ag", "b43"], tag: "04 → 03", txt: "The gain did not reproduce, so the work goes back for more evidence." },
-    { k: ["c4", "ag", "p34"], tag: "04", txt: "This time the gain reproduces." },
-    { k: ["c5", "ag", "p45"], tag: "05", txt: "Agents open the upstream PR with code and evidence." },
-    { k: ["c6", "lm", "p56"], tag: "06", txt: "SGLang-Omni maintainers review over many rounds." },
-    { k: ["c5", "ag", "b65"], tag: "06 → 05", txt: "Review asks for changes; agents refine and retest." },
-    { k: ["c6", "lm", "p56"], tag: "06", txt: "Maintainers merge the change." },
-    { k: ["r1"], tag: "Repeat", txt: "The gain is reproducible,", ms: 900 },
-    { k: ["r2"], tag: "Repeat", txt: "it lands upstream,", ms: 900 },
-    { k: ["r3"], tag: "Repeat", txt: "it becomes the new baseline,", ms: 900 },
-    { k: ["r4"], tag: "Repeat", txt: "and the next proposal starts from there.", ms: 1800 }
-  ];
-  F.forEach(function (f) { if (!f.ms) f.ms = 2000; });
-  stepper(fig, [{ frames: F }], true);
-})();
 
 /* Figure 3: animated pattern cases. Each draw(t) shows the state at t in [0, 1]; both rows share one clock. */
 (function () {
@@ -1080,191 +1190,8 @@ function stepper(fig, tracks, narrate) {
   });
   document.addEventListener("scroll", function () { tip.hidden = true; }, { passive: true });
 })();
-</script>
-
-<script>
-(function () {
-  var NS = "http://www.w3.org/2000/svg";
-  function el(tag, attrs, text) {
-    var e = document.createElementNS(NS, tag);
-    for (var k in attrs) e.setAttribute(k, attrs[k]);
-    if (text != null) e.textContent = text;
-    return e;
-  }
-  // From the task logs (openrsi-blog/fig6-gen.py), October 25, 2026: finished runs with at least three evaluations or six hours.
-  // e = hours the run lasted; s = [hour, reward] for each evaluation that passed every guard. For each model's best run (b):
-  // r = [hour, measured ratio, guards failed] for measured candidates that failed a guard; x = hours without a complete measurement.
-  var MODELS = [
-    { m: "CosyVoice3", n: 6, xmax: 60, ticks: [0, 12, 24, 36, 48], runs: [
-      { b: 1, e: 58.2, s: [[46.383,1.5389]], r: [[1.589, 1.3990, "CosyVoice3 WER; Qwen3-TTS CustomVoice latency, WER; MOSS-TTS throughput, latency"],[3.166, 1.3627, "Qwen3-TTS Base throughput, latency"],[10.906, 1.4345, "CosyVoice3 WER; Qwen3-TTS Base latency; Qwen3-TTS CustomVoice latency, WER"],[12.415, 0.9947, "CosyVoice3 latency, throughput; Qwen3-TTS CustomVoice WER"],[14.148, 1.4497, "Qwen3-TTS Base latency; Qwen3-TTS CustomVoice WER"],[14.916, 1.4268, "Qwen3-TTS CustomVoice WER"],[28.706, 1.2895, "Qwen3-TTS Base throughput, latency"],[30.127, 1.4313, "Qwen3-TTS CustomVoice WER"],[35.48, 1.3325, "Qwen3-TTS Base throughput, latency"],[44.216, 1.5239, "Qwen3-TTS Base latency"]], x: [37.958, 40.027, 51.087] }
-    ] },
-    { m: "MOSS-TTS", runs: [
-      { b: 1, e: 24.99, s: [[7.255,2.0102],[11.738,2.1117],[17.917,2.1217],[19.925,2.1561],[21.614,2.1675],[24.928,2.1955]], r: [[14.719, 2.1153, "streaming throughput"],[23.06, 2.1742, "throughput"]], x: [] },
-      { e: 24.04, s: [[15.128,1.9727],[19.007,2.0343]] },
-      { e: 24.02, s: [[15.322,1.9437],[21.363,1.974]] },
-      { e: 24.04, s: [[13.541,1.4824],[20.123,1.7106],[23.028,1.9353]] },
-      { e: 24.02, s: [[2.141,1.0019],[14.336,1.3554],[17.456,1.4303],[19.595,1.6811],[21.171,1.751],[23.843,1.8628]] },
-      { e: 24.22, s: [[12.337,1.2495],[19.216,1.4847],[21.701,1.6972],[24.189,1.7272]] },
-      { e: 24.05, s: [[7.179,1.1861],[12.161,1.696]] },
-      { e: 24.06, s: [[10.241,1.6465]] },
-      { e: 24.02, s: [[12.829,1.47],[20.867,1.567]] },
-      { e: 24.34, s: [[9.925,1.2914],[15.644,1.5649]] },
-      { e: 24.04, s: [[11.244,1.3525],[20.585,1.5384]] },
-      { e: 24.08, s: [[3.73,1.3475],[5.41,1.3609],[7.452,1.3646],[17.148,1.4267],[21.595,1.44]] },
-      { e: 24.09, s: [[3.407,1.0803],[5.279,1.111],[7.358,1.123],[9.271,1.1412],[13.092,1.1559],[14.566,1.2982],[16.009,1.3511],[21.213,1.3566]] },
-      { e: 24.11, s: [[3.862,1.0894],[8.209,1.2517],[11.13,1.2618],[14.268,1.3125],[19.567,1.3385]] },
-      { e: 24.1, s: [[1.138,1.0059],[2.777,1.0354],[4.259,1.0712],[5.627,1.0802],[6.988,1.093],[8.697,1.0957],[10.555,1.2711],[12.646,1.2847],[15.566,1.3267],[23.906,1.3377]] },
-      { e: 21.12, s: [[1.028,1.0237],[2.679,1.0481],[6.286,1.0745],[15.856,1.2402]] },
-      { e: 22.48, s: [[3.059,1.0172],[12.486,1.0672],[19.09,1.0949],[20.975,1.1156]] }
-    ] },
-    { m: "Fish S2-Pro", runs: [
-      { b: 1, e: 25.7, s: [[5.03,1.1062],[7.923,1.2075],[10.981,1.4999],[13.181,1.5748],[15.313,1.6169],[20.823,1.7164],[22.996,1.7392],[25.647,1.8033]], r: [[2.363, 0.9899, "throughput, latency, streaming latency"],[18.018, 1.6239, "latency, throughput, streaming latency"]], x: [] },
-      { e: 22.57, s: [[1.744,1.2488],[5.929,1.3551],[8.736,1.4979],[11.239,1.5426],[14.068,1.6009],[16.769,1.6193],[20.858,1.6882]] },
-      { e: 14.92, s: [[1.92,1.0833],[14.192,1.3346]] },
-      { e: 7.59, s: [[5.678,1.2121]] }
-    ] },
-    { m: "Qwen3-TTS", runs: [
-      { b: 1, e: 22.94, s: [[4.627,1.2687],[12.399,1.4436]], r: [[6.907, 1.2725, "latency, streaming latency"],[10.009, 1.2837, "latency"],[15.207, 1.3504, "throughput, latency, streaming throughput"],[18.459, 1.4383, "throughput"],[20.872, 1.4755, "latency, streaming latency"],[22.748, 1.4521, "streaming throughput"]], x: [1.702,2.293,7.35,7.542,8.553] },
-      { e: 24.14, s: [[2.426,1.0067],[8.929,1.1103],[17.851,1.2827]] },
-      { e: 13.49, s: [[2.966,1.0345],[6.943,1.1518],[13.4,1.2615]] },
-      { e: 24.07, s: [[21.912,1.2519]] },
-      { e: 24.01, s: [[3.685,1.1406]] },
-      { e: 24.14, s: [[4.77,1.0707],[17.422,1.0964]] },
-      { e: 7.06, s: [[2.836,1.0768]] },
-      { e: 7.77, s: [] },
-      { e: 24.12, s: [] },
-      { e: 7.77, s: [] }
-    ] },
-    { m: "Qwen3-ASR", runs: [
-      { b: 1, e: 24.02, s: [[7.364,1.2108],[8.818,1.3121],[10.005,1.5306],[14.074,1.6175],[21.428,1.6587]], r: [[4.356, 1.1355, "latency, streaming latency"],[6.491, 1.2185, "streaming latency"],[16.012, 1.6302, "latency"],[18.095, 1.6286, "latency"],[18.833, 1.6589, "streaming latency"],[20.443, 1.645, "latency, streaming latency"],[22.723, 1.6411, "latency, streaming latency, no gain over the current best"]], x: [3.896] },
-      { e: 24.02, s: [[6.912,1.0582],[11.11,1.1133],[13.53,1.1416],[17.296,1.3742],[21.067,1.5009]] },
-      { e: 24.02, s: [[3.863,1.1338],[6.566,1.3596],[8.052,1.442],[20.822,1.4857]] },
-      { e: 24.38, s: [[3.446,1.0391],[4.554,1.1862],[6.911,1.2481],[18.357,1.2779],[24.365,1.3167]] },
-      { e: 24.01, s: [[0.814,1.0295],[2.917,1.0323],[7.366,1.0909],[10.679,1.1089],[12.027,1.1137],[15.11,1.1395]] }
-    ] },
-    { m: "Whisper", runs: [
-      { b: 1, e: 24.04, s: [[4.191,1.3478],[5.421,1.6218],[6.394,1.737],[8.547,1.7587],[11.173,1.9449],[23.087,1.979]], r: [[9.969, 1.7868, "streaming latency"],[14.699, 1.9895, "streaming latency"],[17.334, 1.9889, "streaming latency"],[19.451, 1.9831, "streaming latency"]], x: [2.74,2.933], pr: 2901 },
-      { e: 25.71, s: [[4.444,1.0531],[6.386,1.0599],[9.891,1.1085],[11.62,1.1256]] }
-    ] }
-  ];
-  var PRS = { "CosyVoice3": [2524, 2555], "MOSS-TTS": [2525, 2859], "Fish S2-Pro": [2778], "Qwen3-TTS": [2779], "Qwen3-ASR": [2880, 2881, 2882], "Whisper": [2901] };
-  var YMIN = 0.9, YMAX = 2.3, XMAX = 26;
-  var tip = document.getElementById("tip");
-  var host = document.getElementById("multi");
-  function showTip(e, msg) { tip.textContent = msg; tip.hidden = false; tip.style.left = Math.min(e.clientX + 14, window.innerWidth - 290) + "px"; tip.style.top = (e.clientY + 14) + "px"; }
-  function hideTip() { tip.hidden = true; }
-  function bind(node, msg, on, off) {
-    node.addEventListener("mousemove", function (e) { showTip(e, msg); if (on) on(); });
-    node.addEventListener("mouseleave", function () { hideTip(); if (off) off(); });
-  }
-  function top(r) { return r.s.reduce(function (a, p) { return Math.max(a, p[1]); }, 1); }
-  // New bests in order; the line sits on the baseline until the first one.
-  function bests(r) { var cur = 1; return r.s.filter(function (p) { if (p[1] > cur) { cur = p[1]; return true; } return false; }); }
-  function step(r, x, y) {
-    var d = "";
-    bests(r).forEach(function (p) { d += (d ? "H" + x(p[0]) : "M" + x(p[0]) + " " + y(1)) + "V" + y(p[1]); });
-    return d ? d + "H" + x(r.e) : "";
-  }
-  function render() {
-    [].slice.call(host.querySelectorAll(".mp")).forEach(function (n) { host.removeChild(n); });
-    MODELS.forEach(function (M) {
-      var b = M.runs.filter(function (r) { return r.b; })[0];
-      var hi = top(b), nb = bests(b), first = nb[0][0];
-      var wrap = document.createElement("div");
-      wrap.className = "mp";
-      wrap.innerHTML = "<div class='mh'><h4></h4><b></b></div><div class='ms'></div>";
-      wrap.querySelector("h4").textContent = M.m;
-      wrap.querySelector("b").textContent = hi.toFixed(2) + "×";
-      var ms = wrap.querySelector(".ms");
-      var sum = document.createElement("span"); sum.textContent = "Best of " + (M.n || M.runs.length) + " runs · first gain at " + first.toFixed(1) + " h"; ms.appendChild(sum);
-      var prs = document.createElement("span"); prs.className = "prs"; prs.appendChild(document.createTextNode("PRs"));
-      (PRS[M.m] || []).forEach(function (n) { var a = document.createElement("a"); a.href = "https://github.com/sgl-project/sglang-omni/pull/" + n; a.textContent = "#" + n; prs.appendChild(a); });
-      ms.appendChild(prs);
-      host.appendChild(wrap);
-      var W = Math.max(260, Math.round(wrap.clientWidth || 320));
-      var H = Math.round(Math.min(210, Math.max(170, W * 0.55)));
-      var ml = 34, mr = 4, mt = 6, mb = 24;
-      var pw = W - ml - mr, ph = H - mt - mb;
-      var XM = M.xmax || XMAX;
-      var x = function (v) { return ml + v / XM * pw; };
-      var y = function (v) { return mt + (YMAX - v) / (YMAX - YMIN) * ph; };
-      var svg = el("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": M.m + ": the best of " + (M.n || M.runs.length) + " runs reached " + hi.toFixed(2) + " times its baseline; its first gain came at hour " + first.toFixed(1) });
-      wrap.appendChild(svg);
-      [1.5, 2].forEach(function (g) { svg.appendChild(el("line", { x1: ml, x2: W - mr, y1: y(g), y2: y(g), stroke: "var(--rule)", "stroke-width": 1 })); });
-      [1, 1.5, 2].forEach(function (g) { svg.appendChild(el("text", { x: ml - 6, y: y(g) + 4, "text-anchor": "end", class: "mono s11 tx3" }, g.toFixed(1) + "×")); });
-      svg.appendChild(el("line", { x1: ml, x2: W - mr, y1: mt + ph, y2: mt + ph, stroke: "var(--ink-3)", "stroke-width": 1 }));
-      var TK = M.ticks || [0, 6, 12, 18, 24];
-      TK.forEach(function (t, i) {
-        svg.appendChild(el("text", { x: x(t), y: H - 6, "text-anchor": t ? "middle" : "start", class: "mono s11 tx3" }, i === TK.length - 1 ? t + " h" : String(t)));
-      });
-      svg.appendChild(el("line", { x1: ml, x2: W - mr, y1: y(1), y2: y(1), stroke: "var(--base)", "stroke-width": 1.25, "stroke-dasharray": "4 4" }));
-      var hits = [];
-      // only the best run is drawn; the other runs count toward "Best of N runs"
-      var bd = step(b, x, y);
-      svg.appendChild(el("path", { d: bd + "V" + y(1) + "Z", fill: "var(--rust-soft)", "pointer-events": "none" }));
-      svg.appendChild(el("path", { d: bd, fill: "none", stroke: "var(--rust)", "stroke-width": 2.25, "stroke-linejoin": "round", "pointer-events": "none" }));
-      (b.x || []).forEach(function (h) {
-        var cx = x(h);
-        svg.appendChild(el("line", { x1: cx, x2: cx, y1: mt + ph - 8, y2: mt + ph, stroke: "var(--ink-3)", "stroke-width": 1.5 }));
-        var hit = el("rect", { x: cx - 5, y: mt + ph - 12, width: 10, height: 14, fill: "transparent" });
-        bind(hit, "Hour " + h.toFixed(1) + "\nNo complete measurement");
-        hits.push(hit);
-      });
-      (b.r || []).forEach(function (p) {
-        var c = el("circle", { cx: x(p[0]), cy: y(p[1]), r: 3.5, fill: "var(--bg)", stroke: "var(--base)", "stroke-width": 1.5 });
-        svg.appendChild(c);
-        var hit = el("circle", { cx: x(p[0]), cy: y(p[1]), r: 8, fill: "transparent", class: "dot-hit" });
-        bind(hit, "Hour " + p[0].toFixed(1) + " · measured " + p[1].toFixed(2) + "×\nFailed a guard: " + p[2],
-          function () { c.setAttribute("r", 5); }, function () { c.setAttribute("r", 3.5); });
-        hits.push(hit);
-      });
-      var dots = nb.map(function (p) {
-        var c = el("circle", { cx: x(p[0]), cy: y(p[1]), r: 3.75, fill: "var(--rust)", stroke: "var(--bg)", "stroke-width": 1.5 });
-        svg.appendChild(c);
-        return c;
-      });
-      hits.forEach(function (h) { svg.appendChild(h); });
-      nb.forEach(function (p, i) {
-        var hit = el("circle", { cx: x(p[0]), cy: y(p[1]), r: 9, fill: "transparent", class: "dot-hit" });
-        bind(hit, "Hour " + p[0].toFixed(1) + " · " + p[1].toFixed(2) + "× baseline\nPassed every guard · new best",
-          function () { dots[i].setAttribute("r", 5.5); },
-          function () { dots[i].setAttribute("r", 3.75); });
-        svg.appendChild(hit);
-      });
-    });
-  }
-  render();
-  var lastW = window.innerWidth, tm;
-  window.addEventListener("resize", function () { if (window.innerWidth === lastW) return; lastW = window.innerWidth; clearTimeout(tm); tm = setTimeout(render, 120); });
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(render);
 })();
 </script>
-
-<script>
-// Keep the last two words of every paragraph together so no line ends with one or two stray words.
-(function () {
-  var sel = "p, li, figcaption, .dek, .bd";
-  document.querySelectorAll(sel).forEach(function (el) {
-    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
-    var nodes = [], n;
-    while ((n = walker.nextNode())) if (n.nodeValue.trim()) nodes.push(n);
-    var glued = 0;
-    for (var i = nodes.length - 1; i >= 0 && glued < 2; i--) {
-      var t = nodes[i].nodeValue.replace(/\s+$/, "");
-      var tail = nodes[i].nodeValue.slice(t.length);
-      var idx;
-      while (glued < 2 && (idx = t.lastIndexOf(" ")) > 0) {
-        t = t.slice(0, idx) + " " + t.slice(idx + 1);
-        glued++;
-      }
-      nodes[i].nodeValue = t + tail;
-      if (t.indexOf(" ") === -1 && glued < 2) continue;
-      break;
-    }
-  });
-})();
-</script>
-
 
 </body>
 </html>
