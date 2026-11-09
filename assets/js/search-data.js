@@ -23,13 +23,6 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "nav-cv",
-          title: "cv",
-          description: "",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/cv/";
-          },
         },{id: "post-openrsi-sglang-omni-scaling-rsi-for-ai-infra",
         
           title: "OpenRSI × SGLang-Omni: Scaling RSI for AI Infra",
