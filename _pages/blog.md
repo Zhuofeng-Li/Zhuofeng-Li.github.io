@@ -2,8 +2,8 @@
 layout: default
 permalink: /blog/
 title: blog
-nav: false
-nav_order: 1
+nav: true
+nav_order: 3
 pagination:
   enabled: true
   collection: posts
@@ -81,6 +81,7 @@ pagination:
                     {% else %}
                       {% assign read_time = post.feed_content | strip_html | number_of_words | divided_by: 180 | plus: 1 %}
                     {% endif %}
+                    {% if post.read_time %}{% assign read_time = post.read_time %}{% endif %}
                     {% assign year = post.date | date: "%Y" %}
 
                     <p class="post-meta">
@@ -116,6 +117,7 @@ pagination:
     {% else %}
       {% assign read_time = post.feed_content | strip_html | number_of_words | divided_by: 180 | plus: 1 %}
     {% endif %}
+    {% if post.read_time %}{% assign read_time = post.read_time %}{% endif %}
     {% assign year = post.date | date: "%Y" %}
     {% assign tags = post.tags | join: "" %}
     {% assign categories = post.categories | join: "" %}
