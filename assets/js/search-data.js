@@ -2,7 +2,7 @@
 const ninja = document.querySelector('ninja-keys');
 
 // add the home and posts menu items
-ninja.data = [{
+ninja.data = [{id: "news-openrsi-sglang-omni", title: "OpenRSI × SGLang-Omni: Scaling RSI for AI Infra", description: "14 PRs merged across 8 omni models; English and Chinese Markdown available.", section: "News", handler: () => { window.location.href = "/news/2026_11_09_openrsi_sglang_omni/"; }},{
     id: "nav-about",
     title: "about",
     section: "Navigation",
