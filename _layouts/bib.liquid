@@ -285,10 +285,10 @@
       {% endif %}
       {% if entry.slides %}
         {% if entry.slides contains '://' %}
-          <a href="{{ entry.slides }}" class="pub-btn" role="button"><i class="fa-solid fa-person-chalkboard"></i> Slides</a>
+          <a href="{{ entry.slides }}" class="pub-btn" role="button"><i class="fa-solid fa-person-chalkboard"></i> Slide</a>
         {% else %}
           <a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}" class="pub-btn" role="button"
-            ><i class="fa-solid fa-person-chalkboard"></i> Slides</a
+            ><i class="fa-solid fa-person-chalkboard"></i> Slide</a
           >
         {% endif %}
       {% endif %}
