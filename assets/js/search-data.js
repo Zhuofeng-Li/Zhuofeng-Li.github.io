@@ -2,7 +2,7 @@
 const ninja = document.querySelector('ninja-keys');
 
 // add the home and posts menu items
-ninja.data = [{id: "news-openrsi-sglang-omni", title: "OpenRSI × SGLang-Omni: Scaling RSI for AI Infra", description: "14 PRs merged across 8 omni models; English and Chinese Markdown available.", section: "News", handler: () => { window.location.href = "/news/2026_11_09_openrsi_sglang_omni/"; }},{
+ninja.data = [{
     id: "nav-about",
     title: "about",
     section: "Navigation",
@@ -86,6 +86,12 @@ ninja.data = [{id: "news-openrsi-sglang-omni", title: "OpenRSI × SGLang-Omni: S
           description: "",
           section: "News",},{id: "news-dci-is-accepted-to-neurips-2026-as-a-spotlight",
           title: 'DCI is accepted to NeurIPS 2026 as a Spotlight 🎉!',
+          description: "",
+          section: "News",},{id: "news-new-technical-report-openrsi-sglang-omni-scaling-rsi-for-ai-infra-14-merged-prs-across-8-omni-models-13-344-h200-throughput",
+          title: 'New technical report: OpenRSI × SGLang-Omni: Scaling RSI for AI Infra. 14 merged...',
+          description: "",
+          section: "News",},{id: "news-happy-to-give-a-talk-on-scaling-rsi-for-ai-infra-at-the-sglang-summit-slides",
+          title: 'Happy to give a talk on Scaling RSI for AI Infra at the...',
           description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
