@@ -225,6 +225,9 @@
     <!-- Links/Buttons -->
     {% assign gh_repo = false %}
     <div class="links">
+      {% if entry.blog %}
+        <a href="{{ entry.blog }}" class="pub-btn" role="button"><i class="fa-solid fa-pen-nib"></i> Blog</a>
+      {% endif %}
       {% if entry.arxiv %}
         <a href="https://arxiv.org/abs/{{ entry.arxiv }}" class="pub-btn" role="button"><i class="ai ai-arxiv"></i> arXiv</a>
       {% endif %}
@@ -291,9 +294,6 @@
             ><i class="fa-solid fa-person-chalkboard"></i> Slide</a
           >
         {% endif %}
-      {% endif %}
-      {% if entry.blog %}
-        <a href="{{ entry.blog }}" class="pub-btn" role="button"><i class="fa-solid fa-pen-nib"></i> Blog</a>
       {% endif %}
       {% if entry.twitter %}
         <a href="{{ entry.twitter }}" class="pub-btn" role="button"><i class="fa-brands fa-x-twitter"></i> Thread</a>
