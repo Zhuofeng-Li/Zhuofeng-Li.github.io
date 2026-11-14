@@ -7,8 +7,6 @@ first_name: Zhuofeng
 middle_name:
 last_name: Li
 email: zhuofengli12345@gmail.com
-contact_note: >
-  Email is the best way to reach me. I am open to full-time and internship opportunities.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Zhuofeng Li — CS Ph.D. student at Texas A&M University and Student Researcher at Google DeepMind, working on large-scale post-training, agentic reinforcement learning, and recursive self-improvement for LLM agents. Open to research scientist / engineer roles and internships.
 footer_text: >
